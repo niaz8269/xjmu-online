@@ -1,0 +1,125 @@
+/* ==========================================================================
+   XJMU /blogs page — depends on design-system.css tokens.
+   Class names preserved (markup & pagination/search depend on them).
+   ========================================================================== */
+
+/* ---------- hero + breadcrumb ---------- */
+.blog-hero {
+    background: linear-gradient(90deg, rgba(9,28,50,.92) 0%, rgba(9,28,50,.62) 55%, rgba(9,28,50,.38) 100%), url('../images/campus11.webp') center/cover no-repeat;
+    color: #fff;
+    min-height: clamp(260px, 34vw, 360px);
+    display: flex; align-items: center;
+    padding: clamp(2.5rem, 6vw, 4rem) 0;
+    text-align: left;
+}
+.blog-hero h1 { color:#fff; font-size: clamp(1.9rem, 4vw, 2.9rem); font-weight: 800; margin: .3rem 0 .8rem; }
+.blog-hero p { color:#c3d2e6; max-width: 640px; margin: 0; font-size: 1.08rem; line-height: 1.65; }
+.blog-crumb { font-size:.85rem; color: var(--ds-muted); padding: 1rem 0 0; }
+.blog-crumb a { color: var(--ds-navy); text-decoration: none; }
+.blog-crumb a:hover { text-decoration: underline; }
+
+/* ---------- generic container width (was .blog-container) ---------- */
+.blog-container { max-width: 1160px; margin: 0 auto; padding-left: 1rem; padding-right: 1rem; }
+
+/* ---------- search bar ---------- */
+.blog-filter-bar { display: flex; justify-content: center; margin: 0 auto; }
+.search-box {
+    display: flex; width: 100%; max-width: 560px;
+    border: 1px solid var(--ds-line);
+    border-radius: var(--ds-r-md) !important;
+    overflow: hidden; background: #fff; box-shadow: var(--ds-shadow-sm);
+}
+.search-box input {
+    flex: 1; border: 0; padding: .8rem 1rem; font-size: .95rem;
+    font-family: var(--ds-font-body); color: var(--ds-ink); background: transparent;
+}
+.search-box input:focus { outline: none; }
+.search-box button {
+    border: 0; background: var(--ds-red); color: #fff;
+    font-weight: 700; font-size: .92rem; padding: .8rem 1.5rem;
+    cursor: pointer; transition: var(--ds-t);
+}
+.search-box button:hover { background: var(--ds-red-600); }
+
+.blog-search-note {
+    background: var(--ds-bg-soft); border: 1px solid var(--ds-line);
+    border-radius: var(--ds-r-md) !important;
+    padding: .7rem 1rem; margin: 1rem 0; color: var(--ds-body); font-size: .92rem;
+}
+.blog-search-note a { color: var(--ds-navy); font-weight: 600; text-decoration: none; }
+.blog-search-note a:hover { text-decoration: underline; }
+
+/* ---------- sections ---------- */
+.blog-section { padding: 2.5rem 0; }
+.featured-section { background: var(--ds-bg-soft); }
+.blog-section-header { margin-bottom: 1.6rem; }
+.blog-section-header h2 {
+    font-family: var(--ds-font-display); color: var(--ds-ink);
+    font-weight: 800; font-size: clamp(1.4rem, 3vw, 1.8rem); margin: 0;
+}
+
+/* ---------- grids ---------- */
+.featured-grid,
+.blog-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.6rem;
+}
+
+/* ---------- card ---------- */
+.blog-card {
+    display: flex; flex-direction: column;
+    background: #fff; border: 1px solid var(--ds-line);
+    border-radius: var(--ds-r-lg) !important; overflow: hidden;
+    box-shadow: var(--ds-shadow-sm); transition: transform var(--ds-t), box-shadow var(--ds-t);
+}
+.blog-card:hover { transform: translateY(-4px); box-shadow: var(--ds-shadow-md); }
+.blog-card-image { position: relative; width: 100%; height: 210px !important; flex: 0 0 auto; overflow: hidden !important; background: #fff; }
+.blog-card-image img { width: 100% !important; height: 100% !important; max-height: 100% !important; object-fit: contain !important; padding: 10px; display: block; transition: transform var(--ds-t); }
+.blog-card:hover .blog-card-image img { transform: scale(1.05); }
+.blog-card-badge {
+    position: absolute; top: .75rem; left: .75rem;
+    background: var(--ds-red); color: #fff;
+    font-size: .72rem; font-weight: 700; letter-spacing: .04em; text-transform: uppercase;
+    padding: .3rem .7rem; border-radius: var(--ds-r-pill) !important;
+}
+.blog-card-content { display: flex; flex-direction: column; flex: 1; padding: 1.3rem; }
+.blog-card-title { font-family: var(--ds-font-display); font-size: 1.12rem; font-weight: 700; line-height: 1.35; margin: 0 0 .6rem; }
+.blog-card-title a { color: var(--ds-ink); text-decoration: none; transition: color var(--ds-t); }
+.blog-card-title a:hover { color: var(--ds-navy); }
+.blog-card-excerpt { color: var(--ds-body); font-size: .94rem; line-height: 1.6; margin: 0 0 1.1rem; flex: 1; }
+.blog-card-footer {
+    display: flex; align-items: center; justify-content: space-between;
+    padding-top: .9rem; border-top: 1px solid var(--ds-line);
+}
+.blog-card-date { color: var(--ds-muted); font-size: .82rem; }
+.blog-card-link {
+    color: var(--ds-red); font-weight: 700; font-size: .88rem; text-decoration: none;
+    transition: var(--ds-t);
+}
+.blog-card-link:hover { color: var(--ds-red-600); }
+
+/* ---------- no results ---------- */
+.no-results {
+    text-align: center; padding: 3.5rem 1.5rem;
+    background: #fff; border: 1px solid var(--ds-line);
+    border-radius: var(--ds-r-lg) !important; box-shadow: var(--ds-shadow-sm);
+}
+.no-results h3 { font-family: var(--ds-font-display); color: var(--ds-ink); font-weight: 800; margin-bottom: .4rem; }
+.no-results p { color: var(--ds-muted); margin: 0; }
+
+/* ---------- pagination ---------- */
+.blog-pagination { display: flex; flex-wrap: wrap; justify-content: center; gap: .5rem; margin-top: 2.5rem; }
+.pagination-btn {
+    display: inline-flex; align-items: center; justify-content: center;
+    min-width: 42px; padding: .55rem .95rem;
+    border: 1px solid var(--ds-line); background: #fff; color: var(--ds-navy);
+    font-weight: 600; font-size: .9rem; text-decoration: none;
+    border-radius: var(--ds-r-md) !important; transition: var(--ds-t);
+}
+.pagination-btn:hover { border-color: var(--ds-navy); background: var(--ds-navy-050); }
+.pagination-btn.active { background: var(--ds-navy); color: #fff; border-color: var(--ds-navy); }
+
+@media (max-width: 600px) {
+    .featured-grid, .blog-grid { grid-template-columns: 1fr; }
+}

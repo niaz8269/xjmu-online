@@ -1,0 +1,121 @@
+/* ==========================================================================
+   XJMU /downloads page (Phase 4) — depends on design-system.css tokens.
+   Class names preserved (quick-link smooth-scroll JS depends on them).
+   ========================================================================== */
+
+/* ---------- hero ---------- */
+.downloads-hero {
+    background: linear-gradient(150deg, rgba(11,42,74,.94), rgba(14,53,89,.94)), url('../images/campus4.webp');
+    background-size: cover; background-position: center;
+    color: #fff; padding: clamp(2.5rem, 6vw, 4rem) 0;
+}
+.downloads-hero h1 { font-family: var(--ds-font-display); font-size: clamp(1.9rem, 4vw, 2.8rem); font-weight: 800; margin-bottom: .6rem; color:#fff; }
+.downloads-hero p { font-size: 1.08rem; color:#c3d2e6; margin-bottom: 0; }
+
+.download-section { padding: clamp(2.5rem, 6vw, 4rem) 0; }
+.download-section h3 {
+    font-family: var(--ds-font-display); color: var(--ds-ink); font-weight: 700;
+    font-size: 1.5rem; scroll-margin-top: 110px;
+}
+
+/* ---------- download cards ---------- */
+.download-card {
+    background: #fff; border: 1px solid var(--ds-line);
+    border-radius: var(--ds-r-lg) !important; padding: 1.5rem;
+    height: 100%; box-shadow: var(--ds-shadow-sm);
+    transition: var(--ds-t); position: relative;
+}
+.download-card:hover { transform: translateY(-4px); box-shadow: var(--ds-shadow-lg); border-color: #d6deea; }
+.download-icon {
+    width: 54px; height: 54px; border-radius: var(--ds-r-md) !important;
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 1.1rem; font-size: 1.4rem; color: #fff;
+}
+.pdf-icon { background: #e0524b; }
+.doc-icon { background: #2f6fb0; }
+.excel-icon { background: #2ba566; }
+.zip-icon { background: #d99411; }
+.image-icon { background: #8a52a6; }
+.download-card h4 { color: var(--ds-ink); font-size: 1.1rem; font-weight: 700; margin-bottom: 1rem; min-height: 2.6rem; }
+
+.download-btn {
+    background: var(--ds-red); color: #fff !important; border: none;
+    padding: .6rem 1.2rem; border-radius: var(--ds-r-md) !important;
+    display: flex; align-items: center; justify-content: center; gap: .5rem;
+    text-decoration: none !important; transition: var(--ds-t); width: 100%; font-weight: 600;
+}
+.download-btn:hover { background: var(--ds-red-600); color: #fff !important; transform: translateY(-1px); }
+
+.download-meta { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; font-size: .9rem; color: var(--ds-muted); }
+.download-meta span { display: flex; align-items: center; gap: .3rem; }
+
+.file-preview {
+    background: var(--ds-bg-soft); border-radius: var(--ds-r-md) !important;
+    padding: .75rem .9rem; margin-top: .7rem; font-size: .88rem; color: var(--ds-muted);
+    display: flex; align-items: center; gap: .5rem;
+}
+.file-preview i { color: var(--ds-navy); }
+
+/* ---------- notice ---------- */
+.important-notice {
+    background: #fff8e1; border: 1px solid #f3e2b3; border-left: 3px solid var(--ds-gold);
+    padding: 1.1rem 1.3rem; border-radius: var(--ds-r-md) !important; margin-bottom: 1.75rem;
+}
+.important-notice h5 { color: #7a5c07; margin-bottom: .5rem; font-weight: 700; font-size: 1.02rem; }
+.important-notice p { color: #7a5c07; margin: 0; font-size: .93rem; }
+
+/* ---------- other panels ---------- */
+.download-stats, .search-box {
+    background: #fff; border: 1px solid var(--ds-line);
+    border-radius: var(--ds-r-lg) !important; padding: 1.5rem;
+    box-shadow: var(--ds-shadow-sm); margin-bottom: 1.75rem;
+}
+.stat-item { text-align: center; padding: .9rem; }
+.stat-item i { font-size: 1.8rem; color: var(--ds-red); margin-bottom: .5rem; }
+.stat-item h3 { font-size: 1.8rem; color: var(--ds-red); margin-bottom: .3rem; font-family: var(--ds-font-display); }
+.stat-item p { color: var(--ds-muted); margin: 0; }
+.search-box input { border: 1px solid var(--ds-line); padding: .75rem 1.1rem; font-size: 1rem; }
+.search-box button { background: var(--ds-red); color: #fff; border: none; padding: 0 1.4rem; }
+.search-box button:hover { background: var(--ds-red-600); }
+
+/* ---------- sidebar ---------- */
+.quick-links-sidebar {
+    background: #fff; border: 1px solid var(--ds-line);
+    border-radius: var(--ds-r-lg) !important; padding: 1.5rem;
+    box-shadow: var(--ds-shadow-sm); margin-bottom: 1.75rem;
+    position: sticky; top: 100px;
+}
+.quick-links-sidebar h4 {
+    font-family: var(--ds-font-display); color: var(--ds-ink); font-size: 1.1rem; font-weight: 700;
+    margin-bottom: 1.1rem; padding-bottom: .7rem; border-bottom: 1px solid var(--ds-line);
+}
+.quick-link-item {
+    display: flex; align-items: center; gap: .75rem;
+    padding: .7rem 0; border-bottom: 1px solid var(--ds-line);
+    text-decoration: none; color: var(--ds-body); font-weight: 600; font-size: .93rem;
+    transition: var(--ds-t);
+}
+.quick-link-item:last-child { border-bottom: none; }
+.quick-link-item:hover { color: var(--ds-navy); padding-left: 5px; }
+.quick-link-item i { color: var(--ds-red); width: 20px; text-align: center; }
+
+/* ---------- category nav ---------- */
+.category-nav {
+    background: #fff; border: 1px solid var(--ds-line);
+    border-radius: var(--ds-r-lg) !important; padding: 1.1rem;
+    box-shadow: var(--ds-shadow-sm); margin-bottom: 1.75rem; overflow-x: auto;
+}
+.category-nav-list { display: flex; gap: .6rem; padding: 0; margin: 0; list-style: none; flex-wrap: nowrap; min-width: max-content; }
+.category-nav-item { white-space: nowrap; }
+.category-nav-link {
+    display: block; padding: .5rem 1.2rem; background: var(--ds-bg-soft);
+    border-radius: var(--ds-r-pill) !important; text-decoration: none;
+    color: var(--ds-body); font-weight: 600; transition: var(--ds-t); border: 1px solid transparent;
+}
+.category-nav-link:hover, .category-nav-link.active { background: var(--ds-navy); color: #fff; border-color: var(--ds-navy); }
+
+@media (max-width: 768px) {
+    .download-card { margin-bottom: 1.25rem; }
+    .quick-links-sidebar { position: static; }
+    .category-nav-list { flex-wrap: wrap; }
+}

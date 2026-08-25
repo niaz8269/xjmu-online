@@ -1,0 +1,8 @@
+# Block all admin pages from search engine indexing
+<IfModule mod_headers.c>
+    Header always set X-Robots-Tag "noindex, nofollow"
+</IfModule>
+
+# Require login — deny direct access if not authenticated via PHP session
+# (PHP auth check is the primary gate; this adds HTTP-level protection)
+Options -Indexes

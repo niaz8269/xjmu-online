@@ -1,0 +1,123 @@
+ErrorDocument 404 /404.html
+ErrorDocument 500 /500.html
+
+Options -Indexes
+DirectoryIndex index.php index.html
+
+AddType application/javascript .js
+AddType application/x-httpd-php .php
+AddType text/css .css
+AddType text/html .php
+AddType image/x-icon .ico
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /
+
+    # --- Canonical host: force HTTPS + non-www (SEO) -------------------------
+    # Only fires on the production domain, so local dev (xjmu.localhost, no SSL)
+    # is never redirected. Kills http:// and www. duplicate URLs.
+    RewriteCond %{HTTP_HOST} ^(www\.)?xjmu\.online [NC]
+    RewriteCond %{HTTPS} off [OR]
+    RewriteCond %{HTTP_HOST} ^www\. [NC]
+    RewriteRule ^ https://xjmu.online%{REQUEST_URI} [R=301,L]
+    # ------------------------------------------------------------------------
+
+    # --- Canonicalise legacy .php URLs -> clean URLs (SEO) -------------------
+    # Google indexed /about.php, /events.php, etc. as duplicates. 301 them to the
+    # extensionless canonical. GET-only so form/AJAX POST endpoints are untouched,
+    # and processing endpoints (save_/get_/send_/…) are excluded so their AJAX
+    # calls are never redirected.
+    RewriteCond %{REQUEST_METHOD} !=POST
+    RewriteCond %{THE_REQUEST} \s/+index\.php[\s?] [NC]
+    RewriteRule ^ / [R=301,L]
+
+    RewriteCond %{REQUEST_METHOD} !=POST
+    RewriteCond %{THE_REQUEST} \s/+([^.\s?/]+)\.php[\s?] [NC]
+    RewriteCond %1 !^(?:save_|get_|send_|submit_|download_|export_|review_) [NC]
+    RewriteRule ^ /%1 [R=301,L]
+    # ------------------------------------------------------------------------
+
+    # Serve the homepage without redirecting.
+    RewriteRule ^$ index.php [L]
+
+    # Route auth pages directly to PHP before the .html catch-all fires.
+    # LiteSpeed's static-file optimizer short-circuits the second rewrite pass
+    # and serves login.html directly (returning empty for POST), so these rules
+    # must appear first to guarantee PHP handles all requests to /login and /register.
+    RewriteRule ^login$ login.php [L]
+    RewriteRule ^register$ register.php [L]
+
+    # Legacy content aliases handled internally to avoid redirect loops.
+    RewriteRule ^careers\.php$ be-our-partner.php [L]
+    RewriteRule ^news\.php$ events.php [L]
+    RewriteRule ^research\.php$ blogs.php [L]
+    RewriteRule ^login\.html$ login.php [L]
+    RewriteRule ^register\.html$ register.php [L]
+    RewriteRule ^programs\.html$ programs.php [L]
+    RewriteRule ^campus-life\.html$ gallery.php [L]
+    RewriteRule ^mbbs\.html$ mbbs.php [L]
+    RewriteRule ^research\.html$ blogs.php [L]
+    RewriteRule ^international\.php$ admissions.php [L]
+    RewriteRule ^international\.html$ admissions.php [L]
+    RewriteRule ^careers\.html$ be-our-partner.php [L]
+
+    # Serve sitemap from PHP so blog/event URLs stay current.
+    RewriteRule ^sitemap\.xml$ sitemap.php [L]
+
+    # Serve clean URLs -> .html first, then .php.
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME}.html -f
+    RewriteRule ^([A-Za-z0-9/_-]+)$ $1.html [L]
+
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME}.php -f
+    RewriteRule ^([A-Za-z0-9/_-]+)$ $1.php [L]
+</IfModule>
+
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javascript application/javascript application/json
+</IfModule>
+
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresByType image/jpg "access plus 1 year"
+    ExpiresByType image/jpeg "access plus 1 year"
+    ExpiresByType image/gif "access plus 1 year"
+    ExpiresByType image/png "access plus 1 year"
+    ExpiresByType image/webp "access plus 1 year"
+    ExpiresByType text/css "access plus 1 month"
+    ExpiresByType application/javascript "access plus 1 month"
+    ExpiresByType text/javascript "access plus 1 month"
+    ExpiresByType application/pdf "access plus 1 month"
+    ExpiresByType text/html "access plus 1 day"
+</IfModule>
+
+<IfModule mod_headers.c>
+    Header always set X-Frame-Options "SAMEORIGIN"
+    Header always set X-XSS-Protection "1; mode=block"
+    Header always set X-Content-Type-Options "nosniff"
+    Header always set Referrer-Policy "strict-origin-when-cross-origin"
+    Header unset Server
+    Header unset X-Powered-By
+</IfModule>
+
+<FilesMatch "\.(htaccess|htpasswd|ini|log|sh|sql|bak|env)$">
+    Order Allow,Deny
+    Deny from all
+</FilesMatch>
+
+<FilesMatch "^\.env">
+    Order Allow,Deny
+    Deny from all
+</FilesMatch>
+
+AddDefaultCharset UTF-8
+AddCharset UTF-8 .html .css .js .xml .json .rss .atom
+
+<IfModule mod_php.c>
+    php_flag display_errors Off
+    php_flag log_errors On
+</IfModule>

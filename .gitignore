@@ -1,0 +1,48 @@
+# Environment variables (never commit real secrets; only .env.example is tracked)
+.env
+.env.local
+.env.*.local
+env
+env.*
+*.lastrun
+
+# Database credentials (if stored separately)
+config.local.php
+
+# Temporary files
+temp_zip/
+*.bak
+
+# Database dumps — contain real applicant PII (names, passports, DOB, addresses,
+# password hashes). Never commit these, even to a private repo.
+*.sql
+*.sql.gz
+*.sql.zip
+# Exception: the schema-only reference file below has zero data rows.
+!database/schema.sql
+
+# User-uploaded content — applicant documents (passports, transcripts, intro
+# videos) and live PHP session files. Runtime data, not source; belongs on the
+# server / in host-side backups, never in git.
+uploads/
+admin/uploads/
+sessions/
+tmp/
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+logs/
+
+# Uploads (if sensitive)
+# uploads/

@@ -1,0 +1,57 @@
+/* ==========================================================================
+   XJMU /fees page (Phase 2) — depends on design-system.css tokens.
+   ========================================================================== */
+
+/* ---------- compact hero ---------- */
+.fees-hero {
+    background: linear-gradient(90deg, rgba(9,28,50,.92) 0%, rgba(9,28,50,.62) 55%, rgba(9,28,50,.38) 100%), url('../images/campus8.webp') center/cover no-repeat;
+    color: #fff;
+    min-height: clamp(260px, 34vw, 360px);
+    display: flex; align-items: center;
+    padding: clamp(2.5rem, 6vw, 4rem) 0;
+    text-align: left;
+}
+.fees-hero h1 { color:#fff; font-size: clamp(1.9rem, 4vw, 2.9rem); font-weight: 800; margin: .3rem 0 .8rem; }
+.fees-hero p { color:#c3d2e6; max-width: 640px; margin: 0 0 1.4rem; font-size: 1.08rem; line-height: 1.65; }
+.fees-hero .home-hero__trust { justify-content: center; }
+.fees-hero .ds-pill { background: rgba(255,255,255,.1); color:#eaf1f9; border:1px solid rgba(255,255,255,.16); }
+.fees-hero .ds-pill i { color:#ffd0d2; }
+
+/* ---------- breadcrumb ---------- */
+.fees-crumb { font-size:.85rem; color: var(--ds-muted); padding: 1rem 0 0; }
+.fees-crumb a { color: var(--ds-navy); text-decoration: none; }
+.fees-crumb a:hover { text-decoration: underline; }
+
+/* ---------- fee tables ---------- */
+.fee-table-card {
+    background:#fff; border:1px solid var(--ds-line);
+    border-radius: var(--ds-r-lg) !important; overflow: hidden;
+    box-shadow: var(--ds-shadow-md); height: 100%;
+}
+.fee-table-card__head { background: var(--ds-navy); color:#fff; padding: 1.1rem 1.4rem; }
+.fee-table-card__head h3 { color:#fff; font-size:1.12rem; margin:0; }
+.fee-table-card__head .tag { font-size:.82rem; color:#bccadd; }
+.fee-table { width:100%; border-collapse: collapse; }
+.fee-table th, .fee-table td { padding:.8rem 1.4rem; font-size:.95rem; }
+.fee-table th { font-weight:600; color:var(--ds-body); text-align:left; width:62%; }
+.fee-table td { font-weight:700; color:var(--ds-ink); text-align:right; }
+.fee-table tr { border-bottom:1px solid var(--ds-line); }
+.fee-table tr:last-child { border-bottom:0; }
+.fee-table tr.total { background: var(--ds-red-050); }
+.fee-table tr.total th { color: var(--ds-red); }
+.fee-table tr.total td { color: var(--ds-red); }
+
+/* ---------- inclusions grid ---------- */
+.fee-inc-grid { list-style:none; padding:0; margin:0; display:grid; grid-template-columns:repeat(2,1fr); gap:.7rem; }
+.fee-inc-grid li { display:flex; gap:.6rem; align-items:flex-start; font-size:.96rem; color:var(--ds-body); }
+.fee-inc-grid i { color: var(--ds-red); margin-top:.2rem; }
+@media (max-width: 575px){ .fee-inc-grid { grid-template-columns:1fr; } }
+
+/* ---------- cost of living ---------- */
+.fee-col-card { text-align:center; }
+.fee-col-card .ds-icon-badge { margin-left:auto; margin-right:auto; }
+.fee-col-amount { font-family:var(--ds-font-display); font-weight:800; color:var(--ds-navy); font-size:1.25rem; }
+
+/* ---------- page section (admin) body ---------- */
+.page-section-body { color: var(--ds-body); line-height: 1.75; }
+.page-section-body h2, .page-section-body h3 { font-family: var(--ds-font-display); color: var(--ds-ink); }
