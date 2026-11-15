@@ -76,7 +76,11 @@ AddCharset UTF-8 .html .css .js .xml .json .rss .atom
     ExpiresByType text/html "access plus 1 day"
 </IfModule>
 
+# SEO safety: a staging.* host is never indexable (covers static files too; pages also get the header from Laravel).
+SetEnvIfNoCase Host ^staging\. XJMU_STAGING
+
 <IfModule mod_headers.c>
+    Header always set X-Robots-Tag "noindex, nofollow" env=XJMU_STAGING
     Header always set X-Frame-Options "SAMEORIGIN"
     Header always set X-XSS-Protection "1; mode=block"
     Header always set X-Content-Type-Options "nosniff"
