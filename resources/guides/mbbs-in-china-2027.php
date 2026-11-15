@@ -26,8 +26,9 @@ return [
             ['Who approves the universities', "China's Ministry of Education (MOE)"],
             ['Current approved list', '43 universities, 2,790 seats (2026–2027 academic year)'],
             ['XJMU seats on the current list', '60'],
+            ['XJMU MBBS intakes', 'Spring (February/March) and fall (September)'],
             ['XJMU first-year package (2026 intake)', '¥49,950, about USD 7,000'],
-            ['XJMU minimum eligibility', '50% in Physics, Chemistry and Biology; age 17–25'],
+            ['XJMU minimum eligibility', '60% in Physics, Chemistry and Biology; age 17–25'],
         ]]],
 
         ['id' => 'why-china', 'eyebrow' => 'Why China', 'h' => 'Why study MBBS in China in 2027', 'p' => [
@@ -57,7 +58,7 @@ return [
             "Requirements differ a little from one university to another. These are the published requirements for the MBBS programme at Xinjiang Medical University:",
         ], 'list' => $s['requirements'], 'sub' => [
             ['h' => 'Academic background', 'p' => [
-                "You need a completed high-school qualification with a science background. For students from Pakistan that is FSc Pre-Medical or an equivalent; for students from other systems it is the twelfth-grade or A-level qualification with Physics, Chemistry and Biology. The minimum is 50% in those three subjects, and stronger marks help when seats are limited.",
+                "You need a completed high-school qualification with a science background. For students from Pakistan that is FSc Pre-Medical or an equivalent; for students from other systems it is the twelfth-grade or A-level qualification with Physics, Chemistry and Biology. The minimum is 60% in those three subjects, and stronger marks help when seats are limited.",
             ]],
             ['h' => 'English', 'p' => [
                 "The programme is taught in English, so you must be able to study in English. Proof can be an English test such as IELTS or TOEFL, or evidence that your previous education was in English. Exemptions may apply for students from English-speaking countries.",
@@ -85,11 +86,13 @@ return [
         ], 'note' => 'Figures are indicative for the 2026 intake; USD conversions are approximate.', 'link' => ['fees', 'See the full MBBS fee breakdown']],
 
         ['id' => 'intakes', 'eyebrow' => 'Timeline', 'h' => 'Intakes and deadlines for 2027', 'p' => [
-            "The MBBS programme at XJMU starts in September. The university's admissions calendar publishes the same milestones each year, shown below. Dates may vary by programme, so confirm them with the admissions office before you plan travel.",
+            "The MBBS programme at XJMU has two intakes a year: spring, starting in February or March, and fall, starting in September. The university's admissions calendar publishes the same milestones each year, shown below. Dates may vary by programme, so confirm them with the admissions office before you plan travel.",
         ], 'table' => $s['calendar'], 'sub' => [
+            ['h' => 'What this means for a spring 2027 start', 'p' => [
+                "Applications for the spring intake opened on 1 September. The early deadline is 15 December, the regular deadline is 15 January 2027, and registration and orientation take place around 20 February 2027. If you want to begin your MBBS in China in early 2027, this is the intake to apply for now.",
+            ]],
             ['h' => 'What this means for a September 2027 start', 'p' => [
                 "Applications for the fall intake open on 1 March. The early deadline of 30 June is the one to aim for, because it is the recommended deadline for scholarship consideration and it leaves time for the visa. The regular deadline is 15 August, and registration and orientation take place around 10 September.",
-                "The calendar also lists a spring intake for the university. If you are interested in a spring start, ask the admissions team whether it applies to the MBBS programme in 2027.",
             ]],
         ], 'img' => ['src' => 'assets/images/visa-process.webp', 'alt' => 'Steps from choosing a university to receiving a student visa for MBBS in China', 'caption' => 'From finalising your university to receiving the student visa.']],
 
@@ -175,8 +178,10 @@ return [
         ], 'img' => ['src' => 'images/campus1.webp', 'alt' => 'Graduation ceremony at Xinjiang Medical University for students who completed MBBS in China', 'caption' => 'Graduation day at Xinjiang Medical University.']],
 
         ['id' => 'checklist', 'eyebrow' => 'Checklist', 'h' => 'A month-by-month plan for MBBS in China 2027', 'p' => [
-            "Use this plan to stay ahead of the deadlines for a September 2027 start.",
+            "Use this plan to stay ahead of the deadlines, whether you start in spring or in September 2027.",
         ], 'list' => [
+            'By 15 December: early deadline for the spring 2027 intake.',
+            'By 15 January: regular deadline for the spring 2027 intake; registration is around 20 February.',
             'Now: confirm your chosen university is on the MOE list, and read your home medical council\'s current rules.',
             'Before March: collect transcripts, your passport, photographs and proof of English; have documents notarised and translated.',
             '1 March: applications open for the fall intake. Submit early.',
@@ -188,10 +193,11 @@ return [
         ], 'note' => 'Deadlines are from the published admissions calendar and may vary. The date of the next MOE notice is not known; the June timing is based on the 2026 notice.'],
     ],
     'faqs' => [
-        ['Is MBBS in China 2027 admission open?', 'Applications for the fall intake open on 1 March according to the published admissions calendar. You can register your interest and prepare your documents now.'],
+        ['Is MBBS in China 2027 admission open?', 'Yes. At Xinjiang Medical University, applications for the spring 2027 intake opened on 1 September, with a regular deadline of 15 January. Applications for the September 2027 intake open on 1 March.'],
+        ['Does XJMU have a spring intake for MBBS?', 'Yes. The MBBS has a spring intake starting in February or March and a fall intake starting in September.'],
         ['Has the MOE list for 2027 been published?', 'No. The list in force covers the 2026–2027 academic year and was issued on 1 June 2026. It approves 43 universities with 2,790 seats. This page will be updated when the next notice is released.'],
         ['How much will MBBS in China cost in 2027?', 'Fees for 2027 have not been announced. For the September 2026 intake at Xinjiang Medical University, the first-year package is ¥49,950 and each later year totals about ¥35,950.'],
-        ['What marks do I need for MBBS in China?', 'At Xinjiang Medical University the minimum is 50% in Physics, Chemistry and Biology with a completed high-school qualification. Requirements differ between universities.'],
+        ['What marks do I need for MBBS in China?', 'At Xinjiang Medical University the minimum is 60% in Physics, Chemistry and Biology with a completed high-school qualification. Requirements differ between universities.'],
         ['Is MBBS in China taught in English?', 'Yes, at MOE listed universities. Universities that are not on the list may only teach clinical medicine to international students in Chinese.'],
         ['How long is MBBS in China?', 'Six years: five years of study and a one-year clinical internship.'],
         ['Is Xinjiang Medical University a registered MBBS university in China?', 'Yes. It is on the Ministry of Education list for 2026–2027 with 60 seats and is listed in the WHO World Directory of Medical Schools.'],

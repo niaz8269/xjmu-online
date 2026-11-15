@@ -146,7 +146,7 @@
                                     <div class="requirement-card">
                                         <h5><i class="fas fa-graduation-cap text-primary me-2"></i>Undergraduate Programs</h5>
                                             <ul class="mt-3">
-                                                <li>High school diploma or equivalent with minimum 70% average</li>
+                                                <li>High school diploma or equivalent with minimum 60% average</li>
                                                 <li>Science background (Biology, Chemistry, Physics) for medical programs</li>
                                                 <li>Chinese proficiency: HSK 4+ (for Chinese medium)</li>
                                                 <li>Passport copy and passport-sized photos</li>

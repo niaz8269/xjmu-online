@@ -170,13 +170,13 @@ return [
             ['h' => 'Total cost', 'p' => ["Compare the full yearly cost, not tuition alone. At XJMU the first-year package for the September 2026 intake is ¥49,950 and each later year totals about ¥35,950."]],
             ['h' => 'Clinical training', 'p' => ["Ask how many teaching hospitals the university has, how large they are and where international students do the internship year."]],
             ['h' => 'Location and daily life', 'p' => ["Climate, food and distance from home affect students more than they expect. Urumqi is close to Pakistan and Central Asia, and halal food is widely available."]],
-            ['h' => 'Entry requirements', 'p' => ["Minimum marks differ. XJMU asks for at least 50% in Physics, Chemistry and Biology and an age of 17–25 at enrollment."]],
+            ['h' => 'Entry requirements', 'p' => ["Minimum marks differ. XJMU asks for at least 60% in Physics, Chemistry and Biology and an age of 17–25 at enrollment."]],
             ['h' => 'Support for international students', 'p' => ["Look for a dedicated international student team, pre-arrival guidance and help with the visa and residence permit."]],
         ], 'table' => $s['feeYearly']],
 
         ['id' => 'seats', 'eyebrow' => 'Seats', 'h' => 'Seat quotas and why early application matters', 'p' => [
             "With 2,790 seats shared among 43 universities, the average quota is about 65 seats per university. Sixteen universities have 40 seats or fewer. Demand comes from students across South Asia, Central Asia, the Middle East and Africa, so popular universities fill their quota before the regular deadline.",
-            "XJMU has 60 seats. The university's admissions calendar opens fall applications on 1 March, recommends applying by 30 June, and closes regular applications on 15 August. Applying by the early deadline gives you the best chance of a seat and of scholarship consideration.",
+            "XJMU has 60 seats. The university's admissions calendar opens fall applications on 1 March, recommends applying by 30 June, and closes regular applications on 15 August. The MBBS also has a spring intake, with applications open from 1 September and a regular deadline of 15 January. Applying by the early deadline gives you the best chance of a seat and of scholarship consideration.",
         ], 'table' => $s['calendar']],
 
         ['id' => 'next-list', 'eyebrow' => 'Looking ahead', 'h' => 'When will the next MOE list be published?', 'p' => [

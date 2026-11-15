@@ -66,7 +66,7 @@ return [
     ],
     'requirements' => [
         'High-school diploma (or equivalent) completed, with Physics, Chemistry and Biology',
-        'Minimum 50% aggregate in Physics, Chemistry and Biology',
+        'Minimum 60% aggregate in Physics, Chemistry and Biology',
         'Aged 17–25 at the time of enrollment',
         'Medically fit, confirmed by a health examination',
         'Valid passport',

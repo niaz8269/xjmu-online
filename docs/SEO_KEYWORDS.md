@@ -49,3 +49,18 @@ button is in code (`resources/views/pages/mbbs.blade.php`). Change them when the
 - When the MOE publishes the next list, update `/moe-listed-mbbs-universities-in-china` and `/mbbs-in-china-2027`
   (content in `config/seo_guides.php`, set `updated` to the new date). Keep the URL; never start a new page per year.
 - After launch, add the property to Search Console under an account I can open, then re-prioritise this table by impressions.
+
+## Facts confirmed by the owner (16 Nov 2026)
+
+- Minimum marks for MBBS: **60%** in Physics, Chemistry and Biology.
+- MBBS has a **spring intake** as well as the September intake.
+
+The 60% figure is stored in the database for four fields, so it must also be changed on the live site through the
+admin panel (the local database copy is replaced by a fresh export at go-live):
+
+| Admin page | Field | Change |
+|---|---|---|
+| Settings → MBBS | `mbbs_facts_list` | "Eligibility \| 50%+ in PCB" → "60%+ in PCB" |
+| Settings → MBBS | `mbbs_eligibility_list` | "Minimum 50% aggregate…" → "Minimum 60% aggregate…" |
+| Settings → MBBS | `mbbs_faq_list` | "at least 50% aggregate" → "at least 60% aggregate" |
+| Home facts | "Eligibility" | "50%+ in PCB at 12th grade" → "60%+ in PCB at 12th grade" |
