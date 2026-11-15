@@ -16,6 +16,7 @@ return Application::configure(basePath: dirname(__DIR__))
         $middleware->alias([
             'loggedin' => \App\Http\Middleware\EnsureLoggedIn::class,
             'admin'    => \App\Http\Middleware\EnsureAdmin::class,
+            'public.cache' => \App\Http\Middleware\PublicCache::class,
         ]);
 
         // SEO: old /page.php URLs 301 to the clean URL (same as the original .htaccess).

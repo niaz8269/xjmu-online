@@ -80,5 +80,5 @@ Route::any('/dashboard', $dashboard);
 Route::any('/dashboard.php', $dashboard);
 
 // adm-HtApply: public "How to Apply" page (a page of the original site that lived next to the portal scripts)
-Route::get('/adm-HtApply', \App\Http\Controllers\HowToApplyController::class);
+$cacheable(Route::get('/adm-HtApply', \App\Http\Controllers\HowToApplyController::class));
 Route::get('/adm-HtApply.php', \App\Http\Controllers\HowToApplyController::class);

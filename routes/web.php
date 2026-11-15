@@ -9,6 +9,19 @@ use Illuminate\Support\Facades\Route;
 | Public pages, auth, applicant portal and admin live in routes/web/*.php (same URLs as the original site;
 | the old `.php` forms keep working). Only the old permanent redirects are kept here.
 */
+// Pages that are the same for every visitor: no session cookie, cacheable for a day (as on the original site).
+// Do NOT use for pages that render a CSRF token (events modal, login, register, testimonial form).
+$cacheable = fn (\Illuminate\Routing\Route $route) => $route
+    ->withoutMiddleware([
+        \Illuminate\Cookie\Middleware\EncryptCookies::class,
+        \Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse::class,
+        \Illuminate\Session\Middleware\StartSession::class,
+        \Illuminate\View\Middleware\ShareErrorsFromSession::class,
+        \Illuminate\Foundation\Http\Middleware\PreventRequestForgery::class,
+        \Illuminate\Foundation\Http\Middleware\ValidateCsrfToken::class,
+    ])
+    ->middleware('public.cache');
+
 require __DIR__ . '/web/public.php';
 require __DIR__ . '/web/auth.php';
 require __DIR__ . '/web/portal.php';
