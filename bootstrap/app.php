@@ -18,6 +18,9 @@ return Application::configure(basePath: dirname(__DIR__))
             'admin'    => \App\Http\Middleware\EnsureAdmin::class,
         ]);
 
+        // SEO: old /page.php URLs 301 to the clean URL (same as the original .htaccess).
+        $middleware->prepend(\App\Http\Middleware\CanonicalPhpUrls::class);
+
         // The original admin pages read raw $_POST (no trimming, '' stays ''); keep that for /admin/* forms
         // (the pages themselves trim() exactly where the originals did).
         $middleware->trimStrings(except: [fn (Request $request) => $request->is('admin/*')]);

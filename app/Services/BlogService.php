@@ -70,11 +70,11 @@ class BlogService
     {
         $excerptOrContent = $blog->excerpt ?? $blog->content;
         return [
-            'page_title' => htmlspecialchars((string) $blog->title) . ' | XJMU Blog',
+            'page_title' => self::esc((string) $blog->title) . ' | XJMU Blog',
             'page_description' => ! empty($blog->meta_description)
-                ? htmlspecialchars($blog->meta_description)
-                : htmlspecialchars(substr(strip_tags((string) $excerptOrContent), 0, 155)) . '...',
-            'page_keywords' => ! empty($blog->meta_keywords) ? htmlspecialchars($blog->meta_keywords) : 'XJMU blog, Xinjiang Medical University',
+                ? self::esc($blog->meta_description)
+                : self::esc(substr(strip_tags((string) $excerptOrContent), 0, 155)) . '...',
+            'page_keywords' => ! empty($blog->meta_keywords) ? self::esc($blog->meta_keywords) : 'XJMU blog, Xinjiang Medical University',
             'page_url' => get_absolute_url('blog-post?slug=' . urlencode($blog->slug)),
             'page_image' => $this->hasImage($blog->featured_image) ? get_absolute_url($blog->featured_image) : 'https://xjmu.online/images/logo.png',
             'body_class' => 'ds-page',
@@ -123,5 +123,11 @@ class BlogService
             'pages' => $pages,
             'next' => $current < $total ? $link($current + 1) : null,
         ];
+    }
+
+    /** Matches the original site's htmlspecialchars() default of ENT_COMPAT (apostrophes untouched), so meta tags stay identical to live. */
+    private static function esc(string $value): string
+    {
+        return htmlspecialchars($value, ENT_COMPAT);
     }
 }

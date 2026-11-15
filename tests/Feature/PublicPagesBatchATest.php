@@ -14,7 +14,7 @@ class PublicPagesBatchATest extends TestCase
     {
         foreach (['about', 'mbbs', 'programs', 'admissions', 'fees', 'scholarships', 'support', 'privacy', 'terms', 'be-our-partner'] as $page) {
             $this->get('/' . $page)->assertOk()->assertSee('<link rel="canonical" href="https://xjmu.online/' . $page . '"', false);
-            $this->get('/' . $page . '.php')->assertOk();
+            $this->get('/' . $page . '.php')->assertStatus(301)->assertRedirect(url('/' . $page));
         }
         $this->get('/programs.html')->assertOk();
         $this->get('/')->assertOk()->assertSee('FAQPage', false)->assertSee('Is Xinjiang Medical University recognized for MBBS?', false);

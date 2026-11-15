@@ -9,7 +9,7 @@ class PortalPagesTest extends PortalCase
 {
     public function test_pages_redirect_to_login_without_a_session(): void
     {
-        foreach (['/front', '/front.php', '/edit-details', '/edit-details.php', '/profile', '/download_application'] as $uri) {
+        foreach (['/front', '/edit-details', '/profile', '/download_application'] as $uri) {
             $this->get($uri)->assertRedirect(get_absolute_url('login'));
         }
     }
@@ -22,7 +22,7 @@ class PortalPagesTest extends PortalCase
             ->assertSee('fetch("get_application_status.php")', false)
             ->assertSee('Application Status | Xinjiang Medical University', false)
             ->assertSee('<meta name="robots" content="noindex, nofollow">', false);
-        $this->login()->get('/front.php')->assertOk();
+        $this->login()->get('/front')->assertOk();
     }
 
     public function test_edit_details_prefills_degree_and_major_and_carries_the_csrf_meta(): void
@@ -99,7 +99,7 @@ class PortalPagesTest extends PortalCase
             'manage_users' => '/admin/manage_users', 'review_application' => '/admin/review_application', 'export_pdf' => '/admin/export_pdf',
             'application_status' => '/', 'mylogo' => '/'] as $from => $to) {
             $this->get('/' . $from)->assertStatus(301)->assertRedirect($to);
-            $this->get('/' . $from . '.php')->assertStatus(301)->assertRedirect($to);
+            $this->get('/' . $from . '.php')->assertStatus(301)->assertRedirect(preg_match('/^(?:review_|export_)/', $from) ? $to : url('/' . $from)); // canonical .php -> clean first (as the original .htaccess)
         }
     }
 
@@ -107,7 +107,7 @@ class PortalPagesTest extends PortalCase
     {
         $this->get('/dashboard')->assertRedirect(get_absolute_url('login'));
         $this->login()->get('/dashboard')->assertRedirect(get_absolute_url('login'));
-        $this->withSession(['user_id' => 1, 'role' => 'admin'])->get('/dashboard.php')->assertRedirect(url('admin/dashboard'));
+        $this->withSession(['user_id' => 1, 'role' => 'admin'])->get('/dashboard')->assertRedirect(url('admin/dashboard'));
     }
 
     public function test_how_to_apply_page_renders(): void
@@ -117,6 +117,6 @@ class PortalPagesTest extends PortalCase
             ->assertSee('<title>How to Apply | MBBS Admissions | XJMU</title>', false)
             ->assertSee('Xinjiang Medical University — How to Apply')
             ->assertSee('Application Deadlines');
-        $this->get('/adm-HtApply.php')->assertOk();
+        $this->get('/adm-HtApply.php')->assertStatus(301)->assertRedirect(url('/adm-HtApply'));
     }
 }

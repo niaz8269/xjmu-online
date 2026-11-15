@@ -56,9 +56,9 @@ class EventService
     public function postMeta(Event $event): array
     {
         return [
-            'page_title' => htmlspecialchars((string) $event->title) . ' | XJMU Events',
+            'page_title' => self::esc((string) $event->title) . ' | XJMU Events',
             'page_description' => ! empty($event->excerpt)
-                ? htmlspecialchars(substr(strip_tags($event->excerpt), 0, 155))
+                ? self::esc(substr(strip_tags($event->excerpt), 0, 155))
                 : 'Campus event at Xinjiang Medical University.',
             'page_keywords' => 'XJMU events, Xinjiang Medical University, campus event',
             'page_url' => get_absolute_url('event?slug=' . urlencode($event->slug)),
@@ -109,5 +109,11 @@ class EventService
             $s .= ' – ' . date('g:i A', strtotime('1970-01-01 ' . $end));
         }
         return $s;
+    }
+
+    /** Matches the original site's htmlspecialchars() default of ENT_COMPAT (apostrophes untouched), so meta tags stay identical to live. */
+    private static function esc(string $value): string
+    {
+        return htmlspecialchars($value, ENT_COMPAT);
     }
 }
