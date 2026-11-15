@@ -6,7 +6,13 @@ Allow: /
 
 # Disallow admin and private areas
 Disallow: /admin/
+# Applicant documents stay private; public images under /uploads/ are crawlable.
 Disallow: /uploads/
+Allow: /uploads/blogs/
+Allow: /uploads/events/
+Allow: /uploads/gallery/
+Allow: /uploads/testimonials/
+Allow: /uploads/consultants/
 Disallow: /vendor/
 Disallow: /libs/
 Disallow: /includes/
