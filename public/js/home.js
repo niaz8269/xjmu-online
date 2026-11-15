@@ -103,8 +103,8 @@ class ShadowPopup extends HTMLElement {
                     <a href="https://campuschina.pk/" target="_blank" rel="noopener"><img src="images/campuschina.webp" alt="Campus China Logo"></a>
                 </div>
                 <div class="logos-container">
-                    <h4 class="green-text"><abbr title="Jilin Medical University">JLMU</abbr></h4>
-                    <a href="https://jilinmedicaluniversity.cn/" target="_blank" rel="noopener"><img src="jlmu-logo.png" alt="JLMU Logo"></a>
+                    <h4 class="red-text"><abbr title="Study in China">CAS</abbr></h4>
+                    <a href="https://cas.moe/" target="_blank" rel="noopener"><img src="images/cas-logo.webp" alt="CAS Study in China Logo"></a>
                 </div>
             </div>`;
         this.popupElement = this.shadowRoot.getElementById('popup');

@@ -501,5 +501,5 @@ document.addEventListener('DOMContentLoaded', function() {
 </section>
 
 <!-- Page Specific JS -->
-<script src="{{ get_absolute_url('js/home.js') }}"></script>
+<script src="{{ get_js_url('js/home.js') }}"></script>
 @endsection
