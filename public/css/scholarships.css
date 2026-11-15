@@ -1,0 +1,91 @@
+/* ==========================================================================
+   XJMU /scholarships page (Phase 4) — depends on design-system.css tokens.
+   ========================================================================== */
+
+/* ---------- hero ---------- */
+.schol-hero {
+    background: linear-gradient(90deg, rgba(9,28,50,.92) 0%, rgba(9,28,50,.62) 55%, rgba(9,28,50,.38) 100%), url('../images/campus5.webp') center/cover no-repeat;
+    color: #fff;
+    min-height: clamp(260px, 34vw, 360px);
+    display: flex; align-items: center;
+    padding: clamp(2.5rem, 6vw, 4rem) 0;
+    text-align: left;
+}
+.schol-hero h1 { color:#fff; font-size: clamp(1.9rem, 4vw, 2.9rem); font-weight: 800; margin: .3rem 0 .8rem; }
+.schol-hero p { color:#c3d2e6; max-width: 640px; margin: 0; font-size: 1.08rem; line-height: 1.65; }
+
+.schol-crumb { font-size:.85rem; color: var(--ds-muted); padding: 1rem 0 0; }
+.schol-crumb a { color: var(--ds-navy); text-decoration: none; }
+.schol-crumb a:hover { text-decoration: underline; }
+
+/* ---------- table ---------- */
+.schol-table-wrap {
+    border: 1px solid var(--ds-line);
+    border-radius: var(--ds-r-lg) !important;
+    overflow: hidden;
+    box-shadow: var(--ds-shadow-sm);
+    background: #fff;
+}
+.schol-table { width: 100%; border-collapse: collapse; }
+.schol-table thead th {
+    background: var(--ds-navy); color: #fff;
+    font-size: .78rem; letter-spacing: .05em; text-transform: uppercase;
+    font-weight: 700; text-align: left; padding: .95rem 1.1rem;
+}
+.schol-table td {
+    padding: .9rem 1.1rem;
+    border-bottom: 1px solid var(--ds-line);
+    font-size: .94rem; color: var(--ds-body); vertical-align: top;
+}
+.schol-table tbody tr:last-child td { border-bottom: 0; }
+.schol-table tbody tr:hover { background: var(--ds-bg-soft); }
+.schol-table td:first-child { font-weight: 700; color: var(--ds-ink); }
+
+/* ---------- how to apply steps ---------- */
+.schol-steps { counter-reset: step; list-style: none; padding: 0; margin: 0; display: grid; gap: 1rem; }
+.schol-steps li {
+    counter-increment: step;
+    position: relative; padding: 1.1rem 1.3rem 1.1rem 3.6rem;
+    background: #fff; border: 1px solid var(--ds-line);
+    border-radius: var(--ds-r-md) !important; color: var(--ds-body); font-size: .97rem;
+}
+.schol-steps li::before {
+    content: counter(step);
+    position: absolute; left: 1rem; top: 1rem;
+    width: 34px; height: 34px; display: flex; align-items: center; justify-content: center;
+    background: var(--ds-navy); color: #fff; font-weight: 800;
+    border-radius: var(--ds-r-sm) !important; font-family: var(--ds-font-display);
+}
+
+/* ---------- contact card ---------- */
+.schol-contact {
+    background: var(--ds-bg-soft); border: 1px solid var(--ds-line);
+    border-radius: var(--ds-r-lg) !important; padding: 1.6rem 1.5rem;
+}
+.schol-contact ul { list-style: none; padding: 0; margin: .5rem 0 0; }
+.schol-contact li { padding: .35rem 0; color: var(--ds-body); }
+.schol-contact strong { color: var(--ds-ink); }
+
+/* ---------- responsive: stack table into cards ---------- */
+@media (max-width: 768px) {
+    .schol-table thead { display: none; }
+    .schol-table, .schol-table tbody, .schol-table tr, .schol-table td { display: block; width: 100%; }
+    .schol-table tr {
+        border: 1px solid var(--ds-line);
+        border-radius: var(--ds-r-md) !important;
+        margin-bottom: .85rem;
+    }
+    .schol-table-wrap { border: 0; box-shadow: none; background: transparent; overflow: visible; }
+    .schol-table td {
+        border-bottom: 1px dashed var(--ds-line);
+        display: flex; justify-content: space-between; gap: 1rem; align-items: baseline;
+        padding: .6rem .9rem; text-align: right;
+    }
+    .schol-table tr td:last-child { border-bottom: 0; }
+    .schol-table td::before {
+        content: attr(data-label);
+        font-weight: 700; color: var(--ds-muted);
+        text-transform: uppercase; font-size: .72rem; letter-spacing: .04em;
+        text-align: left; flex: 0 0 auto;
+    }
+}

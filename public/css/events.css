@@ -1,0 +1,91 @@
+/* ==========================================================================
+   XJMU /events list page — depends on design-system.css tokens.
+   Card & list class names preserved. (Register modal ships its own styles
+   in includes/event-register-modal.php — not defined here.)
+   ========================================================================== */
+
+/* ---------- hero + breadcrumb ---------- */
+.events-hero {
+    background: linear-gradient(90deg, rgba(9,28,50,.92) 0%, rgba(9,28,50,.62) 55%, rgba(9,28,50,.38) 100%), url('../images/campus9.webp') center/cover no-repeat;
+    color: #fff;
+    min-height: clamp(260px, 34vw, 360px);
+    display: flex; align-items: center;
+    padding: clamp(2.5rem, 6vw, 4rem) 0;
+    text-align: left;
+}
+.events-hero h1 { color:#fff; font-size: clamp(1.9rem, 4vw, 2.9rem); font-weight: 800; margin: .3rem 0 .8rem; }
+.events-hero p { color:#c3d2e6; max-width: 640px; margin: 0; font-size: 1.08rem; line-height: 1.65; }
+.events-crumb { font-size:.85rem; color: var(--ds-muted); padding: 1rem 0 0; }
+.events-crumb a { color: var(--ds-navy); text-decoration: none; }
+.events-crumb a:hover { text-decoration: underline; }
+
+/* ---------- container + section ---------- */
+.events-container { max-width: 1160px; margin: 0 auto; padding-left: 1rem; padding-right: 1rem; }
+.events-section { padding: 2.5rem 0 3.5rem; }
+
+/* ---------- grid ---------- */
+.events-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 1.6rem;
+}
+
+/* ---------- card ---------- */
+.event-card {
+    display: flex; flex-direction: column;
+    background: #fff; border: 1px solid var(--ds-line);
+    border-radius: var(--ds-r-lg) !important; overflow: hidden;
+    box-shadow: var(--ds-shadow-sm); transition: transform var(--ds-t), box-shadow var(--ds-t);
+}
+.event-card:hover { transform: translateY(-4px); box-shadow: var(--ds-shadow-md); }
+.event-card-image { position: relative; aspect-ratio: 16/10; overflow: hidden; background: var(--ds-navy-050); }
+.event-card-image img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform var(--ds-t); }
+.event-card:hover .event-card-image img { transform: scale(1.05); }
+.event-card-date {
+    position: absolute; top: .75rem; left: .75rem;
+    background: var(--ds-red); color: #fff;
+    font-size: .78rem; font-weight: 700; letter-spacing: .02em;
+    padding: .35rem .75rem; border-radius: var(--ds-r-pill) !important;
+    box-shadow: var(--ds-shadow-sm);
+}
+.event-card-content { display: flex; flex-direction: column; flex: 1; padding: 1.3rem; }
+.event-card-title { font-family: var(--ds-font-display); font-size: 1.15rem; font-weight: 700; line-height: 1.35; margin: 0 0 .7rem; }
+.event-card-title a { color: var(--ds-ink); text-decoration: none; transition: color var(--ds-t); }
+.event-card-title a:hover { color: var(--ds-navy); }
+
+.event-time { font-size: .88rem; color: var(--ds-body); margin: 0 0 .35rem; }
+.event-time i { color: var(--ds-navy); margin-right: .4rem; }
+.event-venue { font-size: .88rem; color: var(--ds-muted); margin: 0 0 .6rem; }
+.event-venue i { color: var(--ds-red); margin-right: .4rem; }
+.event-excerpt { font-size: .94rem; color: var(--ds-body); line-height: 1.6; margin: 0 0 1.1rem; flex: 1; }
+
+.event-card-actions {
+    display: flex; flex-wrap: wrap; align-items: center; gap: .75rem;
+    padding-top: .9rem; border-top: 1px solid var(--ds-line);
+}
+.event-card-link {
+    color: var(--ds-red); font-weight: 700; font-size: .88rem; text-decoration: none;
+    transition: var(--ds-t);
+}
+.event-card-link:hover { color: var(--ds-red-600); }
+.event-card-actions .event-register-btn {
+    background: var(--ds-navy); border: none; color: #fff !important;
+    font-weight: 600; font-size: .85rem; padding: .5rem 1.1rem;
+    border-radius: var(--ds-r-md) !important; cursor: pointer;
+    transition: var(--ds-t); margin-left: auto;
+}
+.event-card-actions .event-register-btn:hover { background: var(--ds-navy-600); }
+
+/* ---------- empty state ---------- */
+.events-empty {
+    text-align: center; padding: 3.5rem 1.5rem;
+    background: #fff; border: 1px solid var(--ds-line);
+    border-radius: var(--ds-r-lg) !important; box-shadow: var(--ds-shadow-sm);
+}
+.events-empty h3 { font-family: var(--ds-font-display); color: var(--ds-ink); font-weight: 800; margin-bottom: .5rem; }
+.events-empty p { color: var(--ds-muted); margin: .3rem 0; }
+.events-empty code { background: var(--ds-bg-soft); padding: .15rem .5rem; border-radius: var(--ds-r-sm) !important; color: var(--ds-ink); }
+
+@media (max-width: 600px) {
+    .events-list { grid-template-columns: 1fr; }
+}

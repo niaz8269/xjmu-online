@@ -1,0 +1,48 @@
+# robots.txt for Xinjiang Medical University
+# https://xjmu.online/robots.txt
+
+User-agent: *
+Allow: /
+
+# Disallow admin and private areas
+Disallow: /admin/
+Disallow: /uploads/
+Disallow: /vendor/
+Disallow: /libs/
+Disallow: /includes/
+Disallow: /tmp/
+Disallow: /logs/
+
+# Disallow private/auth pages (clean URLs)
+Disallow: /edit-details
+Disallow: /front
+Disallow: /profile
+Disallow: /logout
+Disallow: /reset_password
+Disallow: /forgot_password
+Disallow: /verify_email
+Disallow: /resend_code
+Disallow: /session_config
+Disallow: /quick_session_test
+Disallow: /test_session
+
+# Disallow API/processing endpoints
+Disallow: /save_*
+Disallow: /get_*
+Disallow: /send_*
+Disallow: /submit_application
+Disallow: /download_application
+
+# Legacy .php URLs are NOT blocked here on purpose: they 301-redirect to the
+# clean canonical URL (see .htaccess), so Google must be allowed to crawl them
+# to discover the redirect and drop the duplicates from the index. Sensitive
+# .php endpoints stay blocked by the /save_*, /get_*, /send_* prefixes above.
+
+# Disallow backups
+Disallow: /*.bak$
+
+# Sitemap location
+Sitemap: https://xjmu.online/sitemap.xml
+
+# Crawl delay
+Crawl-delay: 1

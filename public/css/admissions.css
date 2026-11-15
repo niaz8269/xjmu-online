@@ -1,0 +1,159 @@
+/* ==========================================================================
+   XJMU /admissions page (Phase 4) — restyled on design-system.css tokens.
+   HTML structure & IDs preserved (fee-calculator JS depends on them); this
+   sheet only upgrades the visual presentation.
+   ========================================================================== */
+
+/* ---------- hero + breadcrumb ---------- */
+.adm-hero {
+    background: linear-gradient(90deg, rgba(9,28,50,.92) 0%, rgba(9,28,50,.62) 55%, rgba(9,28,50,.38) 100%), url('../images/campus6.webp') center/cover no-repeat;
+    color: #fff;
+    min-height: clamp(260px, 34vw, 360px);
+    display: flex; align-items: center;
+    padding: clamp(2.5rem, 6vw, 4rem) 0;
+    text-align: left;
+}
+.adm-hero h1 { color:#fff; font-size: clamp(1.9rem, 4vw, 2.9rem); font-weight: 800; margin: .3rem 0 .8rem; }
+.adm-hero p { color:#c3d2e6; max-width: 640px; margin: 0; font-size: 1.08rem; line-height: 1.65; }
+.adm-crumb { font-size:.85rem; color: var(--ds-muted); padding: 1rem 0 0; }
+.adm-crumb a { color: var(--ds-navy); text-decoration: none; }
+.adm-crumb a:hover { text-decoration: underline; }
+
+.page-section-body { color: var(--ds-body); line-height: 1.75; }
+
+/* ---------- quick stats banner ---------- */
+.quick-stats-banner {
+    background: var(--ds-navy);
+    border-radius: var(--ds-r-lg) !important;
+    padding: 1.75rem 1rem;
+    color: #fff;
+}
+.quick-stats-banner .stat-card { padding: .5rem; }
+.quick-stats-banner .stat-number {
+    font-family: var(--ds-font-display); font-weight: 800;
+    font-size: clamp(1.6rem, 3.5vw, 2.3rem); color: #fff; line-height: 1;
+}
+.quick-stats-banner .stat-label { font-size: .88rem; color: #b9cbdf; margin-top: .35rem; }
+
+/* ---------- accordion (Bootstrap, restyled) ---------- */
+.admissions-accordion .accordion-item {
+    border: 1px solid var(--ds-line);
+    border-radius: var(--ds-r-lg) !important;
+    margin-bottom: 1rem; overflow: hidden; background: #fff;
+    box-shadow: var(--ds-shadow-sm);
+}
+.admissions-accordion .accordion-button {
+    font-family: var(--ds-font-display); font-weight: 700; font-size: 1.12rem;
+    color: var(--ds-ink); background: #fff; padding: 1.15rem 1.4rem;
+}
+.admissions-accordion .accordion-button:not(.collapsed) {
+    color: var(--ds-navy); background: var(--ds-navy-050); box-shadow: none;
+}
+.admissions-accordion .accordion-button:focus { box-shadow: 0 0 0 .2rem rgba(11,42,74,.15); border-color: transparent; }
+.admissions-accordion .accordion-button::after {
+    background-image: none; background: none; width: auto; height: auto;
+    content: '\002B'; font-size: 1.5rem; line-height: 1; color: var(--ds-red);
+    transition: transform var(--ds-t);
+}
+.admissions-accordion .accordion-button:not(.collapsed)::after { transform: rotate(45deg); }
+.admissions-accordion .accordion-body { padding: 1.5rem; }
+
+.admissions-section-text p { color: var(--ds-body); line-height: 1.75; }
+.admissions-section-text h5 { font-family: var(--ds-font-display); font-size: 1.1rem; color: var(--ds-ink); font-weight: 700; }
+.admissions-section-text h6 { font-weight: 700; color: var(--ds-ink); }
+.admissions-section-text ul { padding-left: 1.1rem; }
+.admissions-section-text li { margin-bottom: .4rem; color: var(--ds-body); }
+
+/* ---------- generic side cards ---------- */
+.admission-card.card {
+    border: 1px solid var(--ds-line) !important;
+    border-radius: var(--ds-r-lg) !important;
+    box-shadow: var(--ds-shadow-sm) !important;
+}
+.admission-card .card-title { font-family: var(--ds-font-display); font-weight: 700; color: var(--ds-ink); font-size: 1.05rem; }
+.contact-info p { margin-bottom: .5rem; color: var(--ds-body); }
+
+/* ---------- application types ---------- */
+.type-card {
+    text-align: center; padding: 1.1rem .75rem;
+    border: 1px solid var(--ds-line); border-radius: var(--ds-r-md) !important;
+    background: #fff; height: 100%; transition: var(--ds-t);
+}
+.type-card:hover { box-shadow: var(--ds-shadow-md); transform: translateY(-3px); }
+.type-icon { font-size: 1.6rem; color: var(--ds-red); margin-bottom: .5rem; }
+.type-card h6 { font-weight: 700; margin: .25rem 0 .1rem; color: var(--ds-ink); }
+.type-card small { color: var(--ds-muted); }
+
+/* ---------- requirement cards + note box ---------- */
+.requirement-card {
+    border: 1px solid var(--ds-line); border-left: 3px solid var(--ds-navy);
+    border-radius: var(--ds-r-md) !important; padding: 1.2rem 1.3rem; background: #fff;
+}
+.requirement-card h5 { font-family: var(--ds-font-display); font-size: 1.05rem; }
+.note-box {
+    background: var(--ds-bg-soft); border: 1px solid var(--ds-line);
+    border-left: 3px solid var(--ds-gold);
+    border-radius: var(--ds-r-md) !important; padding: 1.1rem 1.3rem;
+}
+
+/* ---------- document list ---------- */
+.document-item {
+    display: flex; align-items: center; gap: .5rem;
+    padding: .7rem .9rem; margin-bottom: .5rem;
+    border: 1px solid var(--ds-line); border-radius: var(--ds-r-md) !important;
+    text-decoration: none; color: var(--ds-ink); font-size: .93rem; transition: var(--ds-t);
+}
+.document-item:hover { background: var(--ds-navy-050); border-color: var(--ds-navy); color: var(--ds-navy); }
+
+/* ---------- process steps ---------- */
+.process-step { display: flex; gap: 1rem; align-items: flex-start; margin-bottom: 1rem; }
+.process-step .step-number {
+    flex: 0 0 auto; width: 40px; height: 40px;
+    display: flex; align-items: center; justify-content: center;
+    background: var(--ds-navy); color: #fff; font-weight: 800;
+    border-radius: var(--ds-r-sm) !important; font-family: var(--ds-font-display);
+}
+.step-content h6 { font-weight: 700; margin: .3rem 0 .2rem; color: var(--ds-ink); }
+.step-content p { margin: 0; color: var(--ds-muted); font-size: .93rem; }
+
+/* ---------- timeline (dates) ---------- */
+.intake-title { font-family: var(--ds-font-display); font-size: 1.08rem; color: var(--ds-ink); }
+.timeline { border-left: 2px solid var(--ds-line); padding-left: 1.25rem; margin-left: .5rem; }
+.timeline-item { position: relative; padding-bottom: 1.1rem; }
+.timeline-item::before {
+    content: ''; position: absolute; left: -1.66rem; top: .2rem;
+    width: 11px; height: 11px; background: var(--ds-red); border-radius: 50% !important;
+    border: 2px solid #fff; box-shadow: 0 0 0 2px var(--ds-red);
+}
+.timeline-date { font-weight: 700; color: var(--ds-red); font-size: .9rem; }
+.timeline-content h6 { font-weight: 700; margin: .15rem 0 .1rem; color: var(--ds-ink); }
+.timeline-content p { margin: 0; color: var(--ds-muted); font-size: .9rem; }
+
+/* ---------- events list ---------- */
+.event-item { display: flex; gap: .9rem; align-items: center; padding: .6rem 0; border-bottom: 1px solid var(--ds-line); }
+.event-item:last-child { border-bottom: 0; }
+.event-date {
+    flex: 0 0 auto; width: 52px; text-align: center;
+    background: var(--ds-navy-050); border-radius: var(--ds-r-sm) !important; padding: .35rem 0;
+}
+.event-day { display: block; font-weight: 800; font-size: 1.1rem; color: var(--ds-navy); line-height: 1; }
+.event-month { display: block; font-size: .72rem; text-transform: uppercase; color: var(--ds-muted); }
+.event-details h6 { font-weight: 700; margin: 0 0 .1rem; color: var(--ds-ink); font-size: .95rem; }
+.event-details p { margin: 0; color: var(--ds-muted); font-size: .86rem; }
+
+/* ---------- tuition tables ---------- */
+.tuition-table { border-collapse: collapse; width: 100%; }
+.tuition-table thead th { background: var(--ds-navy) !important; color: #fff !important; font-size: .8rem; text-transform: uppercase; letter-spacing: .03em; border-color: var(--ds-navy) !important; padding: .7rem .85rem; }
+.tuition-table td { padding: .7rem .85rem; font-size: .92rem; color: var(--ds-body); vertical-align: middle; }
+.tuition-table tbody tr:last-child td { font-weight: 700; color: var(--ds-ink); }
+.fee-table-section h5 { font-family: var(--ds-font-display); font-size: 1.05rem; }
+.additional-fees { background: var(--ds-bg-soft); border: 1px solid var(--ds-line); border-radius: var(--ds-r-md) !important; padding: 1.1rem 1.3rem; }
+
+/* ---------- fee calculator ---------- */
+.calculator .form-select, .calculator .form-control { border-radius: var(--ds-r-md) !important; border: 1px solid var(--ds-line); }
+.calculator .btn { border-radius: var(--ds-r-md) !important; }
+.result { border-radius: var(--ds-r-md) !important; }
+.total-cost { color: var(--ds-red) !important; }
+
+/* ---------- media (videos) ---------- */
+.admissions-media .ratio { border-radius: var(--ds-r-lg) !important; overflow: hidden; box-shadow: var(--ds-shadow-sm); }

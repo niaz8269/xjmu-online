@@ -1,0 +1,90 @@
+Options -Indexes
+DirectoryIndex index.php index.html
+AddDefaultCharset UTF-8
+AddCharset UTF-8 .html .css .js .xml .json .rss .atom
+
+<IfModule mod_rewrite.c>
+    <IfModule mod_negotiation.c>
+        Options -MultiViews
+    </IfModule>
+
+    RewriteEngine On
+
+    # Handle Authorization / X-XSRF-Token headers (Laravel default)
+    RewriteCond %{HTTP:Authorization} .
+    RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+    RewriteCond %{HTTP:x-xsrf-token} .
+    RewriteRule .* - [E=HTTP_X_XSRF_TOKEN:%{HTTP:X-XSRF-Token}]
+
+    # --- Canonical host: force HTTPS + non-www (SEO) -------------------------
+    # Same rule the original site shipped (it was commented out there too). Enable on production
+    # once HTTPS is confirmed on the new hosting:
+    #RewriteCond %{HTTP_HOST} ^(www\.)?xjmu\.online [NC]
+    #RewriteCond %{HTTPS} off [OR]
+    #RewriteCond %{HTTP_HOST} ^www\. [NC]
+    #RewriteRule ^ https://xjmu.online%{REQUEST_URI} [R=301,L]
+
+    # --- Canonicalise old .php URLs -> clean URLs (SEO; same as the original site) ---
+    # GET-only, and processing endpoints (save_/get_/send_/submit_/download_/export_/review_) are excluded.
+    RewriteCond %{REQUEST_METHOD} !=POST
+    RewriteCond %{THE_REQUEST} \s/+index\.php[\s?] [NC]
+    RewriteRule ^ / [R=301,L]
+
+    RewriteCond %{REQUEST_METHOD} !=POST
+    RewriteCond %{THE_REQUEST} \s/+([^.\s?/]+)\.php[\s?] [NC]
+    RewriteCond %1 !^(?:save_|get_|send_|submit_|download_|export_|review_) [NC]
+    RewriteRule ^ /%1 [R=301,L]
+
+    # Legacy content aliases handled internally (same as the original site).
+    RewriteRule ^careers\.(php|html)$ be-our-partner [L]
+    RewriteRule ^news\.php$ events [L]
+    RewriteRule ^research\.(php|html)$ blogs [L]
+    RewriteRule ^login\.html$ login [L]
+    RewriteRule ^register\.html$ register [L]
+    RewriteRule ^programs\.html$ programs [L]
+    RewriteRule ^campus-life\.html$ gallery [L]
+    RewriteRule ^mbbs\.html$ mbbs [L]
+    RewriteRule ^international\.(php|html)$ admissions [L]
+    RewriteRule ^sitemap\.xml$ sitemap [L]
+
+    # Redirect Trailing Slashes If Not A Folder...
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_URI} (.+)/$
+    RewriteRule ^ %1 [L,R=301]
+
+    # Send Requests To Front Controller...
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteRule ^ index.php [L]
+</IfModule>
+
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javascript application/javascript application/json
+</IfModule>
+
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresByType image/jpg "access plus 1 year"
+    ExpiresByType image/jpeg "access plus 1 year"
+    ExpiresByType image/gif "access plus 1 year"
+    ExpiresByType image/png "access plus 1 year"
+    ExpiresByType image/webp "access plus 1 year"
+    ExpiresByType text/css "access plus 1 month"
+    ExpiresByType application/javascript "access plus 1 month"
+    ExpiresByType text/javascript "access plus 1 month"
+    ExpiresByType application/pdf "access plus 1 month"
+    ExpiresByType text/html "access plus 1 day"
+</IfModule>
+
+<IfModule mod_headers.c>
+    Header always set X-Frame-Options "SAMEORIGIN"
+    Header always set X-XSS-Protection "1; mode=block"
+    Header always set X-Content-Type-Options "nosniff"
+    Header always set Referrer-Policy "strict-origin-when-cross-origin"
+    Header unset Server
+    Header unset X-Powered-By
+</IfModule>
+
+<FilesMatch "\.(htaccess|htpasswd|ini|log|sh|sql|bak|env)$">
+    Require all denied
+</FilesMatch>

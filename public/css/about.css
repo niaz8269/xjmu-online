@@ -1,0 +1,81 @@
+/* ==========================================================================
+   XJMU /about page (Phase 4) — depends on design-system.css tokens.
+   ========================================================================== */
+
+/* ---------- hero ---------- */
+.about-hero {
+    background: linear-gradient(90deg, rgba(9,28,50,.92) 0%, rgba(9,28,50,.62) 55%, rgba(9,28,50,.38) 100%), url('../images/campus1.webp') center/cover no-repeat;
+    color: #fff;
+    min-height: clamp(260px, 34vw, 360px);
+    display: flex; align-items: center;
+    padding: clamp(2.5rem, 6vw, 4rem) 0;
+    text-align: left;
+}
+.about-hero h1 { color:#fff; font-size: clamp(1.9rem, 4vw, 2.9rem); font-weight: 800; margin: .3rem 0 .8rem; }
+.about-hero p { color:#c3d2e6; max-width: 640px; margin: 0; font-size: 1.08rem; line-height: 1.65; }
+
+.about-crumb { font-size:.85rem; color: var(--ds-muted); padding: 1rem 0 0; }
+.about-crumb a { color: var(--ds-navy); text-decoration: none; }
+.about-crumb a:hover { text-decoration: underline; }
+
+/* ---------- admin page-sections ---------- */
+.page-section-body { color: var(--ds-body); line-height: 1.75; }
+.page-section-body h2, .page-section-body h3 { font-family: var(--ds-font-display); color: var(--ds-ink); }
+
+/* ---------- accordion (Bootstrap, restyled) ---------- */
+.about-accordion .accordion-item {
+    border: 1px solid var(--ds-line);
+    border-radius: var(--ds-r-lg) !important;
+    margin-bottom: 1rem;
+    overflow: hidden;
+    background: #fff;
+    box-shadow: var(--ds-shadow-sm);
+}
+.about-accordion .accordion-button {
+    font-family: var(--ds-font-display);
+    font-weight: 700; font-size: 1.12rem;
+    color: var(--ds-ink);
+    background: #fff;
+    padding: 1.15rem 1.4rem;
+}
+.about-accordion .accordion-button:not(.collapsed) {
+    color: var(--ds-navy);
+    background: var(--ds-navy-050);
+    box-shadow: none;
+}
+.about-accordion .accordion-button:focus {
+    box-shadow: 0 0 0 .2rem rgba(11,42,74,.15);
+    border-color: transparent;
+}
+.about-accordion .accordion-button::after {
+    background-image: none; background: none;
+    width: auto; height: auto;
+    content: '\002B';
+    font-size: 1.5rem; line-height: 1; color: var(--ds-red);
+    transition: transform var(--ds-t);
+}
+.about-accordion .accordion-button:not(.collapsed)::after { transform: rotate(45deg); }
+.about-accordion .accordion-body { padding: 1.4rem; }
+
+.about-section-text p { color: var(--ds-body); line-height: 1.75; }
+.about-section-text ul { margin: .75rem 0 0; padding-left: 0; list-style: none; }
+.about-section-text li {
+    position: relative; padding-left: 1.4rem; margin-bottom: .5rem;
+    color: var(--ds-body); font-size: .97rem;
+}
+.about-section-text li::before {
+    content: ''; position: absolute; left: 0; top: .55em;
+    width: 7px; height: 7px; background: var(--ds-red); border-radius: 2px !important;
+}
+
+/* ---------- media ---------- */
+.about-media .ratio {
+    border-radius: var(--ds-r-lg) !important;
+    overflow: hidden;
+    box-shadow: var(--ds-shadow-sm);
+}
+.about-media-images img {
+    width: 100%; aspect-ratio: 4/3; object-fit: cover;
+    border-radius: var(--ds-r-md) !important;
+    box-shadow: var(--ds-shadow-sm);
+}

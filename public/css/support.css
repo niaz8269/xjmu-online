@@ -1,0 +1,109 @@
+/* ==========================================================================
+   XJMU /support page (Phase 4) — depends on design-system.css tokens.
+   Bootstrap grid + card + accordion markup preserved.
+   ========================================================================== */
+
+/* ---------- hero + breadcrumb ---------- */
+.support-hero {
+    background: linear-gradient(90deg, rgba(9,28,50,.92) 0%, rgba(9,28,50,.62) 55%, rgba(9,28,50,.38) 100%), url('../images/campus13.webp') center/cover no-repeat;
+    color: #fff;
+    min-height: clamp(260px, 34vw, 360px);
+    display: flex; align-items: center;
+    padding: clamp(2.5rem, 6vw, 4rem) 0;
+    text-align: left;
+}
+.support-hero h1 { color:#fff; font-size: clamp(1.9rem, 4vw, 2.9rem); font-weight: 800; margin: .3rem 0 .8rem; }
+.support-hero p { color:#c3d2e6; max-width: 640px; margin: 0; font-size: 1.08rem; line-height: 1.65; }
+.support-crumb { font-size:.85rem; color: var(--ds-muted); padding: 1rem 0 0; }
+.support-crumb a { color: var(--ds-navy); text-decoration: none; }
+.support-crumb a:hover { text-decoration: underline; }
+
+.support-page { background: var(--ds-bg-soft); padding-bottom: 1.5rem; }
+
+/* ---------- section titles ---------- */
+.section-title {
+    margin-top: 0;
+    font-family: var(--ds-font-display);
+    font-weight: 800;
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    color: var(--ds-ink);
+    text-align: center;
+}
+
+/* ---------- feature cards ---------- */
+.feature-card {
+    background: #fff;
+    border: 1px solid var(--ds-line) !important;
+    border-radius: var(--ds-r-lg) !important;
+    box-shadow: var(--ds-shadow-sm);
+    overflow: hidden;
+    transition: transform var(--ds-t), box-shadow var(--ds-t);
+}
+.feature-card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--ds-shadow-lg);
+}
+.feature-card .card-img-top {
+    border-radius: var(--ds-r-md) !important;
+    object-fit: cover;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    margin-bottom: .5rem;
+}
+.feature-card .card-title {
+    font-family: var(--ds-font-display);
+    font-weight: 700;
+    font-size: 1.12rem;
+    color: var(--ds-ink);
+    display: flex;
+    align-items: center;
+    gap: .55rem;
+}
+.feature-card .card-title i { color: var(--ds-red); }
+.feature-card .card-text {
+    color: var(--ds-body);
+    font-size: .94rem;
+    line-height: 1.65;
+    margin-bottom: 0;
+}
+
+/* ---------- FAQ accordion ---------- */
+.support-faq .accordion-item {
+    background: #fff;
+    border: 1px solid var(--ds-line);
+    border-radius: var(--ds-r-md) !important;
+    margin-bottom: .75rem;
+    overflow: hidden;
+    box-shadow: var(--ds-shadow-sm);
+}
+.support-faq .accordion-header { margin: 0; }
+.support-faq .accordion-button {
+    font-family: var(--ds-font-display);
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--ds-ink);
+    background: #fff;
+    padding: 1.05rem 1.2rem;
+    box-shadow: none;
+}
+.support-faq .accordion-button:not(.collapsed) {
+    color: var(--ds-navy);
+    background: var(--ds-navy-050);
+    box-shadow: none;
+}
+.support-faq .accordion-button:focus {
+    box-shadow: 0 0 0 3px rgba(11,42,74,.12);
+    border-color: var(--ds-navy);
+}
+.support-faq .accordion-button::after { filter: none; }
+.support-faq .accordion-body {
+    color: var(--ds-body);
+    font-size: .94rem;
+    line-height: 1.7;
+    padding: 1rem 1.2rem 1.2rem;
+}
+
+/* ---------- responsive ---------- */
+@media (max-width: 768px) {
+    .container.py-5 { padding-top: 2rem !important; padding-bottom: 2rem !important; }
+}

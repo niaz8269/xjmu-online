@@ -1,0 +1,232 @@
+/* ==========================================================================
+   XJMU Design System  (Phase 2 redesign)
+   Shared tokens + reusable components. Load AFTER global.css so these win.
+   Scoped to <body class="ds-page"> so legacy pages are untouched until they
+   opt in. Radius rules use !important because global.css sets
+   `* { border-radius: 0 !important }`.
+   Palette: trust navy (primary) + XJMU red (accent) + neutral grays.
+   ========================================================================== */
+
+/* Fonts (Inter + Manrope) are loaded via a <link> in includes/header.php with
+   preconnect — faster than an @import chain. */
+
+:root {
+    /* ---- Brand ---- */
+    --ds-navy:        #0b2a4a;   /* primary — trust */
+    --ds-navy-700:    #0e3559;
+    --ds-navy-600:    #14487a;
+    --ds-navy-050:    #eef3f9;
+    --ds-red:         #e62129;   /* accent — XJMU red / primary CTA */
+    --ds-red-600:     #c81a20;
+    --ds-red-050:     #fdecec;
+    --ds-gold:        #f2b705;   /* small trust accents (stars, highlights) */
+
+    /* ---- Neutrals ---- */
+    --ds-ink:         #16202e;   /* headings */
+    --ds-body:        #33404f;   /* body text */
+    --ds-muted:       #667085;   /* secondary text */
+    --ds-line:        #e4e8ee;   /* borders */
+    --ds-bg:          #ffffff;
+    --ds-bg-soft:     #f5f8fc;   /* section alt background */
+    --ds-bg-navy-soft:#f0f5fb;
+
+    /* ---- Type ---- */
+    --ds-font-body:    'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+    --ds-font-display: 'Manrope', 'Inter', 'Segoe UI', system-ui, sans-serif;
+
+    /* ---- Radius (kept tight for a corporate, professional feel) ---- */
+    --ds-r-sm: 3px;
+    --ds-r-md: 4px;
+    --ds-r-lg: 6px;
+    --ds-r-xl: 8px;
+    --ds-r-pill: 4px;
+
+    /* ---- Shadows ---- */
+    --ds-shadow-sm: 0 1px 2px rgba(16,24,40,.04), 0 1px 3px rgba(16,24,40,.06);
+    --ds-shadow-md: 0 6px 18px rgba(16,24,40,.08);
+    --ds-shadow-lg: 0 18px 40px rgba(11,42,74,.14);
+
+    /* ---- Motion ---- */
+    --ds-t: .25s cubic-bezier(.4,0,.2,1);
+}
+
+/* --------------------------------------------------------------------------
+   Base (only on opted-in pages)
+   -------------------------------------------------------------------------- */
+body.ds-page {
+    font-family: var(--ds-font-body);
+    color: var(--ds-body);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+}
+
+.ds-page h1, .ds-page h2, .ds-page h3, .ds-page h4,
+.ds-page .ds-display {
+    font-family: var(--ds-font-display);
+    color: var(--ds-ink);
+    line-height: 1.15;
+    letter-spacing: -.01em;
+}
+
+.ds-page .container { max-width: 1200px; }
+
+/* --------------------------------------------------------------------------
+   Layout helpers
+   -------------------------------------------------------------------------- */
+.ds-section { padding: clamp(3rem, 6vw, 5.5rem) 0; background: var(--ds-bg); }
+.ds-section--soft { background: var(--ds-bg-soft); }
+.ds-section--navy {
+    background: linear-gradient(160deg, var(--ds-navy) 0%, var(--ds-navy-700) 100%);
+    color: #dbe6f2;
+}
+.ds-section--navy h2, .ds-section--navy h3 { color: #fff; }
+
+.ds-section-head { max-width: 720px; margin: 0 auto 2.5rem; text-align: center; }
+.ds-section-head--left { margin-left: 0; text-align: left; }
+
+.ds-eyebrow {
+    display: inline-block;
+    font-family: var(--ds-font-body);
+    font-size: .78rem;
+    font-weight: 700;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--ds-red);
+    margin-bottom: .6rem;
+}
+.ds-section--navy .ds-eyebrow { color: #ffd0d2; }
+
+.ds-title {
+    font-size: clamp(1.7rem, 3.2vw, 2.5rem);
+    font-weight: 800;
+    margin: 0 0 .75rem;
+}
+.ds-lead {
+    font-size: 1.06rem;
+    line-height: 1.7;
+    color: var(--ds-muted);
+    margin: 0;
+}
+.ds-section--navy .ds-lead { color: #bccadd; }
+
+/* --------------------------------------------------------------------------
+   Buttons
+   -------------------------------------------------------------------------- */
+.ds-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: .55rem;
+    font-family: var(--ds-font-body);
+    font-weight: 600;
+    font-size: .98rem;
+    line-height: 1;
+    padding: .85rem 1.6rem;
+    border: 1.5px solid transparent;
+    border-radius: var(--ds-r-pill) !important;
+    cursor: pointer;
+    text-decoration: none !important;
+    transition: var(--ds-t);
+    white-space: nowrap;
+}
+.ds-btn i { font-size: .95em; }
+.ds-btn--lg { padding: 1rem 2rem; font-size: 1.05rem; }
+.ds-btn--block { width: 100%; }
+
+.ds-btn--primary { background: var(--ds-red); color: #fff !important; box-shadow: 0 8px 20px rgba(230,33,41,.28); }
+.ds-btn--primary:hover { background: var(--ds-red-600); transform: translateY(-2px); box-shadow: 0 12px 26px rgba(230,33,41,.34); color:#fff !important; }
+
+.ds-btn--navy { background: var(--ds-navy); color: #fff !important; }
+.ds-btn--navy:hover { background: var(--ds-navy-600); transform: translateY(-2px); color:#fff !important; }
+
+.ds-btn--outline { background: transparent; color: var(--ds-navy) !important; border-color: var(--ds-line); }
+.ds-btn--outline:hover { border-color: var(--ds-navy); background: var(--ds-navy-050); transform: translateY(-2px); }
+
+.ds-btn--ghost-light { background: rgba(255,255,255,.12); color:#fff !important; border-color: rgba(255,255,255,.4); backdrop-filter: blur(4px); }
+.ds-btn--ghost-light:hover { background: rgba(255,255,255,.22); transform: translateY(-2px); }
+
+/* --------------------------------------------------------------------------
+   Cards & pills
+   -------------------------------------------------------------------------- */
+.ds-card {
+    background: var(--ds-bg);
+    border: 1px solid var(--ds-line);
+    border-radius: var(--ds-r-lg) !important;
+    padding: 1.6rem 1.5rem;
+    box-shadow: var(--ds-shadow-sm);
+    transition: var(--ds-t);
+    height: 100%;
+}
+.ds-card:hover { transform: translateY(-4px); box-shadow: var(--ds-shadow-lg); border-color: #d6deea; }
+
+/* Decorative colored icon tiles removed for a cleaner, more professional look.
+   Kept as a no-op class so existing markup stays valid. */
+.ds-icon-badge, .ds-icon-badge--navy { display: none !important; }
+
+.ds-card h3 { font-size: 1.15rem; font-weight: 700; margin: 0 0 .45rem; }
+.ds-card p  { font-size: .95rem; color: var(--ds-muted); margin: 0; line-height: 1.6; }
+
+.ds-pill {
+    display: inline-flex; align-items: center; gap: .4rem;
+    font-size: .82rem; font-weight: 600;
+    padding: .4rem .85rem;
+    border-radius: var(--ds-r-pill) !important;
+    background: var(--ds-navy-050);
+    color: var(--ds-navy);
+}
+.ds-pill i { color: var(--ds-red); }
+
+/* --------------------------------------------------------------------------
+   Stats
+   -------------------------------------------------------------------------- */
+.ds-stat { text-align: center; }
+.ds-stat__num {
+    font-family: var(--ds-font-display);
+    font-size: clamp(1.8rem, 4vw, 2.6rem);
+    font-weight: 800;
+    color: var(--ds-red);
+    line-height: 1;
+}
+.ds-section--navy .ds-stat__num { color: #fff; }
+.ds-stat__label { font-size: .9rem; color: var(--ds-muted); margin-top: .35rem; }
+.ds-section--navy .ds-stat__label { color: #a9bdd4; }
+
+/* --------------------------------------------------------------------------
+   FAQ (native <details>, no JS)
+   -------------------------------------------------------------------------- */
+.ds-faq { border: 1px solid var(--ds-line); border-radius: var(--ds-r-md) !important; background:#fff; overflow: hidden; }
+.ds-faq + .ds-faq { margin-top: .9rem; }
+.ds-faq summary {
+    list-style: none; cursor: pointer;
+    display: flex; justify-content: space-between; align-items: center; gap: 1rem;
+    padding: 1.15rem 1.35rem;
+    font-family: var(--ds-font-display);
+    font-weight: 700; font-size: 1.02rem; color: var(--ds-ink);
+}
+.ds-faq summary::-webkit-details-marker { display: none; }
+.ds-faq summary::after {
+    content: '\002B'; font-weight: 400; font-size: 1.4rem; color: var(--ds-red);
+    transition: transform var(--ds-t); line-height: 1;
+}
+.ds-faq[open] summary::after { transform: rotate(45deg); }
+.ds-faq__body { padding: 0 1.35rem 1.25rem; color: var(--ds-muted); line-height: 1.7; font-size: .96rem; }
+
+/* --------------------------------------------------------------------------
+   CTA band
+   -------------------------------------------------------------------------- */
+.ds-cta-band {
+    background: linear-gradient(135deg, var(--ds-red) 0%, var(--ds-red-600) 100%);
+    color: #fff; border-radius: var(--ds-r-xl) !important;
+    padding: clamp(2rem, 5vw, 3.25rem);
+    text-align: center;
+    box-shadow: var(--ds-shadow-lg);
+}
+.ds-cta-band h2 { color:#fff; font-size: clamp(1.5rem,3vw,2.1rem); font-weight: 800; margin-bottom: .6rem; }
+.ds-cta-band p  { color: rgba(255,255,255,.9); max-width: 620px; margin: 0 auto 1.6rem; }
+
+/* --------------------------------------------------------------------------
+   Reduced motion
+   -------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+    .ds-page * { transition: none !important; animation: none !important; }
+}

@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All MBBS Universities in China | Complete List</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" type="image/x-icon" href="logo.png">
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/animations.css">
+    <link rel="stylesheet" href="assets/css/universities.css">
+    <!-- EmailJS SDK -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+</head>
+<body>
+    <!-- Header will be loaded dynamically -->
+    <div id="header"></div>
+
+    <!-- Hero Section -->
+    <section class="universities-hero">
+        <div class="container">
+            <h1 class="fade-in-up">MOE & Non MOE Listed MBBS Universities of China</h1>
+            <p class="fade-in-up delay-1">Explore our comprehensive list of MOE & Non MOE Listed / MCI and WHO approved medical universities of China offering MBBS programs for international students.</p>
+        </div>
+    </section>
+
+    <!-- Search and Filter Section -->
+    <section class="search-filter">
+        <div class="container">
+            <div class="search-container">
+                <div class="search-box">
+                    <input type="text" id="search-input" placeholder="Search universities by name, location, or description...">
+                    <i class="fas fa-search search-icon"></i>
+                    <i class="fas fa-times clear-search" id="clear-search" style="display: none;"></i>
+                </div>
+                <div class="filter-box">
+                    <select class="filter-select" id="university-filter">
+                        <option value="">All Universities</option>
+                        <!-- Universities will be populated by JavaScript -->
+                    </select>
+                    <!-- MOE Listed Filter -->
+
+                    <select id="moe-filter" class="filter-select">
+                        <option value="">MOE & Non MOE</option>
+                        <option value="moe-listed">MOE Listed</option>
+                        <option value="non-moe">Non MOE Listed</option>
+                     </select>
+
+                    <select class="filter-select" id="city-filter">
+                        <option value="">All Cities</option>
+                        <!-- Cities will be populated by JavaScript -->
+                    </select>
+                    <select class="filter-select" id="tuition-filter">
+                        <option value="">All Tuition Fees</option>
+                        <option value="low">Under 30,000 CNY</option>
+                        <option value="medium">30,000 - 40,000 CNY</option>
+                        <option value="high">Over 40,000 CNY</option>
+                    </select>
+                    <select class="filter-select" id="duration-filter">
+                        <option value="">All Durations</option>
+                        <option value="5">5 Years</option>
+                        <option value="6">6 Years</option>
+                    </select>
+                </div>
+            </div>
+            <div class="filter-actions">
+                <div class="results-count" id="results-count">
+                    Showing <span id="current-count">0</span> of <span id="total-count">0</span> universities
+                </div>
+                <div class="page-size-selector">
+                    <label for="page-size-selector">Show per page:</label>
+                    <select id="page-size-selector" class="page-size-select">
+                        <option value="6">6</option>
+                        <option value="12" selected>12</option>
+                        <option value="18">18</option>
+                        <option value="24">24</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Universities Section -->
+    <section class="universities-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>MBBS Universities in China</h2>
+                <p>All universities are recognized by MCI, WHO, and other international medical bodies.</p>
+            </div>
+            <div class="universities-grid" id="universities-container">
+                <!-- Universities will be loaded here by JavaScript -->
+            </div>
+
+            
+            <!-- No Results Message -->
+            <div class="no-results" id="no-results" style="display: none;">
+                <i class="fas fa-search"></i>
+                <h3>No universities found</h3>
+                <p>Try adjusting your search or filter criteria</p>
+            </div>
+            
+            <!-- Pagination -->
+            <div class="pagination" id="pagination">
+                <!-- Pagination will be generated by JavaScript -->
+            </div>
+        </div>
+    </section>
+<!-- Dynamic Gallery Section -->
+<section class="gallery" id="gallery">
+    <div class="container">
+        <div class="section-header">
+            <h2>Student Life & Campus Gallery</h2>
+            <p>Explore life at Chinese medical universities through student experiences</p>
+        </div>
+        
+        <div class="gallery-header">
+            <div class="gallery-filters">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="campus">Campus</button>
+                <button class="filter-btn" data-filter="clinical">Clinical</button>
+                <button class="filter-btn" data-filter="student-life">Student Life</button>
+                <button class="filter-btn" data-filter="facilities">Facilities</button>
+            </div>
+            <div class="gallery-search">
+                <input type="text" id="gallerySearch" placeholder="Search gallery...">
+                <i class="fas fa-search"></i>
+            </div>
+        </div>
+        
+        <div class="gallery-grid" id="galleryGrid">
+            <!-- Gallery items will be dynamically loaded here -->
+        </div>
+        
+        <div class="gallery-load-more" id="galleryLoadMore">
+            <button class="btn btn-outline" id="loadMoreBtn">
+                <i class="fas fa-plus"></i> Load More Images
+            </button>
+        </div>
+    </div>
+</section>
+
+<!-- Gallery Modal -->
+<div class="gallery-modal" id="galleryModal">
+    <div class="gallery-modal-overlay" id="galleryModalOverlay"></div>
+    <div class="gallery-modal-content">
+        <button class="gallery-modal-close" id="galleryModalClose">
+            <i class="fas fa-times"></i>
+        </button>
+        <div class="gallery-modal-nav">
+            <button class="gallery-modal-prev" id="galleryModalPrev">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <button class="gallery-modal-next" id="galleryModalNext">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+        </div>
+        <div class="gallery-modal-image-container">
+            <img id="galleryModalImage" src="" alt="">
+            <div class="gallery-modal-info">
+                <h3 id="galleryModalTitle"></h3>
+                <p id="galleryModalDescription"></p>
+                <div class="gallery-modal-meta">
+                    <span class="gallery-modal-category" id="galleryModalCategory"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <!-- Footer will be loaded dynamically -->
+    <div id="footer"></div>
+
+    <!-- Back to Top Button -->
+    <div class="back-to-top" id="backToTop">
+        <i class="fas fa-chevron-up"></i>
+    </div>
+
+    <script src="assets/js/router.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/animations.js"></script>
+    <script src="assets/js/universities.js" type="module" ></script>
+   <script src="assets/js/gallery.js"></script>
+</body>
+</html>

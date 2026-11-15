@@ -1,0 +1,129 @@
+/* ==========================================================================
+   XJMU /adm-HtApply (How to Apply) — depends on design-system.css tokens.
+   ========================================================================== */
+
+/* ---------- hero ---------- */
+.hta-hero {
+    background: linear-gradient(90deg, rgba(9,28,50,.92) 0%, rgba(9,28,50,.62) 55%, rgba(9,28,50,.38) 100%), url('../images/campus6.webp') center/cover no-repeat;
+    color: #fff;
+    min-height: clamp(260px, 34vw, 360px);
+    display: flex; align-items: center;
+    padding: clamp(2.5rem, 6vw, 4rem) 0;
+    text-align: left;
+}
+.hta-hero h1 { color:#fff; font-size: clamp(1.9rem, 4vw, 2.9rem); font-weight: 800; margin: .3rem 0 .8rem; }
+.hta-hero p { color:#c3d2e6; max-width: 640px; margin: 0; font-size: 1.08rem; line-height: 1.65; }
+
+/* ---------- breadcrumb ---------- */
+.hta-crumb { font-size:.85rem; color: var(--ds-muted); padding: 1rem 0 0; }
+.hta-crumb a { color: var(--ds-navy); text-decoration: none; }
+.hta-crumb a:hover { text-decoration: underline; }
+
+/* ---------- requirement cards ---------- */
+.hta-req-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.4rem;
+    margin-top: 1.5rem;
+}
+.hta-req-card { padding: 1.5rem 1.6rem; }
+.hta-req-card h3 {
+    font-family: var(--ds-font-display);
+    color: var(--ds-navy);
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin: 0 0 .8rem;
+    padding-bottom: .5rem;
+    border-bottom: 2px solid var(--ds-red);
+    display: inline-block;
+}
+.hta-req-card ul { margin: 0; padding-left: 1.2rem; color: var(--ds-body); line-height: 1.7; }
+.hta-req-card li { margin-bottom: .4rem; }
+
+/* ---------- numbered steps ---------- */
+.hta-steps {
+    list-style: none;
+    margin: 1.8rem auto 0;
+    padding: 0;
+    max-width: 760px;
+    counter-reset: hta;
+}
+.hta-steps li {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.1rem;
+    padding: 1.1rem 1.3rem;
+    background: #fff;
+    border: 1px solid var(--ds-line);
+    border-radius: var(--ds-r-lg) !important;
+    box-shadow: var(--ds-shadow-sm);
+    margin-bottom: 1rem;
+    transition: var(--ds-t);
+}
+.hta-steps li:hover { box-shadow: var(--ds-shadow-md); transform: translateY(-2px); }
+.hta-step-num {
+    flex: 0 0 auto;
+    width: 42px; height: 42px;
+    display: grid; place-items: center;
+    background: var(--ds-navy);
+    color: #fff;
+    font-family: var(--ds-font-display);
+    font-weight: 800;
+    font-size: 1.15rem;
+    border-radius: var(--ds-r-pill) !important;
+}
+.hta-step-body {
+    color: var(--ds-body);
+    font-size: 1.02rem;
+    line-height: 1.6;
+    padding-top: .35rem;
+}
+
+/* ---------- deadlines table ---------- */
+.hta-table-wrap {
+    border: 1px solid var(--ds-line);
+    border-radius: var(--ds-r-lg) !important;
+    overflow: hidden;
+    box-shadow: var(--ds-shadow-sm);
+    background: #fff;
+    margin-top: 1.5rem;
+    max-width: 760px;
+}
+.hta-table { width: 100%; border-collapse: collapse; }
+.hta-table thead th {
+    background: var(--ds-navy); color: #fff;
+    font-size: .78rem; letter-spacing: .05em; text-transform: uppercase;
+    font-weight: 700; text-align: left; padding: .95rem 1.1rem;
+}
+.hta-table td {
+    padding: .9rem 1.1rem;
+    border-bottom: 1px solid var(--ds-line);
+    font-size: .95rem; color: var(--ds-body);
+}
+.hta-table tbody tr:last-child td { border-bottom: 0; }
+.hta-table tbody tr:hover { background: var(--ds-bg-soft); }
+.hta-table td:first-child { font-weight: 700; color: var(--ds-ink); }
+
+/* ---------- required documents ---------- */
+.hta-docs { padding: 1.6rem 1.8rem; margin-top: 1.5rem; }
+.hta-docs ul { margin: 0; padding-left: 1.3rem; color: var(--ds-body); line-height: 1.9; }
+.hta-docs li { margin-bottom: .5rem; }
+
+/* ---------- responsive: stack the deadlines table ---------- */
+@media (max-width: 640px) {
+    .hta-table thead { display: none; }
+    .hta-table, .hta-table tbody, .hta-table tr, .hta-table td { display: block; width: 100%; }
+    .hta-table tr { border-bottom: 1px solid var(--ds-line); }
+    .hta-table tr:last-child { border-bottom: 0; }
+    .hta-table td {
+        border-bottom: 1px dashed var(--ds-line);
+        display: flex; justify-content: space-between; gap: 1rem; text-align: right;
+    }
+    .hta-table tr td:last-child { border-bottom: 0; }
+    .hta-table td::before {
+        content: attr(data-label);
+        font-weight: 700; color: var(--ds-muted);
+        text-transform: uppercase; font-size: .72rem; letter-spacing: .04em;
+        text-align: left;
+    }
+}
