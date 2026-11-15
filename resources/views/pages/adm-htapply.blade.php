@@ -29,7 +29,7 @@
             <div class="ds-card hta-req-card">
                 <h3>General Eligibility</h3>
                 <ul>
-                    <li>Minimum of 18 years old.</li>
+                    <li>Between 18 and 35 years of age.</li>
                     <li>High school diploma or equivalent with science background (Physics, Chemistry, Biology).</li>
                 </ul>
             </div>

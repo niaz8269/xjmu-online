@@ -170,7 +170,7 @@ return [
             ['h' => 'Total cost', 'p' => ["Compare the full yearly cost, not tuition alone. At XJMU the first-year package for the September 2026 intake is ¥49,950 and each later year totals about ¥35,950."]],
             ['h' => 'Clinical training', 'p' => ["Ask how many teaching hospitals the university has, how large they are and where international students do the internship year."]],
             ['h' => 'Location and daily life', 'p' => ["Climate, food and distance from home affect students more than they expect. Urumqi is close to Pakistan and Central Asia, and halal food is widely available."]],
-            ['h' => 'Entry requirements', 'p' => ["Minimum marks differ. XJMU asks for at least 60% in Physics, Chemistry and Biology and an age of 17–25 at enrollment."]],
+            ['h' => 'Entry requirements', 'p' => ["Minimum marks differ. XJMU asks for at least 60% marks in each science subject and an age of 18 to 35."]],
             ['h' => 'Support for international students', 'p' => ["Look for a dedicated international student team, pre-arrival guidance and help with the visa and residence permit."]],
         ], 'table' => $s['feeYearly']],
 
@@ -187,9 +187,10 @@ return [
         ['id' => 'apply', 'eyebrow' => 'Next step', 'h' => 'How to apply to an MOE listed MBBS university', 'p' => [
             "The process is the same at most listed universities. At Xinjiang Medical University it works like this:",
         ], 'list' => [
-            'Prepare your documents: transcripts, passport copy, photographs, proof of English and a medical certificate.',
+            'Prepare your documents: passport, photograph, application form, physical examination form, police certificate, transcripts and a self-introduction video.',
             'Complete the online application and upload your documents.',
-            'Pay the application fee of ¥1,000.',
+            'Pay the application fee of ¥1,000 to apply for the Pre-Admission Letter.',
+            'Pay the ¥2,000 seat reservation deposit, refundable if your JW202 is rejected.',
             'Wait two to four weeks for the admissions committee to review your file.',
             'Receive your admission letter and JW202 form.',
             'Apply for the X1 or X2 student visa at the Chinese embassy.',

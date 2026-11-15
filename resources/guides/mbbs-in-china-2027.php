@@ -28,7 +28,7 @@ return [
             ['XJMU seats on the current list', '60'],
             ['XJMU MBBS intakes', 'Spring (February/March) and fall (September)'],
             ['XJMU first-year package (2026 intake)', '¥49,950, about USD 7,000'],
-            ['XJMU minimum eligibility', '60% in Physics, Chemistry and Biology; age 17–25'],
+            ['XJMU minimum eligibility', '60% in each science subject; age 18–35'],
         ]]],
 
         ['id' => 'why-china', 'eyebrow' => 'Why China', 'h' => 'Why study MBBS in China in 2027', 'p' => [
@@ -58,13 +58,13 @@ return [
             "Requirements differ a little from one university to another. These are the published requirements for the MBBS programme at Xinjiang Medical University:",
         ], 'list' => $s['requirements'], 'sub' => [
             ['h' => 'Academic background', 'p' => [
-                "You need a completed high-school qualification with a science background. For students from Pakistan that is FSc Pre-Medical or an equivalent; for students from other systems it is the twelfth-grade or A-level qualification with Physics, Chemistry and Biology. The minimum is 60% in those three subjects, and stronger marks help when seats are limited.",
+                "You need a completed high-school qualification with a science background. For students from Pakistan that is FSc Pre-Medical or an equivalent; for students from other systems it is the twelfth-grade or A-level qualification with science subjects. The minimum is 60% marks in each of the science subjects, and stronger marks help when seats are limited.",
             ]],
             ['h' => 'English', 'p' => [
                 "The programme is taught in English, so you must be able to study in English. Proof can be an English test such as IELTS or TOEFL, or evidence that your previous education was in English. Exemptions may apply for students from English-speaking countries.",
             ]],
             ['h' => 'Health and age', 'p' => [
-                "Applicants should be 17–25 years old at enrollment and medically fit. A health examination is part of the application and is repeated after arrival in China for the residence permit.",
+                "Applicants should be between 18 and 35 years of age, in good health and free from communicable diseases. A Chinese physical examination form and blood report are part of the application, and the examination and is repeated after arrival in China for the residence permit.",
             ]],
             ['h' => 'Rules in your home country', 'p' => [
                 "Your home country may add its own conditions for students who study medicine abroad, such as an entrance test or a minimum score. These rules belong to your medical council and they change, so read the current version before you pay any fee.",
@@ -80,10 +80,17 @@ return [
             ['h' => 'Living costs', 'p' => [
                 "Living costs are separate from university fees. Food typically costs USD 150–250 a month, local transport USD 10–20 and a mobile SIM USD 10–15. Urumqi has a large Muslim community, so halal food is easy to find on and around campus.",
             ]],
+            ['h' => 'How the payments are staged', 'p' => [
+                "You do not pay the whole first-year package at once. The ¥1,000 application fee comes first and counts towards the package. After the Pre-Admission Letter you pay a ¥2,000 seat reservation deposit, which is refunded if your JW202 is rejected. Within the package, the visa, health insurance and medical check-up charges, ¥1,450 a year in total, are paid directly to the relevant departments.",
+            ]],
             ['h' => 'Scholarships', 'p' => [
-                "The university lists the Chinese Government Scholarship (CSC), the Xinjiang Government Scholarship, the President's Scholarship and the Confucius Institute Scholarship. Each has its own eligibility rules and deadline, and applying early is recommended for scholarship consideration.",
+                "The Chinese Government Scholarship covers tuition, accommodation and insurance and pays a yearly stipend of 30,000 yuan to undergraduates. The Xinjiang Government Scholarship for international students from neighbouring countries pays undergraduates 10,000 yuan a year. The university also has its own Xinjiang Medical University Scholarship. Each has its own eligibility rules and deadline, and applying early is recommended.",
             ]],
         ], 'note' => 'Figures are indicative for the 2026 intake; USD conversions are approximate.', 'link' => ['fees', 'See the full MBBS fee breakdown']],
+
+        ['id' => 'scholarships', 'eyebrow' => 'Funding', 'h' => 'Scholarships for MBBS in China 2027', 'p' => [
+            "Scholarships reduce the cost of studying medicine in China, and some cover it completely. These are the stipend levels published by Xinjiang Medical University.",
+        ], 'table' => $s['scholarships'], 'note' => 'Scholarship places are limited and competitive. Apply by the early deadline to be considered.', 'link' => ['scholarships', 'See all scholarships at XJMU']],
 
         ['id' => 'intakes', 'eyebrow' => 'Timeline', 'h' => 'Intakes and deadlines for 2027', 'p' => [
             "The MBBS programme at XJMU has two intakes a year: spring, starting in February or March, and fall, starting in September. The university's admissions calendar publishes the same milestones each year, shown below. Dates may vary by programme, so confirm them with the admissions office before you plan travel.",
@@ -99,12 +106,12 @@ return [
         ['id' => 'how-to-apply', 'eyebrow' => 'Application', 'h' => 'How to apply for MBBS in China 2027, step by step', 'p' => [
             "The application has eight steps. None of them is difficult, but each needs the right document at the right time.",
         ], 'sub' => [
-            ['h' => '1. Prepare your documents', 'p' => ["Gather your academic transcripts and high-school certificate, a passport copy, passport-sized photographs, proof of English and a medical examination certificate. Documents must be notarised and translated into English or Chinese."]],
+            ['h' => '1. Prepare your documents', 'p' => ["Gather your passport, a white-background photograph, the XJMU application form, the Chinese physical examination form and blood report, a police non-criminal record certificate, your senior high-school transcripts and certificates, and a short self-introduction video."]],
             ['h' => '2. Complete the online application', 'p' => ["Fill in the online application form on the admissions portal and upload your documents. The portal lets you track your application and message the admissions team."]],
-            ['h' => '3. Pay the application fee', 'p' => ["The application fee is ¥1,000 and is not refundable."]],
+            ['h' => '3. Pay the application fee', 'p' => ["Submit your complete documents with the application fee of ¥1,000 to apply for the Pre-Admission Letter. The fee is non-refundable once the Pre-Admission Letter is issued, and it is included in the first-year package."]],
             ['h' => '4. Application review', 'p' => ["The admissions committee reviews your file. This takes two to four weeks."]],
             ['h' => '5. Interview, if required', 'p' => ["Some programmes ask for a short online interview with faculty members."]],
-            ['h' => '6. Receive the admission letter and JW202 form', 'p' => ["If you are accepted, you receive the official admission letter and the JW202 form, which you need for the visa."]],
+            ['h' => '6. Reserve your seat and receive the JW202 form', 'p' => ["After the Pre-Admission Letter, you pay a seat reservation deposit of ¥2,000 so that the university can process your JW202 form and the Formal Admission Notice. If your JW202 is rejected for any reason, this amount is refunded."]],
             ['h' => '7. Apply for the student visa', 'p' => ["Use the admission documents to apply for an X1 or X2 student visa at the Chinese embassy or consulate in your country."]],
             ['h' => '8. Arrive and register', 'p' => ["Arrive before the registration deadline and complete enrollment, the health check and the residence permit."]],
         ], 'video' => $s['video'], 'link' => ['adm-HtApply', 'Read the full how-to-apply guide']],
@@ -132,14 +139,7 @@ return [
 
         ['id' => 'documents', 'eyebrow' => 'Documents', 'h' => 'Documents you need for MBBS in China 2027', 'p' => [
             "Most delays in an MBBS application come from documents, not from marks. Start collecting them months before the portal opens, because notarisation and translation take time.",
-        ], 'list' => [
-            'High-school certificate and transcripts, translated into English or Chinese',
-            'Copy of a valid passport, with at least 12 months of validity when you apply',
-            'Recent passport-sized photographs',
-            'Proof of English: a test result or evidence of previous education in English',
-            'Medical examination certificate, including immunisation records',
-            'Financial guarantee letter, if the university asks for one',
-        ], 'sub' => [
+        ], 'list' => $s['documents'], 'sub' => [
             ['h' => 'Tips that save time', 'p' => [
                 "Scan every document clearly in colour and keep both the original-language version and the translation. Use exactly the same spelling of your name on every document as in your passport, because a mismatch between the passport and a certificate is the most common reason an application is sent back.",
                 "Applications without the required documents are not processed, so upload a complete set the first time. If a document is still on its way, tell the admissions team in the portal before the deadline, not after it.",
@@ -197,11 +197,11 @@ return [
         ['Does XJMU have a spring intake for MBBS?', 'Yes. The MBBS has a spring intake starting in February or March and a fall intake starting in September.'],
         ['Has the MOE list for 2027 been published?', 'No. The list in force covers the 2026–2027 academic year and was issued on 1 June 2026. It approves 43 universities with 2,790 seats. This page will be updated when the next notice is released.'],
         ['How much will MBBS in China cost in 2027?', 'Fees for 2027 have not been announced. For the September 2026 intake at Xinjiang Medical University, the first-year package is ¥49,950 and each later year totals about ¥35,950.'],
-        ['What marks do I need for MBBS in China?', 'At Xinjiang Medical University the minimum is 60% in Physics, Chemistry and Biology with a completed high-school qualification. Requirements differ between universities.'],
+        ['What marks do I need for MBBS in China?', 'At Xinjiang Medical University the minimum is 60% marks in each of the science subjects in HSSC or A-Level. Requirements differ between universities.'],
         ['Is MBBS in China taught in English?', 'Yes, at MOE listed universities. Universities that are not on the list may only teach clinical medicine to international students in Chinese.'],
         ['How long is MBBS in China?', 'Six years: five years of study and a one-year clinical internship.'],
         ['Is Xinjiang Medical University a registered MBBS university in China?', 'Yes. It is on the Ministry of Education list for 2026–2027 with 60 seats and is listed in the WHO World Directory of Medical Schools.'],
-        ['What is the age limit for MBBS in China?', 'At Xinjiang Medical University applicants should be 17–25 years old at the time of enrollment.'],
+        ['What is the age limit for MBBS in China?', 'At Xinjiang Medical University applicants should be between 18 and 35 years of age.'],
         ['Can I get a scholarship for MBBS in China 2027?', 'The university lists the Chinese Government Scholarship, the Xinjiang Government Scholarship, the President\'s Scholarship and the Confucius Institute Scholarship. Each has its own eligibility rules and deadline.'],
         ['Which visa do I need?', 'An X1 or X2 student visa. You apply at the Chinese embassy or consulate with your admission letter and JW202 form.'],
     ],

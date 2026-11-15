@@ -64,3 +64,20 @@ admin panel (the local database copy is replaced by a fresh export at go-live):
 | Settings → MBBS | `mbbs_eligibility_list` | "Minimum 50% aggregate…" → "Minimum 60% aggregate…" |
 | Settings → MBBS | `mbbs_faq_list` | "at least 50% aggregate" → "at least 60% aggregate" |
 | Home facts | "Eligibility" | "50%+ in PCB at 12th grade" → "60%+ in PCB at 12th grade" |
+
+## Facts from the official brochure "XJMU Fee Structure Sept. 2026 intake" (received 16 Nov 2026)
+
+- Age: **18 to 35**. Marks: **minimum 60% in each science subject** (HSSC / A-Level). Good health, free from communicable diseases.
+- Documents: passport; white-background photo; XJMU application form; Chinese physical examination form and blood report;
+  police non-criminal record certificate; senior high-school transcripts and certificates; self-introduction video.
+- Payments: ¥1,000 application fee (non-refundable once the Pre-Admission Letter is issued; included in the package);
+  ¥2,000 seat reservation deposit after the Pre-Admission Letter (refunded if JW202 is rejected);
+  visa, insurance and medical ¥1,450/year paid directly to the departments (included in the package).
+- Fees: first year ¥49,950; then ¥35,950/year (same as the site).
+- Scholarship stipends (yuan/year): CSC 30,000 / 36,000 / 42,000; Xinjiang Government 10,000 / 12,200 / 15,000.
+
+Live admin fields that still say "Aged 17–25": Settings → MBBS → eligibility list and FAQ list.
+
+Brochure figures that differ from the website (not changed; owner to confirm which is current):
+teaching hospitals 13 (site: 18) · internship hospitals 93 (site: 95) · ESI Clinical Medicine top 2.33‰ (site: 2.07‰) ·
+"44/45 MOE-listed universities" (the June 2026 MOE notice lists 43).

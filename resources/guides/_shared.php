@@ -65,11 +65,28 @@ return [
         ],
     ],
     'requirements' => [
-        'High-school diploma (or equivalent) completed, with Physics, Chemistry and Biology',
-        'Minimum 60% aggregate in Physics, Chemistry and Biology',
-        'Aged 17–25 at the time of enrollment',
-        'Medically fit, confirmed by a health examination',
+        'Senior high-school certificate (HSSC, A-Level or equivalent) with science subjects',
+        'Minimum 60% marks in each of the science subjects',
+        'Aged 18 to 35',
+        'In good health and free from communicable diseases',
         'Valid passport',
+    ],
+    'documents' => [
+        'Passport',
+        'Passport-size photograph with a white background',
+        'XJMU application form',
+        'Chinese physical examination form and blood report',
+        'Police non-criminal record certificate',
+        'Senior high-school transcripts and certificates',
+        'Self-introduction video, in which you say that you have chosen XJMU and will study there if accepted',
+    ],
+    'scholarships' => [
+        'caption' => 'Scholarship stipends, yuan per person per year',
+        'head' => ['Scholarship', 'Undergraduate', "Master's", 'Doctoral'],
+        'rows' => [
+            ['Chinese Government Scholarship (tuition, accommodation and insurance free)', '30,000', '36,000', '42,000'],
+            ['Xinjiang Government Scholarship for students from neighbouring countries', '10,000', '12,200', '15,000'],
+        ],
     ],
     'video' => ['src' => 'https://www.youtube.com/embed/8WrB3jnE5V8', 'title' => 'Xinjiang Medical University admissions video'],
 ];

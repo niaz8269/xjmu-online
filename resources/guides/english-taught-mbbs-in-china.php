@@ -95,7 +95,7 @@ return [
             "These are the published requirements for the MBBS at Xinjiang Medical University.",
         ], 'list' => $s['requirements'], 'sub' => [
             ['h' => 'Documents', 'p' => [
-                "You will need your high-school certificate and transcripts translated into English or Chinese, a passport copy, recent photographs, proof of English and a medical examination certificate. All documents must be notarised.",
+                "You will need your passport, a white-background photograph, the XJMU application form, the Chinese physical examination form and blood report, a police non-criminal record certificate, your senior high-school transcripts and certificates, and a short self-introduction video.",
             ]],
             ['h' => 'Home-country conditions', 'p' => [
                 "Some countries set extra conditions for students who study medicine abroad. Check your own medical council's current rules before you apply.",
@@ -131,7 +131,7 @@ return [
         ['id' => 'who-is-it-for', 'eyebrow' => 'Is it right for you', 'h' => 'Who is the English taught MBBS for?', 'p' => [
             "The programme suits students who want to become doctors, studied science in school, and are ready to live abroad for six years.",
         ], 'list' => [
-            'You completed high school with Physics, Chemistry and Biology.',
+            'You completed senior high school with at least 60% in each science subject.',
             'You can study in English.',
             'You want a government-approved programme with published fees.',
             'You are willing to learn Chinese for daily life and clinical work.',
@@ -223,7 +223,7 @@ return [
         ], 'table' => $s['calendar'], 'list' => [
             'Prepare and notarise your documents.',
             'Apply online and upload the documents.',
-            'Pay the ¥1,000 application fee.',
+            'Pay the ¥1,000 application fee, then the ¥2,000 seat reservation deposit after your Pre-Admission Letter.',
             'Receive your admission letter and JW202 form after review, which takes two to four weeks.',
             'Apply for the X1 student visa and travel before registration.',
         ], 'video' => $s['video']],
