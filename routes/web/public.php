@@ -44,6 +44,8 @@ foreach ([
     Route::get('/' . $uri, $action);
     Route::get('/' . $uri . '.php', $action);
 }
+// SEO: clean blog post address (the old /blog-post?slug=... 301-redirects to it)
+Route::get('/blog/{slug}', [\App\Http\Controllers\BlogController::class, 'show'])->where('slug', '[^/]+');
 // .htaccess aliases that served another page's content
 Route::get('/research.html', [\App\Http\Controllers\BlogController::class, 'index']);
 Route::get('/campus-life.html', [\App\Http\Controllers\GalleryController::class, 'index']);
@@ -53,4 +55,9 @@ foreach (['news' => '/events', 'careers' => '/be-our-partner', 'research' => '/b
     Route::permanentRedirect('/' . $uri, $target);
     Route::permanentRedirect('/' . $uri . '.php', $target);
 }
+// ---- SEO keyword landing pages (config/seo_guides.php) ----
+foreach (array_keys(config('seo_guides', [])) as $guideSlug) {
+    Route::get('/' . $guideSlug, [\App\Http\Controllers\GuideController::class, 'show'])->defaults('slug', $guideSlug);
+}
+
 // ---- end batch B ---------------------------------------------------------------------------------------------------

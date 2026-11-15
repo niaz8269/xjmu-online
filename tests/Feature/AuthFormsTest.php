@@ -135,11 +135,11 @@ class AuthFormsTest extends TestCase
         $this->assertSame('application/xml; charset=UTF-8', $r->headers->get('Content-Type'));
         $x = $r->getContent();
         $this->assertStringStartsWith('<?xml version="1.0" encoding="UTF-8"?>', $x);
-        $this->assertStringContainsString('<loc>https://xjmu.online/blog-post?slug=my+blog</loc>', $x);
+        $this->assertStringContainsString('<loc>https://xjmu.online/blog/my%20blog</loc>', $x);
         $this->assertStringContainsString('<lastmod>2026-03-04</lastmod>', $x);
         $this->assertStringContainsString('<loc>https://xjmu.online/event?slug=ev1</loc>', $x);
         $this->assertStringNotContainsString('draft', $x);
         $this->assertNotFalse(simplexml_load_string($x));
-        $this->assertSame(17 + 2, substr_count($x, '<url>'));
+        $this->assertSame(17 + 2 + count(config("seo_guides")), substr_count($x, '<url>'));
     }
 }

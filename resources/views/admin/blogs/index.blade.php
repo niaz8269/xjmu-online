@@ -203,7 +203,7 @@
                             <td>
                                 <div class="action-buttons">
                                     <a href="edit-blog?id={!! $blog['id'] !!}" class="btn btn-edit btn-small">Edit</a>
-                                    <a href="../blog-post?slug={!! urlencode($blog['slug']) !!}" class="btn btn-view btn-small" target="_blank" rel="noopener noreferrer">View</a>
+                                    <a href="../blog/{!! rawurlencode($blog['slug']) !!}" class="btn btn-view btn-small" target="_blank" rel="noopener noreferrer">View</a>
                                     <form action="delete-blog" method="POST" class="d-inline" onsubmit="return confirm('Are you sure you want to delete this blog post?')">
                                         @csrf
                                         <input type="hidden" name="id" value="{{ (int)$blog['id'] }}">

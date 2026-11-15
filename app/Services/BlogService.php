@@ -75,7 +75,7 @@ class BlogService
                 ? self::esc($blog->meta_description)
                 : self::esc(substr(strip_tags((string) $excerptOrContent), 0, 155)) . '...',
             'page_keywords' => ! empty($blog->meta_keywords) ? self::esc($blog->meta_keywords) : 'XJMU blog, Xinjiang Medical University',
-            'page_url' => get_absolute_url('blog-post?slug=' . urlencode($blog->slug)),
+            'page_url' => get_absolute_url(ltrim($this->path($blog->slug), '/')),
             'page_image' => $this->hasImage($blog->featured_image) ? get_absolute_url($blog->featured_image) : 'https://xjmu.online/images/logo.png',
             'body_class' => 'ds-page',
             'page_css' => ['css/design-system.css', 'css/blog-post.css'],
@@ -123,6 +123,12 @@ class BlogService
             'pages' => $pages,
             'next' => $current < $total ? $link($current + 1) : null,
         ];
+    }
+
+    /** Clean public path of a post: /blog/{slug}. */
+    public function path(string $slug): string
+    {
+        return '/blog/' . rawurlencode($slug);
     }
 
     /** Matches the original site's htmlspecialchars() default of ENT_COMPAT (apostrophes untouched), so meta tags stay identical to live. */

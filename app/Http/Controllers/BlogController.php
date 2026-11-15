@@ -30,12 +30,20 @@ class BlogController extends Controller
         ]);
     }
 
-    /** /blog-post?slug=...: one published post (counts a view); 404 page when missing. */
-    public function show(Request $request)
+    /** /blog/{slug} (old /blog-post?slug=... redirects here): one published post (counts a view); 404 page when missing. */
+    public function show(Request $request, ?string $slug = null)
     {
-        $slug = $request->query('slug');
-        $slug = is_string($slug) ? trim($slug) : '';
+        $fromPath = $slug !== null;
+        if (! $fromPath) {
+            $slug = $request->query('slug');
+            $slug = is_string($slug) ? trim($slug) : '';
+        }
         $blog = $this->blogs->findPublished($slug);
+
+        // SEO: the old /blog-post?slug=... address permanently redirects to the clean /blog/... one.
+        if ($blog && ! $fromPath) {
+            return redirect($this->blogs->path($blog->slug), 301);
+        }
 
         if (! $blog) {
             return response()->view('pages.blogs.not-found', [

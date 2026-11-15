@@ -54,10 +54,13 @@ class SitemapController extends Controller
         foreach (self::STATIC as [$loc, $freq, $prio]) {
             $xml .= $url($base . $loc, $today, $freq, $prio);
         }
+        foreach (config('seo_guides', []) as $slug => $guide) {
+            $xml .= $url($base . '/' . $slug, $guide['updated'], 'weekly', '0.9');
+        }
         $xml .= "\n";
         foreach ($blogs as $b) {
             $lastmod = ! empty($b->published_at) ? date('Y-m-d', strtotime($b->published_at)) : $today;
-            $xml .= $url($base . '/blog-post?slug=' . urlencode($b->slug), $lastmod, 'monthly', '0.7');
+            $xml .= $url($base . '/blog/' . rawurlencode($b->slug), $lastmod, 'monthly', '0.7');
         }
         $xml .= "\n";
         foreach ($events as $e) {

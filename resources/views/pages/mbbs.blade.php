@@ -200,6 +200,20 @@
 </section>
 @endif
 
+<!-- ===================== GUIDES (SEO landing pages, config/seo_guides.php) ===================== -->
+@if (config('seo_guides'))
+<section class="ds-section" id="guides">
+    <div class="container">
+        <div class="ds-section-head"><span class="ds-eyebrow">Guides</span><h2 class="ds-title">MBBS in China guides</h2></div>
+        <div class="row g-4">
+            @foreach (config('seo_guides') as $guideSlug => $g)
+            <div class="col-md-4 col-sm-6"><div class="ds-card"><h3><a href="{{ get_absolute_url($guideSlug) }}" style="color:inherit;text-decoration:none">{{ $g['h1'] }}</a></h3><p>{{ $g['lead'] }}</p></div></div>
+            @endforeach
+        </div>
+    </div>
+</section>
+@endif
+
 <!-- ===================== CTA ===================== -->
 <section class="ds-section ds-section--soft">
     <div class="container">

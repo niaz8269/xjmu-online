@@ -41,7 +41,7 @@ class HomePage
         }
 
         $news = $blogs->map(fn ($b) => [
-            'href' => get_absolute_url('blog-post?slug=' . urlencode($b->slug)),
+            'href' => get_absolute_url('blog/' . rawurlencode($b->slug)),
             'img' => $this->imageUrl($b->featured_image),
             'date' => $this->formatDate($b->published_at ?: $b->created_at, 'F j, Y'),
             'title' => $b->title,

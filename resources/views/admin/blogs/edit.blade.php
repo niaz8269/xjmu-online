@@ -200,7 +200,7 @@
         <div class="form-container">
             @if ($show_success)
                 <div class="alert alert-success">
-                    âœ” Blog post saved successfully! <a href=”../blog-post?slug={!! urlencode($blog['slug'] ?? '') !!}” target=”_blank” rel=”noopener noreferrer”>View Post</a>
+                    âœ” Blog post saved successfully! <a href=”../blog/{!! rawurlencode($blog['slug'] ?? '') !!}” target=”_blank” rel=”noopener noreferrer”>View Post</a>
                 </div>
             @endif
 
