@@ -69,11 +69,16 @@ class BlogService
     public function postMeta(Blog $blog): array
     {
         $excerptOrContent = $blog->excerpt ?? $blog->content;
+        $seo = config('blog_seo.posts.' . $blog->slug, []); // code-side SEO overrides (config/blog_seo.php)
         return [
-            'page_title' => self::esc((string) $blog->title) . ' | XJMU Blog',
-            'page_description' => ! empty($blog->meta_description)
-                ? self::esc($blog->meta_description)
-                : self::esc(substr(strip_tags((string) $excerptOrContent), 0, 155)) . '...',
+            'page_title' => isset($seo['title'])
+                ? self::esc($seo['title']) . ' | XJMU Blog'
+                : self::esc((string) $blog->title) . ' | XJMU Blog',
+            'page_description' => isset($seo['description'])
+                ? self::esc($seo['description'])
+                : (! empty($blog->meta_description)
+                    ? self::esc($blog->meta_description)
+                    : self::esc(substr(strip_tags((string) $excerptOrContent), 0, 155)) . '...'),
             'page_keywords' => ! empty($blog->meta_keywords) ? self::esc($blog->meta_keywords) : 'XJMU blog, Xinjiang Medical University',
             'page_url' => get_absolute_url(ltrim($this->path($blog->slug), '/')),
             'page_image' => $this->hasImage($blog->featured_image) ? get_absolute_url($blog->featured_image) : 'https://xjmu.online/images/logo.png',

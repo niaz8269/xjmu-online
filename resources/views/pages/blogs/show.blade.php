@@ -52,6 +52,17 @@
                     {!! $blog->content !!}
                 </div>
 
+                @if (config('blog_seo.posts.' . $blog->slug . '.guides') && config('seo_guides'))
+                <aside class="bp-guides" style="margin:2rem 0;padding:1.25rem 1.5rem;border:1px solid #e3e3e3;border-radius:8px">
+                    <h2 style="font-size:1.25rem;margin:0 0 .75rem">Planning for 2027?</h2>
+                    <ul style="margin:0;padding-inline-start:1.25rem">
+                        @foreach (config('seo_guides') as $guideSlug => $guide)
+                            <li><a href="{{ get_absolute_url($guideSlug) }}">{{ $guide['h1'] }}</a></li>
+                        @endforeach
+                    </ul>
+                </aside>
+                @endif
+
                 <!-- Back link -->
                 <div class="bp-back">
                     <a href="{{ get_absolute_url('blogs') }}" class="ds-btn ds-btn--outline">

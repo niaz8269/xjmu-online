@@ -77,6 +77,29 @@ class SeoGuidesTest extends TestCase
         $this->get('/blog-post?slug=missing-post')->assertNotFound();
     }
 
+    public function test_flagged_blog_post_gets_shorter_title_description_and_guide_links_without_touching_the_row(): void
+    {
+        $slug = 'advantages-of-studying-mbbs-in-china-for-international-students-complete-2026-guide';
+        $title = 'Advantages of Studying MBBS in China for International Students — Complete 2026 Guide';
+        Blog::query()->create(['title' => $title, 'slug' => $slug, 'excerpt' => 'x', 'content' => '<p>Body</p>',
+            'status' => 'published', 'published_at' => '2026-01-01 00:00:00', 'created_at' => '2026-01-01 00:00:00']);
+
+        $html = $this->get('/blog/' . $slug)->assertOk()
+            ->assertSee('<title>Advantages of MBBS in China for International Students 2026–27 | XJMU Blog</title>', false)
+            ->assertSee('Planning for 2027?', false)
+            ->getContent();
+        $this->assertStringContainsString('<h1>' . $title . '</h1>', $html); // visible heading unchanged
+        foreach (array_keys(config('seo_guides')) as $guideSlug) {
+            $this->assertStringContainsString('/' . $guideSlug . '"', $html);
+        }
+        $this->assertSame($title, Blog::query()->where('slug', $slug)->value('title')); // database row unchanged
+
+        // Other posts are not touched.
+        Blog::query()->create(['title' => 'Other', 'slug' => 'other-post', 'excerpt' => 'x', 'content' => '<p>Body</p>',
+            'status' => 'published', 'published_at' => '2026-01-01 00:00:00', 'created_at' => '2026-01-01 00:00:00']);
+        $this->get('/blog/other-post')->assertOk()->assertDontSee('Planning for 2027?', false)->assertSee('<title>Other | XJMU Blog</title>', false);
+    }
+
     public function test_sitemap_lists_guides_and_clean_blog_addresses(): void
     {
         Blog::query()->create(['title' => 'Hello', 'slug' => 'hello', 'excerpt' => 'x', 'content' => 'y',
