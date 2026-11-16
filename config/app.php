@@ -65,7 +65,7 @@ return [
     |
     */
 
-    'timezone' => 'UTC',
+    'timezone' => env('APP_TIMEZONE', 'UTC'), // same .env key and default the original config.php used
 
     /*
     |--------------------------------------------------------------------------

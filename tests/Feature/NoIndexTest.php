@@ -19,5 +19,6 @@ class NoIndexTest extends TestCase
     {
         $this->app['env'] = 'production';
         $this->get('/about')->assertOk()->assertHeaderMissing('X-Robots-Tag');
+        $this->get('/admin')->assertHeader('X-Robots-Tag', 'noindex, nofollow'); // admin is never indexable
     }
 }

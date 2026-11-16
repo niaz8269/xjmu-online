@@ -15,7 +15,8 @@ class NoIndexOutsideProduction
     {
         $response = $next($request);
 
-        if (! app()->environment('production')) {
+        // The original admin/.htaccess sent this header for every admin page; keep that in production too.
+        if (! app()->environment('production') || $request->is('admin', 'admin/*')) {
             $response->headers->set('X-Robots-Tag', 'noindex, nofollow');
         }
 
