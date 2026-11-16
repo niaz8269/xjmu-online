@@ -10,5 +10,9 @@ return [
             'description' => 'Why study MBBS in China? MOE-approved universities, English-medium teaching, affordable fees and a 6-year programme. See the 2027 guide and the MOE list.',
             'guides' => true,
         ],
+        // 2027 edition of the same post (added 17 Nov 2026): same wording, year changed; keeps the 2026 post untouched.
+        'advantages-of-studying-mbbs-in-china-for-international-students-complete-2027-guide' => [
+            'guides' => true,
+        ],
     ],
 ];

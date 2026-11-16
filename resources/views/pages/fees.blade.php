@@ -16,7 +16,7 @@
 <!-- ===================== HERO ===================== -->
 <section class="fees-hero">
     <div class="container">
-        <span class="ds-eyebrow" style="color:#ffd0d2">2026 Fee Structure</span>
+        <span class="ds-eyebrow" style="color:#ffd0d2">2027 Fee Structure</span>
         <h1>MBBS Fees in China at Xinjiang Medical University</h1>
         <p>Transparent, all-inclusive MBBS tuition and living costs — one of the most affordable WHO &amp; MOE-listed English-medium medical degrees in China.</p>
         <div class="home-hero__trust">
@@ -53,7 +53,7 @@
         <div class="ds-section-head">
             <span class="ds-eyebrow">Tuition &amp; Charges</span>
             <h2 class="ds-title">XJMU MBBS fee breakdown (in RMB ¥)</h2>
-            <p class="ds-lead">Figures are indicative for the 2026 intake. US$ conversions are approximate.</p>
+            <p class="ds-lead">Figures are indicative for the 2027 intake. US$ conversions are approximate.</p>
         </div>
         <div class="row g-4">
             <div class="col-lg-6">

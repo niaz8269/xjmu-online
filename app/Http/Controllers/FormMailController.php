@@ -202,7 +202,7 @@ class FormMailController extends Controller
         $body .= "Email: $email\n";
         $body .= "WhatsApp: $whatsapp\n\n";
         $body .= "Event/Webinar:\n";
-        $body .= 'Title: ' . ($event_title ?: 'Xinjiang Medical University – MBBS (English Taught) March 2026 intake') . "\n";
+        $body .= 'Title: ' . ($event_title ?: 'Xinjiang Medical University – MBBS (English Taught) March 2027 intake') . "\n";
         if ($event_date) $body .= "Date: $event_date\n";
         if ($event_time) $body .= "Time: $event_time (Beijing Time)\n";
         $body .= "\nRegistration submitted: " . date('Y-m-d H:i:s');

@@ -5,7 +5,7 @@
 return [
     'home' => [
         'page_title' => 'MBBS in China 2027 | Xinjiang Medical University',
-        'page_description' => 'Study MBBS in China at Xinjiang Medical University — WHO & MOE-listed, English-medium medical degree with affordable fees. Recognized by PMDC, NMC & WHO. Apply for the September 2026 intake.',
+        'page_description' => 'Study MBBS in China at Xinjiang Medical University — WHO & MOE-listed, English-medium medical degree with affordable fees. Recognized by PMDC, NMC & WHO. Apply for the September 2027 intake.',
         'page_keywords' => 'MBBS in China, Xinjiang Medical University, XJMU, study medicine China, MBBS 2027, MBBS 2026, MBBS fees China, CSC scholarship, English medium MBBS, WHO recognized medical university China, MBBS for international students',
         'page_url' => 'https://xjmu.online/',
         'page_image' => 'https://xjmu.online/images/logo.png',
@@ -23,8 +23,8 @@ return [
     ],
     'mbbs' => [
         'page_title' => 'MBBS in China at Xinjiang Medical University | Fees, Duration & Admission 2027',
-        'page_description' => 'Complete guide to the MBBS program at Xinjiang Medical University — 6-year English-medium degree, WHO & MOE-listed, PMDC/NMC recognized. Curriculum, eligibility, fees (~¥49,950 first year) and how to apply for the September 2026 intake.',
-        'page_keywords' => 'MBBS in China, MBBS at Xinjiang Medical University, XJMU MBBS, study MBBS China, English medium MBBS, MBBS fees China, MBBS duration, WHO recognized MBBS China, MBBS admission 2026',
+        'page_description' => 'Complete guide to the MBBS program at Xinjiang Medical University — 6-year English-medium degree, WHO & MOE-listed, PMDC/NMC recognized. Curriculum, eligibility, fees (~¥49,950 first year) and how to apply for the September 2027 intake.',
+        'page_keywords' => 'MBBS in China, MBBS at Xinjiang Medical University, XJMU MBBS, study MBBS China, English medium MBBS, MBBS fees China, MBBS duration, WHO recognized MBBS China, MBBS admission 2027',
         'page_url' => 'https://xjmu.online/mbbs',
         'page_image' => 'https://xjmu.online/images/logo.png',
         'body_class' => 'ds-page',
@@ -32,7 +32,7 @@ return [
     ],
     'programs' => [
         'page_title' => 'MBBS & Medical Programs | Xinjiang Medical University',
-        'page_description' => 'Explore 32+ programs at XJMU — MBBS, Master\'s, and Doctoral degrees. Study medicine in China with English-medium instruction. Applications open for 2026.',
+        'page_description' => 'Explore 32+ programs at XJMU — MBBS, Master\'s, and Doctoral degrees. Study medicine in China with English-medium instruction. Applications open for 2027.',
         'page_keywords' => 'Xinjiang Medical University programs, MBBS in China, medical programs China, study medicine China, medical university China, MBBS degree China, medical education China, study abroad China, international medical programs, Chinese medical university',
         'page_url' => 'https://xjmu.online/programs',
         'page_image' => 'https://xjmu.online/images/logo.png',
@@ -49,9 +49,9 @@ return [
         'page_css' => ['css/design-system.css', 'css/admissions.css'],
     ],
     'fees' => [
-        'page_title' => 'MBBS Fees in China 2026–27 | Xinjiang Medical University Tuition & Cost',
-        'page_description' => 'Complete MBBS fees in China at Xinjiang Medical University — first-year package ~¥49,950 (≈US$7,000), tuition, hostel, insurance and cost of living. Transparent 2026 fee structure with no hidden charges.',
-        'page_keywords' => 'china mbbs fees, MBBS fees in China, Xinjiang Medical University fees, XJMU tuition, MBBS cost in China, cheapest MBBS in China, MBBS China fee structure 2026, study MBBS China cost',
+        'page_title' => 'MBBS Fees in China 2027 | Xinjiang Medical University Tuition & Cost',
+        'page_description' => 'Complete MBBS fees in China at Xinjiang Medical University — first-year package ~¥49,950 (≈US$7,000), tuition, hostel, insurance and cost of living. Transparent 2027 fee structure with no hidden charges.',
+        'page_keywords' => 'china mbbs fees, MBBS fees in China, Xinjiang Medical University fees, XJMU tuition, MBBS cost in China, cheapest MBBS in China, MBBS China fee structure 2027, study MBBS China cost',
         'page_url' => 'https://xjmu.online/fees',
         'page_image' => 'https://xjmu.online/images/logo.png',
         'body_class' => 'ds-page',

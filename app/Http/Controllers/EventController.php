@@ -20,7 +20,7 @@ class EventController extends Controller
             'table_exists' => $tableExists,
             'events' => $tableExists ? $this->events->cards() : [],
             'page_title' => 'News & Events | Xinjiang Medical University',
-            'page_description' => 'Stay updated with the latest campus events, webinars, open days, and news at Xinjiang Medical University. Browse upcoming activities for 2026 students.',
+            'page_description' => 'Stay updated with the latest campus events, webinars, open days, and news at Xinjiang Medical University. Browse upcoming activities for 2027 students.',
             'page_keywords' => 'XJMU events, campus events, medical university events, Xinjiang Medical University news, webinars',
             'page_url' => 'https://xjmu.online/events',
             'page_image' => 'https://xjmu.online/images/logo.png',

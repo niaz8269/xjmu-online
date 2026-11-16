@@ -6,7 +6,7 @@
             <div class="event-register-modal-header">
                 <h5 class="event-register-modal-title">
                     Xinjiang Medical University<br>
-                    <span class="event-register-modal-subtitle">MBBS (English Taught) March 2026 intake</span>
+                    <span class="event-register-modal-subtitle">MBBS (English Taught) March 2027 intake</span>
                 </h5>
                 <button type="button" class="event-register-modal-close" aria-label="Close">&times;</button>
             </div>
@@ -111,8 +111,8 @@
             btn.addEventListener('click', function(e) {
                 e.preventDefault();
                 openModal({
-                    title: btn.getAttribute('data-event-title') || 'Xinjiang Medical University – MBBS March 2026 intake',
-                    date: btn.getAttribute('data-event-date') || '15 February 2026',
+                    title: btn.getAttribute('data-event-title') || 'Xinjiang Medical University – MBBS March 2027 intake',
+                    date: btn.getAttribute('data-event-date') || '15 February 2027',
                     time: btn.getAttribute('data-event-time') || '2PM to 5PM'
                 });
             });
