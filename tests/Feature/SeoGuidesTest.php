@@ -25,6 +25,14 @@ class SeoGuidesTest extends TestCase
         }
     }
 
+    public function test_every_page_footer_links_to_each_guide(): void
+    {
+        $html = $this->get('/about')->assertOk()->getContent();
+        foreach (array_keys(config('seo_guides')) as $slug) {
+            $this->assertStringContainsString('<a href="/' . $slug . '">', $html, $slug);
+        }
+    }
+
     public function test_each_guide_has_at_least_3000_words_and_images_with_alt_text(): void
     {
         foreach (config('seo_guides') as $slug => $guide) {
