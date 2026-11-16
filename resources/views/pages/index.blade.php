@@ -19,7 +19,7 @@
     <div class="webinar-modal-content">
         <button class="webinar-close-btn" id="closeWebinarModal">&times;</button>
         <div class="webinar-header">
-            <h3 data-i18n="home.modal_title">Apply for MOE Listed English Taught MBBS – September 2026 Intake</h3>
+            <h3 data-i18n="home.modal_title">Apply for MOE Listed English Taught MBBS – September 2027 Intake</h3>
         </div>
         <div class="webinar-details"></div>
         <form class="webinar-form" method="POST" action="">
