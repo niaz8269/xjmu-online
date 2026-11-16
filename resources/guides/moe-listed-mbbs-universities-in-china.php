@@ -203,6 +203,7 @@ return [
         ['How many MOE listed MBBS universities are there in China?', 'There are 43 for the 2026–2027 academic year, with a combined quota of 2,790 seats for international students.'],
         ['Is there an MOE list for 2027?', 'The list in force was issued on 1 June 2026 for the 2026–2027 academic year. The next notice has not been published yet. This page will be updated when it is.'],
         ['Is Xinjiang Medical University MOE listed?', 'Yes. It is number 8 on the 2026–2027 list with a quota of 60 seats.'],
+        ['Is Xinjiang Medical University the same as Xinxiang Medical University?', 'No. They are two different universities with similar-sounding names. Xinjiang Medical University is in Urumqi, in the Xinjiang region, and is number 8 on the 2026–2027 MOE list. Xinxiang Medical University is in Xinxiang, in Henan province, and does not appear on the 43-university list in this guide.'],
         ['What is a registered MBBS university in China?', 'It is a university on the Ministry of Education list of institutions authorised to teach MBBS in English to international students.'],
         ['Can an unlisted university teach MBBS in English?', 'No. Unlisted universities may only admit international students to Chinese-medium clinical medicine and may not issue an English-language MBBS certificate.'],
         ['Is a bilingual MBBS programme allowed?', 'No. The notice strictly prohibits using a bilingual teaching model as a workaround.'],
