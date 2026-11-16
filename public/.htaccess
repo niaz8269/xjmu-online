@@ -43,17 +43,19 @@ AddCharset UTF-8 .html .css .js .xml .json .rss .atom
     RewriteCond %1 !^(?:save_|get_|send_|submit_|download_|export_|review_) [NC]
     RewriteRule ^ /%1 [R=301,L]
 
-    # Legacy content aliases handled internally (same as the original site).
-    RewriteRule ^careers\.(php|html)$ be-our-partner [L]
-    RewriteRule ^news\.php$ events [L]
-    RewriteRule ^research\.(php|html)$ blogs [L]
-    RewriteRule ^login\.html$ login [L]
-    RewriteRule ^register\.html$ register [L]
-    RewriteRule ^programs\.html$ programs [L]
-    RewriteRule ^campus-life\.html$ gallery [L]
-    RewriteRule ^mbbs\.html$ mbbs [L]
-    RewriteRule ^international\.(php|html)$ admissions [L]
-    RewriteRule ^sitemap\.xml$ sitemap [L]
+    # Legacy aliases of the original site: they used to serve another page's content with status 200 (duplicates);
+    # now they 301 to the one real address.
+    RewriteRule ^careers\.(php|html)$ /be-our-partner [R=301,L]
+    RewriteRule ^news\.php$ /events [R=301,L]
+    RewriteRule ^research\.(php|html)$ /blogs [R=301,L]
+    RewriteRule ^login\.html$ /login [R=301,L]
+    RewriteRule ^register\.html$ /register [R=301,L]
+    RewriteRule ^programs\.html$ /programs [R=301,L]
+    RewriteRule ^campus-life\.html$ /gallery [R=301,L]
+    RewriteRule ^mbbs\.html$ /mbbs [R=301,L]
+    RewriteRule ^international\.(php|html)$ /admissions [R=301,L]
+    RewriteRule ^sitemap$ /sitemap.xml [R=301,L]
+    RewriteRule ^sitemap\.php$ /sitemap.xml [R=301,L]
 
     # Redirect Trailing Slashes If Not A Folder...
     RewriteCond %{REQUEST_FILENAME} !-d

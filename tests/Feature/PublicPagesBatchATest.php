@@ -16,7 +16,7 @@ class PublicPagesBatchATest extends TestCase
             $this->get('/' . $page)->assertOk()->assertSee('<link rel="canonical" href="https://xjmu.online/' . $page . '"', false);
             $this->get('/' . $page . '.php')->assertStatus(301)->assertRedirect(url('/' . $page));
         }
-        $this->get('/programs.html')->assertOk();
+        $this->get('/programs.html')->assertStatus(301)->assertRedirect(url('/programs')); // alias: one canonical address
         $this->get('/')->assertOk()->assertSee('FAQPage', false)->assertSee('Is Xinjiang Medical University recognized for MBBS?', false);
         $this->assertSame('/', route('home', [], false));
     }

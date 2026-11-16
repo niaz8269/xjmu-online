@@ -28,8 +28,8 @@ foreach ([
     Route::get('/' . $uri . '.php', $action);
 }
 // .htaccess aliases that served another page's content
-$cacheable(Route::get('/programs.html', [\App\Http\Controllers\ProgramController::class, 'index']));
-$cacheable(Route::get('/mbbs.html', [\App\Http\Controllers\MbbsController::class, 'index']));
+Route::permanentRedirect('/programs.html', '/programs');
+Route::permanentRedirect('/mbbs.html', '/mbbs');
 // ---- end batch A ---------------------------------------------------------------------------------------------------
 
 // ---- batch B: blogs, blog-post, events, event, gallery, downloads, contact, stubs --------------------------------
@@ -52,8 +52,10 @@ foreach ([
 // SEO: clean blog post address (the old /blog-post?slug=... 301-redirects to it)
 $cacheable(Route::get('/blog/{slug}', [\App\Http\Controllers\BlogController::class, 'show'])->where('slug', '[^/]+'));
 // .htaccess aliases that served another page's content
-Route::get('/research.html', [\App\Http\Controllers\BlogController::class, 'index']);
-$cacheable(Route::get('/campus-life.html', [\App\Http\Controllers\GalleryController::class, 'index']));
+Route::permanentRedirect('/research.html', '/blogs');
+Route::permanentRedirect('/campus-life.html', '/gallery');
+Route::permanentRedirect('/careers.html', '/be-our-partner');
+Route::permanentRedirect('/sitemap', '/sitemap.xml');
 
 // stub pages: permanent redirects, as the original scripts did
 foreach (['news' => '/events', 'careers' => '/be-our-partner', 'research' => '/blogs', 'mylogo' => '/'] as $uri => $target) {
