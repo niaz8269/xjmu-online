@@ -154,7 +154,7 @@ return [
 
     // site_settings keys used by the index page with their fallback text (empty value -> fallback)
     'home_settings' => [
-        'home_hero_eyebrow' => 'September 2026 Intake · Applications Open',
+        'home_hero_eyebrow' => 'September 2027 Intake · Applications Open',
         'hero_headline' => 'Study MBBS in China at Xinjiang Medical University',
         'hero_subtext' => 'A WHO & MOE-listed, English-medium medical degree with world-class clinical training and affordable fees — trusted by international students from 45+ countries.',
         'home_trust1' => 'WHO / WDOMS Listed',

@@ -47,7 +47,7 @@ class HomeController extends Controller
 
         $sent = $this->mailer->sendPlain(
             'studyatxjmu@gmail.com',
-            SiteMailer::headerSafe($safeName . ' -MBBS Registration September 2026 Intake'),
+            SiteMailer::headerSafe($safeName . ' -MBBS Registration September 2027 Intake'),
             $message,
             $headers,
         );
