@@ -13,6 +13,8 @@ use Illuminate\Support\Facades\Route;
 // auth routes (converted from legacy PHP). Owned by the auth conversion workstream.
 // Each URL also answers to its old ".php" form (the original pages posted to login.php, fetched forgot_password.php, ...).
 
+$noCsrf = [PreventRequestForgery::class, ValidateCsrfToken::class];
+
 // login / logout
 Route::get('/login', [LoginController::class, 'show'])->name('login');
 Route::get('/login.php', [LoginController::class, 'show']);
@@ -24,12 +26,14 @@ Route::match(['get', 'post'], '/logout.php', [LoginController::class, 'logout'])
 // registration / verification
 Route::get('/register', [RegisterController::class, 'show'])->name('register');
 Route::get('/register.php', [RegisterController::class, 'show']);
-Route::post('/register', [RegisterController::class, 'register']);
-Route::post('/register.php', [RegisterController::class, 'register']);
+// The original register / resend forms posted without a token (and that page was browser-cacheable for a day),
+// so these two stay exempt exactly as before.
+Route::post('/register', [RegisterController::class, 'register'])->withoutMiddleware($noCsrf);
+Route::post('/register.php', [RegisterController::class, 'register'])->withoutMiddleware($noCsrf);
 Route::get('/verify_email', [RegisterController::class, 'verify']);
 Route::get('/verify_email.php', [RegisterController::class, 'verify']);
-Route::match(['get', 'post'], '/resend_code', [RegisterController::class, 'resend']);
-Route::match(['get', 'post'], '/resend_code.php', [RegisterController::class, 'resend']);
+Route::match(['get', 'post'], '/resend_code', [RegisterController::class, 'resend'])->withoutMiddleware($noCsrf);
+Route::match(['get', 'post'], '/resend_code.php', [RegisterController::class, 'resend'])->withoutMiddleware($noCsrf);
 
 // password reset
 Route::match(['get', 'post'], '/forgot_password', [PasswordController::class, 'forgot']);
@@ -39,7 +43,6 @@ Route::match(['get', 'post'], '/reset_password.php', [PasswordController::class,
 
 // public forms. The original contact / partner endpoints had no CSRF check (the public pages post without a token);
 // register-event and submit-testimonial check the token themselves (App\Http\Controllers\CsrfCheck) to keep their own error output.
-$noCsrf = [PreventRequestForgery::class, ValidateCsrfToken::class];
 Route::any('/send_contact_email', [FormMailController::class, 'contact'])->withoutMiddleware($noCsrf);
 Route::any('/send_contact_email.php', [FormMailController::class, 'contact'])->withoutMiddleware($noCsrf);
 Route::any('/send_partner_registration', [FormMailController::class, 'partner'])->withoutMiddleware($noCsrf);
