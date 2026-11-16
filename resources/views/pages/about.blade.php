@@ -229,7 +229,7 @@
     <div class="container">
         <div class="ds-cta-band">
             <h2>Join Xinjiang Medical University</h2>
-            <p>Explore our programs and start your application for the September 2026 intake.</p>
+            <p>Explore our programs and start your application for the September 2027 intake.</p>
             <div class="d-flex flex-wrap gap-3 justify-content-center">
                 <a href="{{ get_absolute_url('programs') }}" class="ds-btn ds-btn--lg" style="background:#fff;color:var(--ds-red)!important">View Programs</a>
                 <a href="{{ get_absolute_url('login') }}" class="ds-btn ds-btn--ghost-light ds-btn--lg">Apply Now</a>

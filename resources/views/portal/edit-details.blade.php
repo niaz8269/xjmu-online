@@ -674,8 +674,8 @@ a.file-link:hover {
               <span style="font-size: 0.8rem;">2026</span>
             </div>
             <div class="pt-1 lh-base">
-              <strong>2026 Intake Now Open</strong>
-              <p class="small mt-1 mb-0">Applications for the 2026 academic year are now being accepted through the CAS portal. Early applications are encouraged.</p>
+              <strong>2027 Intake Now Open</strong>
+              <p class="small mt-1 mb-0">Applications for the 2027 academic year are now being accepted through the CAS portal. Early applications are encouraged.</p>
             </div>
           </div>
         </div>

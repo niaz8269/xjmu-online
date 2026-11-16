@@ -23,7 +23,7 @@
         <h1>{{ $t['mbbs_hero_title'] }}</h1>
         <p class="mbbs-hero__lead">{{ $t['mbbs_hero_subtitle'] }}</p>
         <div class="mbbs-hero__cta">
-            <a href="{{ get_absolute_url('login') }}" class="ds-btn ds-btn--primary ds-btn--lg">Apply for 2026</a>
+            <a href="{{ get_absolute_url('login') }}" class="ds-btn ds-btn--primary ds-btn--lg">Apply for 2027</a>
             <a href="{{ get_absolute_url('fees') }}" class="ds-btn ds-btn--ghost-light ds-btn--lg">View Fees</a>
         </div>
         <div class="mbbs-hero__trust">

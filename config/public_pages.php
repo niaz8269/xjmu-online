@@ -6,7 +6,7 @@ return [
     'home' => [
         'page_title' => 'MBBS in China 2027 | Xinjiang Medical University',
         'page_description' => 'Study MBBS in China at Xinjiang Medical University — WHO & MOE-listed, English-medium medical degree with affordable fees. Recognized by PMDC, NMC & WHO. Apply for the September 2026 intake.',
-        'page_keywords' => 'MBBS in China, Xinjiang Medical University, XJMU, study medicine China, MBBS 2026, MBBS fees China, CSC scholarship, English medium MBBS, WHO recognized medical university China, MBBS for international students',
+        'page_keywords' => 'MBBS in China, Xinjiang Medical University, XJMU, study medicine China, MBBS 2027, MBBS 2026, MBBS fees China, CSC scholarship, English medium MBBS, WHO recognized medical university China, MBBS for international students',
         'page_url' => 'https://xjmu.online/',
         'page_image' => 'https://xjmu.online/images/logo.png',
         'body_class' => 'ds-page home-hero-overlay',
@@ -22,7 +22,7 @@ return [
         'page_css' => ['css/design-system.css', 'css/about.css'],
     ],
     'mbbs' => [
-        'page_title' => 'MBBS in China at Xinjiang Medical University | Fees, Duration & Admission 2026',
+        'page_title' => 'MBBS in China at Xinjiang Medical University | Fees, Duration & Admission 2027',
         'page_description' => 'Complete guide to the MBBS program at Xinjiang Medical University — 6-year English-medium degree, WHO & MOE-listed, PMDC/NMC recognized. Curriculum, eligibility, fees (~¥49,950 first year) and how to apply for the September 2026 intake.',
         'page_keywords' => 'MBBS in China, MBBS at Xinjiang Medical University, XJMU MBBS, study MBBS China, English medium MBBS, MBBS fees China, MBBS duration, WHO recognized MBBS China, MBBS admission 2026',
         'page_url' => 'https://xjmu.online/mbbs',
@@ -49,7 +49,7 @@ return [
         'page_css' => ['css/design-system.css', 'css/admissions.css'],
     ],
     'fees' => [
-        'page_title' => 'MBBS Fees in China 2026 | Xinjiang Medical University Tuition & Cost',
+        'page_title' => 'MBBS Fees in China 2026–27 | Xinjiang Medical University Tuition & Cost',
         'page_description' => 'Complete MBBS fees in China at Xinjiang Medical University — first-year package ~¥49,950 (≈US$7,000), tuition, hostel, insurance and cost of living. Transparent 2026 fee structure with no hidden charges.',
         'page_keywords' => 'china mbbs fees, MBBS fees in China, Xinjiang Medical University fees, XJMU tuition, MBBS cost in China, cheapest MBBS in China, MBBS China fee structure 2026, study MBBS China cost',
         'page_url' => 'https://xjmu.online/fees',
@@ -58,7 +58,7 @@ return [
         'page_css' => ['css/design-system.css', 'css/fees.css'],
     ],
     'scholarships' => [
-        'page_title' => 'XJMU Scholarships | CSC & Merit Awards 2026',
+        'page_title' => 'XJMU Scholarships | CSC & Merit Awards 2027',
         'page_description' => 'Discover XJMU scholarships — CSC government awards, merit scholarships, and provincial grants for international MBBS students in China. Apply for 2026.',
         'page_keywords' => 'XJMU scholarships, CSC scholarship China, MBBS scholarship China, funded medical programs China, Xinjiang Medical University scholarship, government scholarship China, international student scholarship, merit scholarship MBBS',
         'page_url' => 'https://xjmu.online/scholarships',
@@ -112,7 +112,7 @@ return [
         ['q' => 'Can I get a scholarship to reduce MBBS fees?',
          'a' => 'Yes. Eligible international students can apply for CSC government scholarships and merit awards. Visit our scholarships page or speak to a counsellor for guidance.'],
         ['q' => 'How and when do I pay the fees?',
-         'a' => 'Fees are paid annually after you receive your admission letter. Our admissions team guides you through the payment process for the September 2026 intake.'],
+         'a' => 'Fees are paid annually after you receive your admission letter. Our admissions team guides you through the payment process for the September 2027 intake.'],
     ],
 
     // home_faqs_fallback
@@ -126,7 +126,7 @@ return [
         ['question' => 'How long is the MBBS program at XJMU?',
          'answer' => 'The MBBS degree is 6 years, including a one-year clinical internship in affiliated teaching hospitals.'],
         ['question' => 'When is the intake and how do I apply?',
-         'answer' => 'The next intake is September 2026. You can apply online through our admissions portal or contact our counsellors on WhatsApp for free, step-by-step guidance.'],
+         'answer' => 'The next intake is September 2027. You can apply online through our admissions portal or contact our counsellors on WhatsApp for free, step-by-step guidance.'],
     ],
 
     // site_settings keys used by the mbbs page with their fallback text (empty value -> fallback)
@@ -149,7 +149,7 @@ return [
         'mbbs_apply_title' => 'How to apply for MBBS',
         'mbbs_faq_title' => 'MBBS — frequently asked questions',
         'mbbs_cta_title' => 'Ready to study MBBS at Xinjiang Medical University?',
-        'mbbs_cta_lead' => 'Apply for the September 2026 intake or talk to our admissions counsellors for free guidance.',
+        'mbbs_cta_lead' => 'Apply for the September 2027 intake or talk to our admissions counsellors for free guidance.',
     ],
 
     // site_settings keys used by the index page with their fallback text (empty value -> fallback)
@@ -204,6 +204,6 @@ return [
         'home_faq_lead' => 'Answers to the most common questions about studying MBBS at XJMU.',
         'home_cta_title' => 'Ready to start your MBBS journey in China?',
         'home_cta_lead' => 'Join thousands of international students at Xinjiang Medical University. Talk to our admissions team today — it\'s free.',
-        'home_cta_btn' => 'Apply for 2026',
+        'home_cta_btn' => 'Apply for 2027',
     ],
 ];

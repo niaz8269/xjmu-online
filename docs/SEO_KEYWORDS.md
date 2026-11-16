@@ -40,7 +40,7 @@ Google positions checked 16 Nov 2026 (Pakistan, English): "MBBS in China 2026" =
 
 ## Settings to update in the admin panel (stored in the database, not in code)
 
-These still say 2026 on the pages: `intake_year`, `mbbs_facts_list` ("Intake | September 2026"), `mbbs_cta_lead`. The "Apply for 2026"
+These may still say 2026 on the pages (code-side 2027 labels done 17 Nov): `intake_year`, `mbbs_facts_list` ("Intake | September 2026"), `mbbs_cta_lead`. The "Apply for 2026"
 button is in code (`resources/views/pages/mbbs.blade.php`). Change them when the 2027 intake is confirmed.
 
 ## Routine

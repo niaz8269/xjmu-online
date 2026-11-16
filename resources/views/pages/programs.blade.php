@@ -68,7 +68,7 @@
 <section class="ds-section ds-section--soft">
     <div class="container">
         <div class="ds-cta-band">
-            <h2>Ready to apply for the 2026 intake?</h2>
+            <h2>Ready to apply for the 2027 intake?</h2>
             <p>Start your application to Xinjiang Medical University or ask our counsellors which program suits you best.</p>
             <div class="d-flex flex-wrap gap-3 justify-content-center">
                 <a href="{{ get_absolute_url('login') }}" class="ds-btn ds-btn--lg" style="background:#fff;color:var(--ds-red)!important">Apply Now</a>
