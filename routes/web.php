@@ -27,6 +27,12 @@ require __DIR__ . '/web/auth.php';
 require __DIR__ . '/web/portal.php';
 require __DIR__ . '/web/admin.php';
 
+// Old / mistyped addresses (see config/legacy_redirects.php): 301 to the closest real page.
+foreach (config('legacy_redirects.paths', []) as $from => $to) {
+    Route::permanentRedirect($from, $to);
+}
+Route::get('/downloads/{path}', fn () => redirect(config('legacy_redirects.downloads_fallback', '/downloads'), 301))->where('path', '.+');
+
 Route::redirect('/index.php', '/', 301);
 Route::redirect('/login.html', '/login', 301);
 Route::redirect('/register.html', '/register', 301);

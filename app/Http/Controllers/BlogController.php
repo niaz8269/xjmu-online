@@ -45,6 +45,11 @@ class BlogController extends Controller
             return redirect($this->blogs->path($blog->slug), 301);
         }
 
+        // Renamed / removed posts that Google still knows under the old address.
+        if (! $blog && ! $fromPath && ($to = config('legacy_redirects.blog_slugs.' . $slug))) {
+            return redirect($to, 301);
+        }
+
         if (! $blog) {
             return response()->view('pages.blogs.not-found', [
                 'page_title' => 'Blog Post Not Found | XJMU',

@@ -79,4 +79,16 @@ class SeoGuidesTest extends TestCase
         $this->assertStringContainsString('<loc>https://xjmu.online/blog/hello</loc>', $xml);
         $this->assertStringNotContainsString('blog-post?slug=', $xml);
     }
+
+    public function test_old_addresses_from_search_console_redirect_permanently(): void
+    {
+        foreach (config('legacy_redirects.paths') as $from => $to) {
+            $this->get($from)->assertStatus(301)->assertRedirect(url($to));
+        }
+        $this->get('/downloads/brochures/prospectus-2025.pdf')->assertStatus(301)->assertRedirect(url('/downloads'));
+        $this->get('/blog-post?slug=complete-list-of-45-moe-listed-universities-in-china-for-mbbs-2026-2027-xjmu-online')
+            ->assertStatus(301)->assertRedirect(url('/moe-listed-mbbs-universities-in-china'));
+        $this->get('/blog-post?slug=expat-eyes-a-ghanaian-student-s-endearing-memories-of-xinjiang')->assertStatus(301)->assertRedirect(url('/blogs'));
+        $this->get('/blog-post?slug=something-that-never-existed')->assertNotFound();
+    }
 }
