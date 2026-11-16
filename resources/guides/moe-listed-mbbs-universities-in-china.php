@@ -4,13 +4,13 @@ $s = require __DIR__ . '/_shared.php';
 
 return [
     'updated' => '2026-11-16',
-    'title' => 'MOE Listed MBBS Universities in China 2027 | Official List of 43',
-    'description' => 'MOE listed MBBS universities in China for 2027 applicants: all 43 approved English taught MBBS universities with seats, the rules and how to verify one.',
-    'keywords' => 'MOE listed MBBS, MOE listed MBBS universities in China, MOE listed universities in China 2027, registered MBBS university in China, MOE approved medical universities China, 43 MOE listed universities, English taught MBBS, MBBS in China 2027',
+    'title' => 'MOE Listed Universities in China 2027 | Official List of 43 (MBBS)',
+    'description' => 'List of MOE listed universities in China for 2027 applicants: all 43 approved English taught MBBS universities with seats, the rules and how to verify one.',
+    'keywords' => 'MOE listed university in China, List of MOE listed universities, MOE listed universities in China 2027, MOE listed MBBS, MOE listed MBBS universities in China, registered MBBS university in China, MOE approved medical universities China, 43 MOE listed universities, MBBS in China 2027',
     'eyebrow' => 'Official list for 2027 applicants',
-    'h1' => 'MOE Listed MBBS Universities in China 2027',
+    'h1' => 'List of MOE Listed Universities in China 2027',
     'lead' => "The 43 universities that China's Ministry of Education has approved to teach MBBS in English to international students, with seat quotas, the rules behind the list and how to check any university yourself.",
-    'crumb' => 'MOE listed MBBS universities',
+    'crumb' => 'List of MOE listed universities',
     'cta' => 'Apply to an MOE listed university',
     'sections' => [
 
@@ -56,7 +56,7 @@ return [
             'Universities that seriously violate the notice face enrolment restrictions or full suspension.',
         ], 'note' => $s['moeSource']],
 
-        ['id' => 'full-list', 'eyebrow' => 'Full list', 'h' => 'Full list of 43 MOE listed MBBS universities and seats', 'p' => [
+        ['id' => 'full-list', 'eyebrow' => 'Full list', 'h' => 'List of MOE listed universities in China: all 43 with seats', 'p' => [
             "This is the complete list from the official notice, in the order in which the ministry publishes it, with the seat quota for each university.",
         ], 'table' => ['caption' => 'MOE listed MBBS universities in China, 2026–2027 academic year', 'head' => ['#', 'University', 'Seats'], 'rows' => $s['moeRows'], 'highlight' => 'Xinjiang Medical University'],
         'note' => $s['moeSource'], 'link' => ['blogs', 'Read our news post on the MOE notice']],
@@ -199,6 +199,7 @@ return [
         'link' => ['adm-HtApply', 'How to apply, step by step']],
     ],
     'faqs' => [
+        ['What is a MOE listed university in China?', 'A MOE listed university is one that the Ministry of Education has named in its official notice as authorised to enrol international students in the English taught MBBS. For 2026–2027 the list has 43 universities, and Xinjiang Medical University is number 8 with 60 seats.'],
         ['How many MOE listed MBBS universities are there in China?', 'There are 43 for the 2026–2027 academic year, with a combined quota of 2,790 seats for international students.'],
         ['Is there an MOE list for 2027?', 'The list in force was issued on 1 June 2026 for the 2026–2027 academic year. The next notice has not been published yet. This page will be updated when it is.'],
         ['Is Xinjiang Medical University MOE listed?', 'Yes. It is number 8 on the 2026–2027 list with a quota of 60 seats.'],

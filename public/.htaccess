@@ -16,13 +16,21 @@ AddCharset UTF-8 .html .css .js .xml .json .rss .atom
     RewriteCond %{HTTP:x-xsrf-token} .
     RewriteRule .* - [E=HTTP_X_XSRF_TOKEN:%{HTTP:X-XSRF-Token}]
 
-    # --- Canonical host: force HTTPS + non-www (SEO) -------------------------
-    # Same rule the original site shipped (it was commented out there too). Enable on production
-    # once HTTPS is confirmed on the new hosting:
-    #RewriteCond %{HTTP_HOST} ^(www\.)?xjmu\.online [NC]
-    #RewriteCond %{HTTPS} off [OR]
-    #RewriteCond %{HTTP_HOST} ^www\. [NC]
-    #RewriteRule ^ https://xjmu.online%{REQUEST_URI} [R=301,L]
+    # --- Canonical host: one address per page = https://xjmu.online (SEO) -----------
+    # Before this rule http://, www. and every other subdomain (wildcard DNS, e.g. webinar.xjmu.online) served the
+    # whole site, so Google saw each page under several hosts. Now they 301 to https://xjmu.online.
+    # Notes: GET/HEAD only (form posts are never redirected); staging.* is left alone; the CDN terminates TLS, so
+    # HTTPS is detected from X-Forwarded-Proto / REQUEST_SCHEME (%{HTTPS} is always "off" behind it).
+    RewriteCond %{REQUEST_METHOD} ^(GET|HEAD)$
+    RewriteCond %{HTTP_HOST} !^staging\. [NC]
+    RewriteCond %{HTTP_HOST} ^(?:[a-z0-9-]+\.)+xjmu\.online(?::\d+)?$ [NC]
+    RewriteRule ^ https://xjmu.online%{REQUEST_URI} [R=301,L]
+
+    RewriteCond %{REQUEST_METHOD} ^(GET|HEAD)$
+    RewriteCond %{HTTP_HOST} ^xjmu\.online$ [NC]
+    RewriteCond %{HTTP:X-Forwarded-Proto} !https [NC]
+    RewriteCond %{REQUEST_SCHEME} !=https
+    RewriteRule ^ https://xjmu.online%{REQUEST_URI} [R=301,L]
 
     # --- Canonicalise old .php URLs -> clean URLs (SEO; same as the original site) ---
     # GET-only, and processing endpoints (save_/get_/send_/submit_/download_/export_/review_) are excluded.

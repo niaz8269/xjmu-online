@@ -49,6 +49,3 @@ Disallow: /*.bak$
 
 # Sitemap location
 Sitemap: https://xjmu.online/sitemap.xml
-
-# Crawl delay
-Crawl-delay: 1
