@@ -59,7 +59,7 @@ return [
     ],
     'scholarships' => [
         'page_title' => 'XJMU Scholarships | CSC & Merit Awards 2027',
-        'page_description' => 'Discover XJMU scholarships — CSC government awards, merit scholarships, and provincial grants for international MBBS students in China. Apply for 2026.',
+        'page_description' => 'Discover XJMU scholarships — CSC government awards, merit scholarships, and provincial grants for international MBBS students in China. Apply for 2027.',
         'page_keywords' => 'XJMU scholarships, CSC scholarship China, MBBS scholarship China, funded medical programs China, Xinjiang Medical University scholarship, government scholarship China, international student scholarship, merit scholarship MBBS',
         'page_url' => 'https://xjmu.online/scholarships',
         'page_image' => 'https://xjmu.online/images/logo.png',
