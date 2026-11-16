@@ -4,7 +4,7 @@
 // Moved out of the former legacy templates; consumed by the public page controllers (passed to layouts.site / partials.header).
 return [
     'home' => [
-        'page_title' => 'MBBS in China 2026 | Xinjiang Medical University',
+        'page_title' => 'MBBS in China 2027 | Xinjiang Medical University',
         'page_description' => 'Study MBBS in China at Xinjiang Medical University — WHO & MOE-listed, English-medium medical degree with affordable fees. Recognized by PMDC, NMC & WHO. Apply for the September 2026 intake.',
         'page_keywords' => 'MBBS in China, Xinjiang Medical University, XJMU, study medicine China, MBBS 2026, MBBS fees China, CSC scholarship, English medium MBBS, WHO recognized medical university China, MBBS for international students',
         'page_url' => 'https://xjmu.online/',
