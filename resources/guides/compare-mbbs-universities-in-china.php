@@ -36,6 +36,27 @@ foreach ($s['moeRows'] as $row) {
     $cityRows[] = [$row[1], $city, $groupName[$g], $row[2]];
 }
 
+$seatsByGroup = [];
+foreach ($s['moeRows'] as $row) {
+    if ($row[0] === '' || !isset($cityByName[$row[1]])) {
+        continue;
+    }
+    $g = $cityByName[$row[1]][1];
+    $seatsByGroup[$g]['n'] = ($seatsByGroup[$g]['n'] ?? 0) + 1;
+    $seatsByGroup[$g]['seats'] = ($seatsByGroup[$g]['seats'] ?? 0) + (int) $row[2];
+}
+$seatChartRows = [];
+foreach ($groupName as $g => $name) {
+    $seatChartRows[] = [$name . ' (' . $seatsByGroup[$g]['n'] . ' universities)', [$seatsByGroup[$g]['seats']]];
+}
+
+$tempChartRows = [
+    ['Harbin', [-18, 23]], ['Changchun', [-14, 23]], ['Urumqi', [-12, 24]], ['Shenyang', [-11, 25]], ['Yinchuan', [-7, 24]],
+    ['Dalian', [-4, 24]], ['Beijing', [-3, 27]], ['Tianjin', [-3, 27]], ["Xi'an", [0, 27]], ['Jinan', [0, 27]],
+    ['Shanghai', [4, 29]], ['Wuhan', [4, 29]], ['Hangzhou', [4, 29]], ['Chengdu', [6, 26]], ['Chongqing', [8, 29]],
+    ['Kunming', [9, 20]], ['Xiamen', [13, 29]], ['Guangzhou', [14, 29]],
+];
+
 return [
     'updated' => '2026-11-17',
     'title' => 'Compare MBBS Universities in China 2027 | City, Weather, Fees',
@@ -58,7 +79,7 @@ return [
         ['id' => 'approval', 'eyebrow' => 'Start here', 'h' => 'Step one: only compare universities on the MOE list', 'p' => [
             "The MOE list is the filter that comes before every other comparison. It is the official record of which Chinese universities may teach the English taught MBBS to international students. Our MOE listed MBBS universities page prints the full table of 43 universities and seats. Below, the same universities are grouped by city and climate so you can see the geography at a glance.",
             "Check three things for any university you are considering. First, that its name appears on the notice. Second, that the programme is the English taught MBBS or clinical medicine for international students, not a different course. Third, that the university's own international admissions page, not only an agent, confirms the fees and deadlines for the year you plan to apply. Names on the list can be similar to names of other institutions, so match the full name.",
-        ], 'link' => ['moe-listed-mbbs-universities-in-china', 'See the full MOE list of 43 universities'], 'table' => ['caption' => 'MOE listed universities by city and climate group (2026–2027)', 'head' => ['University', 'City', 'Climate group', 'Seats'], 'rows' => $cityRows]],
+        ], 'link' => ['moe-listed-mbbs-universities-in-china', 'See the full MOE list of 43 universities'], 'table' => ['caption' => 'MOE listed universities by city and climate group (2026–2027)', 'head' => ['University', 'City', 'Climate group', 'Seats'], 'rows' => $cityRows], 'charts' => [['caption' => 'MOE places for international MBBS students by climate group, 2026–2027', 'unit' => '', 'min' => 0, 'max' => 1200, 'series' => ['Seats'], 'rows' => $seatChartRows, 'note' => 'Seats are summed from the MOE notice of 1 June 2026; the total is 2,790.']]],
 
         ['id' => 'weather', 'eyebrow' => 'Weather', 'h' => 'Compare by weather: five climate groups across the 43 cities', 'p' => [
             "China is large, and the weather you live in for six years depends on where you go. The 43 universities fall into five rough climate groups. The group names in the table above use these labels, and the table below gives approximate average temperatures for January and July in well-known cities. They are rounded long-term monthly averages, intended to show the pattern, not to predict a particular week. Always check a current forecast before you pack.",
@@ -81,7 +102,7 @@ return [
             ['Kunming', 'Mild all year', 'about 9', 'about 20'],
             ['Xiamen', 'Mild winters, hot humid summers', 'about 13', 'about 29'],
             ['Guangzhou', 'Mild winters, hot humid summers', 'about 14', 'about 29'],
-        ]], 'sub' => [
+        ]], 'charts' => [['caption' => 'January and July average temperature by city (°C, approximate)', 'unit' => '', 'min' => -20, 'max' => 32, 'series' => ['January', 'July'], 'rows' => $tempChartRows, 'note' => 'Rounded long-term monthly averages, for pattern only. Check a current forecast before you pack.']], 'sub' => [
             ['h' => 'Group A: very cold winters (north-east and north-west)', 'p' => [
                 "Harbin, Changchun, Shenyang, Jilin City, Jinzhou, Urumqi, Shihezi and Yinchuan have long winters with temperatures well below freezing for months. The air is often dry, and buildings are heated indoors, so life inside is warm. Summers are short and pleasant to hot. Students from tropical countries need proper winter clothing and a few weeks to adjust. The reward is clear skies, low humidity and, in many of these cities, lower living costs.",
                 "Urumqi belongs here. It has a dry continental climate, with a cold snowy winter and a hot dry summer. Our Life in Urumqi guide explains clothing, hostel heating and the first-month routine.",
@@ -104,7 +125,7 @@ return [
             "Tuition is only part of the cost of studying medicine in China. Food, local transport, a phone plan, clothes, travel home and small emergencies add up over six years, and they depend on the city more than on the university. Published student cost guides generally place Beijing and Shanghai at the top, with typical monthly living costs of around ¥3,500 to ¥5,500 for an international student, and smaller cities lower. Those guides are written by agencies and are not official, so treat them as a pattern, not a quote.",
             "A useful way to think about it is three tiers. The first tier is the large coastal and capital cities, Beijing, Shanghai, Guangzhou and similar: highest rents and restaurant prices, most choice, and most international food. The second tier is large regional capitals such as Wuhan, Chengdu, Xi'an, Hangzhou, Nanjing, Chongqing, Shenyang and Changchun: moderate costs with the services of a big city. The third tier is smaller cities and regional centres: the lowest costs, a quieter life and fewer international restaurants.",
             "At XJMU, our published budget for food is USD 150 to 250 a month, with local transport at USD 10 to 20 and a mobile SIM at USD 10 to 15. Hostel accommodation is part of the fee, at ¥4,500 a year after the first year. That is the figure we can verify. For any other university, ask for a similar line-by-line budget from a current student, not only from the admissions office.",
-        ], 'table' => $s['living'], 'sub' => [
+        ], 'table' => $s['living'], 'img' => ['src' => 'assets/images/localbazar.webp', 'alt' => 'A local bazaar in Urumqi where students buy halal food, fruit and daily supplies', 'caption' => 'Local markets keep food costs low in smaller cities such as Urumqi.'], 'sub' => [
             ['h' => 'What changes with the city', 'list' => [
                 "Rent, if you live off campus: the largest difference between cities, but most first-year students stay in university hostels.",
                 "Restaurants and delivery: canteen meals are cheap everywhere, but eating out in a first-tier city costs more.",
@@ -117,7 +138,7 @@ return [
             "Published tuition for English taught MBBS in China varies a great deal between universities. Public listings put it anywhere from about ¥21,000 to about ¥48,000 a year, and you will see both lower and higher figures quoted. Those listings come from agencies and are often years out of date, so we do not copy them here. Use them only to understand that the range is wide, then ask each university for its current figure.",
             "A tuition number is only comparable when you know what sits behind it. Two universities can show the same tuition and cost very different amounts once accommodation, insurance, the residence permit and the medical examination are added. Some universities bundle these into a first-year package. Others charge them separately each year. Before you compare, put every university on the same footing: the first-year total and the yearly total after that.",
             "For XJMU, the September 2026 first-year package is ¥49,950, about USD 7,000, and it includes application processing, tuition, hostel accommodation, the student visa, health insurance and medical, the JW202 visa letter and airport pickup. From the second year the total is ¥35,950 a year, about USD 5,050. Over six years, the total comes to about ¥229,700, which is about USD 32,000. The full breakdown is in our MBBS in China fees guide.",
-        ], 'table' => $s['feeFirstYear'], 'link' => ['mbbs-in-china-fees-2027', 'Read the full MBBS in China fees guide'], 'sub' => [
+        ], 'table' => $s['feeFirstYear'], 'link' => ['mbbs-in-china-fees-2027', 'Read the full MBBS in China fees guide'], 'charts' => [['caption' => 'XJMU cost per year, RMB ¥ (September 2026 package; six-year total about ¥229,700)', 'unit' => '', 'min' => 0, 'max' => 55000, 'series' => ['Fee per year'], 'rows' => [['Year 1 (package)', [49950]], ['Year 2', [35950]], ['Year 3', [35950]], ['Year 4', [35950]], ['Year 5', [35950]], ['Year 6', [35950]]], 'note' => 'Year 1 includes application processing, visa, insurance and medical. Living costs and flights are extra.']], 'sub' => [
             ['h' => 'A comparison sheet you can copy', 'p' => [
                 "Build one row per university and fill each column from the university's own current notice or from written answers. Leave a cell blank if you do not have a figure: a blank is more honest than a guess.",
             ], 'list' => [
@@ -176,7 +197,7 @@ return [
             ['h' => 'The student who wants to be close to home', 'p' => ["Chooses by flight time. For students from Pakistan, a city in the north-west is the nearest. For students from elsewhere, a city with an international airport and a direct flight to home usually wins."]],
             ['h' => 'The student who wants halal food and a quiet routine', 'p' => ["Looks first at Xinjiang and Ningxia, where halal food is part of everyday life, and then checks what the canteen and nearby restaurants offer in any other city."]],
             ['h' => 'The student who wants a global big-city experience', 'p' => ["Accepts higher costs for the chance to live in Beijing, Shanghai or Guangzhou. This student should budget more and check whether the hostel is on or near campus."]],
-        ]],
+        ], 'img' => ['src' => 'assets/images/festivals.webp', 'alt' => 'International students celebrating a festival together at Xinjiang Medical University in Urumqi', 'caption' => 'Community and festivals matter as much as the city name.']],
 
         ['id' => 'xjmu', 'eyebrow' => 'Where XJMU fits', 'h' => 'Where Xinjiang Medical University fits in the comparison', 'p' => [
             "XJMU is on the MOE list at number 8, with 60 places for international students. It sits in Group A, so winters are cold and summers are hot and dry. Its strengths on the factors above are a published and bundled fee, a first-year package of ¥49,950 and ¥35,950 a year after that, hostel accommodation included in the fee, easy access to halal food, and a short direct flight from Islamabad.",

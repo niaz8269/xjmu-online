@@ -123,6 +123,38 @@
             </div>
             @endif
 
+            @foreach (($sec['charts'] ?? []) as $chart)
+            @php
+                $cMin = $chart['min']; $cMax = $chart['max']; $cSpan = max(1, $cMax - $cMin);
+                $cColors = ['#12305a', '#d98e04'];
+                $cZero = (0 - $cMin) / $cSpan * 100;
+            @endphp
+            <figure class="mbbs-fee-card" style="margin-top:1rem; padding:1rem 1.25rem" role="group" aria-label="{{ $chart['caption'] }}">
+                <figcaption style="font-weight:600; color:var(--ds-navy); margin-bottom:.75rem">{{ $chart['caption'] }}</figcaption>
+                @if (count($chart['series']) > 1)
+                <div style="display:flex; gap:1rem; flex-wrap:wrap; font-size:.85rem; margin-bottom:.5rem">
+                    @foreach ($chart['series'] as $si => $sname)<span><span aria-hidden="true" style="display:inline-block; width:.8rem; height:.8rem; border-radius:3px; background:{{ $cColors[$si] }}; margin-inline-end:.35rem"></span>{{ $sname }}</span>@endforeach
+                </div>
+                @endif
+                @foreach ($chart['rows'] as [$label, $values])
+                <div style="display:flex; align-items:center; gap:.75rem; margin:.3rem 0">
+                    <div style="flex:0 0 38%; font-size:.9rem">{{ $label }}</div>
+                    <div style="flex:1; min-width:0">
+                        @foreach ($values as $vi => $v)
+                        @php $left = (min(0, $v) - $cMin) / $cSpan * 100; $width = abs($v) / $cSpan * 100; @endphp
+                        <div style="position:relative; height:1.15rem; margin:2px 0; background:rgba(0,0,0,.04); border-radius:4px">
+                            <div style="position:absolute; top:0; bottom:0; inset-inline-start:{{ $cZero }}%; width:1px; background:rgba(0,0,0,.25)"></div>
+                            <div style="position:absolute; top:0; bottom:0; inset-inline-start:{{ $left }}%; width:{{ max($width, 0.6) }}%; background:{{ $cColors[$vi] }}; border-radius:4px"></div>
+                            <span style="position:absolute; inset-inline-end:.35rem; top:50%; transform:translateY(-50%); font-size:.75rem; font-weight:600">{{ str_replace('-', '−', (string) $v) }}{{ $chart['unit'] ?? '' }}</span>
+                        </div>
+                        @endforeach
+                    </div>
+                </div>
+                @endforeach
+                @if (!empty($chart['note']))<p style="color:var(--ds-muted); font-size:.85rem; margin:.75rem 0 0">{{ $chart['note'] }}</p>@endif
+            </figure>
+            @endforeach
+
             @if (!empty($sec['video']))
             <div class="ratio ratio-16x9" style="margin-top:1.5rem; border-radius:14px; overflow:hidden">
                 <iframe src="{{ $sec['video']['src'] }}" title="{{ $sec['video']['title'] }}" loading="lazy" allowfullscreen></iframe>
