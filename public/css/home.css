@@ -312,3 +312,9 @@ body.home-hero-overlay .brand-bar:not(.fixed) .xjmu-lang-btn.active { background
 .home-campus-cell img { width: 100%; height: 180px; object-fit: cover; display: block; transition: transform .4s ease; }
 .home-campus-cell:hover img { transform: scale(1.07); }
 @media (max-width: 900px) { .home-campus-grid { grid-template-columns: repeat(2, 1fr); } .home-campus-cell img { height: 150px; } }
+
+/* ---------- Hero content centred (less crowded; 18 Nov 2026) ---------- */
+.home-hero__content { align-items: center; justify-content: center; padding-bottom: clamp(3rem, 8vh, 5rem); }
+.home-hero__inner { max-width: 860px; margin: 0 auto; padding-bottom: 0; text-align: center; }
+.home-hero__lead { margin-left: auto; margin-right: auto; }
+.home-hero__cta, .home-hero__trust { justify-content: center; }
