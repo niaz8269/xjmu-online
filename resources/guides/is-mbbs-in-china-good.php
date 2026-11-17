@@ -106,7 +106,7 @@ return [
             ['h' => 'Prepare and apply', 'p' => ["Prepare your passport, photograph, school transcripts and certificates, medical form and blood report, police certificate and self-introduction video, and send the application with the application fee of ¥1,000, which is included in the first-year package."]],
             ['h' => 'Pre-Admission Letter', 'p' => ["If you meet the requirements, the university issues a Pre-Admission Letter. After this, you pay a seat reservation deposit of ¥2,000, which is refunded if the JW202 is rejected."]],
             ['h' => 'JW202 and visa', 'p' => ["The university issues the JW202 visa letter, which you take to the Chinese embassy or consulate to receive your student visa. Visa, insurance and medical of ¥1,450 a year are included in the package."]],
-            ['h' => 'Arrival and registration', 'p' => ["You travel to Urumqi, are met at the airport, and register at the start of the semester. Registration and orientation fall on 10 September for the fall intake and about 20 February for the spring intake."]],
+            ['h' => 'Arrival and registration', 'p' => ["You travel to Urumqi, are met at the airport, and register at the start of the semester. Registration and orientation fall on 10 September for the September/Fall intake and about 20 February for the March/Spring intake."]],
         ], 'img' => ['src' => 'assets/images/visa-process.webp', 'alt' => 'Student preparing documents and visa for MBBS study in China at Xinjiang Medical University', 'caption' => 'Each step in the process should be matched by something in writing.']],
 
         ['id' => 'after', 'eyebrow' => 'After graduation', 'h' => 'What happens after the degree?', 'p' => [

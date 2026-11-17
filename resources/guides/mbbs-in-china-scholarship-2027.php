@@ -59,13 +59,13 @@ return [
         ['id' => 'when', 'eyebrow' => 'Deadlines', 'h' => 'When to apply: the early deadline is the one that matters', 'p' => [
             "The published calendar has an early deadline that is recommended for scholarships and a later regular deadline. If you want to be considered for a scholarship, treat the early deadline as your real deadline.",
         ], 'table' => $s['calendar'], 'sub' => [
-            ['h' => 'Fall intake', 'p' => [
+            ['h' => 'September/Fall intake', 'p' => [
                 "Applications open on 1 March, the early deadline is 30 June, the regular deadline is 15 August and registration and orientation are on 10 September.",
             ]],
-            ['h' => 'Spring intake', 'p' => [
+            ['h' => 'March/Spring intake', 'p' => [
                 "Applications open on 1 September, the early deadline is 15 December, the regular deadline is 15 January and registration is around 20 February.",
             ]],
-        ], 'link' => ['mbbs-in-china-spring-intake-2027', 'Read the spring intake guide']],
+        ], 'link' => ['mbbs-in-china-spring-intake-2027', 'Read the March/Spring intake guide']],
 
         ['id' => 'documents', 'eyebrow' => 'Documents', 'h' => 'Documents you need', 'p' => [
             "A scholarship application normally uses the same file as the admission application. Prepare these documents early, because the medical report and the police certificate take time to obtain.",
@@ -231,7 +231,7 @@ return [
         ['How much is the CSC scholarship stipend for MBBS?', 'The published undergraduate stipend for the Chinese Government Scholarship is 30,000 yuan a year, and it also makes tuition, accommodation and insurance free.'],
         ['How much is the Xinjiang Government Scholarship?', 'The published undergraduate stipend is 10,000 yuan a year, for students from neighbouring countries.'],
         ['Is a fully funded MBBS scholarship in China possible?', 'The Chinese Government Scholarship covers tuition, accommodation and insurance and pays a stipend. Places are limited and competitive, and admissions does not promise any individual student one.'],
-        ['When should I apply for a scholarship?', 'By the early deadline: 30 June for the fall intake and 15 December for the spring intake.'],
+        ['When should I apply for a scholarship?', 'By the early deadline: 30 June for the September/Fall intake and 15 December for the March/Spring intake.'],
         ['Do I apply separately for the scholarship?', 'Ask admissions how to apply for the scholarship when you submit your admission application. The two processes share most documents.'],
         ['What documents do I need?', 'Passport, white-background photograph, XJMU application form, physical examination form and blood report, police non-criminal record certificate, high-school transcripts and certificates, and a self-introduction video.'],
         ['What marks do I need for a scholarship?', 'The admission requirement is 60% in each science subject. Scholarship programmes may set their own conditions, so ask admissions for the current ones.'],

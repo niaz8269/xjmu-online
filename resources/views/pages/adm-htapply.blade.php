@@ -109,11 +109,11 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td data-label="Intake">Fall Intake</td>
+                        <td data-label="Intake">September/Fall Intake</td>
                         <td data-label="Deadline">Typically around June/July</td>
                     </tr>
                     <tr>
-                        <td data-label="Intake">Spring Intake</td>
+                        <td data-label="Intake">March/Spring Intake</td>
                         <td data-label="Deadline">Typically around December/January</td>
                     </tr>
                 </tbody>

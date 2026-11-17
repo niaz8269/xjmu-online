@@ -176,7 +176,7 @@ return [
 
         ['id' => 'seats', 'eyebrow' => 'Seats', 'h' => 'Seat quotas and why early application matters', 'p' => [
             "With 2,790 seats shared among 43 universities, the average quota is about 65 seats per university. Sixteen universities have 40 seats or fewer. Demand comes from students across South Asia, Central Asia, the Middle East and Africa, so popular universities fill their quota before the regular deadline.",
-            "XJMU has 60 seats. The university's admissions calendar opens fall applications on 1 March, recommends applying by 30 June, and closes regular applications on 15 August. The MBBS also has a spring intake, with applications open from 1 September and a regular deadline of 15 January. Applying by the early deadline gives you the best chance of a seat and of scholarship consideration.",
+            "XJMU has 60 seats. The university's admissions calendar opens fall applications on 1 March, recommends applying by 30 June, and closes regular applications on 15 August. The MBBS also has a March/Spring intake, with applications open from 1 September and a regular deadline of 15 January. Applying by the early deadline gives you the best chance of a seat and of scholarship consideration.",
         ], 'table' => $s['calendar']],
 
         ['id' => 'next-list', 'eyebrow' => 'Looking ahead', 'h' => 'When will the next MOE list be published?', 'p' => [

@@ -116,7 +116,7 @@ return [
             "You cannot change the university fees, but you can control how you spend around them.",
         ], 'sub' => [
             ['h' => 'Apply early', 'p' => [
-                "The early deadline is recommended for scholarships, and early applicants also have time to book flights before prices rise. For the fall intake the early deadline is 30 June, and for the spring intake it is 15 December.",
+                "The early deadline is recommended for scholarships, and early applicants also have time to book flights before prices rise. For the September/Fall intake the early deadline is 30 June, and for the March/Spring intake it is 15 December.",
             ]],
             ['h' => 'Book flights well ahead', 'p' => [
                 "The direct flight from Islamabad takes about two hours and fifty minutes. Booking early usually costs less than booking in the final week.",

@@ -9,7 +9,7 @@ return [
     'keywords' => 'MBBS in China for Bangladeshi students, MBBS in China for Nepali students, MBBS in China for Sri Lankan students, MBBS in China requirements, MBBS in China 2027, MOE listed MBBS, English taught MBBS, Xinjiang Medical University',
     'eyebrow' => 'Guide for students from South Asia',
     'h1' => 'MBBS in China for Bangladeshi and Nepali Students 2027',
-    'lead' => 'A practical guide for students and parents from Bangladesh, Nepal and Sri Lanka: what Xinjiang Medical University, an MOE listed university, requires, what it costs, which questions to settle with your own medical council, the documents you need and how to apply for the September or spring intake.',
+    'lead' => 'A practical guide for students and parents from Bangladesh, Nepal and Sri Lanka: what Xinjiang Medical University, an MOE listed university, requires, what it costs, which questions to settle with your own medical council, the documents you need and how to apply for the September or March/Spring intake.',
     'crumb' => 'MBBS in China for Bangladeshi and Nepali students',
     'cta' => 'Talk to admissions',
     'sections' => [
@@ -208,7 +208,7 @@ return [
             ['h' => 'After the Pre-Admission Letter', 'p' => [
                 "Pay the seat reservation deposit, apply for the visa with the JW202 letter, book your flight and buy winter clothing for your arrival.",
             ]],
-        ], 'link' => ['mbbs-in-china-spring-intake-2027', 'See spring intake dates and deadlines']],
+        ], 'link' => ['mbbs-in-china-spring-intake-2027', 'See March/Spring intake dates and deadlines']],
 
         ['id' => 'compare', 'eyebrow' => 'Comparing', 'h' => 'How to compare China with a seat at home or another country', 'p' => [
             "Students from South Asia often compare China with a seat at home, with other countries abroad, or with both. We do not publish claims about other countries, because we cannot verify them for you. A fair comparison uses the same checklist for every option.",

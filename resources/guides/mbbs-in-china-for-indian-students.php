@@ -199,7 +199,7 @@ return [
         ['id' => 'next', 'eyebrow' => 'Next steps', 'h' => 'Your next steps', 'p' => [
             "Read the NMC's current notices and write down what they require. Check your marks against the 60% requirement in each science subject. Ask admissions for the fee structure and the programme details in writing. Then choose your intake, and apply by the early deadline.",
             "If you have questions that this guide does not answer, write to admissions and ask. A clear question usually gets a clear answer, and the answer is worth keeping.",
-        ], 'link' => ['mbbs-in-china-spring-intake-2027', 'See spring intake dates and deadlines']],
+        ], 'link' => ['mbbs-in-china-spring-intake-2027', 'See March/Spring intake dates and deadlines']],
 
         ['id' => 'risks', 'eyebrow' => 'Honest view', 'h' => 'The risks to weigh', 'p' => [
             "A balanced decision looks at the downsides. The main ones are the distance from home, the need to learn Chinese for clinical work, six years of study and the licensing examination after you return. A further risk is that rules change while you study, so keep reading the regulator's notices throughout the programme.",

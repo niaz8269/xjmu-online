@@ -151,8 +151,8 @@ return [
         ], 'img' => ['src' => 'assets/images/visa-process.webp', 'alt' => 'Visa and admission paperwork for a Pakistani student travelling to China for MBBS', 'caption' => 'The admission letter and JW202 form are needed for the student visa.'],
         'link' => ['adm-HtApply', 'How to apply, step by step']],
 
-        ['id' => 'intakes', 'eyebrow' => 'Intakes', 'h' => 'Spring and fall intakes: which suits you', 'p' => [
-            "MBBS in China has two intakes a year. The fall intake starts in September and is the larger one. The spring intake starts in February or March, and it suits Pakistani students who finish exams or receive results in the winter, or who do not want to wait until September.",
+        ['id' => 'intakes', 'eyebrow' => 'Intakes', 'h' => 'Spring and September/Fall intakes: which suits you', 'p' => [
+            "MBBS in China has two intakes a year. The September/Fall intake starts in September and is the larger one. The March/Spring intake starts in February or March, and it suits Pakistani students who finish exams or receive results in the winter, or who do not want to wait until September.",
             "For spring 2027, applications opened on 1 September, with an early deadline of 15 December and a regular deadline of 15 January. For fall 2027, applications open on 1 March, with an early deadline of 30 June and a regular deadline of 15 August. Apply by the early deadline if you also want to be considered for scholarships.",
         ], 'table' => $s['calendar']],
 
@@ -223,8 +223,8 @@ return [
         ], 'img' => ['src' => 'assets/images/festivals.webp', 'alt' => 'Crowd in colourful costumes performing at a festival event in Xinjiang', 'caption' => 'Student life in Xinjiang includes festivals and cultural events.']],
 
         ['id' => 'timeline', 'eyebrow' => 'Plan', 'h' => 'From FSc result to your first lecture', 'p' => [
-            "A typical timeline for a Pakistani student aiming for the fall intake looks like this. Adjust it for the spring intake by moving every date six months earlier.",
-        ], 'table' => ['caption' => 'A planning timeline for the fall intake', 'head' => ['When', 'What to do'], 'rows' => [
+            "A typical timeline for a Pakistani student aiming for the September/Fall intake looks like this. Adjust it for the March/Spring intake by moving every date six months earlier.",
+        ], 'table' => ['caption' => 'A planning timeline for the September/Fall intake', 'head' => ['When', 'What to do'], 'rows' => [
             ['Before March', 'Check eligibility, the MOE list and the regulator\'s rules. Decide on your budget.'],
             ['From 1 March', 'Applications open. Prepare documents and record the self-introduction video.'],
             ['By 30 June', 'Early deadline, recommended for scholarship consideration.'],
@@ -242,7 +242,7 @@ return [
         ['How much is the whole six-year MBBS?', 'About ¥229,700, roughly USD 32,000, for tuition, hostel, insurance, residence permit and examinations at 2026 figures, plus food, flights and personal spending.'],
         ['Is the MBBS in China taught in English?', 'Yes. The medical subjects are taught and examined in English. Introductory Chinese is taught in years 1 and 2, and HSK-4 is required by graduation.'],
         ['How long does it take to fly from Islamabad to Urumqi?', 'A direct flight takes about 2 hours 50 minutes.'],
-        ['Which intakes can Pakistani students join?', 'There are two, a fall intake in September and a spring intake in February or March.'],
+        ['Which intakes can Pakistani students join?', 'There are two, a September/Fall intake in September and a March/Spring intake in February or March.'],
         ['Is halal food available in Urumqi?', 'Yes, halal food is widely available in Urumqi.'],
         ['Can I apply for a scholarship?', 'Yes. The Chinese Government Scholarship and the Xinjiang Government Scholarship for students from neighbouring countries are open to eligible students. Apply by the early deadline to be considered.'],
         ['How many seats does XJMU have for international MBBS students?', 'The MOE quota is 60 seats for the 2026–2027 academic year.'],

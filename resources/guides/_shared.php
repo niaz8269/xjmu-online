@@ -56,7 +56,7 @@ return [
     ],
     'calendar' => [
         'caption' => 'Published admissions calendar (dates may vary by programme)',
-        'head' => ['Step', 'Fall intake (September)', 'Spring intake (February/March)'],
+        'head' => ['Step', 'September/Fall intake (September)', 'March/Spring intake (February/March)'],
         'rows' => [
             ['Applications open', '1 March', '1 September'],
             ['Early deadline (recommended for scholarships)', '30 June', '15 December'],

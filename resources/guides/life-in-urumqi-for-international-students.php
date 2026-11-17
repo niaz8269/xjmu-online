@@ -80,13 +80,13 @@ return [
             "Urumqi has four distinct seasons and a dry continental climate. You will meet strong sunshine in summer, a cold and snowy winter, and spring and autumn weather that can change quickly during the day. We do not print exact temperatures here because they vary year to year. Look up the current month's forecast before you pack.",
         ], 'sub' => [
             ['h' => 'Autumn arrival (September)', 'p' => [
-                "Students who join the fall intake arrive at the start of the semester, when the weather is usually mild. Bring light layers and a warm jacket for the evenings. This is the easiest time to arrive, because you have a few weeks to settle in before winter.",
+                "Students who join the September/Fall intake arrive at the start of the semester, when the weather is usually mild. Bring light layers and a warm jacket for the evenings. This is the easiest time to arrive, because you have a few weeks to settle in before winter.",
             ]],
             ['h' => 'Winter', 'p' => [
                 "Winter is the biggest adjustment for students from warm countries. Expect snow, ice on paths and heated indoor spaces. Buy a proper winter coat, thermal underwear, waterproof shoes with a good grip, gloves, a hat and a scarf. Many students buy these in Urumqi after they arrive, with the help of seniors, because local shops sell clothing made for local winters. Keep some money aside for this in your first month.",
             ]],
-            ['h' => 'Spring intake (February and March)', 'p' => [
-                "Students who join the spring intake arrive at the end of winter. Registration is around 20 February, and it is still cold. Plan to arrive in winter clothing, and ask admissions in writing how the first semester is arranged for the spring cohort.",
+            ['h' => 'March/Spring intake (February and March)', 'p' => [
+                "Students who join the March/Spring intake arrive at the end of winter. Registration is around 20 February, and it is still cold. Plan to arrive in winter clothing, and ask admissions in writing how the first semester is arranged for the spring cohort.",
             ]],
             ['h' => 'Summer', 'p' => [
                 "Summers are hot and dry, with long daylight hours. Bring sunglasses, a hat, sunscreen and light cotton clothing. Drink water regularly, because the dry air makes it easy to underestimate how much you need.",
@@ -166,7 +166,7 @@ return [
 
         ['id' => 'apply', 'eyebrow' => 'Next step', 'h' => 'Ready to apply?', 'p' => [
             "If life in Urumqi sounds right for you, check that you meet the requirements and prepare your documents. The two intakes are September and February/March, and the early deadline is recommended if you want to be considered for a scholarship.",
-        ], 'list' => $s['requirements'], 'link' => ['mbbs-in-china-spring-intake-2027', 'See spring intake dates and deadlines']],
+        ], 'list' => $s['requirements'], 'link' => ['mbbs-in-china-spring-intake-2027', 'See March/Spring intake dates and deadlines']],
     ],
     'faqs' => [
         ['What is life like for international students in Urumqi?', 'Students live in the university hostel, study in English, eat halal food that is widely available, travel by bus, taxi or metro, and spend free time in bazaars, parks, sport and festivals. Winters are cold and summers are hot and dry.'],
@@ -180,7 +180,7 @@ return [
         ['Do I need to speak Chinese?', 'Lectures are in English, but daily life and patient contact are in Chinese. Introductory Chinese is taught in years 1 and 2, and HSK-4 is required by graduation.'],
         ['Do I need a local SIM card?', 'Yes. You will need a Chinese phone number for many services. A local SIM costs about USD 10 to 15 a month. Buy it in your first week with a senior and your passport.'],
         ['Can parents visit Urumqi?', 'Parents can ask admissions about visiting. Visa rules depend on your nationality and change, so check the current requirements for visitors before you plan a trip.'],
-        ['What is the best time to arrive?', 'There are two intakes. September is usually mild and gives you weeks to settle in before winter. The spring intake registers around 20 February, when it is still cold, so arrive with winter clothing.'],
+        ['What is the best time to arrive?', 'There are two intakes. September is usually mild and gives you weeks to settle in before winter. The March/Spring intake registers around 20 February, when it is still cold, so arrive with winter clothing.'],
     ],
     'related' => ['mbbs-in-china-2027', 'mbbs-in-china-for-pakistani-students', 'mbbs-in-china-spring-intake-2027'],
 ];

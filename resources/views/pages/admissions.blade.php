@@ -352,15 +352,15 @@
                         <div class="row g-4 align-items-start">
                             <div class="col-lg-7 admissions-section-text">
                                 <div class="dates-calendar">
-                                    <!-- Spring Intake -->
+                                    <!-- March/Spring Intake -->
                                     <div class="intake-period mb-4">
-                                        <h5 class="intake-title"><i class="fas fa-seedling text-success me-2"></i>Spring Intake (February/March)</h5>
+                                        <h5 class="intake-title"><i class="fas fa-seedling text-success me-2"></i>March/Spring Intake (February/March)</h5>
                                             <div class="timeline">
                                                 <div class="timeline-item">
                                                     <div class="timeline-date">September 1</div>
                                                     <div class="timeline-content">
                                                         <h6>Application Opens</h6>
-                                                        <p>Online application portal opens for spring intake</p>
+                                                        <p>Online application portal opens for March/Spring intake</p>
                                                     </div>
                                                 </div>
                                                 <div class="timeline-item">
@@ -374,7 +374,7 @@
                                                     <div class="timeline-date">January 15</div>
                                                     <div class="timeline-content">
                                                         <h6>Regular Application Deadline</h6>
-                                                        <p>Final deadline for spring intake applications</p>
+                                                        <p>Final deadline for March/Spring intake applications</p>
                                                     </div>
                                                 </div>
                                                 <div class="timeline-item">
@@ -387,15 +387,15 @@
                                             </div>
                                     </div>
 
-                                    <!-- Fall Intake -->
+                                    <!-- September/Fall Intake -->
                                     <div class="intake-period">
-                                        <h5 class="intake-title"><i class="fas fa-leaf text-warning me-2"></i>Fall Intake (September/October)</h5>
+                                        <h5 class="intake-title"><i class="fas fa-leaf text-warning me-2"></i>September/Fall Intake (September/October)</h5>
                                             <div class="timeline">
                                                 <div class="timeline-item">
                                                     <div class="timeline-date">March 1</div>
                                                     <div class="timeline-content">
                                                         <h6>Application Opens</h6>
-                                                        <p>Online application portal opens for fall intake</p>
+                                                        <p>Online application portal opens for September/Fall intake</p>
                                                     </div>
                                                 </div>
                                                 <div class="timeline-item">
@@ -409,7 +409,7 @@
                                                     <div class="timeline-date">August 15</div>
                                                     <div class="timeline-content">
                                                         <h6>Regular Application Deadline</h6>
-                                                        <p>Final deadline for fall intake applications</p>
+                                                        <p>Final deadline for September/Fall intake applications</p>
                                                     </div>
                                                 </div>
                                                 <div class="timeline-item">
