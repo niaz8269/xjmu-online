@@ -1378,3 +1378,10 @@ body.home-hero-overlay .brand-bar:not(.fixed) .xjmu-lang-toggle:hover { border-c
 /* Hide video players whose YouTube link hasn't been set in the admin */
 iframe[src=""] { display: none !important; }
 .ratio:has(iframe[src=""]) { display: none !important; }
+
+.nav-dd-menu-end { left: auto; right: 0; max-height: 70vh; overflow-y: auto; }
+.nav-dd-sep { height: 1px; margin: 6px 8px; background: #e9edf2; }
+.mobile-nav-links .mobile-nav-heading { padding: 14px 20px 6px; font-size: .8rem; font-weight: 700; text-transform: uppercase; letter-spacing: .04em; color: #6b7785; }
+.main-navbar .nav-links .nav-dd-menu { background: #fff; }
+.main-navbar .nav-links .nav-dd-menu a { display: block; padding: 9px 14px; margin: 0; color: #1f2d3d; font-size: .92rem; font-weight: 500; white-space: nowrap; text-shadow: none; }
+.main-navbar .nav-links .nav-dd-menu a:hover { background: #f4f6f9; color: var(--primary-color); }

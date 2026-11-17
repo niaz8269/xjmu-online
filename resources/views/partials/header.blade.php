@@ -188,16 +188,18 @@
                     <li class="nav-item"><a class="nav-link" href="{!! get_absolute_url('programs') !!}">Programs</a></li>
                     <li class="nav-item"><a class="nav-link" href="{!! get_absolute_url('admissions') !!}">Admissions</a></li>
                     <li class="nav-item"><a class="nav-link" href="{!! get_absolute_url('fees') !!}">Fees</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{!! get_absolute_url('contact') !!}">Contact</a></li>
                     <li class="nav-item nav-dd">
-                        <span class="nav-link nav-dd-toggle" tabindex="0" role="button" aria-haspopup="true" data-i18n="nav.media">Media</span>
-                        <ul class="nav-dd-menu">
+                        <span class="nav-link nav-dd-toggle" tabindex="0" role="button" aria-haspopup="true" data-i18n="nav.more">More</span>
+                        <ul class="nav-dd-menu nav-dd-menu-end">
                             <li><a href="{!! get_absolute_url('gallery') !!}" data-i18n="nav.gallery">Gallery</a></li>
                             <li><a href="{!! get_absolute_url('blogs') !!}" data-i18n="nav.blogs">Blogs</a></li>
                             <li><a href="{!! get_absolute_url('events') !!}" data-i18n="nav.events">Events</a></li>
                             <li><a href="{!! get_absolute_url('downloads') !!}" data-i18n="nav.downloads">Downloads</a></li>
+                            <li class="nav-dd-sep" role="presentation"></li>
+                            @include('partials.guide-links')
                         </ul>
                     </li>
-                    <li class="nav-item"><a class="nav-link" href="{!! get_absolute_url('contact') !!}">Contact</a></li>
                 </ul>
             </div>
             <div class="brand-actions">
@@ -272,6 +274,12 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{!! get_absolute_url('contact') !!}" style="border: 0px !important;" data-i18n="nav.contact_us">Contact Us</a>
                 </li>
+                <li class="nav-item nav-dd">
+                    <a class="nav-link nav-dd-toggle" href="#" role="button" aria-haspopup="true" onclick="return false" data-i18n="nav.more">More</a>
+                    <ul class="nav-dd-menu nav-dd-menu-end">
+                        @include('partials.guide-links')
+                    </ul>
+                </li>
             </ul>
         </div>
     </div>
@@ -320,6 +328,8 @@
         <li>
             <a class="nav-link" href="{!! get_absolute_url('contact') !!}" target="_blank" rel="noopener noreferrer" data-i18n="nav.contact_us">Contact Us</a>
         </li>
+        <li class="mobile-nav-heading" data-i18n="nav.more">More</li>
+        @include('partials.guide-links')
     </ul>
 
     <a href="{!! get_absolute_url('login') !!}" class="apply-now-btn mobile-apply-btn text-decoration-none" target="_blank" rel="noopener noreferrer" data-i18n="common.apply_now">Apply Now</a>

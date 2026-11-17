@@ -65,9 +65,6 @@
                             <li><a href="/admissions" data-i18n="footer.international_students">International Students</a></li>
                             <li><a href="/be-our-partner" data-i18n="footer.careers">Careers</a></li>
                             <li><a href="/sitemap.xml" data-i18n="footer.sitemap">Sitemap</a></li>
-                            @foreach ((array) config('seo_guides') as $guideSlug => $guide)
-                                <li><a href="/{{ $guideSlug }}">{{ $guide['h1'] }}</a></li>
-                            @endforeach
                         </ul>
                     </div>
                 </div>

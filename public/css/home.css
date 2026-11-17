@@ -51,6 +51,8 @@ body.home-hero-overlay .main-navbar {
     background: transparent; box-shadow: none; border-top: 0; z-index: 30;
 }
 body.home-hero-overlay .main-navbar .nav-links a { color: #fff !important; text-shadow: 0 1px 6px rgba(0,0,0,.4); }
+body.home-hero-overlay .main-navbar .nav-links .nav-dd-menu a { color: #1f2d3d !important; text-shadow: none; }
+body.home-hero-overlay .main-navbar .nav-links .nav-dd-menu a:hover { color: var(--primary-color) !important; }
 body.home-hero-overlay .brand-bar:not(.fixed) .xjmu-lang-btn { color: #fff; border-color: rgba(255,255,255,.55); }
 body.home-hero-overlay .brand-bar:not(.fixed) .xjmu-lang-btn.active { background: var(--primary-color); border-color: var(--primary-color); }
 @media (max-width: 991.98px) {
