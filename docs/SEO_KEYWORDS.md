@@ -34,6 +34,8 @@ Google positions checked 16 Nov 2026 (Pakistan, English): "MBBS in China 2026" =
 **Added 17 Nov 2026 from Google autocomplete (Semrush and Ahrefs had no units/plan):**
 `/mbbs-in-china-fees-2027` (fees, fee structure, total cost, cheapest) and `/mbbs-in-china-scholarship-2027` (CSC, fully funded, Pakistani students scholarship). Next candidates: MBBS in China vs Russia/Georgia/Kyrgyzstan, "is MBBS in China good", Nigerian/African students, WHO-listed.
 
+**Added 17 Nov 2026 (second batch, built, not yet published):** `/compare-mbbs-universities-in-china` (city, weather, cost of living, fees, distance; targets "best MBBS university in China", "best city for MBBS in China", "MBBS in China weather", "cheapest MBBS in China"), `/mbbs-in-china-vs-russia-georgia-kyrgyzstan` and `/is-mbbs-in-china-good`. Fee figures are printed for XJMU only; other universities and countries are described by method because only agency-sourced, dated figures were found. City temperatures are rounded long-term monthly means.
+
 ## Facts needed before the 🕒 pages and any 2027 fee/date claims
 
 - 2027 intake: dates, application deadline, seat number, fees (or confirmation that 2026 fees carry over).
