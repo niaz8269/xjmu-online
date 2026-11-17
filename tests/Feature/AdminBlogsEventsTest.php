@@ -154,10 +154,10 @@ class AdminBlogsEventsTest extends TestCase
     public function test_delete_endpoints_check_the_database_role(): void
     {
         $id = $this->blog();
-        // session says admin but the users row is a plain user => 403 and nothing deleted
+        // session says admin but the users row is a plain user => the admin gate sends them to login, nothing deleted
         $s = $this->adminSession('user');
-        $this->withSession($s)->post('/admin/delete-blog', ['id' => $id])->assertStatus(403)->assertSee('Access denied. Admin privileges required.');
-        $this->withSession($s)->post('/admin/delete-event', ['id' => 1])->assertStatus(403)->assertSee('Access denied.');
+        $this->withSession($s)->post('/admin/delete-blog', ['id' => $id])->assertRedirect('/login');
+        $this->withSession($s)->post('/admin/delete-event', ['id' => 1])->assertRedirect('/login');
         $this->assertSame(1, DB::table('blogs')->count());
     }
 }

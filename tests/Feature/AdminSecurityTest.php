@@ -1,0 +1,101 @@
+<?php
+
+namespace Tests\Feature;
+
+use App\Support\Security\Audit;
+use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\RateLimiter;
+use Tests\TestCase;
+
+class AdminSecurityTest extends TestCase
+{
+    use RefreshDatabase;
+
+    private array $files = [];
+
+    protected function tearDown(): void
+    {
+        foreach ($this->files as $f) {
+            @unlink($f);
+        }
+        @unlink(Audit::path());
+        parent::tearDown();
+    }
+
+    private function adminSession(string $role = 'admin'): array
+    {
+        $id = DB::table('users')->insertGetId([
+            'full_name' => 'Boss', 'email' => 'b' . uniqid() . '@example.com', 'password' => password_hash('Correct-Horse-1', PASSWORD_DEFAULT),
+            'role' => $role, 'is_verified' => 1,
+        ]);
+        return ['user_id' => $id, 'role' => 'admin', 'full_name' => 'Boss', 'admin_last_activity' => time()];
+    }
+
+    private function privateFile(): string
+    {
+        $dir = public_path('uploads/admissions');
+        @mkdir($dir, 0755, true);
+        $name = 'test_' . uniqid() . '.pdf';
+        file_put_contents($dir . '/' . $name, "%PDF-1.4\n1 0 obj<<>>endobj\ntrailer<<>>\n%%EOF\n");
+        $this->files[] = $dir . '/' . $name;
+        return 'uploads/admissions/' . $name;
+    }
+
+    public function test_documents_open_only_for_a_signed_in_admin(): void
+    {
+        $rel = $this->privateFile();
+        $this->get('/admin/document?p=' . urlencode($rel))->assertRedirect('/login');
+        $this->withSession(['user_id' => 5, 'role' => 'user'])->get('/admin/document?p=' . urlencode($rel))->assertRedirect('/login');
+        $this->withSession($this->adminSession())->get('/admin/document?p=' . urlencode($rel))
+            ->assertOk()->assertHeader('X-Content-Type-Options', 'nosniff');
+    }
+
+    public function test_document_viewer_refuses_paths_outside_the_private_folders(): void
+    {
+        $s = $this->adminSession();
+        foreach (['../.env', 'uploads/admissions/../../.env', '/etc/passwd', 'uploads/blogs/x.jpg', 'composer.json', '', "uploads/admissions/a\0.pdf"] as $bad) {
+            $this->withSession($s)->get('/admin/document?p=' . urlencode($bad))->assertNotFound();
+        }
+    }
+
+    public function test_demoted_admin_loses_access_on_the_next_request(): void
+    {
+        $s = $this->adminSession('user'); // session still says admin, database says user
+        $this->withSession($s)->get('/admin/dashboard')->assertRedirect('/login');
+    }
+
+    public function test_idle_admin_session_expires(): void
+    {
+        $s = $this->adminSession();
+        $s['admin_last_activity'] = time() - 3600;
+        $this->withSession($s)->get('/admin/dashboard')->assertRedirect('/login');
+    }
+
+    public function test_admin_pages_are_never_cached(): void
+    {
+        $r = $this->withSession($this->adminSession())->get('/admin/dashboard');
+        $r->assertOk();
+        $this->assertStringContainsString('no-store', (string) $r->headers->get('Cache-Control'));
+    }
+
+    public function test_login_locks_after_repeated_failures(): void
+    {
+        RateLimiter::clear('login:' . sha1('victim@example.com|127.0.0.1'));
+        for ($i = 0; $i < 5; $i++) {
+            $this->post('/login', ['email' => 'victim@example.com', 'password' => 'wrong' . $i])->assertSee('Incorrect email or password', false);
+        }
+        $this->post('/login', ['email' => 'victim@example.com', 'password' => 'wrong-again'])->assertSee('Too many sign-in attempts', false);
+        $events = array_column(Audit::recent(), 'event');
+        $this->assertContains('login.failed', $events);
+        $this->assertContains('login.locked', $events);
+    }
+
+    public function test_admin_changes_and_activity_page_are_recorded(): void
+    {
+        $s = $this->adminSession();
+        $this->withSession($s)->post('/admin/manage-faqs', ['_do' => 'delete', 'id' => 99]);
+        $this->assertContains('admin.POST', array_column(Audit::recent(), 'event'));
+        $this->withSession($s)->get('/admin/activity')->assertOk()->assertSee('admin.POST');
+    }
+}

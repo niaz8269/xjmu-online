@@ -35,6 +35,7 @@ class Menu
                 'manage-mbbs-curriculum'     => ['MBBS Curriculum', 'manage-mbbs-curriculum'],
             ]],
             'settings'    => ['Site Settings', 'bi-gear', 'settings'],
+            'activity'    => ['Activity & Security', 'bi-shield-lock', 'activity'],
             'test_email'  => ['Email Test', 'bi-envelope', 'test_email'],
         ];
     }

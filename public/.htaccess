@@ -16,6 +16,11 @@ AddCharset UTF-8 .html .css .js .xml .json .rss .atom
     RewriteCond %{HTTP:x-xsrf-token} .
     RewriteRule .* - [E=HTTP_X_XSRF_TOKEN:%{HTTP:X-XSRF-Token}]
 
+    # --- Private files: applicants' documents are served only by the admin panel (/admin/document), never by URL ---
+    RewriteRule ^uploads/(admissions|videos)(/|$) - [F,L]
+    RewriteRule ^logs(/|$) - [F,L]
+    RewriteRule ^(out\.html|\.git|\.env) - [F,L]
+
     # --- Canonical host: one address per page = https://xjmu.online (SEO) -----------
     # Before this rule http://, www. and every other subdomain (wildcard DNS, e.g. webinar.xjmu.online) served the
     # whole site, so Google saw each page under several hosts. Now they 301 to https://xjmu.online.
@@ -95,6 +100,10 @@ SetEnvIfNoCase Host ^staging\. XJMU_STAGING
     Header always set X-XSS-Protection "1; mode=block"
     Header always set X-Content-Type-Options "nosniff"
     Header always set Referrer-Policy "strict-origin-when-cross-origin"
+    Header always set Strict-Transport-Security "max-age=31536000"
+    Header always set Permissions-Policy "camera=(), microphone=(), geolocation=(), payment=(), usb=()"
+    Header always set Cross-Origin-Opener-Policy "same-origin-allow-popups"
+    Header always set Content-Security-Policy "frame-ancestors 'self'; base-uri 'self'; object-src 'none'"
     Header unset Server
     Header unset X-Powered-By
 </IfModule>

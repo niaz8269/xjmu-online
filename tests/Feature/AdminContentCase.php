@@ -17,7 +17,12 @@ abstract class AdminContentCase extends TestCase
 
     protected function admin(): static
     {
-        return $this->withSession(['user_id' => 1, 'role' => 'admin', 'full_name' => 'Tester']);
+        // The admin gate re-checks the role in the database on every request, so the user must really exist.
+        $id = DB::table('users')->insertGetId([
+            'full_name' => 'Tester', 'email' => 'tester' . uniqid() . '@example.com', 'password' => 'x', 'role' => 'admin', 'is_verified' => 1,
+        ]);
+
+        return $this->withSession(['user_id' => $id, 'role' => 'admin', 'full_name' => 'Tester']);
     }
 
     protected function png(string $name = 'a.png'): UploadedFile

@@ -16,6 +16,7 @@ return Application::configure(basePath: dirname(__DIR__))
         $middleware->alias([
             'loggedin' => \App\Http\Middleware\EnsureLoggedIn::class,
             'admin'    => \App\Http\Middleware\EnsureAdmin::class,
+            'admin.audit' => \App\Http\Middleware\AuditAdminActions::class,
             'public.cache' => \App\Http\Middleware\PublicCache::class,
         ]);
 

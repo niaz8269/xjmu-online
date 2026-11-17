@@ -54,7 +54,7 @@
       @if ($documents)
         <ul>
           @foreach ($documents as $doc)
-            <li><a href='../{{ $doc['file_path'] }}' target='_blank' rel='noopener noreferrer'>{{ $doc['file_name'] }}</a></li>
+            <li><a href='{{ url('/admin/document') }}?p={{ urlencode($doc['file_path']) }}' target='_blank' rel='noopener noreferrer'>{{ $doc['file_name'] }}</a></li>
           @endforeach
         </ul>
       @else

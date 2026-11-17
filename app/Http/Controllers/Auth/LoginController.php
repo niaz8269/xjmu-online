@@ -4,7 +4,9 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use App\Support\Security\Audit;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\RateLimiter;
 
 class LoginController extends Controller
 {
@@ -23,6 +25,19 @@ class LoginController extends Controller
         }
 
         $email = trim($emailIn);
+
+        // Brute-force guard: per email+IP, and per IP alone (one address trying many accounts).
+        $pairKey = 'login:' . sha1(strtolower($email) . '|' . $request->ip());
+        $ipKey = 'login-ip:' . $request->ip();
+        $maxPair = (int) config('security.login_max_attempts', 5);
+        $maxIp = (int) config('security.login_ip_max_attempts', 30);
+        if (RateLimiter::tooManyAttempts($pairKey, $maxPair) || RateLimiter::tooManyAttempts($ipKey, $maxIp)) {
+            $wait = max(RateLimiter::availableIn($pairKey), RateLimiter::availableIn($ipKey));
+            Audit::record('login.locked', ['email' => mb_substr($email, 0, 120)]);
+            return $this->alertRedirect('Too many sign-in attempts. Please try again in ' . max(1, (int) ceil($wait / 60)) . ' minute(s).');
+        }
+        $lock = (int) config('security.login_lock_minutes', 15) * 60;
+
         try {
             $user = User::query()->where('email', $email)->first(['id', 'full_name', 'email', 'password', 'role', 'is_verified']);
         } catch (\Throwable $e) {
@@ -32,18 +47,24 @@ class LoginController extends Controller
 
         // Legacy hashes come from password_hash(); verify with password_verify and never rehash.
         if (! $user || ! password_verify($passIn, (string) $user->password)) {
+            RateLimiter::hit($pairKey, $lock);
+            RateLimiter::hit($ipKey, $lock);
+            Audit::record('login.failed', ['email' => mb_substr($email, 0, 120)]);
             return $this->alertRedirect('Incorrect email or password');
         }
         if ($user->is_verified !== null && ! $user->is_verified) {
             return $this->alertRedirect('Email not verified. Please check your inbox.');
         }
 
+        RateLimiter::clear($pairKey);
+        $request->session()->regenerate();
         $request->session()->put([
+            'admin_last_activity' => time(),
             'user_id' => $user->id,
             'full_name' => $user->full_name,
             'role' => $user->role,
         ]);
-        $request->session()->regenerate();
+        Audit::record($user->role === 'admin' ? 'login.admin' : 'login.ok');
 
         $target = $user->role === 'admin' ? get_absolute_url('admin/dashboard') : get_absolute_url('front');
         return $this->redirectPage($target, 'Redirecting…');
@@ -51,6 +72,7 @@ class LoginController extends Controller
 
     public function logout(Request $request)
     {
+        Audit::record('logout');
         $request->session()->flush();
         $request->session()->regenerate();
 

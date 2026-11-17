@@ -6,14 +6,16 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\Admin\DashboardController;
 
-Route::middleware('admin')->group(function () {
+Route::middleware(['admin', 'admin.audit'])->group(function () {
+    Route::get('/admin/activity', [\App\Http\Controllers\Admin\SecurityController::class, 'activity']);
+    Route::get('/admin/document', [\App\Http\Controllers\Admin\SecurityController::class, 'document']);
     Route::get('/admin', [DashboardController::class, 'index']);
     Route::get('/admin/dashboard', [DashboardController::class, 'index']);
     Route::get('/admin/dashboard.php', [DashboardController::class, 'index']);
 });
 
 // ---- batch content: simple CRUD screens (list / ?action=new|edit&id=N via GET, save/delete/etc. via POST) ----
-Route::middleware('admin')->group(function () {
+Route::middleware(['admin', 'admin.audit'])->group(function () {
     $content = [
         'manage-consultants'         => \App\Http\Controllers\Admin\ConsultantController::class,
         'manage-downloads'           => \App\Http\Controllers\Admin\DownloadController::class,
@@ -40,7 +42,7 @@ Route::middleware('admin')->group(function () {
 // ---- end batch content ----
 
 // ---- batch ops: applications, users, blogs, events, settings, test_email (each URL also answers with the old `.php` suffix) ----
-Route::middleware('admin')->group(function () {
+Route::middleware(['admin', 'admin.audit'])->group(function () {
     $ops = [
         // page slug => [methods, controller, method]
         'applications'        => [['get'], \App\Http\Controllers\Admin\ApplicationsController::class, 'index'],
