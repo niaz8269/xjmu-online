@@ -57,6 +57,12 @@ button is in code (`resources/views/pages/mbbs.blade.php`). Change them when the
   (content in `config/seo_guides.php`, set `updated` to the new date). Keep the URL; never start a new page per year.
 - After launch, add the property to Search Console under an account I can open, then re-prioritise this table by impressions.
 
+## Facts confirmed by the owner (20 Nov 2026)
+
+- XJMU is **ECFMG eligible** (graduates can apply for ECFMG certification / USMLE).
+- **HSK-4 is required by graduation** for MBBS students.
+- The PMDC exam for foreign graduates is the **NRE** (National Registration Examination).
+
 ## Facts confirmed by the owner (16 Nov 2026)
 
 - Minimum marks for MBBS: **60%** in Physics, Chemistry and Biology.

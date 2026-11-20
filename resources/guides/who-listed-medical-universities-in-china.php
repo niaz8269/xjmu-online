@@ -85,7 +85,7 @@ return [
                 "The WFME publishes the accrediting agencies it has recognised. Check whether the agency that accredits medical schools in China is listed and what its current status is, then ask the university whether its clinical medicine programme has been accredited by that agency.",
             ]],
             ['h' => 'What this means at Xinjiang Medical University', 'p' => [
-                "XJMU is listed in the World Directory of Medical Schools, and its graduates are eligible to sit international examinations such as the USMLE, subject to the conditions of each examining body. If the USMLE is part of your plan, check the current ECFMG note on XJMU's WDOMS entry and ECFMG's current requirements before you apply, so that you are working from the official position.",
+                "XJMU is listed in the World Directory of Medical Schools, and its graduates are eligible to sit international examinations such as the USMLE, subject to the conditions of each examining body. XJMU is also ECFMG eligible: its students and graduates can apply for ECFMG certification, which the USMLE route to the United States requires. ECFMG's rules can change, so check its current requirements when you plan this route.",
             ]],
         ]],
 
@@ -147,7 +147,7 @@ return [
 
         ['id' => 'xjmu', 'eyebrow' => 'XJMU', 'h' => 'Is Xinjiang Medical University WHO recognised?', 'p' => [
             "Yes, in the sense that the phrase is used today. Xinjiang Medical University is listed in the World Directory of Medical Schools, which is the directory that replaced the old WHO listing. It is also on the Ministry of Education list for the 2026–2027 academic year, at number 8 with 60 seats, which means it is authorised to teach MBBS in English to international students.",
-            "Graduates of XJMU are eligible to sit the licensing examinations of their home countries, and international examinations such as the USMLE, subject to the conditions of each examining body and regulator. Those conditions belong to the regulators, so check your own council's current rules and, for the USMLE, the ECFMG note on XJMU's WDOMS entry.",
+            "Graduates of XJMU are eligible to sit the licensing examinations of their home countries, and international examinations such as the USMLE, subject to the conditions of each examining body and regulator. Those conditions belong to the regulators, so check your own council's current rules. For the USMLE, XJMU is ECFMG eligible; check ECFMG's current requirements when you plan that route.",
             "The MBBS at XJMU runs for six years, five years of study and a one-year internship, and is taught in English. The university admits international MBBS students in a September/Fall intake and a March/Spring intake. Applicants need at least 60% marks in each science subject and must be aged 18 to 35.",
         ], 'img' => ['src' => 'images/class3.webp', 'alt' => 'International students in an English taught MBBS class at Xinjiang Medical University, a WDOMS listed and MOE listed university', 'caption' => 'An English taught MBBS class for international students at Xinjiang Medical University.'],
         'table' => ['caption' => 'Xinjiang Medical University: recognition at a glance', 'head' => ['Check', 'Status'], 'rows' => [

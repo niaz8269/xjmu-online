@@ -96,18 +96,19 @@ return [
         'facts' => [
             ['Location', 'Urumqi, Xinjiang, China'],
             ['Founded', '1956'],
+            ['Recognition', 'WHO World Directory (WDOMS) listed; ECFMG eligible (USMLE route)'],
             ['MOE status', 'Listed, 8th of 43 universities; 60 seats (MOE notice, 1 June 2026)'],
             ['Degree', 'MBBS (Clinical Medicine), 6 years including a 1-year internship'],
-            ['Teaching language', 'English, with everyday Chinese taught during the degree'],
+            ['Teaching language', 'English; introductory Chinese in years 1–2, HSK-4 required by graduation'],
             ['Intakes', 'March/Spring and September/Fall'],
             ['First-year package', '¥49,950 (about USD 7,000); then ¥35,950 a year (about USD 5,050)'],
             ['Six-year total', 'About ¥229,700 (about USD 32,000)'],
         ],
     ],
     'after-mbbs-in-china' => [
-        'answer' => 'After MBBS in China you can return home and pass your national licensing exam, such as the PMDC exam in Pakistan or the FMGE (later NExT) in India, or prepare for USMLE in the USA or PLAB in the UK. Other options are Gulf licensing after experience, a Master\'s or PhD, or a non-clinical career. Always check the regulator\'s current rules.',
+        'answer' => 'After MBBS in China you can return home and pass your national licensing exam, such as the PMDC NRE in Pakistan or the FMGE (later NExT) in India, or prepare for USMLE in the USA or PLAB in the UK. Other options are Gulf licensing after experience, a Master\'s or PhD, or a non-clinical career. Always check the regulator\'s current rules.',
         'facts' => [
-            ['Pakistan', 'PMDC licensing exam for foreign graduates, then house job'],
+            ['Pakistan', 'PMDC National Registration Examination (NRE), then house job'],
             ['India', 'NMC: FMGE now, NExT planned; supervised internship in India'],
             ['Sri Lanka', 'SLMC: ERPM'],
             ['Nepal', 'Nepal Medical Council licensing examination'],
@@ -120,6 +121,7 @@ return [
         'answer' => 'The WHO no longer keeps its own list. Medical schools are recorded in the World Directory of Medical Schools (WDOMS), run by FAIMER and WFME. WDOMS listing is not accreditation, and an English taught MBBS also needs the university on the MOE list. Xinjiang Medical University is WDOMS listed and number 8 on the MOE list, with 60 seats.',
         'facts' => [
             ['WDOMS (World Directory of Medical Schools)', 'XJMU listed (replaced the old WHO directory)'],
+            ['ECFMG', 'XJMU eligible: graduates can apply for ECFMG certification and the USMLE'],
             ['MOE status', 'Listed, 8th of 43 universities; 60 seats (MOE notice, 1 June 2026)'],
             ['MOE list 2026–2027', '43 universities, 2,790 seats'],
             ['Teaching language', 'English'],
