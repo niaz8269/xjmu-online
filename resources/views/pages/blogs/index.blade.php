@@ -52,6 +52,22 @@
         </section>
         @endif
 
+        @if (!empty($guides))
+        <!-- MBBS in China 2027 guides (separate URLs, listed here as blogs) -->
+        <section class="blog-section">
+            <div class="blog-container">
+                <div class="blog-section-header">
+                    <h2>MBBS in China 2027 Guides</h2>
+                </div>
+                <div class="blog-grid">
+                    @foreach ($guides as $blog)
+                        @include('pages.blogs._card', ['blog' => $blog, 'featured' => false])
+                    @endforeach
+                </div>
+            </div>
+        </section>
+        @endif
+
         <!-- Latest Blogs Section -->
         <section class="blog-section">
             <div class="blog-container">

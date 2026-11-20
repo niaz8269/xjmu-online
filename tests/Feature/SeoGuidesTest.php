@@ -25,6 +25,27 @@ class SeoGuidesTest extends TestCase
         }
     }
 
+    public function test_blogs_page_lists_every_guide_and_guides_are_blog_posts(): void
+    {
+        $html = $this->get('/blogs')->assertOk()->getContent();
+        foreach (array_keys(config('seo_guides')) as $slug) {
+            $this->assertStringContainsString('/' . $slug . '"', $html, $slug);
+            $g = $this->get('/' . $slug)->assertOk()->getContent();
+            $this->assertStringContainsString('BlogPosting', $g, $slug);
+            $this->assertStringContainsString('/blogs', $g, $slug);
+        }
+    }
+
+    public function test_each_guide_opens_with_a_quick_answer_of_40_to_70_words(): void
+    {
+        foreach (config('seo_guides') as $slug => $guide) {
+            $this->assertNotEmpty($guide['answer'] ?? null, $slug);
+            $words = str_word_count($guide['answer']);
+            $this->assertTrue($words >= 40 && $words <= 70, "$slug answer has $words words");
+            $this->get('/' . $slug)->assertOk()->assertSee('Quick answer')->assertSee('SpeakableSpecification', false);
+        }
+    }
+
     public function test_every_page_footer_links_to_each_guide(): void
     {
         $html = $this->get('/about')->assertOk()->getContent();

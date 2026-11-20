@@ -219,7 +219,7 @@ return [
         ]]],
 
         ['id' => 'apply', 'eyebrow' => 'Next step', 'h' => 'How to apply for the English taught MBBS in 2027', 'p' => [
-            "The English taught MBBS has two intakes. For spring 2027, applications opened on 1 September, with an early deadline of 15 December, a regular deadline of 15 January and registration around 20 February. For fall 2027, applications open on 1 March, with an early deadline of 30 June, a regular deadline of 15 August and registration around 10 September. Dates may vary, so confirm them with the admissions team.",
+            "The English taught MBBS has two intakes. For March/Spring 2027, applications opened on 1 September, with an early deadline of 15 December, a regular deadline of 15 January and registration around 20 February. For fall 2027, applications open on 1 March, with an early deadline of 30 June, a regular deadline of 15 August and registration around 10 September. Dates may vary, so confirm them with the admissions team.",
         ], 'table' => $s['calendar'], 'list' => [
             'Prepare and notarise your documents.',
             'Apply online and upload the documents.',

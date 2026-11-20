@@ -38,6 +38,7 @@ class BlogService
             'hasSearch' => $hasSearch,
             'featured' => $featured->map(fn (Blog $b) => $this->card($b))->all(),
             'blogs' => $blogs->map(fn (Blog $b) => $this->card($b))->all(),
+            'guides' => ($currentPage === 1 && ! $hasSearch) ? $this->guideCards() : [],
             'pagination' => $totalPages > 1 ? $this->pagination($currentPage, $totalPages, $search) : null,
         ];
     }
@@ -100,6 +101,32 @@ class BlogService
     public function featuredImageUrl(Blog $blog): ?string
     {
         return $this->hasImage($blog->featured_image) ? get_absolute_url($blog->featured_image) : null;
+    }
+
+    /** The keyword guides (config/seo_guides.php) as blog cards; they keep their own URLs so rankings are untouched. */
+    private function guideCards(): array
+    {
+        $cards = [];
+        foreach (config('seo_guides', []) as $slug => $g) {
+            $img = null;
+            foreach ($g['sections'] ?? [] as $sec) {
+                if (! empty($sec['img']['src'])) {
+                    $img = $sec['img']['src'];
+                    break;
+                }
+            }
+            $cards[] = [
+                'title' => (string) $g['h1'],
+                'excerpt' => mb_strimwidth((string) $g['lead'], 0, 180, '...'),
+                'slug' => $slug,
+                'url' => get_absolute_url($slug),
+                'date' => date('F j, Y', strtotime($g['updated'])),
+                'image' => $img && file_exists(public_path($img)) ? get_absolute_url($img) : 'data:image/svg+xml,' . urlencode(self::PLACEHOLDER_SVG),
+                '_ts' => strtotime($g['updated']),
+            ];
+        }
+        usort($cards, fn ($a, $b) => $b['_ts'] <=> $a['_ts']);
+        return $cards;
     }
 
     private function card(Blog $b): array

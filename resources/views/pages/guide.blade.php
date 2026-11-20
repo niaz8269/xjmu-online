@@ -8,10 +8,13 @@
   "@type": "BreadcrumbList",
   "itemListElement": [
     {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://xjmu.online/"},
-    {"@type": "ListItem", "position": 2, "name": "MBBS Program", "item": "https://xjmu.online/mbbs"},
+    {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://xjmu.online/blogs"},
     {"@type": "ListItem", "position": 3, "name": {!! json_encode($guide['crumb'], JSON_UNESCAPED_UNICODE) !!}, "item": {!! json_encode($page_url, JSON_UNESCAPED_SLASHES) !!}}
   ]
 }
+</script>
+<script type="application/ld+json">
+{!! json_encode(['@context' => 'https://schema.org', '@type' => 'BlogPosting', 'headline' => $guide['h1'], 'description' => $guide['description'], 'mainEntityOfPage' => $page_url, 'datePublished' => $guide['published'] ?? $guide['updated'], 'dateModified' => $guide['updated'], 'abstract' => $guide['answer'] ?? $guide['lead'], 'image' => $page_image, 'inLanguage' => 'en', 'about' => ['@type' => 'CollegeOrUniversity', 'name' => 'Xinjiang Medical University', 'url' => 'https://xjmu.online/'], 'speakable' => ['@type' => 'SpeakableSpecification', 'cssSelector' => ['h1', '.guide-answer']], 'author' => ['@type' => 'Organization', 'name' => 'Xinjiang Medical University Admissions'], 'publisher' => ['@type' => 'Organization', 'name' => 'XJMU', 'logo' => ['@type' => 'ImageObject', 'url' => 'https://xjmu.online/images/logo.png']]], JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES) !!}
 </script>
 @if (!empty($guide['faqs']))
 <script type="application/ld+json">
@@ -47,9 +50,33 @@
 
 <div class="container">
     <nav class="mbbs-crumb" aria-label="breadcrumb">
-        <a href="{{ get_absolute_url('index') }}">Home</a> &rsaquo; <a href="{{ get_absolute_url('mbbs') }}">MBBS Program</a> &rsaquo; <span>{{ $guide['crumb'] }}</span>
+        <a href="{{ get_absolute_url('index') }}">Home</a> &rsaquo; <a href="{{ get_absolute_url('blogs') }}">Blog</a> &rsaquo; <span>{{ $guide['crumb'] }}</span>
     </nav>
 </div>
+
+@if (!empty($guide['answer']))
+<!-- ===================== QUICK ANSWER + KEY FACTS ===================== -->
+<section class="ds-section" style="padding:1.5rem 0 0" id="quick-answer">
+    <div class="container">
+        <div style="max-width:820px; border-inline-start:4px solid var(--ds-red); background:var(--ds-navy-050); border-radius:12px; padding:1.25rem 1.5rem">
+            <h2 style="font-size:1.15rem; margin:0 0 .5rem; color:var(--ds-navy)">Quick answer</h2>
+            <p class="guide-answer" style="margin:0; line-height:1.75; color:var(--ds-body)">{{ $guide['answer'] }}</p>
+        </div>
+        @if (!empty($guide['facts']))
+        <div class="table-responsive" style="max-width:820px; margin-top:1rem">
+            <table class="table" style="width:100%">
+                <caption style="caption-side:top; color:var(--ds-muted); font-size:.9rem">Key facts at a glance (checked {{ $updatedLabel }})</caption>
+                <tbody>
+                    @foreach ($guide['facts'] as [$label, $value])
+                    <tr><th scope="row" style="width:38%">{{ $label }}</th><td>{{ $value }}</td></tr>
+                    @endforeach
+                </tbody>
+            </table>
+        </div>
+        @endif
+    </div>
+</section>
+@endif
 
 <!-- ===================== ON THIS PAGE ===================== -->
 <section class="ds-section" style="padding:1.5rem 0 0">

@@ -14,4 +14,10 @@ foreach (glob(__DIR__ . '/../resources/guides/[!_]*.php') ?: [] as $file) {
     $guides[basename($file, '.php')] = require $file;
 }
 
+// Quick answer + key facts for the top of each guide (resources/guides/_answers.php).
+$answers = require __DIR__ . '/../resources/guides/_answers.php';
+foreach ($guides as $slug => $g) {
+    $guides[$slug] += $answers[$slug] ?? [];
+}
+
 return $guides;

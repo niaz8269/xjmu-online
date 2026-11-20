@@ -153,7 +153,7 @@ return [
 
         ['id' => 'intakes', 'eyebrow' => 'Intakes', 'h' => 'Spring and September/Fall intakes: which suits you', 'p' => [
             "MBBS in China has two intakes a year. The September/Fall intake starts in September and is the larger one. The March/Spring intake starts in February or March, and it suits Pakistani students who finish exams or receive results in the winter, or who do not want to wait until September.",
-            "For spring 2027, applications opened on 1 September, with an early deadline of 15 December and a regular deadline of 15 January. For fall 2027, applications open on 1 March, with an early deadline of 30 June and a regular deadline of 15 August. Apply by the early deadline if you also want to be considered for scholarships.",
+            "For March/Spring 2027, applications opened on 1 September, with an early deadline of 15 December and a regular deadline of 15 January. For fall 2027, applications open on 1 March, with an early deadline of 30 June and a regular deadline of 15 August. Apply by the early deadline if you also want to be considered for scholarships.",
         ], 'table' => $s['calendar']],
 
         ['id' => 'travel', 'eyebrow' => 'Travel', 'h' => 'Travelling from Pakistan to Urumqi', 'p' => [

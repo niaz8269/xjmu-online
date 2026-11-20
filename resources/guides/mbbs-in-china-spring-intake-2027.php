@@ -7,11 +7,11 @@ return [
     'title' => 'MBBS in China March/Spring Intake 2027 | March Admission, Deadlines',
     'description' => 'MBBS in China March/Spring intake 2027: deadlines (15 Dec, 15 Jan), requirements, documents, fees and visa steps to start an MOE listed MBBS in February or March.',
     'keywords' => 'MBBS in China March/Spring intake 2027, MBBS in China March intake, MBBS in China February intake, MBBS in China spring admission, MBBS admission in China 2027, MOE listed MBBS, English taught MBBS, MBBS in China 2027, MBBS in China',
-    'eyebrow' => 'Spring 2027 admissions guide',
+    'eyebrow' => 'March/Spring 2027 admissions guide',
     'h1' => 'MBBS in China March/Spring Intake 2027 (February/March)',
     'lead' => 'The March/Spring intake lets you start an MOE listed MBBS in February or March 2027 instead of waiting for September. Here are the deadlines, requirements, documents, fees, visa steps and a plan to make the dates.',
     'crumb' => 'MBBS in China March/Spring intake 2027',
-    'cta' => 'Apply for spring 2027',
+    'cta' => 'Apply for March/Spring 2027',
     'sections' => [
 
         ['id' => 'overview', 'eyebrow' => 'Overview', 'h' => 'What is the March/Spring intake for MBBS in China?', 'p' => [
@@ -32,7 +32,7 @@ return [
             ['First-year package (Sept. 2026 intake)', '¥49,950, about USD 7,000'],
         ]]],
 
-        ['id' => 'dates', 'eyebrow' => 'Dates', 'h' => 'Spring 2027 deadlines at a glance', 'p' => [
+        ['id' => 'dates', 'eyebrow' => 'Dates', 'h' => 'March/Spring 2027 deadlines at a glance', 'p' => [
             "The university publishes the same admissions calendar each year. The table below shows the spring column next to the fall column, so you can compare them. Dates may vary by programme, so confirm them with the admissions office when you apply.",
         ], 'table' => $s['calendar'], 'sub' => [
             ['h' => 'Which date matters most', 'p' => [
@@ -100,9 +100,9 @@ return [
         ], 'img' => ['src' => 'assets/images/visa-process.webp', 'alt' => 'Admission letter and JW202 visa form steps for a student starting MBBS in China in the March/Spring intake', 'caption' => 'The admission letter and JW202 form are needed for the X1 visa.'],
         'link' => ['adm-HtApply', 'How to apply, step by step']],
 
-        ['id' => 'plan', 'eyebrow' => 'Plan', 'h' => 'A week-by-week plan for spring 2027', 'p' => [
+        ['id' => 'plan', 'eyebrow' => 'Plan', 'h' => 'A week-by-week plan for March/Spring 2027', 'p' => [
             "This plan is built backwards from registration around 20 February 2027. The earlier you start, the more room you have if something goes wrong.",
-        ], 'table' => ['caption' => 'Spring 2027 planning timeline', 'head' => ['When', 'What to do'], 'rows' => [
+        ], 'table' => ['caption' => 'March/Spring 2027 planning timeline', 'head' => ['When', 'What to do'], 'rows' => [
             ['Now', 'Check eligibility. Request transcripts, the police certificate and the school letter on English instruction. Book the physical examination and blood test.'],
             ['Within two weeks', 'Notarise documents, record the self-introduction video and scan everything.'],
             ['By 15 December', 'Early deadline. Submit the online application with all documents. Pay the ¥1,000 application fee.'],
@@ -241,9 +241,9 @@ return [
     ],
     'faqs' => [
         ['Does MBBS in China have a March/Spring intake?', 'Yes. Xinjiang Medical University has a March/Spring intake starting in February or March and a September/Fall intake starting in September.'],
-        ['What is the deadline for the spring 2027 MBBS intake?', 'The early deadline is 15 December 2026, recommended if you want to be considered for scholarships. The regular deadline is 15 January 2027.'],
-        ['When does the spring 2027 intake start?', 'Registration and orientation take place around 20 February 2027, and the intake starts in February or March.'],
-        ['When did applications for spring 2027 open?', 'Applications for the March/Spring intake opened on 1 September 2026.'],
+        ['What is the deadline for the March/Spring 2027 MBBS intake?', 'The early deadline is 15 December 2026, recommended if you want to be considered for scholarships. The regular deadline is 15 January 2027.'],
+        ['When does the March/Spring 2027 intake start?', 'Registration and orientation take place around 20 February 2027, and the intake starts in February or March.'],
+        ['When did applications for March/Spring 2027 open?', 'Applications for the March/Spring intake opened on 1 September 2026.'],
         ['Is the March/Spring intake the same MBBS as the September/Fall intake?', 'It is the same English taught, six-year MBBS at an MOE listed university, with a different start date. Ask the admissions team how the first semester is arranged for spring students.'],
         ['What are the requirements for the March/Spring intake?', 'At least 60% in each of the science subjects, an age between 18 and 35, good health, a valid passport and a senior high-school certificate with science subjects.'],
         ['How long does it take to receive the admission letter?', 'After review, the admission letter and JW202 form take two to four weeks to issue.'],
