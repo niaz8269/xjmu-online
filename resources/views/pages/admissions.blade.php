@@ -669,6 +669,8 @@
     </div>
 </main>
 
+@include('partials.seo-faq', ['faqs' => config('seo_faqs.admissions'), 'faqTitle' => 'MBBS admission FAQs'])
+
 <!-- Page Specific JS -->
 <script src="{{ get_absolute_url('js/admissions.js') }}"></script>
 @endsection

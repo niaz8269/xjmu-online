@@ -126,7 +126,7 @@ return [
         ['question' => 'How long is the MBBS program at XJMU?',
          'answer' => 'The MBBS degree is 6 years, including a one-year clinical internship in affiliated teaching hospitals.'],
         ['question' => 'When is the intake and how do I apply?',
-         'answer' => 'The next intake is September 2027. You can apply online through our admissions portal or contact our counsellors on WhatsApp for free, step-by-step guidance.'],
+         'answer' => 'XJMU has a March/Spring intake and a September/Fall intake each year. You can apply online through our admissions portal or contact our counsellors on WhatsApp for free, step-by-step guidance.'],
     ],
 
     // site_settings keys used by the mbbs page with their fallback text (empty value -> fallback)

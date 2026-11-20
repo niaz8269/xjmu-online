@@ -16,6 +16,9 @@ class MbbsController extends Controller
                 $faqs[] = ['q' => $r[0], 'a' => $r[1]];
             }
         }
+        // Code-side SEO FAQs (config/seo_faqs.php) after the admin ones.
+        $faqs = array_map(fn ($r) => ['q' => $r[0], 'a' => $r[1]],
+            \App\Support\SeoFaqs::merge(array_map(fn ($f) => [$f['q'], $f['a']], $faqs), 'mbbs'));
 
         $feeRows = array_map(
             fn (array $r) => $r + ['is_total' => isset($r[2]) && strtolower($r[2]) === 'total'],

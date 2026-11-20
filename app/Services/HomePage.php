@@ -39,6 +39,9 @@ class HomePage
         if (! $faqs) {
             $faqs = config('public_pages.home_faqs_fallback');
         }
+        // Code-side SEO FAQs (config/seo_faqs.php) after the admin ones.
+        $faqs = array_map(fn ($r) => ['question' => $r[0], 'answer' => $r[1]],
+            \App\Support\SeoFaqs::merge(array_map(fn ($f) => [$f['question'], $f['answer']], $faqs), 'home'));
 
         $news = $blogs->map(fn ($b) => [
             'href' => get_absolute_url('blog/' . rawurlencode($b->slug)),

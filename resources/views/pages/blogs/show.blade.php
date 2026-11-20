@@ -63,6 +63,13 @@
                 </aside>
                 @endif
 
+                @php($postFaqs = str_contains((string) $blog->content, 'FAQPage') ? [] : config('seo_faqs.blogs.' . $blog->slug, []))
+                @if ($postFaqs)
+                <div class="bp-faq" style="margin:2rem -1rem 0">
+                    @include('partials.seo-faq', ['faqs' => $postFaqs, 'faqTitle' => 'Frequently asked questions'])
+                </div>
+                @endif
+
                 <!-- Back link -->
                 <div class="bp-back">
                     <a href="{{ get_absolute_url('blogs') }}" class="ds-btn ds-btn--outline">

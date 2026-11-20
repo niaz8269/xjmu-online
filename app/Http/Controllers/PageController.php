@@ -49,7 +49,8 @@ class PageController extends Controller
 
     public function fees()
     {
-        $faqs = config('public_pages.fees_faqs');
+        $faqs = array_map(fn ($r) => ['q' => $r[0], 'a' => $r[1]],
+            \App\Support\SeoFaqs::merge(array_map(fn ($f) => [$f['q'], $f['a']], config('public_pages.fees_faqs')), 'fees'));
 
         return $this->page('fees', 'fees', [
             'feeSections' => $this->content->pageSections('fees'),

@@ -83,6 +83,8 @@
     </div>
 </section>
 
+@include('partials.seo-faq', ['faqs' => config('seo_faqs.scholarships'), 'faqTitle' => 'Scholarship FAQs'])
+
 <!-- ===================== CONTACT ===================== -->
 <section class="ds-section">
     <div class="container">
