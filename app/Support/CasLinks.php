@@ -3,7 +3,7 @@
 namespace App\Support;
 
 /**
- * Links the first mention on a page of each other MOE listed university, "Study in China" and "MBBS in China"
+ * Links the first mention on a page of each other MOE listed university, and "Study in China"
  * to the CAS website. Each term is linked once per page; headings, existing links and scripts are left alone.
  */
 class CasLinks
@@ -76,7 +76,8 @@ class CasLinks
     private static function terms(): array
     {
         if (self::$terms === null) {
-            $terms = [['Study in China', true], ['MBBS in China', true]];
+            // "MBBS in China" is deliberately not linked away: it is the phrase xjmu.online itself targets.
+            $terms = [['Study in China', true]];
             foreach (config('cas_links.universities', []) as $name) {
                 $terms[] = [$name, false];
             }

@@ -20,10 +20,10 @@ class CasLinksTest extends TestCase
         $out = CasLinks::html('<h2>MBBS in China</h2><p>MBBS in China at Zhejiang University, not <a href="/x">Jilin University</a>. '
             . 'Zhejiang University again. Xinjiang Medical University. Jilin University here.</p>');
         $this->assertStringContainsString('<h2>MBBS in China</h2>', $out);
-        $this->assertStringContainsString('<p>' . self::LINK . 'MBBS in China</a> at ' . self::LINK . 'Zhejiang University</a>', $out);
+        $this->assertStringContainsString('<p>MBBS in China at ' . self::LINK . 'Zhejiang University</a>', $out);
         $this->assertStringContainsString('<a href="/x">Jilin University</a>', $out);
         $this->assertStringContainsString('Zhejiang University again. Xinjiang Medical University. ' . self::LINK . 'Jilin University</a> here', $out);
-        $this->assertSame(3, substr_count($out, self::LINK));
+        $this->assertSame(2, substr_count($out, self::LINK));
         $this->assertSame('', CasLinks::text(null));
         $this->assertSame('&lt;b&gt; x', CasLinks::text('<b> x'));
     }
