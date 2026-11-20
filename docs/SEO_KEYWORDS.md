@@ -24,17 +24,19 @@ Google positions checked 16 Nov 2026 (Pakistan, English): "MBBS in China 2026" =
 | 10 | `/mbbs-in-china-for-indian-students` | ✅ (home-country rules left as 'check the NMC') | 67 MBBS in China for Indian students · 68 NMC approved medical colleges in China · 69 MBBS in China NEET requirement · 70 FMGE pass rate China |
 | 11 | `/mbbs-in-china-for-bangladeshi-nepali-students` (Bangladesh, Nepal, Sri Lanka; Africa later as data shows demand) | ✅ | 71 MBBS in China for Bangladeshi students · 72 MBBS in China for Nepali students · 73 MBBS in China for African students · 74 MBBS in China for Nigerian students |
 | 12 | `/mbbs-in-china-spring-intake-2027` | ✅ | 75 MBBS in China March intake · 76 MBBS in China September intake · 77 MBBS in China intake dates · 78 MBBS in China admission deadline |
-| 13 | `/who-listed-medical-universities-in-china` | 🕒 | 79 WHO listed medical universities in China · 80 WDOMS listed universities China · 81 is Xinjiang Medical University WHO recognised · 82 ECFMG eligible medical schools China |
-| 14 | `/xinjiang-medical-university` (ranking + recognition hub) | 🕒 | 83 Xinjiang Medical University · 84 Xinjiang Medical University ranking · 85 XJMU China · 86 Xinjiang Medical University world ranking · 87 Xinjiang Medical University Urumqi · 88 is Xinjiang Medical University MOE listed |
+| 13 | `/who-listed-medical-universities-in-china` | ✅ | 79 WHO listed medical universities in China · 80 WDOMS listed universities China · 81 is Xinjiang Medical University WHO recognised · 82 ECFMG eligible medical schools China |
+| 14 | `/xinjiang-medical-university` (ranking + recognition hub) | ✅ | 83 Xinjiang Medical University · 84 Xinjiang Medical University ranking · 85 XJMU China · 86 Xinjiang Medical University world ranking · 87 Xinjiang Medical University Urumqi · 88 is Xinjiang Medical University MOE listed |
 | 15 | `/life-in-urumqi-for-international-students` | ✅ | 89 life in Urumqi for students · 90 Xinjiang Medical University hostel · 91 halal food in China for students · 92 cost of living in Urumqi |
 | 16 | `/mbbs-in-china-vs-pakistan` (comparison) | ✅ | 93 MBBS in China vs Pakistan · 94 is MBBS in China worth it · 95 disadvantages of MBBS in China · 96 MBBS abroad for Pakistani students |
-| 17 | `/after-mbbs-in-china` | 🕒 | 97 career after MBBS in China · 98 USMLE after MBBS in China · 99 PLAB after MBBS in China |
+| 17 | `/after-mbbs-in-china` | ✅ | 97 career after MBBS in China · 98 USMLE after MBBS in China · 99 PLAB after MBBS in China |
 | 18 | `/blogs` + `/blog/...` | 🔁 clean URLs | 100 MBBS in China latest news (plus long-tail questions, one post each) |
 
 **Added 17 Nov 2026 from Google autocomplete (Semrush and Ahrefs had no units/plan):**
 `/mbbs-in-china-fees-2027` (fees, fee structure, total cost, cheapest) and `/mbbs-in-china-scholarship-2027` (CSC, fully funded, Pakistani students scholarship). Next candidates: MBBS in China vs Russia/Georgia/Kyrgyzstan, "is MBBS in China good", Nigerian/African students, WHO-listed.
 
 **Added 17 Nov 2026 (second batch, built, not yet published):** `/compare-mbbs-universities-in-china` (city, weather, cost of living, fees, distance; targets "best MBBS university in China", "best city for MBBS in China", "MBBS in China weather", "cheapest MBBS in China"), `/mbbs-in-china-vs-russia-georgia-kyrgyzstan` and `/is-mbbs-in-china-good`. Fee figures are printed for XJMU only; other universities and countries are described by method because only agency-sourced, dated figures were found. City temperatures are rounded long-term monthly means.
+
+**Added 20 Nov 2026:** `/clinical-medicine-in-china` (Clinical Medicine in China, Clinical Medicine vs MBBS). All guides now open with a Quick answer and key-facts table (`resources/guides/_answers.php`). Rankings are explained by method only; no rank numbers are published until confirmed.
 
 ## Facts needed before the 🕒 pages and any 2027 fee/date claims
 
