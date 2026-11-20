@@ -9,6 +9,7 @@ class GuideController extends Controller
 {
     public function show(string $slug)
     {
+        \App\Support\CasLinks::reset();
         $guide = config('seo_guides.' . $slug);
         abort_unless($guide, 404);
 

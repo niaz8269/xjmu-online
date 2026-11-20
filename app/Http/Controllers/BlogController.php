@@ -33,6 +33,7 @@ class BlogController extends Controller
     /** /blog/{slug} (old /blog-post?slug=... redirects here): one published post (counts a view); 404 page when missing. */
     public function show(Request $request, ?string $slug = null)
     {
+        \App\Support\CasLinks::reset();
         $fromPath = $slug !== null;
         if (! $fromPath) {
             $slug = $request->query('slug');

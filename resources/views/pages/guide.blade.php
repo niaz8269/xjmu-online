@@ -102,7 +102,7 @@
         </div>
         <div style="max-width:820px">
             @foreach ($sec['p'] ?? [] as $n => $para)
-            <p @if ($n === 0) class="ds-lead" style="margin-bottom:1rem" @else style="color:var(--ds-body); line-height:1.8; margin-bottom:1rem" @endif>{{ $para }}</p>
+            <p @if ($n === 0) class="ds-lead" style="margin-bottom:1rem" @else style="color:var(--ds-body); line-height:1.8; margin-bottom:1rem" @endif>{!! \App\Support\CasLinks::text($para) !!}</p>
             @endforeach
 
             @if (!empty($sec['img']))
@@ -115,7 +115,7 @@
             @if (!empty($sec['list']))
             <ul class="mbbs-reqs">
                 @foreach ($sec['list'] as $item)
-                <li><i class="fas fa-check-circle"></i> {{ $item }}</li>
+                <li><i class="fas fa-check-circle"></i> {!! \App\Support\CasLinks::text($item) !!}</li>
                 @endforeach
             </ul>
             @endif
@@ -123,12 +123,12 @@
             @foreach ($sec['sub'] ?? [] as $sub)
             <h3 style="font-size:1.25rem; margin:1.75rem 0 .6rem; color:var(--ds-navy)">{{ $sub['h'] }}</h3>
             @foreach ($sub['p'] ?? [] as $para)
-            <p style="color:var(--ds-body); line-height:1.8; margin-bottom:1rem">{{ $para }}</p>
+            <p style="color:var(--ds-body); line-height:1.8; margin-bottom:1rem">{!! \App\Support\CasLinks::text($para) !!}</p>
             @endforeach
             @if (!empty($sub['list']))
             <ul class="mbbs-reqs">
                 @foreach ($sub['list'] as $item)
-                <li><i class="fas fa-check-circle"></i> {{ $item }}</li>
+                <li><i class="fas fa-check-circle"></i> {!! \App\Support\CasLinks::text($item) !!}</li>
                 @endforeach
             </ul>
             @endif
@@ -142,7 +142,7 @@
                         <thead><tr>@foreach ($sec['table']['head'] as $th)<th scope="col">{{ $th }}</th>@endforeach</tr></thead>
                         <tbody>
                             @foreach ($sec['table']['rows'] as $row)
-                            <tr @if (in_array($sec['table']['highlight'] ?? null, $row, true) || $row[0] === '') style="font-weight:700" @endif>@foreach ($row as $cell)<td>{{ $cell }}</td>@endforeach</tr>
+                            <tr @if (in_array($sec['table']['highlight'] ?? null, $row, true) || $row[0] === '') style="font-weight:700" @endif>@foreach ($row as $cell)<td>{!! \App\Support\CasLinks::text($cell) !!}</td>@endforeach</tr>
                             @endforeach
                         </tbody>
                     </table>

@@ -49,7 +49,7 @@
 
                 <!-- Post Content (admin-authored HTML) -->
                 <div class="post-body blog-content">
-                    {!! $blog->content !!}
+                    {!! \App\Support\CasLinks::html($blog->content) !!}
                 </div>
 
                 @if (config('blog_seo.posts.' . $blog->slug . '.guides') && config('seo_guides'))
