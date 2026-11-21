@@ -137,4 +137,16 @@ class AdminCmsTest extends TestCase
         $this->get('/fees')->assertOk();
         $this->get('/mbbs-in-china-2027')->assertOk();
     }
+
+    public function test_public_pages_never_print_raw_template_code(): void
+    {
+        foreach (['/', '/fees', '/admissions', '/mbbs-in-china-2027', '/blogs', '/login'] as $url) {
+            $html = $this->get($url)->assertOk()->getContent();
+            $this->assertStringNotContainsString('{{', $html, $url);
+            $this->assertStringNotContainsString('App' . chr(92) . 'Support', $html, $url);
+            $this->assertStringNotContainsString('@verbatim', $html, $url);
+        }
+        // The contact phone in the search-engine data comes from Site Settings (fallback when unset).
+        $this->assertStringContainsString('"telephone": "+86-176-4041-2827"', $this->get('/')->getContent());
+    }
 }

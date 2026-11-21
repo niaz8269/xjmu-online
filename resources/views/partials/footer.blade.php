@@ -100,9 +100,9 @@
         "name": "Xinjiang Medical University",
         "contactPoint": {
             "@type": "ContactPoint",
-            "telephone": "{{ \App\Support\Settings::get('contact_phone2', '+86-176-4041-2827') }}",
+            "telephone": "+86-176-4041-2827",
             "contactType": "Admissions",
-            "email": "{{ \App\Support\Settings::get('contact_email', 'studyatxjmu@gmail.com') }}",
+            "email": "studyatxjmu@gmail.com",
             "areaServed": "Worldwide",
             "availableLanguage": ["English", "Chinese"]
         }
