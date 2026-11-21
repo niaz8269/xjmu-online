@@ -38,6 +38,8 @@ Google positions checked 16 Nov 2026 (Pakistan, English): "MBBS in China 2026" =
 
 **Added 20 Nov 2026:** `/clinical-medicine-in-china` (Clinical Medicine in China, Clinical Medicine vs MBBS). All guides now open with a Quick answer and key-facts table (`resources/guides/_answers.php`). Rankings are explained by method only; no rank numbers are published until confirmed.
 
+**Added 22 Nov 2026 (from the owner's keyword research file):** `/mdcat-pmdc-rules-for-mbbs-in-china`, `/china-student-visa-for-mbbs`, `/csca-test-for-study-in-china`, `/non-moe-universities-in-china-mbbs-risks`, `/mbbs-in-china-admission-calendar-2027`. PMDC, visa and CSCA statements are attributed to official pages with the date checked; re-check them every few months (PMDC public notices on pmdc.pk, the Chinese Embassy in Pakistan visa instructions, csca.cn).
+
 ## Facts needed before the 🕒 pages and any 2027 fee/date claims
 
 - 2027 intake: dates, application deadline, seat number, fees (or confirmation that 2026 fees carry over).

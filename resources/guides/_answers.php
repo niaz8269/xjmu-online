@@ -20,6 +20,71 @@ $facts = [
 ];
 
 return [
+    'non-moe-universities-in-china-mbbs-risks' => [
+        'answer' => 'It depends on the programme and on your own medical council. Under the Ministry of Education notice, a university that is not on the list may teach international students clinical medicine only in Chinese and may not issue an English-language MBBS certificate. Each council sets its own rules, so read its current rules before you pay.',
+        'facts' => [
+            ['MOE list in force', 'Notice of 1 June 2026 for 2026–2027: 43 universities, 2,790 seats'],
+            ['Universities not on the list', 'May admit international students only to Chinese-medium clinical medicine'],
+            ['English-language MBBS certificate', 'May not be issued by a university that is not listed'],
+            ['Bilingual teaching', 'Prohibited as a workaround by the notice'],
+            ['Recognition at home', 'Decided by your own medical council; check its current rules'],
+            ['Xinjiang Medical University', 'Number 8 on the MOE list, 60 seats; WDOMS listed, ECFMG eligible'],
+            ['XJMU teaching and fees', 'English taught, HSK-4 by graduation; ¥49,950 first year, then ¥35,950 a year'],
+            ['XJMU intakes', 'March/Spring and September/Fall'],
+        ],
+    ],
+    'mdcat-pmdc-rules-for-mbbs-in-china' => [
+        'answer' => 'No, not for admission. Xinjiang Medical University does not ask for MDCAT; it requires 60% in each science subject and an age of 18 to 35. Separately, PMDC announced on 5 October 2026 that MDCAT is no longer a prerequisite for Pakistani students going abroad. Graduates must still pass the NRE, so check pmdc.pk before paying.',
+        'facts' => [
+            ['MDCAT for XJMU admission', 'Not required; not in the published admission requirements'],
+            ['XJMU eligibility', '60% in each science subject, aged 18–35'],
+            ['PMDC and MDCAT for study abroad', 'Exempted by PMDC Public Notice of 5 October 2026 (earlier criteria asked for 50%)'],
+            ['Licensing exam in Pakistan', 'National Registration Examination (NRE), set by PMDC'],
+            ['After the NRE', 'One-year house job required for a full licence (PMDC FAQs)'],
+            ['MOE status', 'Listed, 8th of 43 universities; 60 seats (MOE notice, 1 June 2026)'],
+            ['Intakes', 'March/Spring and September/Fall'],
+            ['Where to check', 'Public notices on pmdc.pk, before paying any deposit'],
+        ],
+    ],
+    'csca-test-for-study-in-china' => [
+        'answer' => 'CSCA is the China Scholastic Competency Assessment, a standardised test for international students applying to undergraduate programmes in China. Official sources say the China Scholarship Council organises it, that it covers Professional Chinese, Mathematics, Physics and Chemistry in multiple choice papers scored 0 to 100, and that Chinese Government Scholarship applicants for a bachelor degree must take it.',
+        'facts' => [
+            ['Full name', 'China Scholastic Competency Assessment (CSCA)'],
+            ['Organised by', 'China Scholarship Council'],
+            ['Who must take it', 'Bachelor degree applicants for the Chinese Government Scholarship, from 2026/2027'],
+            ['Subjects', 'Professional Chinese, Mathematics, Physics, Chemistry'],
+            ['Format', 'Multiple choice; 48 questions in 60 minutes (Chinese paper: 80 in 90); 0–100 per subject'],
+            ['Fee', '450 yuan for one subject, 700 yuan for two or more'],
+            ['Registration', 'Official CSCA website, csca.cn'],
+            ['Required by XJMU?', 'Check with the university'],
+        ],
+    ],
+    'china-student-visa-for-mbbs' => [
+        'answer' => 'To get a China student visa for MBBS, first secure admission. Xinjiang Medical University issues a Pre-Admission Letter, then, after the seat deposit, the admission letter and JW202 form. Apply with them for an X1 visa at the Chinese embassy or visa centre serving your home address, travel, and apply for a residence permit within 30 days of entry.',
+        'facts' => [
+            ['Visa type', 'X1 (study in China for more than 180 days)'],
+            ['Papers from the university', 'Admission letter and JW202 form'],
+            ['Before the JW202', 'Pre-Admission Letter, then ¥2,000 seat deposit (refunded if the JW202 is rejected)'],
+            ['Where to apply', 'Chinese embassy, consulate or visa application centre serving your home address'],
+            ['After arrival', 'Apply for a residence permit within 30 days of entry'],
+            ['Yearly renewal', 'Residence permit ¥800 and physical examination ¥350 a year from year two'],
+            ['First-year package', '¥49,950, includes student visa, health insurance and medical, JW202 and airport pickup'],
+            ['Intakes', 'March/Spring and September/Fall'],
+        ],
+    ],
+    'mbbs-in-china-admission-calendar-2027' => [
+        'answer' => 'At Xinjiang Medical University, the March/Spring intake 2027 has an early deadline of 15 December 2026 and a last date of 15 January 2027, with registration on 20 February 2027. The September/Fall intake 2027 opens on 1 March 2027, with an early deadline of 30 June 2027, a last date of 15 August 2027 and registration on 10 September 2027.',
+        'facts' => [
+            ['March/Spring 2027: applications open', '1 September 2026'],
+            ['March/Spring 2027: early deadline', '15 December 2026 (recommended for scholarships)'],
+            ['March/Spring 2027: regular deadline (last date)', '15 January 2027'],
+            ['March/Spring 2027: registration and orientation', '20 February 2027'],
+            ['September/Fall 2027: applications open', '1 March 2027'],
+            ['September/Fall 2027: early deadline', '30 June 2027 (recommended for scholarships)'],
+            ['September/Fall 2027: regular deadline (last date)', '15 August 2027'],
+            ['September/Fall 2027: registration and orientation', '10 September 2027'],
+        ],
+    ],
     'mbbs-in-china-2027' => [
         'answer' => 'MBBS in China 2027 is a six-year English-taught medical degree (five years of study plus a one-year internship) at one of the 43 MOE listed universities. Xinjiang Medical University admits students in March/Spring and September/Fall 2027. Applicants need 60% in physics, chemistry and biology, and fees start at ¥49,950 for the first year.',
         'facts' => $facts,
