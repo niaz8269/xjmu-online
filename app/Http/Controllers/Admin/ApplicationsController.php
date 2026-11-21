@@ -18,6 +18,9 @@ class ApplicationsController extends AdminController
 
     private const SUBMITTED_STATUSES = "'Pending','Approved','Rejected','Submitted'";
 
+    /** The review statuses an admin can set (same list as the review page). */
+    public const REVIEW_STATUSES = ['Pending', 'Approved', 'Rejected'];
+
     /** GET /admin/applications */
     public function index(Request $request)
     {
@@ -32,8 +35,20 @@ class ApplicationsController extends AdminController
             if (! in_array($filter, ['submitted', 'unsubmitted', ''], true)) {
                 $filter = '';
             }
+            // Extra filters (21 Nov 2026): review status and degree.
+            $status = $this->strQuery($request, 'status');
+            if (! in_array($status, self::REVIEW_STATUSES, true)) {
+                $status = '';
+            }
+            $degree = trim($this->strQuery($request, 'degree'));
 
-            $applyFilters = function ($q) use ($search, $filter, $S) {
+            $applyFilters = function ($q) use ($search, $filter, $S, $status, $degree) {
+                if ($status !== '') {
+                    $q->where('a.status', $status);
+                }
+                if ($degree !== '') {
+                    $q->where('a.degree_applying_for', $degree);
+                }
                 if (! empty($search)) {
                     $term = "%{$search}%";
                     $q->whereRaw('(u.full_name LIKE ? OR u.email LIKE ?)', [$term, $term]);
@@ -58,6 +73,11 @@ class ApplicationsController extends AdminController
 
             $base = DB::table('users as u')->leftJoin('applications as a', 'u.id', '=', 'a.user_id');
             $applyFilters($base);
+            if ($this->strQuery($request, 'export') === 'csv') {
+                return $this->exportCsv(clone $base);
+            }
+            $degrees = DB::table('applications')->whereNotNull('degree_applying_for')->where('degree_applying_for', '!=', '')
+                ->distinct()->orderBy('degree_applying_for')->pluck('degree_applying_for')->all();
             $totalRecords = (int) (clone $base)->count();
             $totalPages = (int) ceil($totalRecords / $perPage);
 
@@ -94,6 +114,7 @@ class ApplicationsController extends AdminController
         return $this->page('admin.applications.index', 'All Applications', 'applications', null, [
             'flash' => $this->pull('flash'),
             'search' => $search, 'filter' => $filter, 'page' => $page,
+            'status' => $status, 'degree' => $degree, 'degrees' => $degrees, 'reviewStatuses' => self::REVIEW_STATUSES,
             'countAll' => $countAll, 'countSubmitted' => $countSubmitted, 'countUnsub' => $countUnsub,
             'totalRecords' => $totalRecords, 'totalPages' => $totalPages,
             'users' => $users, 'personalData' => $personalData, 'educationData' => $educationData,
@@ -111,7 +132,13 @@ class ApplicationsController extends AdminController
             $status = trim($this->post($request, 'status'));
             try {
                 // Update the remark ONLY on an existing application — never INSERT (audit #17).
-                $n = DB::table('applications')->where('user_id', $userId)->update(['admin_remark' => $status]);
+                $changes = ['admin_remark' => $status];
+                // Optional review status from the dropdown; only the fixed values are accepted.
+                $appStatus = $this->post($request, 'app_status');
+                if (in_array($appStatus, self::REVIEW_STATUSES, true)) {
+                    $changes['status'] = $appStatus;
+                }
+                $n = DB::table('applications')->where('user_id', $userId)->update($changes);
                 $message = $n > 0
                     ? 'Remark updated successfully.'
                     : 'No application exists for this user, so nothing was updated.';
@@ -145,7 +172,30 @@ class ApplicationsController extends AdminController
 
         return $this->page('admin.applications.manage', 'Manage Applications', 'manage-applications', null, compact(
             'message', 'applications', 'page', 'totalPages', 'offset'
-        ));
+        ) + ['reviewStatuses' => self::REVIEW_STATUSES]);
+    }
+
+    /** CSV of the filtered applications list (GET /admin/applications?export=csv&...). */
+    private function exportCsv($base)
+    {
+        $rows = $base->leftJoin('personal_info as p', 'p.user_id', '=', 'u.id')->orderByDesc('u.created_at')
+            ->get(['u.id', 'u.full_name', 'u.email', 'p.tel', 'p.nationality', 'a.degree_applying_for', 'a.major_applying_for',
+                'a.is_submitted', 'a.submitted_at', 'a.status', 'a.admin_remark', 'u.created_at']);
+        \App\Support\Security\Audit::record('applications.export', ['rows' => count($rows)]);
+
+        $head = ['ID', 'Name', 'Email', 'Phone', 'Nationality', 'Degree', 'Major', 'Submitted', 'Submitted at', 'Status', 'Remark', 'Registered'];
+        $out = chr(0xEF) . chr(0xBB) . chr(0xBF) . implode(',', $head) . chr(13) . chr(10);
+        foreach ($rows as $r) {
+            $out .= implode(',', array_map([\App\Support\Csv::class, 'cell'], [$r->id, $r->full_name, $r->email, $r->tel, $r->nationality,
+                $r->degree_applying_for, $r->major_applying_for, ! empty($r->is_submitted) ? 'Yes' : 'No', $r->submitted_at, $r->status,
+                $r->admin_remark, $r->created_at])) . chr(13) . chr(10);
+        }
+
+        return response($out, 200, [
+            'Content-Type' => 'text/csv; charset=UTF-8',
+            'Content-Disposition' => 'attachment; filename="applications-' . date('Y-m-d') . '.csv"',
+            'Cache-Control' => 'no-store, private',
+        ]);
     }
 
     /** GET|POST /admin/review_application */

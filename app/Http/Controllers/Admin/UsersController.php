@@ -14,10 +14,44 @@ class UsersController extends AdminController
     /** GET /admin/users */
     public function index(Request $request)
     {
+        if ($request->query('export') === 'csv') {
+            return $this->exportCsv($request);
+        }
         [$users, $search, $page, $totalRecords, $totalPages] = $this->listing($request, ['id', 'full_name', 'email', 'role', 'created_at'], 'created_at', 'desc');
 
         return $this->page('admin.users.index', 'Registered Users', 'users', null,
             compact('users', 'search', 'page', 'totalRecords', 'totalPages'));
+    }
+
+    /** CSV of the users list: ?export=csv, optional &search= and &verified=0|1. */
+    private function exportCsv(Request $request)
+    {
+        $search = $request->query('search');
+        $search = is_string($search) ? trim($search) : '';
+        $verified = $request->query('verified');
+
+        $query = DB::table('users')->orderByDesc('created_at');
+        if ($search !== '') {
+            $term = '%' . $search . '%';
+            $query->where(fn ($q) => $q->where('full_name', 'like', $term)->orWhere('email', 'like', $term));
+        }
+        if ($verified === '0' || $verified === '1') {
+            $query->where('is_verified', (int) $verified);
+        }
+        $rows = $query->get(['id', 'full_name', 'email', 'role', 'is_verified', 'created_at']);
+        \App\Support\Security\Audit::record('users.export', ['rows' => count($rows)]);
+
+        $out = chr(0xEF) . chr(0xBB) . chr(0xBF) . 'ID,Name,Email,Role,Verified,Registered' . chr(13) . chr(10);
+        foreach ($rows as $r) {
+            $out .= implode(',', array_map([\App\Support\Csv::class, 'cell'],
+                [$r->id, $r->full_name, $r->email, $r->role, ! empty($r->is_verified) ? 'Yes' : 'No', $r->created_at])) . chr(13) . chr(10);
+        }
+
+        return response($out, 200, [
+            'Content-Type' => 'text/csv; charset=UTF-8',
+            'Content-Disposition' => 'attachment; filename="users-' . date('Y-m-d') . '.csv"',
+            'Cache-Control' => 'no-store, private',
+        ]);
     }
 
     /** GET /admin/manage_users (superadmin only) */

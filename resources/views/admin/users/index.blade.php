@@ -11,6 +11,14 @@
     <form method="GET" class="d-flex gap-2">
       <input type="text" name="search" class="form-control" placeholder="🔍 Search by name or email..." value="{{ $search }}" style="max-width: 400px;">
       <button type="submit" class="btn btn-primary">Search</button>
+      <div class="dropdown ms-auto">
+        <button class="btn btn-outline-success dropdown-toggle" type="button" data-bs-toggle="dropdown"><i class="bi bi-download me-1"></i>Export (Excel/CSV)</button>
+        <ul class="dropdown-menu dropdown-menu-end">
+          <li><a class="dropdown-item" href="?export=csv{!! !empty($search) ? '&search=' . urlencode($search) : '' !!}">{{ !empty($search) ? 'Users matching this search' : 'All users' }}</a></li>
+          <li><a class="dropdown-item" href="?export=csv&verified=0">Unverified users only</a></li>
+          <li><a class="dropdown-item" href="?export=csv&verified=1">Verified users only</a></li>
+        </ul>
+      </div>
       @if (!empty($search))
         <a href="users" class="btn btn-secondary">Clear</a>
       @endif

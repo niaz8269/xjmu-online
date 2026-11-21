@@ -85,7 +85,7 @@
                         <th>Degree</th>
                         <th>Major</th>
                         <th>Submission</th>
-                        <th>Status (editable)</th>
+                        <th>Status and remark for the applicant</th>
                         <th class="col-save">Save</th>
                         <th class="col-actions">Actions</th>
                     </tr>
@@ -109,12 +109,18 @@
                                 <form method="post" id="status-form-{{ (int)$row['id'] }}" class="status-form">
                                     @csrf
                                     <input type="hidden" name="user_id" value="{{ (int)$row['id'] }}">
+                                    <select name="app_status" class="form-select form-select-sm" style="flex:0 0 130px" aria-label="Review status">
+                                        <option value="">{{ !empty($row['status']) && !in_array($row['status'], $reviewStatuses, true) ? $row['status'] : 'No change' }}</option>
+                                        @foreach ($reviewStatuses as $st)
+                                            <option value="{{ $st }}" @selected(($row['status'] ?? '') === $st)>{{ $st }}</option>
+                                        @endforeach
+                                    </select>
                                     <input
                                         type="text"
                                         name="status"
                                         class="form-control status-input"
                                         value="{{ $row['admin_remark'] ?? '' }}"
-                                        placeholder="Enter any internal admin status/note">
+                                        placeholder="Remark shown to the applicant (optional)">
                                 </form>
                             </td>
                             <td class="col-save text-center">

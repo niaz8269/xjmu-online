@@ -98,4 +98,44 @@ class AdminSecurityTest extends TestCase
         $this->assertContains('admin.POST', array_column(Audit::recent(), 'event'));
         $this->withSession($s)->get('/admin/activity')->assertOk()->assertSee('admin.POST');
     }
+
+    public function test_applications_list_filters_by_status_and_exports_csv_for_admins_only(): void
+    {
+        $a = DB::table('users')->insertGetId(['full_name' => '=cmd Ann', 'email' => 'ann@example.test', 'password' => 'x', 'role' => 'user', 'created_at' => now()]);
+        $b = DB::table('users')->insertGetId(['full_name' => 'Bob', 'email' => 'bob@example.test', 'password' => 'x', 'role' => 'user', 'created_at' => now()]);
+        DB::table('applications')->insert(['user_id' => $a, 'degree_applying_for' => "Bachelor's Degree", 'major_applying_for' => 'MBBS', 'is_submitted' => 1, 'status' => 'Approved']);
+        DB::table('applications')->insert(['user_id' => $b, 'degree_applying_for' => "Master's Degree", 'major_applying_for' => 'Nursing', 'is_submitted' => 1, 'status' => 'Pending']);
+
+        $this->get('/admin/applications?export=csv')->assertRedirect();   // signed out
+
+        $html = $this->withSession($this->adminSession())->get('/admin/applications?status=Approved')->assertOk()->getContent();
+        $this->assertStringContainsString('ann@example.test', $html);
+        $this->assertStringNotContainsString('bob@example.test', $html);
+
+        $csv = $this->withSession($this->adminSession())->get('/admin/applications?export=csv&status=Pending')->assertOk()
+            ->assertHeader('Content-Type', 'text/csv; charset=UTF-8')->getContent();
+        $this->assertStringContainsString('"Bob","bob@example.test"', $csv);
+        $this->assertStringNotContainsString('ann@example.test', $csv);
+
+        // A name starting with "=" must not become an Excel formula.
+        $all = $this->withSession($this->adminSession())->get('/admin/applications?export=csv')->getContent();
+        $this->assertStringContainsString('"\'=cmd Ann"', $all);
+
+        $users = $this->withSession($this->adminSession())->get('/admin/users?export=csv')->assertOk()->getContent();
+        $this->assertStringContainsString('bob@example.test', $users);
+    }
+
+    public function test_manage_page_sets_status_only_from_the_fixed_list(): void
+    {
+        $u = DB::table('users')->insertGetId(['full_name' => 'Cy', 'email' => 'cy@example.test', 'password' => 'x', 'role' => 'user', 'created_at' => now()]);
+        DB::table('applications')->insert(['user_id' => $u, 'is_submitted' => 1, 'status' => 'Pending']);
+        $post = fn (array $d) => $this->withSession($this->adminSession() + ['_token' => 'tok'])->post('/admin/manage-applications', ['_token' => 'tok', 'user_id' => $u] + $d);
+
+        $post(['status' => 'Please upload your passport', 'app_status' => 'Approved'])->assertOk();
+        $this->assertSame('Approved', DB::table('applications')->where('user_id', $u)->value('status'));
+        $this->assertSame('Please upload your passport', DB::table('applications')->where('user_id', $u)->value('admin_remark'));
+
+        $post(['status' => 'x', 'app_status' => 'Hacked'])->assertOk();
+        $this->assertSame('Approved', DB::table('applications')->where('user_id', $u)->value('status'));   // unchanged
+    }
 }

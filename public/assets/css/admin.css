@@ -17,3 +17,36 @@
 
 .btn-xjmu { background: var(--xjmu-red); color:#fff; }
 .btn-xjmu:hover { background:#c41c23; color:#fff; }
+
+/* ---------- Brand refresh (22 Nov 2026): same navy, red and fonts as the public site and the applicant portal ---------- */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@700;800&display=swap');
+:root { --xjmu-navy: #0b2a4a; --xjmu-navy-700: #0e3559; --xjmu-line: #e4e8ee; --xjmu-bg: #f5f8fc; --xjmu-ink: #16202e; --xjmu-muted: #667085; }
+body { font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif; background: var(--xjmu-bg) !important; color: #33404f; }
+h1, h2, h3, h4, h5, .brand-text, .stat-value { font-family: 'Manrope', 'Inter', 'Segoe UI', sans-serif; color: var(--xjmu-ink); letter-spacing: -.01em; }
+.app-header { border-bottom: 1px solid var(--xjmu-line); box-shadow: none; }
+.app-sidebar { background: var(--xjmu-navy) !important; box-shadow: none !important; }
+.app-sidebar .sidebar-brand { border-bottom: 1px solid rgba(255, 255, 255, .08); }
+.app-sidebar .brand-text { color: #fff; }
+.app-sidebar .sidebar-menu .nav-link { border-radius: 8px; margin: 1px 8px; color: rgba(255, 255, 255, .82); }
+.app-sidebar .sidebar-menu .nav-link:hover { background: var(--xjmu-navy-700); color: #fff; }
+.app-sidebar .nav-treeview .nav-link.active { background-color: rgba(255, 255, 255, .14); color: #fff; }
+.app-content-header h1 { font-weight: 800; }
+.card { border: 1px solid var(--xjmu-line); border-radius: 14px; box-shadow: 0 1px 2px rgba(16, 24, 40, .04); }
+.card .card { border-radius: 12px; }
+.stat-card { border-radius: 14px; }
+.btn { border-radius: 8px; font-weight: 600; }
+.btn-primary { background: var(--xjmu-navy); border-color: var(--xjmu-navy); }
+.btn-primary:hover, .btn-primary:focus { background: var(--xjmu-navy-700); border-color: var(--xjmu-navy-700); }
+.form-control, .form-select { border-radius: 8px; border-color: var(--xjmu-line); }
+.form-control:focus, .form-select:focus { border-color: var(--xjmu-navy); box-shadow: 0 0 0 3px #eef3f9; }
+.table { --bs-table-striped-bg: #f8fafd; }
+.table thead.table-dark th, .table > thead > tr > th { background: #f1f5fa; color: var(--xjmu-muted); font-size: .76rem; text-transform: uppercase; letter-spacing: .04em; border-bottom: 1px solid var(--xjmu-line); }
+.table td { vertical-align: middle; }
+.accordion-item { border: 1px solid var(--xjmu-line) !important; border-radius: 12px !important; margin-bottom: .6rem; overflow: hidden; }
+.accordion-button { font-weight: 600; }
+.accordion-button:not(.collapsed) { background: #eef3f9; color: var(--xjmu-navy); box-shadow: none; }
+.badge { font-weight: 600; border-radius: 999px; padding: .35em .7em; }
+.page-link { color: var(--xjmu-navy); }
+.page-item.active .page-link { background: var(--xjmu-navy); border-color: var(--xjmu-navy); }
+.app-footer { border-top: 1px solid var(--xjmu-line); color: var(--xjmu-muted); font-size: .85rem; }
+.applications-wrap .status-form { min-width: 250px; }

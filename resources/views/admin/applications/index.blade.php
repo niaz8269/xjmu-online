@@ -35,8 +35,21 @@
         <input type="text" name="search" class="form-control form-control-sm"
                placeholder="Search by name or email…"
                value="{{ $search }}" style="max-width: 300px;">
+        <select name="status" class="form-select form-select-sm" style="max-width: 170px;" aria-label="Review status">
+          <option value="">Any status</option>
+          @foreach ($reviewStatuses as $st)
+            <option value="{{ $st }}" @selected($status === $st)>{{ $st }}</option>
+          @endforeach
+        </select>
+        <select name="degree" class="form-select form-select-sm" style="max-width: 200px;" aria-label="Degree">
+          <option value="">Any degree</option>
+          @foreach ($degrees as $dg)
+            <option value="{{ $dg }}" @selected($degree === $dg)>{{ $dg }}</option>
+          @endforeach
+        </select>
         <button type="submit" class="btn btn-primary btn-sm">Search</button>
-        @if (!empty($search) || !empty($filter))
+        <a href="?export=csv{!! (!empty($search) ? '&search='.urlencode($search) : '') . (!empty($filter) ? '&filter='.urlencode($filter) : '') . ($status !== '' ? '&status='.urlencode($status) : '') . ($degree !== '' ? '&degree='.urlencode($degree) : '') !!}" class="btn btn-outline-success btn-sm ms-auto"><i class="bi bi-download me-1"></i>Export this list (Excel/CSV)</a>
+        @if (!empty($search) || !empty($filter) || $status !== '' || $degree !== '')
           <a href="applications" class="btn btn-outline-secondary btn-sm">Reset all</a>
         @endif
       </form>
@@ -117,10 +130,10 @@
 
             <!-- Buttons -->
             <div class="mb-3 d-flex flex-wrap gap-2 align-items-center">
-              <form action="delete_application" method="POST" onsubmit="return confirm('Are you sure you want to delete this application?');" class="d-inline">
+              <form action="delete_application" method="POST" onsubmit="return prompt('This permanently deletes the application and its uploaded documents. It cannot be undone. Type DELETE to confirm.') === 'DELETE';" class="d-inline ms-auto order-last">
                 @csrf
                 <input type="hidden" name="user_id" value="{{ (int)$user['id'] }}">
-                <button type="submit" class="btn btn-danger btn-sm" aria-label="Delete application for {{ $user['full_name'] }}">🗑️ Delete</button>
+                <button type="submit" class="btn btn-outline-danger btn-sm" aria-label="Delete application for {{ $user['full_name'] }}">🗑️ Delete</button>
               </form>
               <a href="export_pdf?user_id={{ $user['id'] }}" class="btn btn-success btn-sm">📄 Export as PDF</a>
               <a href="download_application?user_id={{ $user['id'] }}" class="btn btn-success btn-sm">📦 Download Application Package</a>
@@ -180,6 +193,8 @@
   $paginationParams = '';
   if (!empty($search))  $paginationParams .= '&search=' . urlencode($search);
   if (!empty($filter))  $paginationParams .= '&filter=' . urlencode($filter);
+  if ($status !== '')   $paginationParams .= '&status=' . urlencode($status);
+  if ($degree !== '')   $paginationParams .= '&degree=' . urlencode($degree);
   @endphp
   @if (!empty($users) && $totalPages > 1)
     <div class="mt-4">
