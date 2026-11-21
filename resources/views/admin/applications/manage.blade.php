@@ -2,66 +2,29 @@
 @section('content')
 
 <style>
-        html,
-        body {
-            width: 100%;
-            margin: 0;
-            padding: 0;
-        }
+  .qe-table { --qe-line: #e4e8ee; }
+  .qe-table th { white-space: nowrap; }
+  .qe-table td { vertical-align: middle; padding-block: .85rem; }
+  .qe-person { min-width: 220px; max-width: 300px; }
+  .qe-person .qe-name { font-weight: 700; color: #16202e; line-height: 1.25; }
+  .qe-person .qe-sub { color: #667085; font-size: .82rem; overflow-wrap: anywhere; line-height: 1.35; }
+  .qe-prog { min-width: 170px; max-width: 240px; font-size: .9rem; line-height: 1.35; }
+  .qe-prog .qe-sub { color: #667085; font-size: .82rem; }
+  .qe-decide { min-width: 420px; }
+  .qe-form { display: flex; gap: .5rem; align-items: center; }
+  .qe-form select { flex: 0 0 120px; }
+  .qe-form input[type=text] { flex: 1 1 220px; min-width: 160px; }
+  .qe-form .btn { flex: 0 0 auto; white-space: nowrap; }
+  .qe-open { white-space: nowrap; }
+  @media (max-width: 1199.98px) {
+    .qe-form { flex-wrap: wrap; }
+    .qe-decide { min-width: 280px; }
+  }
+</style>
 
-        .applications-wrap .table {
-            width: 100%;
-            table-layout: auto;
-        }
-
-        .applications-wrap .table th,
-        .applications-wrap .table td {
-            white-space: normal;
-            word-break: break-word;
-            vertical-align: middle;
-        }
-
-        .applications-wrap .table th.col-index,
-        .applications-wrap .table td.col-index,
-        .applications-wrap .table th.col-actions,
-        .applications-wrap .table td.col-actions,
-        .applications-wrap .table th.col-save,
-        .applications-wrap .table td.col-save {
-            width: 1%;
-            white-space: nowrap;
-            word-break: normal;
-        }
-
-        .status-form {
-            display: flex;
-            gap: 0.5rem;
-            flex-wrap: wrap;
-            align-items: center;
-        }
-
-        .status-form .status-input {
-            min-width: 0;
-            width: 100%;
-            flex: 1 1 260px;
-        }
-
-        .col-save .btn {
-            white-space: nowrap;
-        }
-
-        .table-responsive {
-            overflow-x: auto;
-        }
-
-        @media (max-width: 991.98px) {
-            .applications-wrap .table {
-                font-size: 0.9rem;
-            }
-        }
-    </style>
 <p><a href="applications" class="text-decoration-none">← All applications</a></p>
-<div class="card applications-wrap"><div class="card-body">
-    <p class="text-muted small">Quick editing: set the status and the remark for several applications without opening each one.</p>
+<div class="card"><div class="card-body">
+    <p class="text-muted small mb-3">Quick editing: set the status and a remark for several applications without opening each one. The remark is shown to the applicant in the portal.</p>
 
     @if (!empty($message))
         <div class="alert alert-info alert-dismissible fade show" role="alert">
@@ -77,83 +40,80 @@
         </div>
     @else
         <div class="table-responsive">
-            <table class="table table-striped table-hover align-middle">
-                <thead class="table-dark">
+            <table class="table table-hover align-middle mb-0 qe-table">
+                <thead>
                     <tr>
-                        <th class="col-index">#</th>
-                        <th>Name</th>
-                        <th>Email</th>
-                        <th>Phone</th>
-                        <th>Degree</th>
-                        <th>Major</th>
-                        <th>Submission</th>
-                        <th>Status and remark for the applicant</th>
-                        <th class="col-save">Save</th>
-                        <th class="col-actions">Actions</th>
+                        <th>Applicant</th>
+                        <th>Programme</th>
+                        <th>Submitted</th>
+                        <th>Status and remark</th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
                     @foreach ($applications as $index => $row)
+                        @php
+                            $submitted = !empty($row['is_submitted']) || in_array((string)($row['status'] ?? ''), ['Pending', 'Approved', 'Rejected', 'Submitted'], true);
+                            $formId = 'status-form-' . (int) $row['id'];
+                            $programme = trim((string) ($row['degree_applying_for'] ?? ''));
+                            $major = trim((string) ($row['major_applying_for'] ?? ''));
+                        @endphp
                         <tr>
-                            <td class="col-index">{{ ($offset + $index + 1) }}</td>
-                            <td>{{ $row['full_name'] ?? '' }}</td>
-                            <td>{{ $row['email'] ?? '' }}</td>
-                            <td>{{ $row['phone'] ?? '' }}</td>
-                            <td>{{ $row['degree_applying_for'] ?? '' }}</td>
-                            <td>{{ $row['major_applying_for'] ?? '' }}</td>
-                            <td>
-                                @php $submitted = !empty($row['is_submitted']) || in_array((string)($row['status'] ?? ''), ['Pending', 'Approved', 'Rejected', 'Submitted'], true); @endphp
-                                <span class="badge bg-{{ $submitted ? 'success' : 'warning' }}">
-                                    {{ $submitted ? 'Submitted' : 'Unsubmitted' }}
-                                </span>
+                            <td class="qe-person">
+                                <div class="qe-name">{{ $row['full_name'] ?? '' }}</div>
+                                <div class="qe-sub">{{ $row['email'] ?? '' }}</div>
+                                @if (!empty($row['phone']))<div class="qe-sub">{{ $row['phone'] }}</div>@endif
+                            </td>
+                            <td class="qe-prog">
+                                @if ($major !== '')<div>{{ $major }}</div>@endif
+                                <div class="{{ $major !== '' ? 'qe-sub' : '' }}">{{ $programme !== '' ? $programme : ($major === '' ? '—' : '') }}</div>
                             </td>
                             <td>
-                                <form method="post" id="status-form-{{ (int)$row['id'] }}" class="status-form">
+                                <span class="badge text-bg-{{ $submitted ? 'success' : 'warning' }}">{{ $submitted ? 'Submitted' : 'Draft' }}</span>
+                            </td>
+                            <td class="qe-decide">
+                                <form method="post" id="{{ $formId }}" class="qe-form">
                                     @csrf
-                                    <input type="hidden" name="user_id" value="{{ (int)$row['id'] }}">
-                                    <select name="app_status" class="form-select form-select-sm" style="flex:0 0 130px" aria-label="Review status">
+                                    <input type="hidden" name="user_id" value="{{ (int) $row['id'] }}">
+                                    <select name="app_status" class="form-select form-select-sm" aria-label="Review status for {{ $row['full_name'] ?? '' }}">
                                         <option value="">{{ !empty($row['status']) && !in_array($row['status'], $reviewStatuses, true) ? $row['status'] : 'No change' }}</option>
                                         @foreach ($reviewStatuses as $st)
                                             <option value="{{ $st }}" @selected(($row['status'] ?? '') === $st)>{{ $st }}</option>
                                         @endforeach
                                     </select>
-                                    <input
-                                        type="text"
-                                        name="status"
-                                        class="form-control status-input"
-                                        value="{{ $row['admin_remark'] ?? '' }}"
-                                        placeholder="Remark shown to the applicant (optional)">
+                                    <input type="text" name="status" class="form-control form-control-sm" maxlength="500"
+                                           value="{{ $row['admin_remark'] ?? '' }}" placeholder="Remark for the applicant (optional)"
+                                           aria-label="Remark for {{ $row['full_name'] ?? '' }}">
+                                    <button type="submit" class="btn btn-sm btn-primary">Save</button>
                                 </form>
                             </td>
-                            <td class="col-save text-center">
-                                <button type="submit" form="status-form-{{ (int)$row['id'] }}" class="btn btn-sm btn-primary">Save</button>
-                            </td>
-                            <td class="col-actions">
-                                <a href="review_application?id={{ (int)$row['id'] }}" class="btn btn-sm btn-outline-secondary">
-                                    Review
-                                </a>
+                            <td class="text-end qe-open">
+                                <a href="review_application?id={{ (int) $row['id'] }}" class="btn btn-sm btn-outline-secondary">Open</a>
                             </td>
                         </tr>
                     @endforeach
                 </tbody>
             </table>
         </div>
-        <!-- Pagination Controls -->
+
+        <!-- Pagination -->
+        @if ($totalPages > 1)
         <nav aria-label="Applications pagination">
-            <ul class="pagination justify-content-center mt-4">
+            <ul class="pagination pagination-sm justify-content-center mt-4 mb-0">
                 <li class="page-item{{ ($page <= 1 ? ' disabled' : '') }}">
-                    <a class="page-link" href="?page={{ $page - 1 }}" tabindex="-1">Previous</a>
+                    <a class="page-link" href="?page={{ max(1, $page - 1) }}">Previous</a>
                 </li>
-                @for ($i = 1; $i <= $totalPages; $i++)
+                @for ($i = max(1, $page - 2); $i <= min($totalPages, $page + 2); $i++)
                     <li class="page-item{{ ($i == $page ? ' active' : '') }}">
                         <a class="page-link" href="?page={{ $i }}">{{ $i }}</a>
                     </li>
                 @endfor
                 <li class="page-item{{ ($page >= $totalPages ? ' disabled' : '') }}">
-                    <a class="page-link" href="?page={{ $page + 1 }}">Next</a>
+                    <a class="page-link" href="?page={{ min($totalPages, $page + 1) }}">Next</a>
                 </li>
             </ul>
         </nav>
+        @endif
     @endif
 </div></div>
 

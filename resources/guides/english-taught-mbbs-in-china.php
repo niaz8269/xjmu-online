@@ -3,7 +3,7 @@
 $s = require __DIR__ . '/_shared.php';
 
 return [
-    'updated' => '2026-11-16',
+    'updated' => '2026-11-22',
     'title' => 'English Taught MBBS in China 2027 | MOE Listed English Medium',
     'description' => 'English taught MBBS in China 2027: how English medium MBBS works at MOE listed universities, yearly curriculum, Chinese language rules, requirements and fees.',
     'keywords' => 'English taught MBBS, English taught MBBS in China, English medium MBBS in China 2027, MBBS in English in China, MOE listed MBBS, MBBS in China 2027, registered MBBS university in China, MBBS in China',
@@ -74,6 +74,14 @@ return [
         ], 'sub' => [
             ['h' => 'Is this the same as a bilingual programme?', 'p' => [
                 "No. In the English taught MBBS, the medical subjects are taught and examined in English, and Chinese is taught as a language course. In a bilingual programme, the medical subjects themselves are taught partly in Chinese, which the MOE does not permit as a substitute for the English taught MBBS.",
+            ]],
+            ['h' => 'Why do some adverts say "no HSK required"?', 'p' => [
+                "You will see three different statements about Chinese: no HSK needed, HSK needed in the first year, and HSK-4 needed for the degree. They sound contradictory, but they usually describe three different moments. No HSK is needed to apply or to be admitted to an English taught MBBS. Chinese classes begin after you arrive. A Chinese level is required before you graduate.",
+                "At XJMU the position is simple: you need no Chinese to apply, introductory Chinese is taught in years 1 and 2, and HSK-4 is required by graduation. Ask any university you are comparing the same three questions in writing: what is needed to apply, what is tested during the course, and what is needed to graduate.",
+            ]],
+            ['h' => 'How hard is HSK-4, and when should you start?', 'p' => [
+                "HSK-4 is a middle level of the standard Chinese proficiency test. Students who attend the language classes from the first semester and practise a little every day usually reach it well before the clinical years. Students who leave it until the final years find it much harder, because clinical rotations leave less time for language study.",
+                "Start in your first month. Learn the phrases you need for daily life first, then the words patients use for symptoms, pain and time. By the time you begin rotations you will be using Chinese every day, and the test becomes a record of a skill you already have.",
             ]],
         ]],
 
