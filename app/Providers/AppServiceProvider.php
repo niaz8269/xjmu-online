@@ -19,6 +19,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+        // Lay the content edited in the admin panel (guides, page FAQs) over the built-in content.
+        \App\Support\Cms::applyToConfig();
     }
 }

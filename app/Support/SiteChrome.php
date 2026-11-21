@@ -35,6 +35,13 @@ class SiteChrome
             }
         }
 
+        // Title / description / share image set in the admin panel (SEO & Guides > Page titles & SEO) win over the built-in ones.
+        $path = '/' . trim((string) request()->path(), '/');
+        $meta = Cms::meta(preg_replace('/\.(php|html)$/', '', $path));
+        if (isset($meta['title'])) { $v['page_title'] = $meta['title']; }
+        if (isset($meta['description'])) { $v['page_description'] = $meta['description']; }
+        if (isset($meta['image'])) { $v['page_image'] = $meta['image']; }
+
         return [
             'base'        => rtrim(get_absolute_url(''), '/'),
             'title'       => (string) ($v['page_title'] ?? self::DEFAULT_TITLE),

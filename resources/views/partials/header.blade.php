@@ -63,9 +63,9 @@
         },
         "contactPoint": {
             "@type": "ContactPoint",
-            "telephone": "+86-176-4041-2827",
+            "telephone": "{{ \App\Support\Settings::get('contact_phone2', '+86-176-4041-2827') }}",
             "contactType": "Admissions",
-            "email": "studyatxjmu@gmail.com",
+            "email": "{{ \App\Support\Settings::get('contact_email', 'studyatxjmu@gmail.com') }}",
             "availableLanguage": ["English", "Chinese"]
         },
         "sameAs": [
@@ -110,9 +110,9 @@
         },
         "contactPoint": {
             "@type": "ContactPoint",
-            "telephone": "+86-176-4041-2827",
+            "telephone": "{{ \App\Support\Settings::get('contact_phone2', '+86-176-4041-2827') }}",
             "contactType": "Admissions Office",
-            "email": "studyatxjmu@gmail.com"
+            "email": "{{ \App\Support\Settings::get('contact_email', 'studyatxjmu@gmail.com') }}"
         }
     }
     @endverbatim</script>

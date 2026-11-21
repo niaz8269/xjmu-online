@@ -22,7 +22,10 @@
   <main class="p-wrap">
     <div class="p-hello">
       <h1>Your application</h1>
-      <p>Track your progress, complete your form and upload your documents here.</p>
+      <p>{{ \App\Support\Cms::portal('dashboard_intro') }}</p>
+      @if (\App\Support\Cms::portal('notice') !== '')
+        <div class="alert alert-warning mt-3 mb-0" role="status">{{ \App\Support\Cms::portal('notice') }}</div>
+      @endif
     </div>
 
     <div class="p-grid">
@@ -55,7 +58,7 @@
             </button>
           </div>
 
-          <p class="p-note" id="downloadReadyNote" hidden>Your application is submitted. Download the form as a PDF, or the form with all your uploaded documents as one ZIP file. Keep a copy for your visa application.</p>
+          <p class="p-note" id="downloadReadyNote" hidden>{{ \App\Support\Cms::portal('download_note') }}</p>
           <p class="p-note" id="downloadLockedNote" data-i18n="portal.download_note">
             The application form can only be downloaded after the submission of all applications. If the account contains unsubmitted applications, the applicant will not be able to download the application form.
           </p>
@@ -83,15 +86,15 @@
             <li><i class="bi bi-shield-check"></i><div>Non-criminal record report</div><span class="p-tag is-req">Required</span></li>
             <li><i class="bi bi-camera-video"></i><div>Self-introduction video</div><span class="p-tag">Optional</span></li>
           </ul>
-          <p class="p-note">Files: PDF, Word, JPG or PNG, up to 1 MB each. Video: MP4, MOV or AVI, up to 10 MB.</p>
+          <p class="p-note">{{ \App\Support\Cms::portal('file_hint') }}</p>
         </section>
 
         <section class="p-card">
           <h2 data-i18n="login.contact_info_title">Contact Information</h2>
           <ul class="p-list">
             <li><i class="bi bi-geo-alt-fill"></i><div>Xinjiang Medical University, Urumqi, Xinjiang, China</div></li>
-            <li><i class="bi bi-telephone-fill"></i><div>CN +86 176 4041 2827<small>PK +92 300 400 9526</small></div></li>
-            <li><i class="bi bi-envelope-fill"></i><div>studyatxjmu@gmail.com</div></li>
+            <li><i class="bi bi-telephone-fill"></i><div>CN {{ \App\Support\Settings::get('contact_phone2', '+86 176 4041 2827') }}<small>PK {{ \App\Support\Settings::get('contact_phone_pk', '+92 300 400 9526') }}</small></div></li>
+            <li><i class="bi bi-envelope-fill"></i><div>{{ \App\Support\Settings::get('contact_email', 'studyatxjmu@gmail.com') }}</div></li>
             <li><i class="bi bi-clock-fill"></i><div>Mon-Fri: 8:30 AM - 5:00 PM (CST)</div></li>
           </ul>
         </section>
@@ -100,7 +103,7 @@
   </main>
 
   <footer class="p-foot">
-    <span data-i18n="login.copyright">© Copyright 2027 Xinjiang Medical University All Rights Reserved</span>
+    <span>{{ \App\Support\Cms::portal('copyright') }}</span>
   </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>

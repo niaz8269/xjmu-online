@@ -32,6 +32,12 @@ class Menu
                 'manage-home-facts'          => ['MBBS Facts', 'manage-home-facts'],
                 'manage-mbbs-curriculum'     => ['MBBS Curriculum', 'manage-mbbs-curriculum'],
             ]],
+            '_seo'        => ['SEO & Guides', 'bi-search', null, [
+                'seo'       => ['Page titles & SEO', 'seo'],
+                'page-faqs' => ['Page FAQs', 'page-faqs'],
+                'guides'    => ['Guides', 'guides'],
+            ]],
+            'portal-texts' => ['Portal texts', 'bi-chat-left-text', 'portal-texts'],
             'settings'    => ['Site Settings', 'bi-gear', 'settings'],
             'activity'    => ['Activity & Security', 'bi-shield-lock', 'activity'],
             'test_email'  => ['Email Test', 'bi-envelope', 'test_email'],

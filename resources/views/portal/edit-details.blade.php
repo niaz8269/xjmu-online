@@ -25,7 +25,7 @@
   <div class="container p-apply">
     <div class="p-hello">
       <h1>My application</h1>
-      <p>Complete the four sections below. Save each section when you finish it; you can come back at any time before you submit.</p>
+      <p>{{ \App\Support\Cms::portal('form_intro') }}</p>
     </div>
 
     <div class="p-download" id="applyDownload" hidden>
@@ -422,7 +422,7 @@
 
           <div class="alert alert-success small" id="documentUploadSuccess" style="display:none;">
           </div>
-          <p class="p-filehint"><i class="bi bi-info-circle me-1"></i>Accepted files: PDF, Word, JPG or PNG, up to 1 MB each. Video: MP4, MOV or AVI, up to 10 MB. Documents marked <strong>Yes</strong> are required.</p>
+          <p class="p-filehint"><i class="bi bi-info-circle me-1"></i>{{ \App\Support\Cms::portal('file_hint') }} Documents marked <strong>Yes</strong> are required.</p>
           <div class="table-responsive mt-3">
             <table class="table align-middle p-doctable">
                 <thead>
@@ -467,8 +467,8 @@
 </div> 
 
 <footer class="p-foot">
-  <p class="mb-1">Need help? WhatsApp CN +86 176 4041 2827 / PK +92 300 400 9526 &middot; studyatxjmu@gmail.com</p>
-  <p class="mb-0">&copy; Copyright 2027 Xinjiang Medical University. All Rights Reserved. International Students Admissions.</p>
+  <p class="mb-1">Need help? WhatsApp CN {{ \App\Support\Settings::get('contact_phone2', '+86 176 4041 2827') }} / PK {{ \App\Support\Settings::get('contact_phone_pk', '+92 300 400 9526') }} &middot; {{ \App\Support\Settings::get('contact_email', 'studyatxjmu@gmail.com') }}</p>
+  <p class="mb-0">{{ \App\Support\Cms::portal('copyright') }} International Students Admissions.</p>
 </footer>
 
 </body>
