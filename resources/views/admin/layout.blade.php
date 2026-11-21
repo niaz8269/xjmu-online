@@ -15,7 +15,7 @@
     <link rel="icon" href="../images/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
     <link rel="stylesheet" href="{{ $ALTE }}/dist/css/adminlte.min.css">
-    <link rel="stylesheet" href="../assets/css/admin.css?v=2">
+    <link rel="stylesheet" href="../assets/css/admin.css?v=3">
 @stack('head')
 </head>
 <body class="layout-fixed sidebar-expand-lg bg-body-tertiary">

@@ -20,6 +20,8 @@ class DashboardController extends AdminController
             'blogs'      => $this->count(fn () => DB::table('blogs')),
             'events'     => $this->count(fn () => DB::table('events')),
             'unverified' => $this->count(fn () => DB::table('users')->where('is_verified', 0)),
+            'leads_new'  => $this->count(fn () => DB::table('crm_leads')->where('status', 'New')),
+            'leads_due'  => $this->count(fn () => DB::table('crm_leads')->where('next_follow_up', '<=', date('Y-m-d'))->whereNotIn('status', ['Enrolled', 'Not interested'])),
         ];
 
         $recent = [];

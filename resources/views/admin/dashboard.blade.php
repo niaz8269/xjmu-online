@@ -32,6 +32,8 @@
 <div class="row g-3 mb-4">
     @php
     $cards2 = [
+        ['New leads', $stats['leads_new'], 'leads?status=New'],
+        ['Follow-ups due', $stats['leads_due'], 'leads?due=overdue'],
         ['Drafts (in progress)', $stats['drafts'], 'manage-applications'],
         ['Unverified Users', $stats['unverified'], 'users'],
         ['Blog Posts', $stats['blogs'], 'manage-blogs'],

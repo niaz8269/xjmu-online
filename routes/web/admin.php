@@ -52,6 +52,8 @@ Route::middleware(['admin', 'admin.audit'])->group(function () {
         'update_personal'     => [['get', 'post'], \App\Http\Controllers\Admin\ApplicationsController::class, 'updatePersonal'],
         'export_pdf'          => [['get'], \App\Http\Controllers\Admin\ApplicationsController::class, 'exportPdf'],
         'download_application' => [['get'], \App\Http\Controllers\Admin\ApplicationsController::class, 'download'],
+        'leads'               => [['get', 'post'], \App\Http\Controllers\Admin\LeadsController::class, 'index'],
+        'lead'                => [['get', 'post'], \App\Http\Controllers\Admin\LeadsController::class, 'show'],
         'users'               => [['get'], \App\Http\Controllers\Admin\UsersController::class, 'index'],
         'manage_users'        => [['get'], \App\Http\Controllers\Admin\UsersController::class, 'manage'],
         'promote_user'        => [['get', 'post'], \App\Http\Controllers\Admin\UsersController::class, 'promote'],

@@ -50,3 +50,5 @@ h1, h2, h3, h4, h5, .brand-text, .stat-value { font-family: 'Manrope', 'Inter', 
 .page-item.active .page-link { background: var(--xjmu-navy); border-color: var(--xjmu-navy); }
 .app-footer { border-top: 1px solid var(--xjmu-line); color: var(--xjmu-muted); font-size: .85rem; }
 .applications-wrap .status-form { min-width: 250px; }
+.card .stat-value { font-size: 1.7rem; font-weight: 800; line-height: 1.1; }
+a.card:hover { border-color: var(--xjmu-navy); }

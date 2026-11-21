@@ -102,6 +102,9 @@ class FormMailController extends Controller
         $body .= "• Source: XJMU Website Contact Form\n";
         $body .= '• IP Address: ' . ($request->ip() ?? 'Unknown') . "\n";
 
+        // Save the enquiry as a lead (admin panel > Leads). It never blocks the email below.
+        \App\Services\Leads::capture('contact', compact('name', 'email', 'phone', 'nationality', 'subject', 'program', 'message'));
+
         if ($this->mailer->sendPlain('guide@xjmu.online', $emailSubject, $body, $this->headers($email))) {
             $log("Contact form submitted successfully from: $email");
             return response()->json(['status' => 'success', 'message' => 'Your message has been sent successfully. We will get back to you soon.']);
@@ -155,6 +158,11 @@ class FormMailController extends Controller
         $body .= 'IP Address: ' . ($request->ip() ?? 'Unknown') . "\n";
 
         $logFile = $this->logDir() . '/partner_registration.log';
+        \App\Services\Leads::capture('partner', [
+            'name' => $d['first_name'] . ' ' . $d['last_name'], 'email' => $d['email'], 'phone' => $d['whatsapp'] ?: $d['mobile'],
+            'nationality' => $d['region'], 'subject' => 'Partner registration: ' . $d['company_name'],
+            'message' => 'Company: ' . $d['company_name'] . '. Business: ' . $d['current_business'] . '. City: ' . $d['city'] . ', ' . $d['state'] . '.',
+        ]);
         $sent = $this->mailer->sendPlain('partners@xjmu.online', $subject, $body, $this->headers($d['email']));
 
         if ($sent) {
@@ -209,6 +217,11 @@ class FormMailController extends Controller
         $body .= "\nIP: " . ($request->ip() ?? 'Unknown');
 
         $logFile = $this->logDir() . '/event_registration.log';
+        \App\Services\Leads::capture('event', [
+            'name' => $name, 'email' => $email, 'phone' => $whatsapp, 'nationality' => $nationality,
+            'subject' => 'Event registration: ' . ($event_title ?: 'webinar'), 'program' => 'MBBS',
+            'message' => trim('Registered for ' . ($event_title ?: 'the webinar') . ' ' . $event_date . ' ' . $event_time),
+        ]);
         $sent = $this->mailer->sendPlain($to, $subject, $body, $this->headers($email));
 
         if ($sent) {
