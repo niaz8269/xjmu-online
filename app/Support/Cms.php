@@ -21,7 +21,7 @@ class Cms
         'notice' => '',
         'dashboard_intro' => 'Track your progress, complete your form and upload your documents here.',
         'form_intro' => 'Complete the four sections below. Save each section when you finish it; you can come back at any time before you submit.',
-        'file_hint' => 'Accepted files: PDF, Word, JPG or PNG, up to 1 MB each. Video: MP4, MOV or AVI, up to 10 MB.',
+        'file_hint' => 'Accepted files: PDF, Word, JPG or PNG, up to 5 MB each. Video: MP4, MOV or AVI, up to 10 MB.',
         'download_note' => 'Your application is submitted. Download the form as a PDF, or the form with all your uploaded documents as one ZIP file. Keep a copy for your visa application.',
         'copyright' => '© Copyright 2027 Xinjiang Medical University. All Rights Reserved.',
     ];

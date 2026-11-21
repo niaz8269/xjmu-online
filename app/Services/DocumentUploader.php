@@ -8,13 +8,13 @@ use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 /**
  * Applicant document uploads (save_documents). Same rules as the original script: input names `document_<id>`
- * (single or array), 1 MB limit (10 MB for the self-introduction video, id 11), extension whitelist, MIME sniffing
+ * (single or array), 5 MB limit (10 MB for the self-introduction video, id 11), extension whitelist, MIME sniffing
  * with the tolerant PDF/office rules, files kept under public/uploads/admissions (videos: public/uploads/videos),
  * every upload is a new `documents` row.
  */
 class DocumentUploader
 {
-    private const DEFAULT_MAX_BYTES = 1 * 1024 * 1024;
+    private const DEFAULT_MAX_BYTES = 5 * 1024 * 1024;   // raised from 1 MB on 22 Nov 2026: phone scans are often 2-4 MB
     private const VIDEO_MAX_BYTES = 10 * 1024 * 1024;
     private const VIDEO_DOCUMENT_ID = 11;
 
@@ -90,7 +90,7 @@ class DocumentUploader
             $size = (int) $file->getSize();
             $isVideo = $documentId === self::VIDEO_DOCUMENT_ID;
             $maxBytes = $isVideo ? self::VIDEO_MAX_BYTES : self::DEFAULT_MAX_BYTES;
-            $maxMb = $isVideo ? '10' : '1';
+            $maxMb = $isVideo ? '10' : '5';
             if ($size > $maxBytes) {
                 $errors[] = "Document {$documentId} exceeds {$maxMb}MB limit.";
                 $this->log("File size {$size} bytes exceeds {$maxMb}MB limit for document {$documentId}", $userId);

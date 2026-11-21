@@ -153,4 +153,15 @@ class AdminSecurityTest extends TestCase
             @unlink(public_path('uploads/' . $name));
         }
     }
+
+    public function test_users_list_filters_by_email_verification(): void
+    {
+        DB::table('users')->insert(['full_name' => 'Vera', 'email' => 'vera@example.test', 'password' => 'x', 'role' => 'user', 'is_verified' => 1, 'created_at' => now()]);
+        DB::table('users')->insert(['full_name' => 'Uno', 'email' => 'uno@example.test', 'password' => 'x', 'role' => 'user', 'is_verified' => 0, 'created_at' => now()]);
+        $s = $this->adminSession();
+
+        $this->withSession($s)->get('/admin/users?verified=0')->assertOk()->assertSee('uno@example.test')->assertDontSee('vera@example.test');
+        $this->withSession($s)->get('/admin/users?verified=1')->assertOk()->assertSee('vera@example.test')->assertDontSee('uno@example.test');
+        $this->withSession($s)->get('/admin/users?verified=x')->assertOk()->assertSee('vera@example.test')->assertSee('uno@example.test');
+    }
 }

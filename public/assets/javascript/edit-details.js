@@ -220,8 +220,8 @@ function setupDocumentsSection() {
 
     var docIdMatch = (input.name || '').match(/^document_(\d+)\[\]$/);
     var documentId = docIdMatch ? parseInt(docIdMatch[1], 10) : null;
-    var maxBytes = documentId === 11 ? (10 * 1024 * 1024) : (1 * 1024 * 1024);
-    var maxLabel = documentId === 11 ? '10MB' : '1MB';
+    var maxBytes = documentId === 11 ? (10 * 1024 * 1024) : (5 * 1024 * 1024);
+    var maxLabel = documentId === 11 ? '10MB' : '5MB';
 
     var oversized = [];
     var invalidExtensions = [];

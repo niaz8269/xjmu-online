@@ -134,9 +134,9 @@ class PortalSubmitTest extends PortalCase
 
     public function test_upload_rules_size_extension_and_content_type(): void
     {
-        $this->upload(['document_3' => $this->pdf('big.pdf', 1025)])
-            ->assertExactJson(['status' => 'error', 'errors' => ['Document 3 exceeds 1MB limit.']]);
-        $this->assertSame(['Document 3 exceeds 1MB limit.'], session('upload_errors'));
+        $this->upload(['document_3' => $this->pdf('big.pdf', 5121)])
+            ->assertExactJson(['status' => 'error', 'errors' => ['Document 3 exceeds 5MB limit.']]);
+        $this->assertSame(['Document 3 exceeds 5MB limit.'], session('upload_errors'));
 
         $this->upload(['document_3' => UploadedFile::fake()->createWithContent('run.exe', 'MZ')])
             ->assertExactJson(['status' => 'error', 'errors' => ['Invalid file type for document 3.']]);
@@ -247,5 +247,11 @@ class PortalSubmitTest extends PortalCase
         // Two identical files in one request: one copy.
         $this->upload(['document_4' => [$this->pdf('x.pdf', 3), $this->pdf('y.pdf', 3)]])->assertJson(['status' => 'success']);
         $this->assertSame(1, Document::query()->where('document_id', 4)->count());
+    }
+
+    public function test_a_four_megabyte_scan_is_accepted(): void
+    {
+        $this->upload(['document_7' => $this->pdf('passport-scan.pdf', 4096)])
+            ->assertExactJson(['status' => 'success', 'message' => '1 file(s) uploaded successfully.']);
     }
 }

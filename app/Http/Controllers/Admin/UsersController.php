@@ -17,10 +17,11 @@ class UsersController extends AdminController
         if ($request->query('export') === 'csv') {
             return $this->exportCsv($request);
         }
-        [$users, $search, $page, $totalRecords, $totalPages] = $this->listing($request, ['id', 'full_name', 'email', 'role', 'created_at'], 'created_at', 'desc');
+        [$users, $search, $page, $totalRecords, $totalPages] = $this->listing($request, ['id', 'full_name', 'email', 'role', 'is_verified', 'created_at'], 'created_at', 'desc');
+        $verified = in_array($request->query('verified'), ['0', '1'], true) ? (string) $request->query('verified') : '';
 
         return $this->page('admin.users.index', 'Registered Users', 'users', null,
-            compact('users', 'search', 'page', 'totalRecords', 'totalPages'));
+            compact('users', 'search', 'page', 'totalRecords', 'totalPages', 'verified'));
     }
 
     /** CSV of the users list: ?export=csv, optional &search= and &verified=0|1. */
@@ -121,6 +122,10 @@ class UsersController extends AdminController
         if (! empty($search)) {
             $term = "%{$search}%";
             $base->whereRaw('(full_name LIKE ? OR email LIKE ?)', [$term, $term]);
+        }
+        // Verified / unverified filter (?verified=1 or 0).
+        if (in_array($request->query('verified'), ['0', '1'], true)) {
+            $base->where('is_verified', (int) $request->query('verified'));
         }
 
         $totalRecords = (int) (clone $base)->count();

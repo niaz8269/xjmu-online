@@ -460,7 +460,7 @@
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
   <script src="assets/javascript/apply.js?v=20260217a"></script>
-  <script src="assets/javascript/edit-details.js?v=20261122b"></script>
+  <script src="assets/javascript/edit-details.js?v=20261122c"></script>
   <script src="assets/javascript/portal-apply.js?v=2"></script>
 
 
