@@ -12,6 +12,13 @@ class AdminCmsTest extends TestCase
 {
     use RefreshDatabase;
 
+    /** Saved edits are cached in memory: clear them so they never leak into another test. */
+    protected function tearDown(): void
+    {
+        Cms::flush();
+        parent::tearDown();
+    }
+
     private function admin(): array
     {
         $id = DB::table('users')->insertGetId([
@@ -184,5 +191,21 @@ class AdminCmsTest extends TestCase
         $sec = config('seo_guides.' . $slug . '.sections.' . $withTable);
         $this->assertSame('images/class1.webp', $sec['img']['src']);
         $this->assertSame($original['sections'][$withTable]['table']['rows'], $sec['table']['rows']);
+    }
+
+    public function test_every_fee_question_is_editable(): void
+    {
+        $before = $this->get('/fees')->assertOk()->getContent();
+        $this->assertSame(12, substr_count($before, '<details class="ds-faq">'));
+        $this->assertStringContainsString('How much does MBBS cost in China at XJMU?', $before);
+
+        $admin = $this->admin();
+        $this->withSession($admin)->get('/admin/page-faqs?page=fees')->assertOk()
+            ->assertSee('How much does MBBS cost in China at XJMU?')->assertDontSee('not editable here yet');
+        $this->withSession($admin)->post('/admin/page-faqs?page=fees', ['_token' => 'tok', 'q' => ['Only question?'], 'a' => ['Only answer.']]);
+        $this->reload();
+        $after = $this->get('/fees')->assertOk()->getContent();
+        $this->assertSame(1, substr_count($after, '<details class="ds-faq">'));
+        $this->assertStringNotContainsString('How much does MBBS cost in China at XJMU?', $after);
     }
 }

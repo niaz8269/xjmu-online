@@ -16,7 +16,6 @@
     These questions appear in the FAQ section of the <strong>{{ $pages[$page] }}</strong> page and are marked up for Google and AI answers.
     Keep each answer short and factual. {{ $edited ? 'You have edited this list.' : 'This is the built-in list.' }}
     @if (in_array($page, ['home', 'mbbs'], true)) FAQs added under Content → FAQs or the MBBS settings are shown first, before these. @endif
-    @if ($page === 'fees') The page also shows five older built-in fee questions before these; those five are not editable here yet. @endif
   </p>
 
   <form method="post">

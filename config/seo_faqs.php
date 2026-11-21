@@ -54,10 +54,19 @@ $q = [
 
 $pick = fn (string ...$keys) => array_map(fn ($k) => $q[$k], $keys);
 
+// The five fee questions that have been on /fees since launch (moved here on 22 Nov 2026 so the whole list is editable).
+$feesFirst = [
+    ['How much does MBBS cost in China at XJMU?', 'The complete first-year package is approximately ¥49,950 (about US$7,000). From the second year onward, the total is about ¥35,950 per year, which includes tuition, accommodation, insurance, residence permit and physical examination.'],
+    ['What is included in the first-year MBBS fee package?', 'The first-year package covers the application processing fee, tuition, hostel, visa, health insurance and medical, registration fee, management and admission charges, JW202 visa letter and airport pickup.'],
+    ['Are there any hidden charges?', 'No. XJMU publishes a transparent, all-inclusive fee structure. Living expenses (food and personal costs) are separate and typically range from US$150–250 per month.'],
+    ['Can I get a scholarship to reduce MBBS fees?', 'Yes. Eligible international students can apply for CSC government scholarships and merit awards. Visit our scholarships page or speak to a counsellor for guidance.'],
+    ['How and when do I pay the fees?', 'Fees are paid annually after you receive your admission letter. Our admissions team guides you through the payment process for the September 2027 intake.'],
+];
+
 return [
     'home' => $pick('moe', 'fee_total', 'eligibility', 'intakes', 'english', 'councils', 'ecfmg', 'wdoms', 'apply', 'csc'),
     'mbbs' => $pick('duration', 'clinical', 'moe', 'english', 'eligibility', 'documents', 'intakes', 'councils', 'ecfmg', 'seats'),
-    'fees' => $pick('fee_first', 'fee_yearly', 'fee_total', 'fee_payments', 'living', 'csc', 'cheap'),
+    'fees' => array_merge($feesFirst, $pick('fee_first', 'fee_yearly', 'fee_total', 'fee_payments', 'living', 'csc', 'cheap')),
     'admissions' => $pick('eligibility', 'percent', 'age', 'documents', 'intakes', 'spring_dates', 'fall_dates', 'apply', 'early', 'fee_payments', 'neet', 'hsk'),
     'scholarships' => $pick('csc', 'csc_amounts', 'csc_full', 'csc_who', 'csc_when', 'csc_without', 'fee_total', 'early'),
 
