@@ -138,4 +138,19 @@ class AdminSecurityTest extends TestCase
         $post(['status' => 'x', 'app_status' => 'Hacked'])->assertOk();
         $this->assertSame('Approved', DB::table('applications')->where('user_id', $u)->value('status'));   // unchanged
     }
+
+    public function test_old_uploads_in_the_uploads_root_open_for_admins_but_not_dotfiles_or_subfolders(): void
+    {
+        $name = 'legacy_' . uniqid() . '.pdf';
+        file_put_contents(public_path('uploads/' . $name), "%PDF-1.4 test");
+        try {
+            $this->withSession($this->adminSession())->get('/admin/document?p=' . urlencode('uploads/' . $name))->assertOk();
+            $this->get('/admin/document?p=' . urlencode('uploads/' . $name))->assertOk();   // same admin session
+            $this->assertNull(\App\Http\Controllers\Admin\SecurityController::resolve('uploads/.htaccess'));
+            $this->assertNull(\App\Http\Controllers\Admin\SecurityController::resolve('uploads/blogs/x.webp'));
+            $this->assertNull(\App\Http\Controllers\Admin\SecurityController::resolve('uploads/../.env'));
+        } finally {
+            @unlink(public_path('uploads/' . $name));
+        }
+    }
 }

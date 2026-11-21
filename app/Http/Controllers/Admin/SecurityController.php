@@ -60,6 +60,15 @@ class SecurityController extends AdminController
                 return $real;
             }
         }
+        // Older uploads sit directly in /uploads (no sub-folder). They are private too and served the same way.
+        if (preg_match('~^uploads/[^/]+$~', $relative) && ! str_starts_with(basename($relative), '.')) {
+            $base = realpath(public_path('uploads'));
+            $real = realpath(public_path($relative));
+            if ($base !== false && $real !== false && is_file($real) && dirname($real) === $base) {
+                return $real;
+            }
+        }
+
         return null;
     }
 }
