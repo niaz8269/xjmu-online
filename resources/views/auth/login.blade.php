@@ -111,7 +111,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/portal-auth.css?v=2">
+<link rel="stylesheet" href="css/portal-auth.css?v=3">
 </head>
 <body class="d-flex flex-column min-vh-100 portal-auth">
 
@@ -284,33 +284,7 @@
 	<footer class="pt-4 bg-white border-top border-3 border-jmu-primary">
 		<div class="container">
 			<div class="row">
-				<div class="col-lg-8 mb-4">
-					<div class="fw-bold pb-2 mb-4 fs-5 text-jmu-primary border-bottom border-success border-opacity-50" data-i18n="login.news_title">News and Updates</div>
-          
-					<div class="d-flex align-items-start mb-3">
-						<div class="news-date me-3 bg-jmu-primary text-white rounded d-flex flex-column justify-content-center align-items-center">
-							<span class="fw-bold small">February. 10</span>
-							<span style="font-size: 0.8rem;">2026</span>
-						</div>
-						<div class="pt-1 lh-base">
-							<strong data-i18n="login.news1_title">Welcome to Xinjiang Medical University International Students CAS.</strong>
-							<p class="small text-muted mt-1 mb-0" data-i18n="login.news1_desc">Our new platform streamlines the application process for international students worldwide.</p>
-						</div>
-					</div>
-          
-					<div class="d-flex align-items-start mb-3">
-						<div class="news-date me-3 bg-jmu-primary text-white rounded d-flex flex-column justify-content-center align-items-center">
-							<span class="fw-bold small">February. 05</span>
-							<span style="font-size: 0.8rem;">2026</span>
-						</div>
-						<div class="pt-1 lh-base">
-							<strong data-i18n="login.news2_title">2027 Intake Now Open</strong>
-							<p class="small text-muted mt-1 mb-0" data-i18n="login.news2_desc">Applications for the 2027 academic year are now being accepted through the CAS portal.</p>
-						</div>
-					</div>
-				</div>
-        
-				<div class="col-lg-4 mb-4">
+				<div class="col-12 mb-2 p-footer-contact">
 					<div class="fw-bold pb-2 mb-4 fs-5 text-jmu-primary border-bottom border-success border-opacity-50" data-i18n="login.contact_info_title">Contact Information</div>
 					<ul class="list-unstyled small">
 						<li class="mb-2"><i class="bi bi-geo-alt-fill me-2 text-jmu-primary"></i> <span data-i18n="login.contact_address">Xinjiang Medical University, Xinjiang City, China</span></li>

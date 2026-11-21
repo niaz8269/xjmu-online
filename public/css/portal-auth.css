@@ -65,3 +65,8 @@ body.portal-auth footer i { color: #0b2a4a !important; }
 /* headings and text that sit directly on the dark hero */
 body.portal-auth .main-container .row > div:first-child > :is(h1, h2, h3, h4, p), body.portal-auth .main-container .row > div:first-child > div:not(.card) > :is(h1, h2, h3, h4, p) { color: #fff !important; }
 body.portal-auth .main-container .row > div:first-child .card:not(.faq-card) { border-radius: 14px !important; border: 0; }
+
+/* footer: contact details in one centred row (the news block was removed on 22 Nov 2026) */
+body.portal-auth .p-footer-contact { text-align: center; }
+body.portal-auth .p-footer-contact ul { display: flex; flex-wrap: wrap; justify-content: center; gap: .4rem 1.75rem; margin: 0; }
+body.portal-auth .p-footer-contact li { margin: 0 !important; }
