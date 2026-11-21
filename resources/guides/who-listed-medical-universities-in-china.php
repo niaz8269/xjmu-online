@@ -107,7 +107,7 @@ return [
             "Most regulators expect the school to be listed in WDOMS, and many also have rules about the length of the course, the language of instruction, the internship, attendance in person and the licensing examination you must pass after graduating. Read the current rules from the regulator itself before you apply, and check them again before each year of study.",
         ], 'sub' => [
             ['h' => 'Pakistan: PMDC', 'p' => [
-                "Graduates returning to Pakistan deal with the Pakistan Medical and Dental Council. Read PMDC's current regulations for foreign medical graduates and the licensing examination requirements on its official website.",
+                "Graduates returning to Pakistan deal with the Pakistan Medical and Dental Council. XJMU is recognised by PMDC. Read PMDC's current regulations for foreign medical graduates and the licensing examination requirements on its official website.",
             ]],
             ['h' => 'India: NMC', 'p' => [
                 "Indian students should read the National Medical Commission's current regulations for foreign medical graduates, including its rules on course duration, internship and the qualifying examination. These rules have been revised in recent years, so check the latest notifications.",
@@ -160,9 +160,9 @@ return [
         ]], 'link' => ['mbbs', 'About the MBBS programme at XJMU']],
 
         ['id' => 'fees', 'eyebrow' => 'Cost', 'h' => 'What a WDOMS listed MBBS at XJMU costs', 'p' => [
-            "Recognition comes first, but cost is the next question most families ask. At Xinjiang Medical University the first-year package for the September 2026 intake is ¥49,950, about USD 7,000. It includes application and admission charges, tuition, hostel accommodation, the student visa, health insurance and the medical, the JW202 visa letter and airport pickup.",
-            "From the second year onward, the yearly total is about ¥35,950, about USD 5,050, made up of tuition, accommodation, insurance, the residence permit and the physical examination. Over six years the total comes to about ¥229,700, roughly USD 32,000, before personal living costs. Fees for 2027 have not yet been announced, so treat these as the current official reference.",
-        ], 'table' => $s['feeYearly'], 'note' => 'Figures are for the 2026 intake; USD conversions are approximate.', 'link' => ['fees', 'See the full MBBS fee breakdown']],
+            "Recognition comes first, but cost is the next question most families ask. At Xinjiang Medical University the first-year package for the 2027 intakes, unchanged from 2026, is ¥49,950, about USD 7,000. It includes application and admission charges, tuition, hostel accommodation, the student visa, health insurance and the medical, the JW202 visa letter and airport pickup.",
+            "From the second year onward, the yearly total is about ¥35,950, about USD 5,050, made up of tuition, accommodation, insurance, the residence permit and the physical examination. Over six years the total comes to about ¥229,700, roughly USD 32,000, before personal living costs. The university has confirmed that fees for the 2027 intakes are the same as for 2026.",
+        ], 'table' => $s['feeYearly'], 'note' => 'Figures are confirmed for the 2027 intakes and unchanged from 2026; USD conversions are approximate.', 'link' => ['fees', 'See the full MBBS fee breakdown']],
 
         ['id' => 'apply', 'eyebrow' => 'Next step', 'h' => 'How to apply once you have checked recognition', 'p' => [
             "When you are satisfied that a university is WDOMS listed, MOE listed and accepted by your council, the application itself is straightforward. At XJMU it begins with the documents below, followed by an online application, review by the admissions committee, the admission letter and JW202 form, and the X1 student visa.",

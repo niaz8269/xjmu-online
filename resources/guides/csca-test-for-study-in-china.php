@@ -8,7 +8,8 @@ $s = require __DIR__ . '/_shared.php';
 // - Shanghai Municipal Education Commission, Study in Shanghai page of 14 November 2025 (edu.sh.gov.cn)
 // - Shanghai government CSCA guide, updated 5 August 2026, citing the China Scholarship Council (english.shanghai.gov.cn)
 // - Sichuan University Overseas Students Office, "Instructions for CSCA" (global.scu.edu.cn)
-// The official CSCA site (csca.cn) is the final authority. Nothing here says whether XJMU requires CSCA.
+// The official CSCA site (csca.cn) is the final authority. The owner confirmed on 22 Nov 2026 that XJMU does not
+// require the CSCA for admission to its MBBS; the Chinese Government Scholarship rule is the China Scholarship Council's.
 
 return [
     'updated' => '2026-11-22',
@@ -17,7 +18,7 @@ return [
     'keywords' => 'CSCA test, CSCA exam China, China Scholastic Competency Assessment, CSCA for MBBS in China, CSCA test for CSC scholarship, CSCA registration, CSCA syllabus, CSCA 2027, CSCA subjects, CSCA fee, Chinese Government Scholarship undergraduate, MBBS in China 2027, Xinjiang Medical University',
     'eyebrow' => 'Admission test guide',
     'h1' => 'CSCA Test for Study in China 2027: What Is Confirmed and What to Check',
-    'lead' => 'The China Scholastic Competency Assessment (CSCA) is a new entrance test for international students who want an undergraduate place in China. This guide sets out what official sources say about the subjects, format, fee and who must take it, shows where the official information stops, and explains what MBBS and scholarship applicants to Xinjiang Medical University should ask before they register.',
+    'lead' => 'The China Scholastic Competency Assessment (CSCA) is a new entrance test for international students who want an undergraduate place in China. This guide sets out what official sources say about the subjects, format, fee and who must take it, shows where the official information stops, and gives the confirmed position at Xinjiang Medical University: XJMU does not require the CSCA for admission to its MBBS, while Chinese Government Scholarship applicants should check the scholarship\'s own rule.',
     'crumb' => 'CSCA test for study in China',
     'cta' => 'Ask admissions about CSCA',
     'sections' => [
@@ -101,7 +102,7 @@ return [
             "We could not confirm exact test dates or registration windows for the sittings that serve 2027 entry. Do not take dates from any website other than csca.cn. Check the official site, choose the earliest sitting you can prepare for, and leave room for a second attempt if the rules allow one.",
         ], 'sub' => [
             ['h' => 'Fit the test into the application calendar', 'p' => [
-                "A score is useful only if it arrives before your application deadline. Results take up to seven working days for the online and computer tests, so a sitting in the last days before a deadline is a risk. The published XJMU calendar is below; if XJMU tells you CSCA applies to you, plan the test well before the early deadline.",
+                "A score is useful only if it arrives before your application deadline. Results take up to seven working days for the online and computer tests, so a sitting in the last days before a deadline is a risk. The published XJMU calendar is below. XJMU does not require the CSCA for admission to its MBBS, so at XJMU the test matters only if you apply for the Chinese Government Scholarship, whose rule is set by the China Scholarship Council. In that case, plan the test well before the early deadline.",
             ]],
         ], 'table' => $s['calendar']],
 
@@ -131,7 +132,7 @@ return [
             ['Organised by the China Scholarship Council', 'Confirmed (Shanghai Municipal Education Commission)', 'csca.cn'],
             ['Required for Chinese Government Scholarship bachelor applicants from 2026/2027', 'Confirmed (Chinese embassy and consulate notices)', 'The embassy in your country'],
             ['Required for all undergraduate applicants at scholarship universities', 'Stated by the Shanghai government guide; not in the embassy notices', 'Your university'],
-            ['Whether XJMU requires CSCA', 'Not stated on this site', 'XJMU admissions office'],
+            ['Whether XJMU requires CSCA', 'Confirmed: not required for admission to the XJMU MBBS. The Chinese Government Scholarship has its own rule', 'XJMU admissions office; the embassy notice for the scholarship'],
             ['Subjects required for MBBS', 'Varies by university', 'Your university'],
             ['Professional Chinese for English taught programmes', 'Sources differ', 'Your university'],
             ['Format: 48 or 80 multiple choice questions, 0–100 per subject', 'Confirmed (three official pages)', 'csca.cn'],
@@ -145,7 +146,7 @@ return [
         ]]],
 
         ['id' => 'mbbs', 'eyebrow' => 'MBBS', 'h' => 'CSCA for MBBS in China', 'p' => [
-            "MBBS is an undergraduate degree, so MBBS applicants are inside the group the CSCA was made for. Whether you personally must take it depends on two things: whether you are applying for a Chinese Government Scholarship, and what your university's admission notice says.",
+            "MBBS is an undergraduate degree, so MBBS applicants are inside the group the CSCA was made for. Whether you personally must take it depends on two things: whether you are applying for a Chinese Government Scholarship, and what your university's admission notice says. At Xinjiang Medical University the second point is settled: XJMU does not require the CSCA for admission to its MBBS.",
             "If your university asks for CSCA, expect Mathematics, because official sources say it is required for all programmes, and at least one of Physics and Chemistry, because that is stated for medicine. Some universities ask for all three. Ask for the list in writing.",
             "Two points surprise medical applicants. First, the official subject list has no biology paper, so strong biology marks do not replace preparation in mathematics and physics. Second, the MBBS for international students at universities approved by the Ministry of Education is taught in English, and the fundamental subjects can be taken in English, so you do not need Chinese to sit them.",
         ], 'sub' => [
@@ -155,14 +156,15 @@ return [
             ['h' => 'CSCA does not replace HSK', 'p' => [
                 "CSCA is an entrance test. HSK is the Chinese language test. At XJMU the MBBS is taught in English and students must reach HSK-4 by graduation. These are separate requirements at different stages.",
             ]],
-        ], 'link' => ['moe-listed-mbbs-universities-in-china', 'Check all 43 MOE listed universities'], 'img' => ['src' => 'assets/images/affil-hospt.webp', 'alt' => 'Affiliated teaching hospital of Xinjiang Medical University where MBBS students train', 'caption' => 'For MBBS, check the MOE list first, then ask the university about CSCA.']],
+        ], 'link' => ['moe-listed-mbbs-universities-in-china', 'Check all 43 MOE listed universities'], 'img' => ['src' => 'assets/images/affil-hospt.webp', 'alt' => 'Affiliated teaching hospital of Xinjiang Medical University where MBBS students train', 'caption' => 'For MBBS, check the MOE list first. XJMU does not require the CSCA for admission to its MBBS.']],
 
         ['id' => 'xjmu', 'eyebrow' => 'XJMU', 'h' => 'Does Xinjiang Medical University require the CSCA?', 'p' => [
-            "This site does not currently state whether XJMU requires the CSCA, and we will not guess. Ask the XJMU admissions office whether CSCA applies to your intake and your scholarship. Ask in writing, and keep the reply with your application file.",
-            "What we can give you are the admission requirements XJMU has published. These apply whatever the answer about CSCA turns out to be.",
+            "No. Xinjiang Medical University does not require the CSCA for admission to its MBBS. This has been confirmed, and it means you can apply with the published requirements and documents on this page, without a CSCA score.",
+            "The Chinese Government Scholarship is a separate matter. Its rules are set by the China Scholarship Council, not by XJMU, and the official notices described above say that bachelor degree applicants for that scholarship must take the CSCA. If you are applying for the Chinese Government Scholarship, check the scholarship's own CSCA rule in the notice for your country before you apply.",
+            "These are the admission requirements XJMU has published.",
         ], 'list' => $s['requirements'], 'sub' => [
-            ['h' => 'Questions to send to admissions', 'p' => [
-                "Does CSCA apply to the MBBS for my intake, March/Spring or September/Fall? Does the answer change if I apply for the Chinese Government Scholarship or the Xinjiang Government Scholarship? Which subjects do you need, and in which language? Is there a minimum score? By what date must my score report reach you? Will you accept my application now and the score later?",
+            ['h' => 'If you apply for the Chinese Government Scholarship', 'p' => [
+                "Admission to the XJMU MBBS needs no CSCA score, for the March/Spring intake or the September/Fall intake. The scholarship is different, because its rule is not XJMU's to set. Read the scholarship notice on the official website of the Chinese embassy in your country and see what it says about the CSCA. If it applies to you, find out which subjects you need and in which language, whether there is a minimum score, and by what date your score report must be uploaded.",
             ]],
             ['h' => 'The facts that are already published', 'p' => [
                 "XJMU has two MBBS intakes, March/Spring and September/Fall. The programme is taught in English. You need 60% in each science subject and must be aged 18 to 35. The first-year package is ¥49,950 and the fee from the second year is ¥35,950 a year.",
@@ -170,7 +172,7 @@ return [
         ], 'link' => ['xinjiang-medical-university', 'Read the Xinjiang Medical University guide']],
 
         ['id' => 'documents', 'eyebrow' => 'Documents', 'h' => 'Documents XJMU asks for', 'p' => [
-            "A CSCA score report, where a university requires one, is added to the application file. It does not replace any part of it. This is the published XJMU document list. Start the medical report and the police certificate early, because they take the longest.",
+            "A CSCA score report, where a university or a scholarship requires one, is added to the application file. It does not replace any part of it. XJMU does not require one for admission to its MBBS, and this is the published XJMU document list. Start the medical report and the police certificate early, because they take the longest.",
         ], 'list' => $s['documents'], 'sub' => [
             ['h' => 'Keep names identical', 'p' => [
                 "Use the same spelling of your name and the same passport number on your CSCA account, your application form and your certificates. If you renew your passport between the test and the application, tell admissions and keep a copy of the old one.",
@@ -178,7 +180,7 @@ return [
         ]],
 
         ['id' => 'scholarship', 'eyebrow' => 'Scholarships', 'h' => 'CSCA test for the CSC scholarship', 'p' => [
-            "The clearest official statement about the CSCA concerns the Chinese Government Scholarship, often called the CSC scholarship. According to the embassy and consulate notices named above, checked November 2026, bachelor degree applicants for this scholarship must take the test and upload a valid score. If you hope for this scholarship for an MBBS, treat the CSCA as part of your plan until an official source tells you otherwise.",
+            "The clearest official statement about the CSCA concerns the Chinese Government Scholarship, often called the CSC scholarship. According to the embassy and consulate notices named above, checked November 2026, bachelor degree applicants for this scholarship must take the test and upload a valid score. If you hope for this scholarship for an MBBS, treat the CSCA as part of your plan until an official source tells you otherwise. That holds even though XJMU does not require the CSCA for admission to its MBBS, because the scholarship rule is set by the China Scholarship Council, not by XJMU.",
             "According to the Shanghai government guide, the CSCA result is read together with high-school records and other documents when universities decide on admission and scholarships. It is one part of the file, not the whole decision.",
             "The stipends published in the XJMU fee structure are shown below. We found no official statement on whether the Xinjiang Government Scholarship uses the CSCA, so ask admissions.",
         ], 'table' => $s['scholarships'], 'sub' => [
@@ -216,7 +218,7 @@ return [
         ['id' => 'checklist', 'eyebrow' => 'Checklist', 'h' => 'CSCA preparation checklist', 'p' => [
             "Work through this list in order. Each line is something you can finish and tick off.",
         ], 'list' => [
-            'Confirm in writing with your university whether CSCA applies to your programme, intake and scholarship.',
+            'Confirm in writing with your university whether CSCA applies to your programme, intake and scholarship. XJMU does not require it for admission to its MBBS.',
             'Get the required subjects, the test language and any minimum score in writing.',
             'Read the scholarship notice on the official website of the Chinese embassy in your country.',
             'Open csca.cn and note the next sittings and registration windows.',
@@ -282,15 +284,15 @@ return [
         ], 'img' => ['src' => 'assets/images/language.webp', 'alt' => 'International student studying Chinese, which is tested by HSK and is separate from the CSCA fundamental subjects', 'caption' => 'HSK and CSCA are different tests with different purposes.']],
 
         ['id' => 'parents', 'eyebrow' => 'For parents', 'h' => 'For parents: what to do this month', 'p' => [
-            "You do not need to understand every detail of a new test to help. Three things are enough. Ask the university, in writing, whether the test applies to your child's programme and intake. Make sure the registration is done on the official site in your child's own name, and that you see the receipt. And protect study time: a paper of forty-eight questions in an hour rewards regular practice far more than a last week of long nights.",
+            "You do not need to understand every detail of a new test to help. Three things are enough. Ask the university, in writing, whether the test applies to your child's programme and intake; XJMU does not require it for admission to its MBBS, and the Chinese Government Scholarship has its own rule. Where a test is needed, make sure the registration is done on the official site in your child's own name, and that you see the receipt. And protect study time: a paper of forty-eight questions in an hour rewards regular practice far more than a last week of long nights.",
             "If anyone asks for money beyond the published test fee in return for a result, stop and ask the university. A real test is taken, not bought.",
         ], 'video' => $s['video']],
     ],
     'faqs' => [
         ['What is the CSCA test?', 'CSCA is the China Scholastic Competency Assessment, a standardised test for international students applying to undergraduate programmes in China. According to the Shanghai Municipal Education Commission, checked November 2026, it is organised by the China Scholarship Council and was first held on 21 December 2025.'],
         ['Is the CSCA required for the CSC scholarship?', 'For bachelor degree applicants, yes. According to Chinese embassy and consulate scholarship notices checked November 2026, undergraduate applicants for the Chinese Government Scholarship must take the CSCA and upload a valid score, starting from the 2026/2027 academic year.'],
-        ['Is the CSCA required for MBBS in China?', 'It depends on the university and on whether you apply for a scholarship. MBBS is an undergraduate degree, so it falls within the group the test is for. Ask your university which rule applies to your programme and intake.'],
-        ['Does Xinjiang Medical University require the CSCA?', 'This site does not currently state whether XJMU requires it. Ask the XJMU admissions office whether CSCA applies to your intake and your scholarship, and keep the written reply.'],
+        ['Is the CSCA required for MBBS in China?', 'It depends on the university and on whether you apply for a scholarship. MBBS is an undergraduate degree, so it falls within the group the test is for. Ask your university which rule applies to your programme and intake. Xinjiang Medical University does not require the CSCA for admission to its MBBS.'],
+        ['Does Xinjiang Medical University require the CSCA?', 'No. Xinjiang Medical University does not require the CSCA for admission to its MBBS. If you are applying for the Chinese Government Scholarship, check the scholarship\'s own CSCA rule, because that rule is set by the China Scholarship Council, not by XJMU.'],
         ['Which subjects are in the CSCA?', 'Professional Chinese, Mathematics, Physics and Chemistry, according to the Shanghai government CSCA guide checked November 2026. Mathematics is required for all programmes, and medicine applicants need at least one of Physics and Chemistry. Your university sets the exact list.'],
         ['Is the CSCA in English or Chinese?', 'Mathematics, Physics and Chemistry are offered in both Chinese and English, according to the Shanghai government guide. Professional Chinese is in Chinese. Choose the language your university asks for.'],
         ['How much is the CSCA fee?', 'According to the Shanghai government guide and the Shanghai Municipal Education Commission, checked November 2026, the fee is 450 yuan for one subject and 700 yuan for two or more. Confirm the amount on the official payment page.'],

@@ -16,7 +16,7 @@ return [
 
         ['id' => 'overview', 'eyebrow' => 'Overview', 'h' => 'MBBS in China fees: the short answer', 'p' => [
             "Families who search for MBBS in China fees usually want one number. The honest answer is that there are three: a first-year package, a lower yearly fee from the second year, and everyday living costs that sit on top. This guide gives each one for Xinjiang Medical University (XJMU) in Urumqi, which is number 8 on the Ministry of Education (MOE) list of universities approved to teach the English taught MBBS to international students for 2026–2027, with 60 seats.",
-            "The figures below come from the published fee structure of the university. They are in Chinese yuan (¥), with approximate US dollar amounts, because exchange rates move and we do not want to print a number in your own currency that will be wrong by the time you read it. If the university announces a change for the 2027 intake, the admissions office will confirm it in writing before you pay anything, and you should ask for that confirmation as a matter of routine.",
+            "The figures below come from the published fee structure of the university. They are in Chinese yuan (¥), with approximate US dollar amounts, because exchange rates move and we do not want to print a number in your own currency that will be wrong by the time you read it. The university has confirmed that fees for the 2027 intakes, March/Spring and September/Fall, are the same as for 2026, so the figures in this guide apply to both. You can still ask the admissions office for the fee structure in writing before you pay anything, as a matter of routine.",
             "Cheap is not the only thing that matters. A low fee at an unapproved university is the most expensive mistake a family can make. That is why this guide starts from an MOE listed university and then looks at cost.",
         ], 'img' => ['src' => 'assets/images/counselling.webp', 'alt' => 'Family reviewing the MBBS in China fee structure with an admissions counsellor', 'caption' => 'Ask for the fee structure in writing before you decide.']],
 
@@ -65,8 +65,8 @@ return [
             ['h' => 'What the total leaves out', 'p' => [
                 "The total covers university fees only. It does not include flights, books, clothes, pocket money, visa costs for later years if rules change, or the licensing examination you may need to sit when you return home. Add those to your own worksheet.",
             ]],
-            ['h' => 'If fees change', 'p' => [
-                "Fees can change from year to year. If the 2027 structure differs, use the new figures in the same formula: the first-year package plus five yearly fees.",
+            ['h' => 'Fees for 2027 and for later years', 'p' => [
+                "The university has confirmed that fees for the 2027 intakes are the same as for 2026. For later years of study, fees are set by the university each year. If a later structure differs, use the new figures in the same formula: the first-year package plus five yearly fees.",
             ]],
         ]],
 
@@ -223,7 +223,7 @@ return [
         ['How much are MBBS fees in China?', 'At XJMU, an MOE listed university, the first-year package is ¥49,950, about USD 7,000, and later years are about ¥35,950, about USD 5,050. Over six years the university fees total about ¥229,700, about USD 32,000.'],
         ['What does the first-year package include?', 'Application processing, registration and admission charges, tuition, hostel accommodation, the student visa, health insurance and medical, the JW202 visa letter and airport pickup.'],
         ['What is the fee from the second year?', 'About ¥35,950 a year: tuition ¥30,000, accommodation ¥4,500, insurance ¥300, residence permit ¥800 and physical examination ¥350.'],
-        ['Are the MBBS fees for 2027 different from 2026?', 'The latest published fee structure is the one above. If the university announces a change for 2027, admissions will confirm it in writing, so ask for that confirmation before you pay.'],
+        ['Are the MBBS fees for 2027 different from 2026?', 'No, they are the same. The university has confirmed that fees for the 2027 intakes, March/Spring and September/Fall, are unchanged from 2026: ¥49,950 for the first-year package and ¥35,950 a year from the second year.'],
         ['Is the application fee refundable?', 'The ¥1,000 application fee is non-refundable once the Pre-Admission Letter is issued, and it is included in the first-year package.'],
         ['What is the seat reservation deposit?', '¥2,000, paid after the Pre-Admission Letter. It is refunded if the JW202 visa letter is rejected.'],
         ['How much does it cost to live in Urumqi?', 'Our published estimates are about USD 150 to 250 a month for food, USD 10 to 20 for local transport and USD 10 to 15 for a mobile SIM.'],

@@ -177,12 +177,12 @@ return [
 
         ['id' => 'payments', 'eyebrow' => 'Money and dates', 'h' => 'Which payment falls on which date', 'p' => [
             "Payments follow the steps, not the calendar. Knowing where each one sits helps a family plan its cash flow around the deadlines.",
-            "The published first-year package of ¥49,950, and the later yearly total of ¥35,950, are the figures for the September 2026 intake. Fees for 2027 are not confirmed on this page. Ask the admissions team for the current written figure for your intake before you pay the deposit.",
+            "The published first-year package is ¥49,950, and the later yearly total is ¥35,950. The university has confirmed that fees for the 2027 intakes, March/Spring and September/Fall, are the same as for 2026.",
         ], 'table' => ['caption' => 'Payments in the order they are made', 'head' => ['Payment', 'When', 'Note'], 'rows' => [
             ['Application fee, ¥1,000', 'When you submit the application', 'Non-refundable once the Pre-Admission Letter is issued. It is part of the first-year package.'],
             ['Seat reservation deposit, ¥2,000', 'After the Pre-Admission Letter', 'Refunded if the JW202 is rejected.'],
-            ['First-year package', 'As set out in the written fee schedule', '¥49,950 was the published package for the September 2026 intake. Confirm the current figure.'],
-            ['Later years', 'Once a year', '¥35,950 a year was the published total for the September 2026 intake. Confirm the current figure.'],
+            ['First-year package', 'As set out in the written fee schedule', '¥49,950, confirmed for the 2027 intakes and unchanged from 2026.'],
+            ['Later years', 'Once a year', '¥35,950 a year, confirmed for the 2027 intakes and unchanged from 2026.'],
         ]], 'link' => ['mbbs-in-china-fees-2027', 'See the MBBS in China fees guide']],
 
         ['id' => 'scholarships', 'eyebrow' => 'Scholarships', 'h' => 'Scholarship timing: why the early deadline matters', 'p' => [
@@ -248,7 +248,7 @@ return [
         ['Which intake is better, March/Spring or September/Fall?', 'Neither is better. Both lead to the same six-year English taught MBBS. Choose the March/Spring intake if your documents can be complete before 15 January 2027, and the September/Fall intake if your results or documents will be ready later.'],
         ['Can I apply before my final board results are issued?', 'Ask the admissions team how to apply with the marks you have, and send the final certificate after your board results are issued. You need at least 60% in each science subject and must be aged 18 to 35.'],
         ['Has the MOE list for 2027 been published?', 'No. The notice in force was issued on 1 June 2026 and lists 43 universities and 2,790 seats, with XJMU number 8 and 60 seats. The next list is usually issued around June, and this page will be updated when it is published.'],
-        ['What do I pay, and when, during the application?', 'A ¥1,000 application fee when you apply, which is non-refundable once the Pre-Admission Letter is issued and is part of the package, and a ¥2,000 seat reservation deposit after the Pre-Admission Letter, which is refunded if the JW202 is rejected. Confirm the current first-year package with the admissions team.'],
+        ['What do I pay, and when, during the application?', 'A ¥1,000 application fee when you apply, which is non-refundable once the Pre-Admission Letter is issued and is part of the package, and a ¥2,000 seat reservation deposit after the Pre-Admission Letter, which is refunded if the JW202 is rejected. The first-year package for the 2027 intakes is ¥49,950, unchanged from 2026.'],
     ],
     'related' => ['mbbs-in-china-spring-intake-2027', 'mbbs-in-china-2027', 'mbbs-in-china-fees-2027'],
 ];

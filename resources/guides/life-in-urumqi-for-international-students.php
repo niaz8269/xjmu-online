@@ -73,7 +73,7 @@ return [
         ]],
 
         ['id' => 'fees', 'eyebrow' => 'University fees', 'h' => 'Yearly fees from the second year', 'p' => [
-            "The living costs above sit on top of the university fees. From the second year the published yearly fees are as follows. For the September 2026 intake the first-year package is ¥49,950, about USD 7,000.",
+            "The living costs above sit on top of the university fees. From the second year the published yearly fees are as follows. The first-year package is ¥49,950, about USD 7,000, and the university has confirmed that fees for the 2027 intakes are the same as for 2026.",
         ], 'table' => $s['feeYearly'], 'link' => ['mbbs-in-china-2027', 'See the full MBBS in China 2027 guide']],
 
         ['id' => 'weather', 'eyebrow' => 'Climate', 'h' => 'Weather and clothing: from hot summers to cold winters', 'p' => [

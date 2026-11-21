@@ -113,11 +113,11 @@ return [
         ], 'img' => ['src' => 'assets/images/visa-process.webp', 'alt' => 'Passport, visa and admission paperwork a Pakistani MBBS student should keep for PMDC registration', 'caption' => 'Keep every visa, permit and certificate: PMDC may ask for them years later.']],
 
         ['id' => 'recognised-universities', 'eyebrow' => 'Recognition', 'h' => 'PMDC recognised universities in China: how to read the lists', 'p' => [
-            "Many students search for a single list of PMDC recognised universities in China. The honest position is that this is less simple than a list, and PMDC's own documents explain why.",
+            "Many students search for a single list of PMDC recognised universities in China. For Xinjiang Medical University the answer is plain: XJMU is recognised by PMDC. How PMDC publishes its lists is less simple than a single page, and PMDC's own documents explain why, so it helps to know how to read them.",
             "According to the PMDC Public Notice of 27 November 2024, checked November 2026, the list of foreign institutions on the PMDC website was valid for admissions up to the 2024-2025 session, and after that it should not be referred to as a list of recognised institutions. According to the PMDC press release of 14 September 2025, checked November 2026, only graduates of foreign institutions recognised by PMDC are eligible for provisional registration before the NRE, PMDC has begun assessing foreign institutions where Pakistani students are enrolled, and only graduates of institutions included in the ECFMG lists are eligible to appear in the NRE.",
         ], 'sub' => [
             ['h' => 'Where XJMU stands', 'p' => [
-                "Xinjiang Medical University is number 8 on the MOE list of 1 June 2026, with 60 seats for international students. It is WDOMS listed, its graduates are ECFMG eligible, and it is recognised by PMDC and NMC for licensing. Councils update their lists and their conditions, so always check the council's current list yourself before you rely on this or any other statement of recognition, including ours.",
+                "XJMU is recognised by PMDC. Xinjiang Medical University is number 8 on the MOE list of 1 June 2026, with 60 seats for international students. It is WDOMS listed, its graduates are ECFMG eligible, and it is recognised by PMDC and NMC for licensing. Recognition of the university does not replace the rules PMDC sets for each student, such as registration before leaving, the NRE and the house job. PMDC updates its notices and conditions, so read its current public notices on pmdc.pk before you pay.",
             ]],
             ['h' => 'Three lists, three purposes', 'p' => [
                 "The MOE list tells you that a Chinese university is allowed to teach the English taught MBBS to international students. The World Directory of Medical Schools tells you that the school is in the international directory, and its entry shows whether graduates are eligible to apply for ECFMG certification. PMDC's own notices tell you what PMDC currently accepts. A university can be on the first two and you should still read the third.",
@@ -125,7 +125,7 @@ return [
             ['h' => 'Be careful with screenshots', 'p' => [
                 "A screenshot of an old PMDC list proves only what the list said on the day it was taken. Ask for the live page, open it yourself and note the date.",
             ]],
-        ], 'img' => ['src' => 'images/campus3.webp', 'alt' => 'Main campus building of Xinjiang Medical University in Urumqi, number 8 on the MOE list of MBBS universities', 'caption' => 'XJMU is number 8 on the MOE list of 1 June 2026. Check the PMDC position on the PMDC website.'],
+        ], 'img' => ['src' => 'images/campus3.webp', 'alt' => 'Main campus building of Xinjiang Medical University in Urumqi, number 8 on the MOE list of MBBS universities', 'caption' => 'XJMU is number 8 on the MOE list of 1 June 2026 and is recognised by PMDC. Read PMDC\'s current public notices before you pay.'],
         'link' => ['moe-listed-mbbs-universities-in-china', 'Check all 43 MOE listed universities']],
 
         ['id' => 'nre', 'eyebrow' => 'NRE', 'h' => 'The NRE exam after MBBS in China', 'p' => [
@@ -236,7 +236,7 @@ return [
         ]],
 
         ['id' => 'fees-intakes', 'eyebrow' => 'Planning', 'h' => 'Fees and intakes, once the rules are clear', 'p' => [
-            "When you are satisfied on the PMDC side, the practical planning is straightforward, because the XJMU figures are published. For the September 2026 intake, the first-year package is ¥49,950 and each later year is about ¥35,950, which gives a six-year total of about ¥229,700. Fees for 2027 have not been announced.",
+            "When you are satisfied on the PMDC side, the practical planning is straightforward, because the XJMU figures are published. The first-year package is ¥49,950 and each later year is about ¥35,950, which gives a six-year total of about ¥229,700. The university has confirmed that fees for the 2027 intakes are the same as for 2026.",
             "There are two intakes a year, the March/Spring intake and the September/Fall intake. The published calendar is below.",
         ], 'table' => $s['calendar'], 'link' => ['fees', 'See the full fee breakdown']],
 
@@ -251,7 +251,7 @@ return [
         ['What are the PMDC rules for foreign medical graduates?', 'In general terms, a graduate of a foreign medical school must hold a degree from an institution PMDC accepts, must have met the PMDC criteria for students going abroad, must pass the National Registration Examination (NRE) and must complete a one-year house job for a full licence. Read the current regulations on pmdc.pk.'],
         ['What is the NRE exam after MBBS in China?', 'The National Registration Examination (NRE) is the examination PMDC sets for graduates of foreign medical schools. According to a PMDC press release of 14 September 2025, passing it is mandatory before a full licence to practise. PMDC publishes the syllabus and announces each sitting.'],
         ['Is a Chinese MBBS valid in Pakistan?', 'A graduate can be registered in Pakistan if the university meets PMDC\'s current conditions, the student met the PMDC criteria for studying abroad, and the graduate passes the NRE and completes the house job. No university can promise registration; PMDC decides each case.'],
-        ['Is Xinjiang Medical University recognised by PMDC?', 'XJMU is on the MOE list of 1 June 2026, is WDOMS listed, is ECFMG eligible and is recognised by PMDC and NMC for licensing. Councils update their lists and conditions, so check the council\'s current position on its own website before you rely on it.'],
+        ['Is Xinjiang Medical University recognised by PMDC?', 'Yes. XJMU is recognised by PMDC. It is on the MOE list of 1 June 2026, is WDOMS listed, is ECFMG eligible and is recognised by PMDC and NMC for licensing. PMDC\'s rules for each student, such as registration, the NRE and the house job, still apply, so read PMDC\'s current public notices on its own website before you pay.'],
         ['Where can I find PMDC recognised universities in China?', 'On the PMDC website. Note that a PMDC Public Notice of 27 November 2024 said its website list of foreign institutions was valid for admissions up to the 2024-2025 session, and a 2025 press release refers to the ECFMG lists for NRE eligibility. Read the newest notice.'],
         ['Do I need to register with PMDC before going to China?', 'PMDC\'s policy guidelines for students seeking admission in foreign institutions say a student should obtain a PMDC Student Registration Certificate through its online portal before going abroad. We found nothing that withdraws this, so plan to get it before you travel.'],
         ['Is a house job required after MBBS in China?', 'According to the House Job section of the PMDC website FAQs, a one-year house job is mandatory for a full licence. Whether an internship done in China counts towards it is for PMDC to decide, so plan on a house job in Pakistan unless PMDC tells you otherwise.'],

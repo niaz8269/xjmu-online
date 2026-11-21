@@ -38,6 +38,7 @@ return [
         'facts' => [
             ['MDCAT for XJMU admission', 'Not required; not in the published admission requirements'],
             ['XJMU eligibility', '60% in each science subject, aged 18–35'],
+            ['PMDC recognition', 'XJMU is recognised by PMDC'],
             ['PMDC and MDCAT for study abroad', 'Exempted by PMDC Public Notice of 5 October 2026 (earlier criteria asked for 50%)'],
             ['Licensing exam in Pakistan', 'National Registration Examination (NRE), set by PMDC'],
             ['After the NRE', 'One-year house job required for a full licence (PMDC FAQs)'],
@@ -47,7 +48,7 @@ return [
         ],
     ],
     'csca-test-for-study-in-china' => [
-        'answer' => 'CSCA is the China Scholastic Competency Assessment, a standardised test for international students applying to undergraduate programmes in China. Official sources say the China Scholarship Council organises it, that it covers Professional Chinese, Mathematics, Physics and Chemistry in multiple choice papers scored 0 to 100, and that Chinese Government Scholarship applicants for a bachelor degree must take it.',
+        'answer' => 'CSCA is the China Scholastic Competency Assessment, a standardised test for international students applying to undergraduate programmes in China, organised by the China Scholarship Council. Xinjiang Medical University does not require the CSCA for admission to its MBBS. Official sources say bachelor degree applicants for the Chinese Government Scholarship must take it, so scholarship applicants should check the scholarship\'s own rule.',
         'facts' => [
             ['Full name', 'China Scholastic Competency Assessment (CSCA)'],
             ['Organised by', 'China Scholarship Council'],
@@ -56,7 +57,8 @@ return [
             ['Format', 'Multiple choice; 48 questions in 60 minutes (Chinese paper: 80 in 90); 0–100 per subject'],
             ['Fee', '450 yuan for one subject, 700 yuan for two or more'],
             ['Registration', 'Official CSCA website, csca.cn'],
-            ['Required by XJMU?', 'Check with the university'],
+            ['Required by XJMU?', 'No. XJMU does not require the CSCA for admission to its MBBS'],
+            ['Chinese Government Scholarship applicants', 'Check the scholarship\'s own CSCA rule, set by the China Scholarship Council, not by XJMU'],
         ],
     ],
     'china-student-visa-for-mbbs' => [
@@ -110,7 +112,7 @@ return [
         'facts' => $facts,
     ],
     'mbbs-in-china-for-pakistani-students' => [
-        'answer' => 'Pakistani students can study MBBS in China at MOE listed universities such as Xinjiang Medical University with 60% in each FSc pre-medical science subject. The degree takes six years including internship, is taught in English, and costs ¥49,950 in the first year and ¥35,950 a year after. Check PMDC rules before you apply.',
+        'answer' => 'Pakistani students can study MBBS in China at MOE listed universities such as Xinjiang Medical University with 60% in each FSc pre-medical science subject. The degree takes six years including internship, is taught in English, and costs ¥49,950 in the first year and ¥35,950 a year after. XJMU is recognised by PMDC; check PMDC\'s current rules before you apply.',
         'facts' => $facts,
     ],
     'mbbs-in-china-for-indian-students' => [
@@ -152,7 +154,7 @@ return [
             ['MOE list (1 June 2026)', '43 universities, 2,790 seats; XJMU #8 with 60 seats'],
             ['Intakes', 'March/Spring intake and September/Fall intake'],
             ['Minimum eligibility', '60% in each science subject; age 18–35'],
-            ['First-year package (Sept 2026 intake)', '¥49,950 (about USD 7,000)'],
+            ['First-year package (2027 intakes, unchanged from 2026)', '¥49,950 (about USD 7,000)'],
             ['Second year onward', '¥35,950 a year; about ¥229,700 for six years'],
         ],
     ],

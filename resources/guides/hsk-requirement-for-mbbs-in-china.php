@@ -199,7 +199,7 @@ return [
                 "Encourage a daily habit before departure. Ask your child to teach you a Chinese phrase each week, because teaching helps learning. Do not push for results too early. Steady progress is better than a rush.",
             ]],
             ['h' => 'Costs', 'p' => [
-                "The first-year package is ¥49,950 and each later year is about ¥35,950. The HSK examination fee is an extra cost that students pay. It sits under living costs in the fees guide, and you should budget a little for it. Fees for 2027 have not been announced.",
+                "The first-year package is ¥49,950 and each later year is about ¥35,950. The HSK examination fee is an extra cost that students pay. It sits under living costs in the fees guide, and you should budget a little for it. The university has confirmed that fees for the 2027 intakes are the same as for 2026.",
             ]],
             ['h' => 'How you will know your child is on track', 'p' => [
                 "Ask about attendance in the Chinese classes, class test results and when the HSK test is planned. Those three answers tell you more than any marketing page.",

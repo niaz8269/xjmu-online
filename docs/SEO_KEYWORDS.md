@@ -59,6 +59,17 @@ button is in code (`resources/views/pages/mbbs.blade.php`). Change them when the
   (content in `config/seo_guides.php`, set `updated` to the new date). Keep the URL; never start a new page per year.
 - After launch, add the property to Search Console under an account I can open, then re-prioritise this table by impressions.
 
+## Facts confirmed by the owner (22 Nov 2026)
+
+- **2027 fees are the same as 2026** for both 2027 intakes (March/Spring and September/Fall): first-year package ¥49,950
+  (about USD 7,000); from the second year ¥35,950 a year (about USD 5,050); six-year total about ¥229,700 (about USD 32,000).
+  Nothing is claimed for 2028 or later.
+- **XJMU does not require the CSCA test** for admission to its MBBS. The CSCA rule for the Chinese Government Scholarship
+  is set by the China Scholarship Council, not by XJMU, so scholarship applicants still check that rule.
+- **Hospitals: 18 teaching hospitals and 95 internship hospitals** (in addition to the 8 directly affiliated hospitals).
+- **XJMU is recognised by PMDC.** PMDC's rules for individual students (registration, NRE, house job) still apply, and the
+  guides keep the advice to read PMDC's current public notices before paying.
+
 ## Facts confirmed by the owner (20 Nov 2026)
 
 - XJMU is **ECFMG eligible** (graduates can apply for ECFMG certification / USMLE).

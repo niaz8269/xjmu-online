@@ -17,7 +17,7 @@ return [
         ['id' => 'overview', 'eyebrow' => 'Overview', 'h' => 'MBBS in China 2027 at a glance', 'p' => [
             "MBBS in China is the undergraduate clinical medicine degree that Chinese universities offer to international students. It runs for six years: five years of pre-clinical and clinical study, then a one-year internship in a teaching hospital. At universities approved by China's Ministry of Education (MOE), the whole programme is taught in English.",
             "Students who are planning MBBS in China 2027 are in a good position, because the important decisions can be made early. The official list of MOE listed MBBS universities is public, fee structures are published, and the application steps are the same every year. This guide collects those facts in one place and uses Xinjiang Medical University as the worked example throughout.",
-            "Two things are not known yet, and this page says so plainly. The MOE has not published its list for the 2027–2028 academic year, and fees for 2027 have not been announced. Until they are, the 2026–2027 list and the 2026 fee structure are the official reference points. We update this page whenever a new notice is released.",
+            "One thing is settled and one is not known yet, and this page says so plainly. The university has confirmed that fees for the 2027 intakes, March/Spring and September/Fall, are the same as for 2026. The MOE has not published its list for the 2027–2028 academic year. Until it does, the 2026–2027 list is the official reference point. We update this page whenever a new notice is released.",
         ], 'img' => ['src' => 'images/campus3.webp', 'alt' => 'Main campus building of Xinjiang Medical University, an MOE listed university for MBBS in China 2027', 'caption' => 'The main campus of Xinjiang Medical University in Urumqi, one of the 43 MOE listed MBBS universities in China.'],
         'table' => ['caption' => 'MBBS in China 2027: key facts', 'head' => ['Question', 'Answer'], 'rows' => [
             ['Degree', 'MBBS (Bachelor of Medicine and Bachelor of Surgery)'],
@@ -27,7 +27,7 @@ return [
             ['Current approved list', '43 universities, 2,790 seats (2026–2027 academic year)'],
             ['XJMU seats on the current list', '60'],
             ['XJMU MBBS intakes', 'Spring (February/March) and fall (September)'],
-            ['XJMU first-year package (2026 intake)', '¥49,950, about USD 7,000'],
+            ['XJMU first-year package (2027 intakes, unchanged from 2026)', '¥49,950, about USD 7,000'],
             ['XJMU minimum eligibility', '60% in each science subject; age 18–35'],
         ]]],
 
@@ -41,7 +41,7 @@ return [
                 "Medicine is learned at the bedside. Chinese medical universities are attached to their own hospitals, so clinical rotations and the internship year are part of the degree and do not have to be arranged separately. At Xinjiang Medical University, clinical training runs across 8 directly affiliated hospitals. The First Affiliated Hospital is a Class A tertiary hospital, the highest grade in China's hospital system.",
             ]],
             ['h' => 'A cost that families can plan for', 'p' => [
-                "Fees are published in advance and paid once a year. At XJMU the first-year package for the September 2026 intake is ¥49,950, about USD 7,000, and each later year totals about ¥35,950. Food and personal costs in Urumqi typically add USD 150–250 a month. A family can therefore estimate the cost of the full six years before applying.",
+                "Fees are published in advance and paid once a year. At XJMU the first-year package for the 2027 intakes, unchanged from 2026, is ¥49,950, about USD 7,000, and each later year totals about ¥35,950. Food and personal costs in Urumqi typically add USD 150–250 a month. A family can therefore estimate the cost of the full six years before applying.",
             ]],
             ['h' => 'Recognition after graduation', 'p' => [
                 "Xinjiang Medical University is listed in the WHO World Directory of Medical Schools and is approved by China's Ministry of Education. Graduates are awarded the MBBS degree and are eligible to sit the medical licensing examinations of their home countries. Every country sets its own rules for foreign medical graduates, so check the current rules of your own medical council before you apply.",
@@ -72,7 +72,7 @@ return [
         ]],
 
         ['id' => 'fees', 'eyebrow' => 'Fees', 'h' => 'MBBS in China 2027 fees', 'p' => [
-            "Fees for 2027 have not been announced. For planning, use the published structure for the September 2026 intake at XJMU. The first year is charged as one all-inclusive package, and later years are charged per item.",
+            "The university has confirmed that fees for the 2027 intakes, March/Spring and September/Fall, are the same as for 2026. These are the figures at XJMU. The first year is charged as one all-inclusive package, and later years are charged per item.",
         ], 'table' => $s['feeFirstYear'], 'sub' => [
             ['h' => 'From the second year', 'p' => [
                 "From the second year the yearly total is about ¥35,950, roughly USD 5,050. It is made up of tuition of ¥30,000, accommodation of ¥4,500, insurance of ¥300, the residence permit of ¥800 and the physical examination of ¥350.",
@@ -86,7 +86,7 @@ return [
             ['h' => 'Scholarships', 'p' => [
                 "The Chinese Government Scholarship covers tuition, accommodation and insurance and pays a yearly stipend of 30,000 yuan to undergraduates. The Xinjiang Government Scholarship for international students from neighbouring countries pays undergraduates 10,000 yuan a year. The university also has its own Xinjiang Medical University Scholarship. Each has its own eligibility rules and deadline, and applying early is recommended.",
             ]],
-        ], 'note' => 'Figures are indicative for the 2026 intake; USD conversions are approximate.', 'link' => ['fees', 'See the full MBBS fee breakdown']],
+        ], 'note' => 'Figures are confirmed for the 2027 intakes and unchanged from 2026; USD conversions are approximate.', 'link' => ['fees', 'See the full MBBS fee breakdown']],
 
         ['id' => 'scholarships', 'eyebrow' => 'Funding', 'h' => 'Scholarships for MBBS in China 2027', 'p' => [
             "Scholarships reduce the cost of studying medicine in China, and some cover it completely. These are the stipend levels published by Xinjiang Medical University.",
@@ -197,7 +197,7 @@ return [
         ['Is MBBS in China the same as Clinical Medicine?', 'Yes. In China the MBBS programme is officially called Clinical Medicine. An English-taught Clinical Medicine degree at an MOE listed university such as Xinjiang Medical University leads to the MBBS (Bachelor of Medicine, Bachelor of Surgery) and takes six years, including a one-year internship.'],
         ['Does XJMU have a March/Spring intake for MBBS?', 'Yes. The MBBS has a March/Spring intake starting in February or March and a September/Fall intake starting in September.'],
         ['Has the MOE list for 2027 been published?', 'No. The list in force covers the 2026–2027 academic year and was issued on 1 June 2026. It approves 43 universities with 2,790 seats. This page will be updated when the next notice is released.'],
-        ['How much will MBBS in China cost in 2027?', 'Fees for 2027 have not been announced. For the September 2026 intake at Xinjiang Medical University, the first-year package is ¥49,950 and each later year totals about ¥35,950.'],
+        ['How much will MBBS in China cost in 2027?', 'The university has confirmed that fees for the 2027 intakes are the same as for 2026. At Xinjiang Medical University, the first-year package is ¥49,950 and each later year totals about ¥35,950.'],
         ['What marks do I need for MBBS in China?', 'At Xinjiang Medical University the minimum is 60% marks in each of the science subjects in HSSC or A-Level. Requirements differ between universities.'],
         ['Is MBBS in China taught in English?', 'Yes, at MOE listed universities. Universities that are not on the list may only teach clinical medicine to international students in Chinese.'],
         ['How long is MBBS in China?', 'Six years: five years of study and a one-year clinical internship.'],

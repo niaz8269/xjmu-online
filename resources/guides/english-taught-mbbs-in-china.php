@@ -117,7 +117,7 @@ return [
         ], 'img' => ['src' => 'assets/images/clinic.webp', 'alt' => 'Medical student examining a patient during clinical training in the English taught MBBS programme in China', 'caption' => 'Hands-on clinical training in an affiliated hospital.']],
 
         ['id' => 'fees', 'eyebrow' => 'Fees', 'h' => 'English taught MBBS fees', 'p' => [
-            "The English taught MBBS at XJMU is one of the more affordable MOE listed options. Fees for 2027 have not been announced; these are the published figures for the September 2026 intake.",
+            "The English taught MBBS at XJMU is one of the more affordable MOE listed options. The university has confirmed that fees for the 2027 intakes, March/Spring and September/Fall, are the same as for 2026.",
         ], 'table' => $s['feeYearly'], 'sub' => [
             ['h' => 'The first year', 'p' => [
                 "The first year is charged as a single all-inclusive package of ¥49,950, about USD 7,000. It covers application processing, tuition, hostel, the student visa, health insurance and medical, registration, admission and management charges, the JW202 visa letter and airport pickup.",
@@ -128,7 +128,7 @@ return [
             ['h' => 'Scholarships', 'p' => [
                 "Eligible students can apply for the Chinese Government Scholarship and other awards listed by the university. Apply by the early deadline to be considered.",
             ]],
-        ], 'note' => 'Figures are indicative for the 2026 intake; USD conversions are approximate.', 'link' => ['fees', 'Full fee breakdown']],
+        ], 'note' => 'Figures are confirmed for the 2027 intakes and unchanged from 2026; USD conversions are approximate.', 'link' => ['fees', 'Full fee breakdown']],
 
         ['id' => 'recognition', 'eyebrow' => 'Recognition', 'h' => 'Is an English taught MBBS from China recognised?', 'p' => [
             "Recognition has three layers. In China, the programme must be on the MOE list. Internationally, the school should appear in the WHO World Directory of Medical Schools. At home, your medical council decides whether you can sit its licensing examination.",
@@ -191,7 +191,7 @@ return [
                 "Graduates are eligible to sit the licensing examination of their home country. Passing that examination, and meeting the council's other conditions, is what leads to registration. Read your council's current rules before applying.",
             ]],
             ['h' => 'What will six years cost in total?', 'p' => [
-                "Using the 2026 figures, the first year is ¥49,950 and each of the following five years is about ¥35,950, plus living costs of roughly USD 150–250 a month for food. Fees for 2027 have not been announced.",
+                "Using the published figures, the first year is ¥49,950 and each of the following five years is about ¥35,950, plus living costs of roughly USD 150–250 a month for food. The university has confirmed that fees for the 2027 intakes are the same as for 2026.",
             ]],
             ['h' => 'Who looks after students when they arrive?', 'p' => [
                 "The admissions team provides pre-arrival guidance, students are met at the airport, and the international student office supports them through registration, the health check and the residence permit.",
@@ -243,7 +243,7 @@ return [
         ['Do I need to know Chinese before I start?', 'No. Introductory Chinese is taught during years 1 and 2 of the programme.'],
         ['What is the difference between English taught and bilingual MBBS?', 'In the English taught MBBS, medical subjects are taught and examined in English. Bilingual teaching as a substitute is prohibited by the Ministry of Education.'],
         ['How long is the English taught MBBS?', 'Six years, including a one-year clinical internship.'],
-        ['How much does the English taught MBBS cost?', 'At Xinjiang Medical University the first-year package for the September 2026 intake is ¥49,950, and each later year totals about ¥35,950. Fees for 2027 have not been announced.'],
+        ['How much does the English taught MBBS cost?', 'At Xinjiang Medical University the first-year package is ¥49,950, and each later year totals about ¥35,950. The university has confirmed that fees for the 2027 intakes are the same as for 2026.'],
         ['How many seats are there?', 'The MOE quota for Xinjiang Medical University is 60 seats for the 2026–2027 academic year.'],
         ['Will I treat patients in English?', 'Patients in the teaching hospitals speak Chinese. That is why Chinese is taught during the degree and HSK-4 is required by graduation.'],
         ['Can I take the USMLE after an English taught MBBS in China?', 'Graduates of Xinjiang Medical University are eligible to sit licensing examinations including the USMLE, subject to the conditions of each examining body.'],

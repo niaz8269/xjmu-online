@@ -26,7 +26,7 @@ return [
     'moeSource' => "Source: Ministry of Education of the People's Republic of China, notice 教外司来〔2026〕94号, issued 1 June 2026.",
     'moeRows' => $moeRows,
     'feeFirstYear' => [
-        'caption' => 'First-year package, September 2026 intake',
+        'caption' => 'First-year package, 2027 intakes (unchanged from 2026)',
         'head' => ['What the first-year package covers', 'Status'],
         'rows' => [
             ['Application processing, registration and admission charges', 'Included'],

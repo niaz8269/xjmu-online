@@ -27,7 +27,7 @@ return [
             ['MBBS duration', '6 years, including a 1-year clinical internship'],
             ['Teaching language', 'English, with Chinese taught alongside'],
             ['Intakes', 'March/Spring and September/Fall'],
-            ['First-year package (September 2026 intake)', '¥49,950, about USD 7,000'],
+            ['First-year package (2027 intakes, unchanged from 2026)', '¥49,950, about USD 7,000'],
             ['From the second year', '¥35,950 a year, about USD 5,050'],
         ]]],
 
@@ -80,7 +80,7 @@ return [
         ['id' => 'hospitals', 'eyebrow' => 'Clinical training', 'h' => 'Affiliated hospitals and clinical training', 'p' => [
             "Medicine is learned at the bedside, and Chinese medical universities are attached to their own hospitals. At Xinjiang Medical University, clinical teaching runs across 8 directly affiliated hospitals, so it does not depend on a single site. Clinical rotations and the internship are part of the degree and do not have to be arranged separately by the student.",
             "The First Affiliated Hospital is the largest and most comprehensive of them. It is a Class A tertiary hospital, the highest grade in China's hospital system, and it serves as a main centre for complex cases, critical care and emergencies in the region. For a medical student, a large hospital means exposure to a wide range of conditions during training.",
-            "You may see different figures for the number of teaching and internship hospitals in different brochures. We do not repeat those counts here because the published figures do not agree. If the number matters to your decision, ask the admissions office to confirm the current list in writing.",
+            "Beyond the directly affiliated hospitals, the university has 18 teaching hospitals and 95 internship hospitals. These figures are confirmed by the university, so use them if you have seen different counts in older brochures.",
         ], 'img' => ['src' => 'assets/images/xjmu179.webp', 'alt' => 'Clinical training facility of Xinjiang Medical University where MBBS students gain hospital experience', 'caption' => 'Clinical training takes place in the university\'s affiliated hospitals.']],
 
         ['id' => 'programmes', 'eyebrow' => 'Academics', 'h' => 'Other programmes for international students', 'p' => [
@@ -89,7 +89,7 @@ return [
         ], 'link' => ['programs', 'See all programmes at XJMU']],
 
         ['id' => 'fees', 'eyebrow' => 'Fees', 'h' => 'Xinjiang Medical University MBBS fees', 'p' => [
-            "Fees for 2027 have not been announced. The published structure for the September 2026 intake is the best guide for planning. The first year is charged as one all-inclusive package of ¥49,950, about USD 7,000. It covers application processing and registration, tuition, hostel accommodation, the student visa, health insurance, medical checks, the JW202 visa letter and airport pickup.",
+            "The university has confirmed that fees for the 2027 intakes, March/Spring and September/Fall, are the same as for 2026. The first year is charged as one all-inclusive package of ¥49,950, about USD 7,000. It covers application processing and registration, tuition, hostel accommodation, the student visa, health insurance, medical checks, the JW202 visa letter and airport pickup.",
         ], 'table' => $s['feeFirstYear'], 'sub' => [
             ['h' => 'From the second year', 'p' => [
                 "From the second year, fees are charged per item. The yearly total is about ¥35,950, roughly USD 5,050: tuition of ¥30,000, accommodation of ¥4,500, insurance of ¥300, the residence permit of ¥800 and the physical examination of ¥350.",
@@ -100,7 +100,7 @@ return [
             ['h' => 'How the payments are staged', 'p' => [
                 "You do not pay the whole first-year package at once. A ¥1,000 application fee comes first and counts towards the package. After the Pre-Admission Letter you pay a ¥2,000 seat reservation deposit, which is refunded if your JW202 is rejected. Pay only through official university channels and keep every receipt.",
             ]],
-        ], 'note' => 'Figures are for the September 2026 intake; USD conversions are approximate.', 'link' => ['mbbs-in-china-fees-2027', 'See the full MBBS fee guide']],
+        ], 'note' => 'Figures are confirmed for the 2027 intakes and unchanged from 2026; USD conversions are approximate.', 'link' => ['mbbs-in-china-fees-2027', 'See the full MBBS fee guide']],
 
         ['id' => 'yearly', 'eyebrow' => 'Yearly fees', 'h' => 'Yearly fees from the second year, item by item', 'p' => [
             "This is the published breakdown for each year after the first. The items are the same every year, which makes it straightforward to budget for the rest of the degree once you know the first-year figure.",
@@ -196,7 +196,7 @@ return [
         ['What is the Xinjiang Medical University world ranking?', 'We do not print a rank number, because rankings change each year and each system measures something different. Look the university up on the QS, Times Higher Education, US News, Nature Index and Clarivate ESI websites for the current figures.'],
         ['Where is Xinjiang Medical University?', 'In Urumqi, the capital of the Xinjiang region in western China. It is not the same as Xinxiang Medical University, which is in Henan province and is not on the 2026–2027 MOE list.'],
         ['Is the MBBS at Xinjiang Medical University taught in English?', 'Yes. The medical subjects are taught and examined in English. Introductory Chinese is taught in years 1 and 2, and HSK-4 is required by graduation to support clinical rotations.'],
-        ['How much does MBBS at Xinjiang Medical University cost?', 'For the September 2026 intake, the first-year package is ¥49,950, about USD 7,000, and each later year is about ¥35,950. The six-year total is about ¥229,700, roughly USD 32,000, before living costs. Fees for 2027 have not been announced.'],
+        ['How much does MBBS at Xinjiang Medical University cost?', 'The first-year package is ¥49,950, about USD 7,000, and each later year is about ¥35,950. The six-year total is about ¥229,700, roughly USD 32,000, before living costs. The university has confirmed that fees for the 2027 intakes are the same as for 2026.'],
         ['Is Xinjiang Medical University recognised by WHO, PMDC and NMC?', 'XJMU is listed in the WHO World Directory of Medical Schools, and it is recognised by PMDC, NMC and other councils for licensing. Each council sets and changes its own conditions, so check your council\'s current rules before you apply.'],
         ['When are the intakes at Xinjiang Medical University?', 'There are two: the March/Spring intake, with registration around 20 February, and the September/Fall intake, with registration around 10 September. Applications open on 1 September and 1 March respectively.'],
         ['What are the admission requirements?', 'A senior high-school qualification with science subjects, at least 60% in each science subject, age 18 to 35, good health and a valid passport. You must also be able to study in English.'],

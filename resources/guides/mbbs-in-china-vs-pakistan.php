@@ -52,7 +52,7 @@ return [
 
         ['id' => 'cost', 'eyebrow' => 'Cost', 'h' => 'Cost: how to compare fairly', 'p' => [
             "Cost is the main reason families look abroad, and it is also the area where comparisons are most often misleading. A low headline fee can hide hostel, insurance and examination charges, and a high one can include them.",
-            "These are the published figures for XJMU, for the September 2026 intake. Fees for 2027 have not been announced.",
+            "These are the published figures for XJMU. The university has confirmed that fees for the 2027 intakes, March/Spring and September/Fall, are the same as for 2026.",
         ], 'table' => $s['feeFirstYear'], 'sub' => [
             ['h' => 'From the second year', 'p' => [
                 "From the second year, fees are about ¥35,950 a year, about USD 5,050, as itemised below.",
@@ -60,7 +60,7 @@ return [
         ]],
 
         ['id' => 'cost-yearly', 'eyebrow' => 'Cost by year', 'h' => 'The yearly total and the six-year figure', 'table' => $s['feeYearly'], 'p' => [
-            "Adding the first-year package of ¥49,950 and five later years of about ¥35,950 gives about ¥229,700, roughly USD 32,000, for tuition, hostel, insurance, residence permit and examinations over six years at 2026 figures.",
+            "Adding the first-year package of ¥49,950 and five later years of about ¥35,950 gives about ¥229,700, roughly USD 32,000, for tuition, hostel, insurance, residence permit and examinations over six years at the current figures.",
         ], 'sub' => [
             ['h' => 'What is not included', 'p' => [
                 "Food, flights, personal spending, any increase in fees, and the cost of preparing for and sitting your licensing examination at home. Food in Urumqi is about USD 150–250 a month, local transport USD 10–20 and a mobile SIM USD 10–15.",
@@ -71,8 +71,8 @@ return [
         ]],
 
         ['id' => 'worksheet', 'eyebrow' => 'Worksheet', 'h' => 'A cost worksheet you can copy', 'p' => [
-            "Use this table to compare your actual options. The China column is filled in from published 2026 figures. The Pakistan column is for you to complete from the prospectus of the college you are considering.",
-        ], 'table' => ['caption' => 'Six-year cost worksheet', 'head' => ['Line', 'XJMU, China (2026 figures)', 'Your Pakistan college'], 'rows' => [
+            "Use this table to compare your actual options. The China column is filled in from the published figures, which are confirmed for the 2027 intakes and unchanged from 2026. The Pakistan column is for you to complete from the prospectus of the college you are considering.",
+        ], 'table' => ['caption' => 'Six-year cost worksheet', 'head' => ['Line', 'XJMU, China (2027 intakes, unchanged from 2026)', 'Your Pakistan college'], 'rows' => [
             ['First-year fees', '¥49,950 (all-inclusive package)', 'Write from the prospectus'],
             ['Years 2 to 6, per year', '¥35,950', 'Write from the prospectus'],
             ['Hostel', 'Included in the fees', 'Write from the prospectus'],
@@ -98,7 +98,7 @@ return [
         ], 'list' => [
             'In China: the programme must be on the MOE list. XJMU is.',
             'Internationally: the school should be in the World Directory of Medical Schools. XJMU is.',
-            "In Pakistan: the national regulator decides who may sit its licensing examination and how a foreign graduate is registered.",
+            "In Pakistan: the national regulator, the Pakistan Medical and Dental Council (PMDC), decides who may sit its licensing examination and how a foreign graduate is registered. XJMU is recognised by PMDC.",
         ], 'sub' => [
             ['h' => 'What a student who stays in Pakistan avoids', 'p' => [
                 "A student who graduates from a Pakistani medical college is registered through the regulator's normal route and does not take the examination that foreign graduates take. That is a real advantage, and families should count it.",
@@ -196,7 +196,7 @@ return [
         ['Is MBBS in China worth it for Pakistani students?', 'It can be, for a student who meets the 60% requirement, can fund six years, will learn Chinese and has checked the regulator\'s rules. It is not worth it if chosen without checking recognition and licensing.'],
         ['What are the disadvantages of MBBS in China?', 'Distance from home, learning Chinese, a six-year degree, the extra licensing examination for foreign graduates, a different case mix, a cold climate and rules that can change.'],
         ['How long is MBBS in China compared with Pakistan?', 'MBBS in China at XJMU is six years including a one-year internship. The MBBS in Pakistan is a five-year degree followed by a house job.'],
-        ['Is a Chinese MBBS valid in Pakistan?', 'XJMU is on the MOE list and in the World Directory of Medical Schools, and its graduates are eligible to sit home-country licensing examinations. Registration is decided by the regulator, so read its current rules.'],
+        ['Is a Chinese MBBS valid in Pakistan?', 'XJMU is recognised by PMDC, is on the MOE list and in the World Directory of Medical Schools, and its graduates are eligible to sit home-country licensing examinations. Registration of each graduate is decided by PMDC, so read its current rules.'],
         ['How much does MBBS in China cost compared with Pakistan?', 'At XJMU the first-year package for September 2026 is ¥49,950, about USD 7,000, and later years are about ¥35,950, about USD 5,050. Use your own college prospectus for the Pakistan side and complete the worksheet.'],
         ['Is MDCAT required for MBBS in China?', 'The published XJMU admission requirements do not include MDCAT. What Pakistan\'s regulator requires is a separate matter, so check its current rules.'],
         ['Will I need to learn Chinese?', 'Yes. The medical subjects are in English, but patients speak Chinese, so introductory Chinese is taught in years 1 and 2 and HSK-4 is required by graduation.'],

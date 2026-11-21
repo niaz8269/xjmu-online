@@ -174,7 +174,7 @@ return [
         ]],
 
         ['id' => 'first-year-package', 'eyebrow' => 'Costs', 'h' => 'What the XJMU first-year package covers for the visa', 'p' => [
-            "Families often ask which visa costs they pay themselves. The first-year package at XJMU, ¥49,950 for the September 2026 intake, includes the items in the table below. The university lists visa, insurance and medical at ¥1,450 a year and pays it directly to the departments concerned. Fees for 2027 have not been announced, so ask for the written fee schedule before you pay.",
+            "Families often ask which visa costs they pay themselves. The first-year package at XJMU, ¥49,950, includes the items in the table below. The university lists visa, insurance and medical at ¥1,450 a year and pays it directly to the departments concerned. The university has confirmed that fees for the 2027 intakes, March/Spring and September/Fall, are the same as for 2026.",
             "Costs in your home country are a separate matter. Fees charged by an embassy or visa centre, the examination at a hospital at home, attestation of documents, photographs and travel to the visa centre are paid by you where they arise. Ask admissions in writing which visa-related costs the package covers and which it does not, so that nothing is paid twice.",
         ], 'table' => $s['feeFirstYear']],
 

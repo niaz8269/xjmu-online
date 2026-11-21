@@ -17,7 +17,7 @@ return [
         ['id' => 'overview', 'eyebrow' => 'Overview', 'h' => 'MBBS in China for Pakistani students: the short version', 'p' => [
             "Every year thousands of Pakistani students finish FSc and look for a way to study medicine that fits their marks, their budget and their family. China is one of the options they consider, and for good reasons: the programme is taught in English, it lasts six years, the fees are published, and the universities that may teach it are named on an official government list.",
             "This guide is written for Pakistani students and their parents. It uses Xinjiang Medical University (XJMU) in Urumqi as the example, because it is on the Ministry of Education (MOE) list of universities that may enrol international students in the English taught MBBS, it has 60 seats on that list for 2026–2027, and it is one of the closest places in China to Pakistan.",
-            "It also tries to be honest about what we cannot promise. Fees for 2027 have not been announced, and the rules of Pakistan's own medical regulator can change, so where a decision depends on a rule that belongs to someone else, this guide tells you where to check it rather than guessing.",
+            "It also tries to be honest about what we cannot promise. The university has confirmed that fees for the 2027 intakes are the same as for 2026, and XJMU is recognised by PMDC. The rules that Pakistan's own medical regulator sets for students and graduates can change, so where a decision depends on a rule that belongs to someone else, this guide tells you where to check it rather than guessing.",
         ], 'img' => ['src' => 'assets/images/affil-hospt.webp', 'alt' => 'Affiliated teaching hospital of Xinjiang Medical University where Pakistani MBBS students train', 'caption' => 'One of the hospitals where XJMU students train.'],
         'table' => ['caption' => 'MBBS in China for Pakistani students: key facts at XJMU', 'head' => ['Question', 'Answer'], 'rows' => [
             ['Degree', 'MBBS, taught in English'],
@@ -26,7 +26,7 @@ return [
             ['Seats for international students', '60'],
             ['Minimum marks', '60% in each of the science subjects'],
             ['Age', '18 to 35'],
-            ['First-year package (Sept. 2026 intake)', '¥49,950, about USD 7,000'],
+            ['First-year package (2027 intakes, unchanged from 2026)', '¥49,950, about USD 7,000'],
             ['Each later year', 'About ¥35,950, about USD 5,050'],
             ['Intakes', 'Spring (February/March) and fall (September)'],
             ['Flight from Islamabad', 'About 2 hours 50 minutes, direct'],
@@ -67,7 +67,7 @@ return [
         ], 'img' => ['src' => 'assets/images/counselling.webp', 'alt' => 'Admissions counsellor advising a prospective Pakistani MBBS student on eligibility and documents for China', 'caption' => 'Counselling on eligibility and documents before you apply.']],
 
         ['id' => 'fees', 'eyebrow' => 'Fees', 'h' => 'MBBS in China fees for Pakistani students', 'p' => [
-            "Fees for 2027 have not been announced. These are the published figures for the September 2026 intake, which is the best guide to what to expect. They are given in Chinese yuan and in approximate US dollars. We do not print rupee figures, because the exchange rate moves from month to month; convert the yuan amounts at the rate on the day you pay.",
+            "The university has confirmed that fees for the 2027 intakes, March/Spring and September/Fall, are the same as for 2026. The figures are given in Chinese yuan and in approximate US dollars. We do not print rupee figures, because the exchange rate moves from month to month; convert the yuan amounts at the rate on the day you pay.",
         ], 'table' => $s['feeFirstYear'], 'sub' => [
             ['h' => 'From the second year', 'p' => [
                 "From the second year, the fees are charged item by item, as the table below shows. The total is about ¥35,950 a year, about USD 5,050.",
@@ -78,8 +78,8 @@ return [
             "Adding the first-year package and five later years gives a rough tuition and hostel total for the whole degree.",
         ], 'sub' => [
             ['h' => 'A six-year estimate', 'p' => [
-                "First year: ¥49,950. Years 2 to 6: five times ¥35,950, which is ¥179,750. Together that is about ¥229,700, or roughly USD 32,000, for tuition, hostel, insurance, residence permit and medical examinations over six years, using the 2026 figures.",
-                "This estimate does not include flights, food and personal spending, or any change in fees for 2027 or later years. Use it as a planning figure and ask the admissions team for the current written fee schedule before you commit.",
+                "First year: ¥49,950. Years 2 to 6: five times ¥35,950, which is ¥179,750. Together that is about ¥229,700, or roughly USD 32,000, for tuition, hostel, insurance, residence permit and medical examinations over six years, using these figures.",
+                "This estimate does not include flights, food and personal spending. Fees for the 2027 intakes are confirmed and unchanged from 2026. For later years of study, fees are set by the university each year, so use the six-year total as a planning figure.",
             ]],
             ['h' => 'Living costs in Urumqi', 'p' => [
                 "Budget about USD 150–250 a month for food, USD 10–20 for local transport and USD 10–15 for a mobile SIM. Over twelve months, food alone is roughly USD 1,800 to 3,000.",
@@ -94,7 +94,7 @@ return [
         ], 'list' => [
             'In China: the programme must be on the MOE list. XJMU is.',
             'Internationally: the medical school should appear in the World Directory of Medical Schools. XJMU does.',
-            "In Pakistan: the medical regulator decides who may sit its licensing examination and how a foreign graduate is registered. This layer is outside any university's control.",
+            "In Pakistan: the medical regulator, the Pakistan Medical and Dental Council (PMDC), decides who may sit its licensing examination and how a foreign graduate is registered. XJMU is recognised by PMDC. The rules for each student are PMDC's own and outside any university's control.",
         ], 'sub' => [
             ['h' => 'What graduates generally have to do', 'p' => [
                 "Pakistani students who graduate from a medical school abroad are generally required to pass a licensing examination set by the national regulator before they can register and practise. Graduates of XJMU are eligible to appear for the licensing examinations of their home countries and for international examinations such as the USMLE.",
@@ -199,7 +199,7 @@ return [
                 "Graduates are eligible to sit the licensing examination of their home country. Passing it, and meeting the regulator's other conditions, is what leads to registration. Read the current rules together before you decide.",
             ]],
             ['h' => 'How much will it cost in total?', 'p' => [
-                "Using the 2026 figures, about ¥229,700 for six years of tuition, hostel, insurance, residence permit and examinations, which is roughly USD 32,000, plus food, flights and personal spending.",
+                "Using these figures, about ¥229,700 for six years of tuition, hostel, insurance, residence permit and examinations, which is roughly USD 32,000, plus food, flights and personal spending.",
             ]],
             ['h' => 'Can we pay in instalments?', 'p' => [
                 "Ask the admissions team for the current payment schedule in writing. The application fee and the seat reservation deposit are paid at defined steps, and the rest follows the university's published fee schedule.",
@@ -234,12 +234,12 @@ return [
         ]], 'video' => $s['video']],
     ],
     'faqs' => [
-        ['Is MBBS in China valid for Pakistani students?', 'Xinjiang Medical University is on the Ministry of Education list and in the World Directory of Medical Schools, and its graduates are eligible to sit home-country licensing examinations. Registration in Pakistan is decided by the regulator, so read its current rules before you apply.'],
+        ['Is MBBS in China valid for Pakistani students?', 'Xinjiang Medical University is recognised by PMDC, is on the Ministry of Education list and in the World Directory of Medical Schools, and its graduates are eligible to sit home-country licensing examinations. Registration of each graduate in Pakistan is decided by PMDC, so read its current rules before you apply.'],
         ['Can I study MBBS in China after FSc?', 'Yes. FSc Pre-Medical with at least 60% in each science subject meets the published requirement, if you are aged 18 to 35.'],
         ['What marks do Pakistani students need for MBBS in China?', 'The published requirement at Xinjiang Medical University is a minimum of 60% in each of the science subjects.'],
         ['Is MDCAT required for the XJMU MBBS?', 'The published XJMU admission requirements do not include MDCAT. What Pakistan\'s regulator requires is a separate matter, so check its current rules.'],
-        ['How much is MBBS in China for Pakistani students?', 'For the September 2026 intake, the first-year package is ¥49,950, about USD 7,000, and each later year totals about ¥35,950, about USD 5,050. Fees for 2027 have not been announced.'],
-        ['How much is the whole six-year MBBS?', 'About ¥229,700, roughly USD 32,000, for tuition, hostel, insurance, residence permit and examinations at 2026 figures, plus food, flights and personal spending.'],
+        ['How much is MBBS in China for Pakistani students?', 'The first-year package is ¥49,950, about USD 7,000, and each later year totals about ¥35,950, about USD 5,050. The university has confirmed that fees for the 2027 intakes are the same as for 2026.'],
+        ['How much is the whole six-year MBBS?', 'About ¥229,700, roughly USD 32,000, for tuition, hostel, insurance, residence permit and examinations at the current figures, plus food, flights and personal spending.'],
         ['Is the MBBS in China taught in English?', 'Yes. The medical subjects are taught and examined in English. Introductory Chinese is taught in years 1 and 2, and HSK-4 is required by graduation.'],
         ['How long does it take to fly from Islamabad to Urumqi?', 'A direct flight takes about 2 hours 50 minutes.'],
         ['Which intakes can Pakistani students join?', 'There are two, a September/Fall intake in September and a March/Spring intake in February or March.'],

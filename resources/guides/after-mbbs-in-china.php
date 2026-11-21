@@ -49,7 +49,7 @@ return [
         ]]],
 
         ['id' => 'pakistan', 'eyebrow' => 'Pakistan', 'h' => 'Pakistan: practising after MBBS in China', 'p' => [
-            "Pakistan sends more students to China for medicine than almost any other country, and the most common question we hear is simple: can a Pakistani with an MBBS from China practise in Pakistan? The usual answer is yes, if the degree is from a university the Pakistan Medical and Dental Council (PMDC) accepts and the graduate passes the licensing examination the PMDC requires of foreign graduates.",
+            "Pakistan sends more students to China for medicine than almost any other country, and the most common question we hear is simple: can a Pakistani with an MBBS from China practise in Pakistan? The usual answer is yes, if the degree is from a university the Pakistan Medical and Dental Council (PMDC) accepts and the graduate passes the licensing examination the PMDC requires of foreign graduates. XJMU is recognised by PMDC.",
             "This examination is the National Registration Examination (NRE). Its format and schedule have changed over the years, so read the PMDC's current notices for the latest structure and dates.",
             "After passing, graduates generally complete a house job (internship) in Pakistan before full registration. Whether your internship in China counts towards that, and what you must do if it does not, is a question for the PMDC's current rules.",
         ], 'sub' => [
@@ -230,7 +230,7 @@ return [
     ],
     'faqs' => [
         ['What can I do after MBBS in China?', 'You can return home and sit your national licensing examination, prepare for routes such as USMLE in the USA or PLAB in the UK, look for work in the Gulf after gaining experience, continue to a Master\'s or doctorate, or build a non-clinical career. Each country\'s regulator sets its own rules, so check them.'],
-        ['Can a Pakistani with an MBBS from China practise in Pakistan?', 'Generally yes, if the PMDC accepts the degree and the graduate passes the PMDC\'s National Registration Examination (NRE) for foreign graduates, and then completes the house job. Read the PMDC\'s current rules before you rely on this.'],
+        ['Can a Pakistani with an MBBS from China practise in Pakistan?', 'Generally yes, if the PMDC accepts the degree and the graduate passes the PMDC\'s National Registration Examination (NRE) for foreign graduates, and then completes the house job. XJMU is recognised by PMDC. Read the PMDC\'s current rules before you rely on this.'],
         ['Can an Indian with an MBBS from China practise in India?', 'Indian graduates must meet the NMC\'s rules for foreign medical graduates, including the course conditions in the 2021 FMGL Regulations, pass the FMGE (or NExT when it replaces it) and complete a supervised internship in India. Verify the current rules with the NMC.'],
         ['Can I take the USMLE after MBBS in China?', 'Yes, if your school meets ECFMG\'s eligibility rules, and XJMU does: its students and graduates can apply for ECFMG certification and sit the USMLE. Eligibility depends on the school\'s World Directory listing and ECFMG\'s accreditation policy, which can change, so check ECFMG\'s current requirements too.'],
         ['Can I take PLAB after MBBS in China?', 'The GMC lets international graduates with an acceptable primary medical qualification take PLAB 1 and PLAB 2 after meeting its English language requirement. Check the GMC\'s current list of acceptable qualifications and its internship rules.'],

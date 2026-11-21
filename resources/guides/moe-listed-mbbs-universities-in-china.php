@@ -167,7 +167,7 @@ return [
         ['id' => 'choosing', 'eyebrow' => 'Choosing', 'h' => 'How to choose between MOE listed universities', 'p' => [
             "All 43 universities are approved, so the list alone does not tell you which one suits you. Compare them on the points that will shape your six years.",
         ], 'sub' => [
-            ['h' => 'Total cost', 'p' => ["Compare the full yearly cost, not tuition alone. At XJMU the first-year package for the September 2026 intake is ¥49,950 and each later year totals about ¥35,950."]],
+            ['h' => 'Total cost', 'p' => ["Compare the full yearly cost, not tuition alone. At XJMU the first-year package for the 2027 intakes, unchanged from 2026, is ¥49,950 and each later year totals about ¥35,950."]],
             ['h' => 'Clinical training', 'p' => ["Ask how many teaching hospitals the university has, how large they are and where international students do the internship year."]],
             ['h' => 'Location and daily life', 'p' => ["Climate, food and distance from home affect students more than they expect. Urumqi is close to Pakistan and Central Asia, and halal food is widely available."]],
             ['h' => 'Entry requirements', 'p' => ["Minimum marks differ. XJMU asks for at least 60% marks in each science subject and an age of 18 to 35."]],

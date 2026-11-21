@@ -28,7 +28,7 @@ return [
             ['Approved by', "China's Ministry of Education (MOE list, 1 June 2026)"],
             ['XJMU seats on the current list', '60'],
             ['Intakes', 'March/Spring intake and September/Fall intake'],
-            ['First-year package (September 2026 intake)', '¥49,950, about USD 7,000'],
+            ['First-year package (2027 intakes, unchanged from 2026)', '¥49,950, about USD 7,000'],
         ]]],
 
         ['id' => 'clinical-medicine-vs-mbbs', 'eyebrow' => 'Compare', 'h' => 'Clinical Medicine vs MBBS: is there a difference?', 'p' => [
@@ -135,13 +135,13 @@ return [
         ]],
 
         ['id' => 'fees', 'eyebrow' => 'Fees', 'h' => 'Clinical Medicine fees at Xinjiang Medical University', 'p' => [
-            "Fees for 2027 have not been announced. For planning, use the published structure for the September 2026 intake. The first year is charged as one all-inclusive package; from the second year, fees are charged per item.",
+            "The university has confirmed that fees for the 2027 intakes, March/Spring and September/Fall, are the same as for 2026. The first year is charged as one all-inclusive package; from the second year, fees are charged per item.",
         ], 'table' => $s['feeFirstYear'], 'sub' => [
             ['h' => 'From the second year', 'p' => [
                 "From the second year the total is about ¥35,950 a year, roughly USD 5,050. It is made up of tuition of ¥30,000, accommodation of ¥4,500, insurance of ¥300, the residence permit of ¥800 and the physical examination of ¥350.",
             ]],
             ['h' => 'Six years in total', 'p' => [
-                "Using the 2026 figures, the university fees for the full six years come to about ¥229,700, or about USD 32,000: the first-year package plus five later years. Food, transport and personal costs are extra.",
+                "Using these figures, the university fees for the full six years come to about ¥229,700, or about USD 32,000: the first-year package plus five later years. Food, transport and personal costs are extra.",
             ]],
             ['h' => 'Living costs', 'p' => [
                 "Typical monthly costs in Urumqi are USD 150–250 for food, USD 10–20 for local transport and USD 10–15 for a mobile SIM. Accommodation is in university hostels and is already part of the fee structure.",
@@ -149,7 +149,7 @@ return [
             ['h' => 'How payments are staged', 'p' => [
                 "You do not pay the whole first-year package at once. The ¥1,000 application fee comes first and counts towards the package. After the Pre-Admission Letter you pay a ¥2,000 seat reservation deposit, which is refunded if your JW202 is rejected.",
             ]],
-        ], 'note' => 'Figures are indicative for the 2026 intake; USD conversions are approximate.', 'link' => ['fees', 'See the full fee breakdown']],
+        ], 'note' => 'Figures are confirmed for the 2027 intakes and unchanged from 2026; USD conversions are approximate.', 'link' => ['fees', 'See the full fee breakdown']],
 
         ['id' => 'scholarships', 'eyebrow' => 'Funding', 'h' => 'Scholarships for Clinical Medicine students', 'p' => [
             "Two government scholarships are open to eligible international undergraduates at XJMU. The Chinese Government Scholarship (CSC) covers tuition, accommodation and insurance and pays a yearly stipend. The Xinjiang Government Scholarship supports students from neighbouring countries. These are the stipend levels the university publishes.",
@@ -237,7 +237,7 @@ return [
         ['Is Xinjiang Medical University approved for Clinical Medicine in English?', 'Yes. It is number 8 on the MOE list issued on 1 June 2026, with 60 seats for the 2026–2027 academic year.'],
         ['Do I need to speak Chinese before I start?', 'No. Lectures and examinations are in English. Chinese is taught during the degree, starting in years 1 and 2, so that you can talk with patients in the clinical years.'],
         ['What are the entry requirements at XJMU?', 'A senior high-school qualification with science subjects and at least 60% in each science subject, age 18 to 35, good health and a valid passport. You also need to show you can study in English.'],
-        ['How much does Clinical Medicine cost at XJMU?', 'For the September 2026 intake, the first-year package is ¥49,950 and each later year totals about ¥35,950, about ¥229,700 for six years. Fees for 2027 have not been announced.'],
+        ['How much does Clinical Medicine cost at XJMU?', 'The first-year package is ¥49,950 and each later year totals about ¥35,950, about ¥229,700 for six years. The university has confirmed that fees for the 2027 intakes are the same as for 2026.'],
         ['When can I start Clinical Medicine at XJMU?', 'There is a March/Spring intake, with registration around 20 February, and a September/Fall intake, with registration around 10 September.'],
         ['Will my Clinical Medicine degree from China let me practise at home?', 'XJMU graduates are eligible to sit their home country\'s licensing examination. Registration depends on passing it and meeting your medical council\'s other conditions, so check the council\'s current rules before you apply.'],
     ],

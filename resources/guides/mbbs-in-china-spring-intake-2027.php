@@ -29,7 +29,7 @@ return [
             ['Registration and orientation', 'About 20 February 2027'],
             ['Minimum marks', '60% in each of the science subjects'],
             ['Age', '18 to 35'],
-            ['First-year package (Sept. 2026 intake)', '¥49,950, about USD 7,000'],
+            ['First-year package (2027 intakes, unchanged from 2026)', '¥49,950, about USD 7,000'],
         ]]],
 
         ['id' => 'dates', 'eyebrow' => 'Dates', 'h' => 'March/Spring 2027 deadlines at a glance', 'p' => [
@@ -117,7 +117,7 @@ return [
         ]],
 
         ['id' => 'fees', 'eyebrow' => 'Fees', 'h' => 'Fees for a spring start', 'p' => [
-            "Fees for 2027 have not been announced. These are the published figures for the September 2026 intake, and they are the best guide to what to expect. Ask the admissions team for the written fee schedule that applies to the March/Spring intake before you pay the deposit.",
+            "The university has confirmed that fees for the 2027 intakes are the same as for 2026. Students who join in the March/Spring intake and students who join in the September/Fall intake pay the same published figures, which are set out below.",
         ], 'table' => $s['feeFirstYear'], 'sub' => [
             ['h' => 'From the second year', 'p' => [
                 "After the first year, fees are charged item by item. The total is about ¥35,950 a year, about USD 5,050.",
@@ -131,7 +131,7 @@ return [
         ], 'link' => ['fees', 'See the full fee breakdown']],
 
         ['id' => 'fees-yearly', 'eyebrow' => 'Fees by year', 'h' => 'Yearly fees from year 2', 'table' => $s['feeYearly'], 'p' => [
-            "Together with the first-year package, five later years of about ¥35,950 each make about ¥229,700, roughly USD 32,000, for tuition, hostel, insurance, residence permit and examinations at 2026 figures, before food, flights and personal spending.",
+            "Together with the first-year package, five later years of about ¥35,950 each make about ¥229,700, roughly USD 32,000, for tuition, hostel, insurance, residence permit and examinations at the current figures, before food, flights and personal spending.",
         ]],
 
         ['id' => 'visa-travel', 'eyebrow' => 'Visa and travel', 'h' => 'Visa, travel and arrival in February', 'p' => [
@@ -247,7 +247,7 @@ return [
         ['Is the March/Spring intake the same MBBS as the September/Fall intake?', 'It is the same English taught, six-year MBBS at an MOE listed university, with a different start date. Ask the admissions team how the first semester is arranged for spring students.'],
         ['What are the requirements for the March/Spring intake?', 'At least 60% in each of the science subjects, an age between 18 and 35, good health, a valid passport and a senior high-school certificate with science subjects.'],
         ['How long does it take to receive the admission letter?', 'After review, the admission letter and JW202 form take two to four weeks to issue.'],
-        ['How much does the MBBS cost for a spring start?', 'For the September 2026 intake, the first-year package is ¥49,950, about USD 7,000, and each later year totals about ¥35,950, about USD 5,050. Fees for 2027 have not been announced.'],
+        ['How much does the MBBS cost for a spring start?', 'The same as for the September/Fall intake: the first-year package is ¥49,950, about USD 7,000, and each later year totals about ¥35,950, about USD 5,050. The university has confirmed that fees for the 2027 intakes are the same as for 2026.'],
         ['Is there an application fee?', 'Yes, ¥1,000 for the application and ¥2,000 for the seat reservation deposit, which is paid after the Pre-Admission Letter.'],
         ['Can I still apply if I miss the early deadline?', 'You can apply until the regular deadline of 15 January, but a late application leaves little time for review, the visa and travel, and you may miss scholarship consideration.'],
         ['Which visa do I need?', 'The X1 student visa, for study longer than six months, which is converted to a residence permit after arrival.'],
