@@ -370,12 +370,24 @@ function setupDocumentsForm() {
       return;
     }
 
+    // One upload at a time: a second click while files are still uploading used to save the same files twice.
+    var saveBtn = documentForm.querySelector('button[type="submit"]');
+    if (documentForm.getAttribute('data-uploading') === '1') { return; }
+    documentForm.setAttribute('data-uploading', '1');
+    var saveLabel = saveBtn ? saveBtn.textContent : '';
+    if (saveBtn) { saveBtn.disabled = true; saveBtn.textContent = 'Uploading, please wait...'; }
+    var uploadDone = function () {
+      documentForm.removeAttribute('data-uploading');
+      if (saveBtn) { saveBtn.disabled = false; saveBtn.textContent = saveLabel; }
+    };
+
     fetch('save_documents.php', {
       method: 'POST',
       body: formData
     })
       .then(function (res) { return res.json(); })
       .then(function (data) {
+        uploadDone();
         if (data.status === 'success') {
           if (errorMsg) errorMsg.style.display = 'none';
           if (successMsg) {
@@ -402,6 +414,7 @@ function setupDocumentsForm() {
         }
       })
       .catch(function (err) {
+        uploadDone();
         console.error('Upload error:', err);
         if (successMsg) successMsg.style.display = 'none';
         if (errorMsg) {

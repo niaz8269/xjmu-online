@@ -60,6 +60,8 @@ class DocumentUploader
     {
         $errors = [];
         $success = 0;
+        $duplicates = 0;
+        $known = [];   // document id => [md5 => true] of the files this applicant already has in that slot
 
         $generalDir = public_path('uploads/admissions');
         $videoDir = public_path('uploads/videos');
@@ -115,6 +117,23 @@ class DocumentUploader
                 continue;
             }
 
+            // The same file again for the same document (double click, slow connection, re-upload): keep one copy only.
+            if (! isset($known[$documentId])) {
+                $known[$documentId] = [];
+                foreach (Document::query()->where('user_id', $userId)->where('document_id', $documentId)->pluck('file_path') as $existing) {
+                    $existingPath = public_path((string) $existing);
+                    if (is_file($existingPath) && filesize($existingPath) <= self::VIDEO_MAX_BYTES) {
+                        $known[$documentId][md5_file($existingPath)] = true;
+                    }
+                }
+            }
+            $hash = md5_file($file->getPathname());
+            if (isset($known[$documentId][$hash])) {
+                $duplicates++;
+                continue;
+            }
+            $known[$documentId][$hash] = true;
+
             $relativeDir = $isVideo ? 'uploads/videos/' : 'uploads/admissions/';
             $uniqueName = 'user_' . $userId . '_doc_' . $documentId . '_' . time() . '_' . uniqid() . '.' . $extension;
 
@@ -137,7 +156,7 @@ class DocumentUploader
             $success++;
         }
 
-        return ['errors' => $errors, 'success' => $success];
+        return ['errors' => $errors, 'success' => $success, 'duplicates' => $duplicates];
     }
 
     public function log(string $message, int $userId): void

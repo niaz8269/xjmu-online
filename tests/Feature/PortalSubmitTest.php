@@ -116,9 +116,9 @@ class PortalSubmitTest extends PortalCase
 
     public function test_upload_accepts_several_files_and_array_inputs_and_keeps_every_upload(): void
     {
-        $this->upload(['document_5' => [$this->pdf('a.pdf'), $this->pdf('b.pdf')], 'document_2' => $this->image('p.png')])
+        $this->upload(['document_5' => [$this->pdf('a.pdf'), $this->pdf('b.pdf', 2)], 'document_2' => $this->image('p.png')])
             ->assertExactJson(['status' => 'success', 'message' => '3 file(s) uploaded successfully.']);
-        $this->upload(['document_2' => $this->image('q.png')])->assertJson(['status' => 'success']);
+        $this->upload(['document_2' => $this->pdf('q.pdf', 3)])->assertJson(['status' => 'success']);
         $this->assertSame(2, Document::query()->where('document_id', 2)->count());   // old files are not replaced
     }
 
@@ -228,5 +228,24 @@ class PortalSubmitTest extends PortalCase
         // Signed out: sent to the login page.
         $this->flushSession();
         $this->get('/my-document?id=' . $doc->id)->assertRedirect(get_absolute_url('login'));
+    }
+
+    public function test_the_same_file_uploaded_again_for_the_same_document_is_kept_once(): void
+    {
+        $this->upload(['document_1' => $this->pdf('photo.pdf')])->assertJson(['status' => 'success']);
+        // again (double click / retry), under another name too
+        $this->upload(['document_1' => $this->pdf('photo.pdf')])
+            ->assertExactJson(['status' => 'success', 'message' => 'This file is already uploaded. Nothing was added again.']);
+        $this->upload(['document_1' => [$this->pdf('copy.pdf'), $this->pdf('new.pdf', 2)]])
+            ->assertExactJson(['status' => 'success', 'message' => '1 file(s) uploaded successfully. 1 file(s) were already uploaded and were not added again.']);
+        $this->assertSame(2, Document::query()->where('document_id', 1)->count());
+
+        // The same file in ANOTHER document slot is a different upload and is kept.
+        $this->upload(['document_7' => $this->pdf('photo.pdf')])->assertJson(['status' => 'success']);
+        $this->assertSame(1, Document::query()->where('document_id', 7)->count());
+
+        // Two identical files in one request: one copy.
+        $this->upload(['document_4' => [$this->pdf('x.pdf', 3), $this->pdf('y.pdf', 3)]])->assertJson(['status' => 'success']);
+        $this->assertSame(1, Document::query()->where('document_id', 4)->count());
     }
 }

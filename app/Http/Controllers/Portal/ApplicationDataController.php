@@ -196,7 +196,11 @@ class ApplicationDataController extends Controller
             return response()->json(['status' => 'error', 'errors' => $result['errors']]);
         }
         if ($result['success'] > 0) {
-            return response()->json(['status' => 'success', 'message' => $result['success'] . ' file(s) uploaded successfully.']);
+            return response()->json(['status' => 'success', 'message' => $result['success'] . ' file(s) uploaded successfully.'
+                . (! empty($result['duplicates']) ? ' ' . $result['duplicates'] . ' file(s) were already uploaded and were not added again.' : '')]);
+        }
+        if (! empty($result['duplicates'])) {
+            return response()->json(['status' => 'success', 'message' => 'This file is already uploaded. Nothing was added again.']);
         }
         return response()->json(['status' => 'error', 'errors' => ['No files were processed. Please check selected files and try again.']]);
     }
