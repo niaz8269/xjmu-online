@@ -108,8 +108,12 @@
 			height: 60px;
 		}
 	</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/portal-auth.css?v=2">
 </head>
-<body class="d-flex flex-column min-vh-100">
+<body class="d-flex flex-column min-vh-100 portal-auth">
 
 	<nav class="navbar navbar-expand-lg bg-white sticky-top shadow-sm py-2">
 		<div class="container">
