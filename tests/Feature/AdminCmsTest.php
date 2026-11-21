@@ -149,4 +149,40 @@ class AdminCmsTest extends TestCase
         // The contact phone in the search-engine data comes from Site Settings (fallback when unset).
         $this->assertStringContainsString('"telephone": "+86-176-4041-2827"', $this->get('/')->getContent());
     }
+
+    public function test_guide_image_and_table_can_be_edited_safely(): void
+    {
+        $admin = $this->admin();
+        $slug = 'mbbs-in-china-fees-2027';
+        $original = config('seo_guides.' . $slug);
+        $withTable = collect($original['sections'])->search(fn ($sec) => ! empty($sec['table']) && ! empty($sec['img']));
+        $this->assertNotFalse($withTable);
+        $cols = count($original['sections'][$withTable]['table']['head']);
+        $rowLine = fn (string $v) => implode(' | ', array_fill(0, $cols, $v));
+
+        $base = ['_token' => 'tok', 'title' => $original['title'], 'description' => $original['description'], 'h1' => $original['h1'], 'lead' => $original['lead']];
+        $this->withSession($admin)->post('/admin/guide-edit?slug=' . $slug, $base + ['sec' => [$withTable => [
+            'img' => ['caption' => 'New caption', 'alt' => 'New description', 'src' => '../.env'],
+            'table' => ['caption' => 'New table caption', 'rows' => $rowLine('Head') . "\n" . $rowLine('A <b>') . "\n" . $rowLine('B')],
+        ]]])->assertRedirect();
+        $this->reload();
+        $sec = config('seo_guides.' . $slug . '.sections.' . $withTable);
+        $this->assertSame('New caption', $sec['img']['caption']);
+        $this->assertSame($original['sections'][$withTable]['img']['src'], $sec['img']['src']);   // a bad file path is ignored
+        $this->assertSame('New table caption', $sec['table']['caption']);
+        $this->assertCount(2, $sec['table']['rows']);
+        $html = $this->get('/' . $slug)->assertOk()->getContent();
+        $this->assertStringContainsString('A &lt;b&gt;', $html);
+        $this->assertStringContainsString('New caption', $html);
+
+        // A ragged table (wrong number of cells) is refused; a real image file is accepted.
+        $this->withSession($admin)->post('/admin/guide-edit?slug=' . $slug, $base + ['sec' => [$withTable => [
+            'img' => ['src' => 'images/class1.webp'],
+            'table' => ['rows' => $rowLine('Head') . "\nonly one cell" . ($cols === 1 ? ' | extra' : '')],
+        ]]]);
+        $this->reload();
+        $sec = config('seo_guides.' . $slug . '.sections.' . $withTable);
+        $this->assertSame('images/class1.webp', $sec['img']['src']);
+        $this->assertSame($original['sections'][$withTable]['table']['rows'], $sec['table']['rows']);
+    }
 }

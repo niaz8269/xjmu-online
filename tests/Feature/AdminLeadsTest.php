@@ -105,4 +105,26 @@ class AdminLeadsTest extends TestCase
         $this->assertSame('cy@example.test', DB::table('crm_leads')->value('email'));
         $this->assertSame('contact', DB::table('crm_leads')->value('source'));
     }
+
+    public function test_reminder_email_is_sent_once_a_day_and_recorded(): void
+    {
+        $admin = $this->admin();
+        $mailer = app(\App\Services\SiteMailer::class);
+        $this->app->instance(\App\Services\SiteMailer::class, $mailer);
+        $id = \App\Services\Leads::capture('contact', ['name' => 'Dee <b>', 'email' => 'dee@example.test', 'message' => 'Hi']);
+        $none = DB::table('crm_leads')->insertGetId(['source' => 'phone', 'name' => 'NoMail', 'status' => 'New', 'created_at' => now(), 'updated_at' => now()]);
+
+        $this->withSession($admin)->post('/admin/lead?id=' . $id, ['_token' => 'tok', 'action' => 'remind'])->assertRedirect('/admin/lead?id=' . $id);
+        $sent = array_values(array_filter($mailer->outbox, fn ($m) => ($m['to'] ?? '') === 'dee@example.test'));
+        $this->assertCount(1, $sent);
+        $this->assertStringContainsString('Dear Dee &lt;b&gt;,', $sent[0]['html']);
+        $this->assertStringContainsString('Start my application', $sent[0]['html']);
+        $this->assertSame('Contacted', DB::table('crm_leads')->where('id', $id)->value('status'));
+        $this->assertSame(1, DB::table('crm_lead_notes')->where('lead_id', $id)->where('note', 'like', 'Reminder email sent%')->count());
+
+        // A second click the same day sends nothing; a lead without an email sends nothing.
+        $this->withSession($admin)->post('/admin/lead?id=' . $id, ['_token' => 'tok', 'action' => 'remind']);
+        $this->withSession($admin)->post('/admin/lead?id=' . $none, ['_token' => 'tok', 'action' => 'remind']);
+        $this->assertCount(1, array_filter($mailer->outbox, fn ($m) => str_contains($m['subject'] ?? '', 'Your MBBS application')));
+    }
 }

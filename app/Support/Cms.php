@@ -142,6 +142,26 @@ class Cms
             if (! empty($sec['p']) && is_array($sec['p'])) {
                 $guide['sections'][$i]['p'] = array_values($sec['p']);
             }
+            // Image: caption, description (alt text) and file; only where the built-in section already has an image.
+            if (isset($guide['sections'][$i]['img']) && is_array($sec['img'] ?? null)) {
+                foreach (['alt', 'caption', 'src'] as $field) {
+                    if (isset($sec['img'][$field]) && trim((string) $sec['img'][$field]) !== '') {
+                        $guide['sections'][$i]['img'][$field] = (string) $sec['img'][$field];
+                    }
+                }
+            }
+            // Table: caption, heading row and rows; only where the built-in section already has a table.
+            if (isset($guide['sections'][$i]['table']) && is_array($sec['table'] ?? null)) {
+                if (isset($sec['table']['caption']) && trim((string) $sec['table']['caption']) !== '') {
+                    $guide['sections'][$i]['table']['caption'] = (string) $sec['table']['caption'];
+                }
+                if (! empty($sec['table']['head']) && is_array($sec['table']['head'])) {
+                    $guide['sections'][$i]['table']['head'] = array_values($sec['table']['head']);
+                }
+                if (! empty($sec['table']['rows']) && is_array($sec['table']['rows'])) {
+                    $guide['sections'][$i]['table']['rows'] = array_values($sec['table']['rows']);
+                }
+            }
             foreach ((array) ($sec['sub'] ?? []) as $j => $sub) {
                 if (! isset($guide['sections'][$i]['sub'][$j]) || ! is_array($sub)) {
                     continue;

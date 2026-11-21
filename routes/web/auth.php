@@ -20,6 +20,7 @@ Route::get('/login', [LoginController::class, 'show'])->name('login');
 Route::get('/login.php', [LoginController::class, 'show']);
 Route::post('/login', [LoginController::class, 'login'])->middleware('throttle:30,1');
 Route::post('/login.php', [LoginController::class, 'login'])->middleware('throttle:30,1');
+Route::match(['get', 'post'], '/admin-verify', [LoginController::class, 'verifyCode'])->middleware('throttle:20,1');
 Route::match(['get', 'post'], '/logout', [LoginController::class, 'logout'])->name('logout');
 Route::match(['get', 'post'], '/logout.php', [LoginController::class, 'logout']);
 

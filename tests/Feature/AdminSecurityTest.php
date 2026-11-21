@@ -164,4 +164,63 @@ class AdminSecurityTest extends TestCase
         $this->withSession($s)->get('/admin/users?verified=1')->assertOk()->assertSee('vera@example.test')->assertDontSee('uno@example.test');
         $this->withSession($s)->get('/admin/users?verified=x')->assertOk()->assertSee('vera@example.test')->assertSee('uno@example.test');
     }
+
+    public function test_two_step_sign_in_for_admins_when_switched_on(): void
+    {
+        config(['security.admin_two_step' => true]);
+        $mailer = app(\App\Services\SiteMailer::class);
+        $this->app->instance(\App\Services\SiteMailer::class, $mailer);
+        $id = DB::table('users')->insertGetId(['full_name' => 'Boss', 'email' => 'boss2@example.com',
+            'password' => password_hash('Correct-Horse-1', PASSWORD_DEFAULT), 'role' => 'admin', 'is_verified' => 1]);
+        DB::table('users')->insert(['full_name' => 'Stu', 'email' => 'stu2@example.com',
+            'password' => password_hash('Correct-Horse-1', PASSWORD_DEFAULT), 'role' => 'user', 'is_verified' => 1]);
+
+        // Password alone does not open the admin panel.
+        $this->post('/login', ['email' => 'boss2@example.com', 'password' => 'Correct-Horse-1'])->assertSee('admin-verify', false);
+        $this->assertNull(session('user_id'));
+        $this->get('/admin/dashboard')->assertRedirect('/login');
+        $mail = collect($mailer->outbox)->last();
+        $this->assertSame('boss2@example.com', $mail['to']);
+        preg_match('/\b(\d{6})\b/', $mail['text'], $m);
+        $this->get('/admin-verify')->assertOk()->assertSee('bo***@example.com');
+
+        // Wrong code: still locked out. Right code: signed in.
+        $this->post('/admin-verify', ['code' => $m[1] === '000000' ? '111111' : '000000'])->assertOk()->assertSee('That code is not correct');
+        $this->assertNull(session('user_id'));
+        $this->post('/admin-verify', ['code' => $m[1]])->assertSee('admin/dashboard', false);
+        $this->assertSame($id, session('user_id'));
+        $this->get('/admin/dashboard')->assertOk();
+        $this->assertNull(session('admin_pending'));
+
+        // Students are not asked for a code.
+        $this->flushSession();
+        $this->post('/login', ['email' => 'stu2@example.com', 'password' => 'Correct-Horse-1'])->assertSee('front', false);
+    }
+
+    public function test_two_step_code_expires_and_locks_after_too_many_wrong_tries(): void
+    {
+        config(['security.admin_two_step' => true]);
+        DB::table('users')->insert(['full_name' => 'Boss', 'email' => 'boss3@example.com',
+            'password' => password_hash('Correct-Horse-1', PASSWORD_DEFAULT), 'role' => 'admin', 'is_verified' => 1]);
+        $this->post('/login', ['email' => 'boss3@example.com', 'password' => 'Correct-Horse-1']);
+        for ($i = 0; $i < 4; $i++) {
+            $this->post('/admin-verify', ['code' => '12'])->assertOk();
+        }
+        $this->post('/admin-verify', ['code' => '12'])->assertSee('Too many wrong codes');
+        $this->assertNull(session('admin_pending'));
+
+        $this->post('/login', ['email' => 'boss3@example.com', 'password' => 'Correct-Horse-1']);
+        $pending = session('admin_pending');
+        $this->withSession(['admin_pending' => ['expires' => time() - 1] + $pending])->post('/admin-verify', ['code' => '123456'])
+            ->assertSee('Your sign-in code has expired');
+        $this->get('/admin-verify')->assertRedirect();
+    }
+
+    public function test_admin_sign_in_is_unchanged_while_two_step_is_off(): void
+    {
+        DB::table('users')->insert(['full_name' => 'Boss', 'email' => 'boss4@example.com',
+            'password' => password_hash('Correct-Horse-1', PASSWORD_DEFAULT), 'role' => 'admin', 'is_verified' => 1]);
+        $this->post('/login', ['email' => 'boss4@example.com', 'password' => 'Correct-Horse-1'])->assertSee('admin/dashboard', false);
+        $this->get('/admin/dashboard')->assertOk();
+    }
 }

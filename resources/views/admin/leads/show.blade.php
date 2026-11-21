@@ -24,6 +24,13 @@
         <dt class="col-4">Source</dt><dd class="col-8">{{ $sources[$lead['source']] ?? $lead['source'] }}</dd>
         @if ($lead['subject'])<dt class="col-4">Subject</dt><dd class="col-8">{{ $lead['subject'] }}</dd>@endif
       </dl>
+      @if ($lead['email'])
+        <form method="post" class="mt-3" onsubmit="return confirm('Send a reminder email to {{ $lead['email'] }} now?');">
+          @csrf
+          <input type="hidden" name="action" value="remind">
+          <button class="btn btn-sm btn-outline-primary" type="submit"><i class="bi bi-envelope-paper me-1"></i>Send reminder email</button>
+        </form>
+      @endif
       @if ($lead['message'])
         <hr>
         <h3 class="h6 text-uppercase text-muted">First message</h3>

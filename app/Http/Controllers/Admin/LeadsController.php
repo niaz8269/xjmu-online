@@ -159,6 +159,27 @@ class LeadsController extends AdminController
                     DB::table('crm_leads')->where('id', $id)->update(['updated_at' => now()]);
                     session()->put('lead_flash', 'Note added.');
                 }
+            } elseif ($action === 'remind') {
+                // One reminder email to this lead, sent only when an admin presses the button.
+                $lastSent = DB::table('crm_lead_notes')->where('lead_id', $id)->where('note', 'like', 'Reminder email sent%')->max('created_at');
+                if (! filter_var((string) $lead->email, FILTER_VALIDATE_EMAIL)) {
+                    session()->put('lead_flash', 'This lead has no valid email address.');
+                } elseif ($lastSent && strtotime((string) $lastSent) > time() - 86400) {
+                    session()->put('lead_flash', 'A reminder was already sent to this lead in the last 24 hours.');
+                } else {
+                    $html = view('emails.lead-reminder', ['name' => $lead->name, 'registered' => ! empty($lead->user_id), 'portalUrl' => 'https://xjmu.online/login'])->render();
+                    $text = trim(preg_replace('/\n{3,}/', "\n\n", strip_tags(str_replace(['<br>', '</p>', '</li>'], "\n", $html))));
+                    $sent = app(\App\Services\SiteMailer::class)->sendViaSmtp((string) $lead->email, (string) $lead->name,
+                        'Your MBBS application at Xinjiang Medical University', $html, $text, 'Lead reminder');
+                    if ($sent) {
+                        Leads::note($id, 'Reminder email sent to ' . $lead->email . '.', $this->adminId($request), $who);
+                        DB::table('crm_leads')->where('id', $id)->update(['status' => $lead->status === 'New' ? 'Contacted' : $lead->status, 'updated_at' => now()]);
+                        Audit::record('leads.reminder', ['lead' => $id]);
+                        session()->put('lead_flash', 'Reminder email sent.');
+                    } else {
+                        session()->put('lead_flash', 'The email could not be sent. Please try again later.');
+                    }
+                }
             } elseif ($action === 'delete') {
                 DB::table('crm_lead_notes')->where('lead_id', $id)->delete();
                 DB::table('crm_leads')->where('id', $id)->delete();

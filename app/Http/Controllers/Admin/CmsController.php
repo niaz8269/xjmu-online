@@ -130,6 +130,35 @@ class CmsController extends AdminController
                     continue;
                 }
                 $row = array_filter(['h' => $this->line($sec['h'] ?? '', 200), 'p' => $this->paragraphs($sec['p'] ?? '')]);
+                if (isset($guide['sections'][$i]['img'])) {
+                    $src = ltrim(trim((string) ($sec['img']['src'] ?? '')), '/');
+                    $img = array_filter([
+                        'alt' => $this->line($sec['img']['alt'] ?? '', 300),
+                        'caption' => $this->line($sec['img']['caption'] ?? '', 300),
+                        // Only an existing image file inside the site's own image folders.
+                        'src' => preg_match('~^(images|assets/images|uploads/(blogs|gallery|events))/[A-Za-z0-9 ._()-]+\.(webp|jpe?g|png)$~i', $src)
+                            && is_file(public_path($src)) ? $src : '',
+                    ]);
+                    if ($img) {
+                        $row['img'] = $img;
+                    }
+                }
+                if (isset($guide['sections'][$i]['table'])) {
+                    $lines = array_values(array_filter(array_map('trim', preg_split('/\R/', (string) ($sec['table']['rows'] ?? ''))), fn ($l) => $l !== ''));
+                    $cells = fn (string $line) => array_map(fn ($c) => $this->line($c, 300), explode('|', $line));
+                    $table = array_filter([
+                        'caption' => $this->line($sec['table']['caption'] ?? '', 300),
+                        'head' => $lines ? $cells(array_shift($lines)) : [],
+                        'rows' => array_map($cells, $lines),
+                    ]);
+                    // Keep the table rectangular: every row needs as many cells as the heading row.
+                    if (! empty($table['head']) && ! empty($table['rows'])
+                        && count(array_filter($table['rows'], fn ($r) => count($r) !== count($table['head']))) === 0) {
+                        $row['table'] = $table;
+                    } elseif (! empty($table['caption'])) {
+                        $row['table'] = ['caption' => $table['caption']];
+                    }
+                }
                 foreach ((array) ($sec['sub'] ?? []) as $j => $sub) {
                     $j = (int) $j;
                     if (isset($guide['sections'][$i]['sub'][$j])) {

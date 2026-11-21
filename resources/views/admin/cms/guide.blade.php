@@ -43,7 +43,7 @@
 
   <div class="card mb-3"><div class="card-body">
     <h2 class="h6 text-uppercase text-muted mb-1">Sections</h2>
-    <p class="small text-muted">Leave a blank line between paragraphs. Images, tables, lists and charts in a section are kept as they are.</p>
+    <p class="small text-muted">Leave a blank line between paragraphs. Lists and charts in a section are kept as they are.</p>
     <div class="accordion" id="secs">
       @foreach ($guide['sections'] as $i => $sec)
         <div class="accordion-item">
@@ -53,7 +53,34 @@
             <input id="sh{{ $i }}" name="sec[{{ $i }}][h]" class="form-control form-control-sm mb-2" maxlength="200" value="{{ $sec['h'] }}">
             <label class="form-label small mb-1" for="sp{{ $i }}">Text</label>
             <textarea id="sp{{ $i }}" name="sec[{{ $i }}][p]" class="form-control form-control-sm" rows="{{ min(14, max(4, count($sec['p'] ?? []) * 3)) }}">{{ implode("\n\n", $sec['p'] ?? []) }}</textarea>
-            @php $extras = array_filter(['an image' => !empty($sec['img']), 'a table' => !empty($sec['table']), 'a list' => !empty($sec['list']), 'a chart' => !empty($sec['charts'])]); @endphp
+            @if (!empty($sec['img']))
+              <div class="border rounded-3 p-2 mt-3">
+                <div class="d-flex gap-3 align-items-start">
+                  <img src="../{{ $sec['img']['src'] }}" alt="" style="width:120px;height:80px;object-fit:cover;border-radius:8px">
+                  <div class="flex-grow-1">
+                    <label class="form-label small mb-1" for="ic{{ $i }}">Image caption (shown under the picture)</label>
+                    <input id="ic{{ $i }}" name="sec[{{ $i }}][img][caption]" class="form-control form-control-sm mb-2" maxlength="300" value="{{ $sec['img']['caption'] ?? '' }}">
+                    <label class="form-label small mb-1" for="ia{{ $i }}">Image description (for Google and screen readers)</label>
+                    <input id="ia{{ $i }}" name="sec[{{ $i }}][img][alt]" class="form-control form-control-sm mb-2" maxlength="300" value="{{ $sec['img']['alt'] ?? '' }}">
+                    <label class="form-label small mb-1" for="is{{ $i }}">Image file</label>
+                    <input id="is{{ $i }}" name="sec[{{ $i }}][img][src]" class="form-control form-control-sm" maxlength="200" value="{{ $sec['img']['src'] }}">
+                    <div class="form-text">A picture already on the site, for example <code>images/class1.webp</code> or a blog image from <code>uploads/blogs/</code>. A file that does not exist is ignored.</div>
+                  </div>
+                </div>
+              </div>
+            @endif
+            @if (!empty($sec['table']))
+              <div class="border rounded-3 p-2 mt-3">
+                <label class="form-label small mb-1" for="tc{{ $i }}">Table caption</label>
+                <input id="tc{{ $i }}" name="sec[{{ $i }}][table][caption]" class="form-control form-control-sm mb-2" maxlength="300" value="{{ $sec['table']['caption'] ?? '' }}">
+                <label class="form-label small mb-1" for="tr{{ $i }}">Table (one row per line, cells separated by <code>|</code>; the first line is the heading row)</label>
+                <textarea id="tr{{ $i }}" name="sec[{{ $i }}][table][rows]" class="form-control form-control-sm font-monospace" rows="{{ min(16, count($sec['table']['rows']) + 2) }}" wrap="off">{{ implode(' | ', $sec['table']['head']) }}
+@foreach ($sec['table']['rows'] as $tr){{ implode(' | ', $tr) }}
+@endforeach</textarea>
+                <div class="form-text">Every row needs the same number of cells as the heading row, or the table is left as it was.</div>
+              </div>
+            @endif
+            @php $extras = array_filter(['a list' => !empty($sec['list']), 'a chart' => !empty($sec['charts'])]); @endphp
             @if ($extras)<div class="form-text">This section also has {{ implode(', ', array_keys($extras)) }} (not editable here).</div>@endif
             @foreach ($sec['sub'] ?? [] as $j => $sub)
               <div class="border-start border-3 ps-3 mt-3">

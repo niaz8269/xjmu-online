@@ -6,7 +6,7 @@
 @endif
 
 <div class="card"><div class="card-body">
-  <p class="small text-muted">Each guide is a long page written for one group of Google searches. You can edit its title, description, quick answer, key facts, section text and FAQs. Images, tables and charts stay as they are.</p>
+  <p class="small text-muted">Each guide is a long page written for one group of Google searches. You can edit its title, description, quick answer, key facts, section text, image captions, tables and FAQs. Lists and charts stay as they are.</p>
   <div class="table-responsive">
     <table class="table table-hover align-middle mb-0">
       <thead><tr><th>Guide</th><th>Address</th><th>FAQs</th><th>Updated</th><th></th><th></th></tr></thead>
