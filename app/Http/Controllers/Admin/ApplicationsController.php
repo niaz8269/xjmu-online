@@ -21,6 +21,19 @@ class ApplicationsController extends AdminController
     /** The review statuses an admin can set (same list as the review page). */
     public const REVIEW_STATUSES = ['Pending', 'Approved', 'Rejected'];
 
+    /** Document slots of the application form (same ids and names as the applicant's form). */
+    public const DOCUMENT_NAMES = [
+        1 => 'ID Photo', 2 => 'Certificates of Highest Education', 3 => 'Transcripts of Highest Education', 4 => 'Study Plan',
+        5 => 'Reference I', 6 => 'Reference II', 7 => 'Passport Home Page', 8 => 'Physical Examination Record for Foreigner',
+        11 => 'Self Introduction Video', 12 => 'Chinese Language Proficiency Certificate',
+        13 => 'English Language Proficiency Certificate', 14 => 'Pre-admission Letter', 15 => 'Non-Criminal Record Report',
+    ];
+
+    private const REQUIRED_DOCUMENTS = [
+        1 => 'ID Photo', 2 => 'Certificates of Highest Education', 3 => 'Transcripts of Highest Education', 4 => 'Study Plan',
+        7 => 'Passport Home Page', 8 => 'Physical Examination Record for Foreigner', 15 => 'Non-Criminal Record Report',
+    ];
+
     /** GET /admin/applications */
     public function index(Request $request)
     {
@@ -138,7 +151,12 @@ class ApplicationsController extends AdminController
                 if (in_array($appStatus, self::REVIEW_STATUSES, true)) {
                     $changes['status'] = $appStatus;
                 }
+                $before = DB::table('applications')->where('user_id', $userId)->first(['status', 'admin_remark']);
                 $n = DB::table('applications')->where('user_id', $userId)->update($changes);
+                if ($before && $n > 0) {
+                    $this->recordDecision($request, $userId, (string) $before->status, (string) ($changes['status'] ?? $before->status),
+                        (string) $before->admin_remark, $status);
+                }
                 $message = $n > 0
                     ? 'Remark updated successfully.'
                     : 'No application exists for this user, so nothing was updated.';
@@ -206,13 +224,27 @@ class ApplicationsController extends AdminController
             return $this->plain('Invalid user ID.');
         }
 
+        if ($request->isMethod('post') && $this->post($request, 'action') === 'note') {
+            $note = trim($this->post($request, 'note'));
+            if ($note !== '' && DB::table('applications')->where('user_id', $userId)->exists()) {
+                \App\Services\ApplicationLog::note($userId, $note, $request);
+                session()->put('review_flash', 'Note added.');
+            }
+
+            return redirect('/admin/review_application?id=' . $userId);
+        }
+
         if ($request->isMethod('post')) {
             $newStatus = $this->post($request, 'status');
             if (! in_array($newStatus, ['Pending', 'Approved', 'Rejected'], true)) {
                 $newStatus = 'Pending';
             }
             $adminRemark = trim($this->post($request, 'admin_remark'));
+            $before = DB::table('applications')->where('user_id', $userId)->first(['status', 'admin_remark']);
             DB::table('applications')->where('user_id', $userId)->update(['status' => $newStatus, 'admin_remark' => $adminRemark]);
+            if ($before) {
+                $this->recordDecision($request, $userId, (string) $before->status, $newStatus, (string) $before->admin_remark, $adminRemark);
+            }
 
             session()->put('flash', 'Application has been updated successfully.');
             return redirect('/admin/applications');
@@ -228,8 +260,26 @@ class ApplicationsController extends AdminController
         $edu_records = $this->rows(DB::table('education_records')->where('user_id', $userId)->get());
         $documents = $this->rows(DB::table('documents')->where('user_id', $userId)->get());
 
+        $have = array_map('intval', array_column($documents, 'document_id'));
+        $missingDocuments = array_values(array_diff_key(self::REQUIRED_DOCUMENTS, array_flip($have)));
+
         return $this->page('admin.applications.review', 'Review Application', 'applications', null,
-            compact('app', 'personal', 'edu_records', 'documents'));
+            compact('app', 'personal', 'edu_records', 'documents', 'missingDocuments') + [
+                'documentNames' => self::DOCUMENT_NAMES,
+                'history' => \App\Services\ApplicationLog::for($userId),
+                'notifyEnabled' => \App\Services\StudentNotifier::enabled(),
+                'flash' => session()->pull('review_flash'),
+            ]);
+    }
+
+    /** Write the status history entry and (when switched on) email the applicant. Only when something changed. */
+    private function recordDecision(Request $request, int $userId, string $oldStatus, string $newStatus, string $oldRemark, string $newRemark): void
+    {
+        if ($oldStatus === $newStatus && $oldRemark === $newRemark) {
+            return;
+        }
+        \App\Services\ApplicationLog::status($userId, $oldStatus, $newStatus, $newRemark, $request);
+        app(\App\Services\StudentNotifier::class)->statusChanged($userId, $newStatus, $newRemark !== $oldRemark || $newStatus !== $oldStatus ? $newRemark : '');
     }
 
     /** POST /admin/delete_application (anything else bounces back to the list) */
@@ -253,6 +303,7 @@ class ApplicationsController extends AdminController
                 DB::table('education_records')->where('user_id', $userId)->delete();
                 DB::table('documents')->where('user_id', $userId)->delete();
                 DB::table('applications')->where('user_id', $userId)->delete();
+                DB::table('crm_application_log')->where('user_id', $userId)->delete();
             });
 
             foreach ($filePaths as $relPath) {

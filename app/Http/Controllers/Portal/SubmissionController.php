@@ -158,6 +158,9 @@ class SubmissionController extends Controller
             'is_submitted' => 1, 'submitted_at' => now(), 'status' => 'Pending', 'updated_at' => now(),
         ]);
 
+        \App\Services\ApplicationLog::status((int) $userId, 'draft', 'Pending', 'Application submitted by the applicant.');
+        app(\App\Services\StudentNotifier::class)->submitted((int) $userId);
+
         return response()->json(['status' => 'success', 'message' => 'Application submitted successfully']);
     }
 

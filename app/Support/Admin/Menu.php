@@ -10,10 +10,7 @@ class Menu
         return [
             'dashboard'   => ['Dashboard', 'bi-speedometer2', 'dashboard'],
             'leads'       => ['Leads', 'bi-person-lines-fill', 'leads'],
-            '_apps'       => ['Applications', 'bi-file-earmark-text', null, [
-                'applications'        => ['All Submissions', 'applications'],
-                'manage-applications' => ['Status & Remarks', 'manage-applications'],
-            ]],
+            'applications' => ['Applications', 'bi-file-earmark-text', 'applications'],
             'users'       => ['Users', 'bi-people', 'users'],
             '_content'    => ['Content', 'bi-collection', null, [
                 'manage-blogs'        => ['Blogs', 'manage-blogs'],

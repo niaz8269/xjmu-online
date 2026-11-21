@@ -45,8 +45,10 @@ class AdminApplicationsTest extends TestCase
     {
         $this->applicant();
         $r = $this->withSession($this->admin())->get('/admin/applications?search=stu&filter=submitted');
-        $r->assertOk()->assertSee('Stu Dent (stu@example.com)', false)->assertSee('name="_token"', false)
-            ->assertSee('action="delete_application"', false)->assertSee('Showing 1 of 1', false);
+        // One table row per applicant; the delete form now lives on the application page.
+        $r->assertOk()->assertSee('Stu Dent', false)->assertSee('stu@example.com', false)
+            ->assertSee('review_application?id=', false)->assertSee('Showing 1 of 1', false)
+            ->assertDontSee('action="delete_application"', false);
         $this->withSession($this->admin())->get('/admin/applications.php?filter=unsubmitted&search=zzz')->assertOk()->assertSee('No unsubmitted applications', false);
     }
 
@@ -164,5 +166,50 @@ class AdminApplicationsTest extends TestCase
         unlink($dir . '/passport.txt');
         @rmdir($dir);
         $this->withSession($s)->get('/admin/download_application')->assertSee('User ID not provided.');
+    }
+
+    public function test_application_page_has_notes_history_documents_and_the_delete_form(): void
+    {
+        $uid = $this->applicant();
+        $s = $this->admin() + ['_token' => 'tok'];
+
+        $this->withSession($s)->get('/admin/review_application?id=' . $uid)->assertOk()
+            ->assertSee('action="delete_application"', false)->assertSee('Internal notes and history')
+            ->assertSee('No notes or changes recorded yet.')->assertSee('Emails to applicants are switched off.');
+
+        $this->withSession($s)->post('/admin/review_application?id=' . $uid, ['_token' => 'tok', 'action' => 'note', 'note' => 'Called the <b>father</b>'])
+            ->assertRedirect('/admin/review_application?id=' . $uid);
+        $this->withSession($s)->post('/admin/review_application?id=' . $uid, ['_token' => 'tok', 'status' => 'Approved', 'admin_remark' => 'Welcome'])
+            ->assertRedirect('/admin/applications');
+        // Saving the same values again adds no history entry.
+        $this->withSession($s)->post('/admin/review_application?id=' . $uid, ['_token' => 'tok', 'status' => 'Approved', 'admin_remark' => 'Welcome']);
+
+        $log = \Illuminate\Support\Facades\DB::table('crm_application_log')->where('user_id', $uid)->orderBy('id')->get();
+        $this->assertCount(2, $log);
+        $this->assertSame(['note', 'status'], $log->pluck('type')->all());
+        $this->assertSame('Approved', $log[1]->new_status);
+
+        $this->withSession($s)->get('/admin/review_application?id=' . $uid)->assertOk()
+            ->assertSee('Called the &lt;b&gt;father&lt;/b&gt;', false)->assertSee('Remark: Welcome');
+    }
+
+    public function test_applicant_emails_are_off_by_default_and_sent_when_switched_on(): void
+    {
+        $uid = $this->applicant();
+        $s = $this->admin() + ['_token' => 'tok'];
+        $mailer = app(\App\Services\SiteMailer::class);
+        $this->app->instance(\App\Services\SiteMailer::class, $mailer);
+
+        $this->withSession($s)->post('/admin/review_application?id=' . $uid, ['_token' => 'tok', 'status' => 'Rejected', 'admin_remark' => 'Missing passport']);
+        $this->assertSame([], array_filter($mailer->outbox, fn ($m) => str_contains($m['subject'] ?? '', 'Update on your application')));
+
+        config(['portal.notify_students' => true]);
+        $this->withSession($s)->post('/admin/review_application?id=' . $uid, ['_token' => 'tok', 'status' => 'Approved', 'admin_remark' => 'Well done <script>']);
+        $sent = array_values(array_filter($mailer->outbox, fn ($m) => str_contains($m['subject'] ?? '', 'Update on your application')));
+        $this->assertCount(1, $sent);
+        $this->assertSame('stu@example.com', $sent[0]['to']);
+        $this->assertStringContainsString('has been <strong>approved</strong>', $sent[0]['html']);
+        $this->assertStringContainsString('Well done &lt;script&gt;', $sent[0]['html']);
+        $this->assertSame(1, \Illuminate\Support\Facades\DB::table('crm_application_log')->where('user_id', $uid)->where('type', 'email')->count());
     }
 }

@@ -27,7 +27,7 @@
         </a>
       </div>
 
-      <!-- Search box -->
+      <!-- Search box (name and email in the list are written as "Name (email)" for screen readers) -->
       <form method="GET" class="d-flex gap-2 align-items-center flex-wrap">
         @if (!empty($filter))
           <input type="hidden" name="filter" value="{{ $filter }}">
@@ -48,7 +48,8 @@
           @endforeach
         </select>
         <button type="submit" class="btn btn-primary btn-sm">Search</button>
-        <a href="?export=csv{!! (!empty($search) ? '&search='.urlencode($search) : '') . (!empty($filter) ? '&filter='.urlencode($filter) : '') . ($status !== '' ? '&status='.urlencode($status) : '') . ($degree !== '' ? '&degree='.urlencode($degree) : '') !!}" class="btn btn-outline-success btn-sm ms-auto"><i class="bi bi-download me-1"></i>Export this list (Excel/CSV)</a>
+        <a href="manage-applications" class="btn btn-outline-primary btn-sm ms-auto"><i class="bi bi-pencil-square me-1"></i>Quick status editing</a>
+        <a href="?export=csv{!! (!empty($search) ? '&search='.urlencode($search) : '') . (!empty($filter) ? '&filter='.urlencode($filter) : '') . ($status !== '' ? '&status='.urlencode($status) : '') . ($degree !== '' ? '&degree='.urlencode($degree) : '') !!}" class="btn btn-outline-success btn-sm"><i class="bi bi-download me-1"></i>Export this list (Excel/CSV)</a>
         @if (!empty($search) || !empty($filter) || $status !== '' || $degree !== '')
           <a href="applications" class="btn btn-outline-secondary btn-sm">Reset all</a>
         @endif
@@ -92,98 +93,46 @@
       @endif
     </div>
   @else
-  <div class="accordion" id="applicationsAccordion">
-    @foreach ($users as $index => $user)
-      @php
-        $statusText = trim((string)($user['status'] ?? ''));
-        $isSubmitted = !empty($user['is_submitted']) || in_array($statusText, ['Pending', 'Approved', 'Rejected', 'Submitted'], true);
-      @endphp
-      <div class="accordion-item mb-2">
-        <h2 class="accordion-header" id="heading{{ $index }}">
-          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{ $index }}" aria-expanded="false" aria-controls="collapse{{ $index }}">
-            {{ $user['full_name'] }} ({{ $user['email'] }})
-            - <span class="badge bg-{{ $isSubmitted ? 'success' : 'warning' }} ms-2">
-                {{ $isSubmitted ? 'Submitted' : 'Unsubmitted' }}
-              </span>
-          </button>
-        </h2>
-        <div id="collapse{{ $index }}" class="accordion-collapse collapse" aria-labelledby="heading{{ $index }}" data-bs-parent="#applicationsAccordion">
-          <div class="accordion-body">
-
-            @php
-              $dm = $degreeMajorData[$user['id']] ?? null;
-            @endphp
-            @if ($dm && (!empty($dm['degree_applying_for']) || !empty($dm['major_applying_for'])))
-            <p><strong>Degree Applying for:</strong> {{ $dm['degree_applying_for'] ?? '—' }}<br>
-            <strong>Major Applying for:</strong> {{ $dm['major_applying_for'] ?? '—' }}</p>
-            <hr>
-            @endif
-
-            <!-- Application Status & Review -->
-            <p><strong>Status:</strong>
-            {{ !empty($user['status']) ? $user['status'] : 'Not set' }}
-               @if (!empty($user['status']) && $user['status'] === 'Rejected' && !empty($user['admin_remark']))
-                  <br><small class="text-danger">{{ $user['admin_remark'] }}</small>
-              @endif
-              </p>
-            <a href="review_application?id={{ $user['id'] }}" class="btn btn-sm btn-outline-primary mb-3">🔍 Review</a>
-
-            <!-- Buttons -->
-            <div class="mb-3 d-flex flex-wrap gap-2 align-items-center">
-              <form action="delete_application" method="POST" onsubmit="return prompt('This permanently deletes the application and its uploaded documents. It cannot be undone. Type DELETE to confirm.') === 'DELETE';" class="d-inline ms-auto order-last">
-                @csrf
-                <input type="hidden" name="user_id" value="{{ (int)$user['id'] }}">
-                <button type="submit" class="btn btn-outline-danger btn-sm" aria-label="Delete application for {{ $user['full_name'] }}">🗑️ Delete</button>
-              </form>
-              <a href="export_pdf?user_id={{ $user['id'] }}" class="btn btn-success btn-sm">📄 Export as PDF</a>
-              <a href="download_application?user_id={{ $user['id'] }}" class="btn btn-success btn-sm">📦 Download Application Package</a>
-            </div>
-
-            <!-- Sections - Using pre-loaded data (no N+1 queries!) -->
-            <strong>Personal Information:</strong><br>
-            @php $personal = $personalData[$user['id']] ?? null; @endphp
-            @if ($personal)
-              @foreach ($personal as $key => $value)
-                @if (!in_array($key, ['id', 'user_id', 'created_at']))
-                  <strong>{{ ucfirst(str_replace('_', ' ', $key)) }}:</strong> {{ $value }}<br>
-                @endif
-              @endforeach
+  <div class="table-responsive">
+    <table class="table table-hover align-middle mb-0">
+      <thead><tr><th>Applicant</th><th>Programme</th><th>Nationality</th><th>Documents</th><th>Submitted</th><th>Status</th><th></th></tr></thead>
+      <tbody>
+      @foreach ($users as $index => $user)
+        @php
+          $dm = $degreeMajorData[$user['id']] ?? null;
+          $isSubmitted = !empty($user['is_submitted']) || in_array((string) ($user['status'] ?? ''), ['Pending', 'Approved', 'Rejected', 'Submitted'], true);
+          $st = (string) ($user['status'] ?? '');
+          $color = ['Approved' => 'success', 'Rejected' => 'danger', 'Pending' => 'warning'][$st] ?? 'secondary';
+          $hasApp = $dm !== null || $isSubmitted || $st !== '';
+        @endphp
+        <tr>
+          <td>
+            @if ($hasApp)<a href="review_application?id={{ (int) $user['id'] }}" class="fw-semibold text-decoration-none">{{ $user['full_name'] }}</a>@else<span class="fw-semibold">{{ $user['full_name'] }}</span>@endif
+            <div class="small text-muted">{{ $user['email'] }}</div>
+          </td>
+          <td class="small">{{ $dm ? trim(($dm['degree_applying_for'] ?? '') . ' ' . ($dm['major_applying_for'] ?? '')) : '' }}{{ !$dm || trim(($dm['degree_applying_for'] ?? '') . ($dm['major_applying_for'] ?? '')) === '' ? '—' : '' }}</td>
+          <td class="small">{{ $personalData[$user['id']]['nationality'] ?? '—' }}</td>
+          <td class="small">{{ count($documentsData[$user['id']] ?? []) }}</td>
+          <td class="small text-nowrap">{{ $isSubmitted ? (substr((string) ($user['submitted_at'] ?? ''), 0, 10) ?: 'Yes') : '—' }}</td>
+          <td>
+            @if ($isSubmitted)
+              <span class="badge text-bg-{{ $color }}">{{ $st !== '' ? $st : 'Submitted' }}</span>
+            @elseif ($hasApp)
+              <span class="badge text-bg-light">Draft</span>
             @else
-              <em>No personal info provided.</em><br>
+              <span class="badge text-bg-light">Registered only</span>
             @endif
-
-            <hr>
-
-            <strong>Education Records:</strong><br>
-            @php $edu_records = $educationData[$user['id']] ?? []; @endphp
-            @if ($edu_records)
-              <ul>
-                @foreach ($edu_records as $record)
-                  <li><strong>{{ (string)$record['entry_type'] }}</strong>: {{ (string)$record['education_level'] }} in {{ (string)$record['field_of_study'] }} from {{ (string)$record['institute_name'] }} ({{ (string)$record['from_date'] }} to {{ (string)$record['to_date'] }})</li>
-                @endforeach
-              </ul>
-            @else
-              <em>No education records found.</em><br>
+            @if ($st === 'Rejected' && !empty($user['admin_remark']))<div class="small text-danger">{{ $user['admin_remark'] }}</div>@endif
+          </td>
+          <td class="text-end text-nowrap">
+            @if ($hasApp)
+              <a href="review_application?id={{ (int) $user['id'] }}" class="btn btn-sm btn-outline-primary">Open</a>
             @endif
-
-            <hr>
-
-            <strong>Uploaded Documents:</strong><br>
-            @php $files = $documentsData[$user['id']] ?? []; @endphp
-            @if ($files)
-              <ul>
-                @foreach ($files as $doc)
-                  <li><a href='{{ url('/admin/document') }}?p={{ urlencode($doc['file_path']) }}' target='_blank' rel='noopener noreferrer'>{{ $doc['file_name'] }}</a></li>
-                @endforeach
-              </ul>
-            @else
-              <em>No documents uploaded.</em><br>
-            @endif
-
-          </div>
-        </div>
-      </div>
-    @endforeach
+          </td>
+        </tr>
+      @endforeach
+      </tbody>
+    </table>
   </div>
   @endif
 

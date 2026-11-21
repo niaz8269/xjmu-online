@@ -59,7 +59,9 @@
             }
         }
     </style>
+<p><a href="applications" class="text-decoration-none">← All applications</a></p>
 <div class="card applications-wrap"><div class="card-body">
+    <p class="text-muted small">Quick editing: set the status and the remark for several applications without opening each one.</p>
 
     @if (!empty($message))
         <div class="alert alert-info alert-dismissible fade show" role="alert">
