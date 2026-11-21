@@ -18,6 +18,8 @@ AddCharset UTF-8 .html .css .js .xml .json .rss .atom
 
     # --- Private files: applicants' documents are served only by the admin panel (/admin/document), never by URL ---
     RewriteRule ^uploads/(admissions|videos)(/|$) - [F,L]
+    # Files sitting directly in /uploads (old applicant uploads) are private too; public images live in sub-folders.
+    RewriteRule ^uploads/[^/]+$ - [F,L]
     RewriteRule ^logs(/|$) - [F,L]
     RewriteRule ^(out\.html|\.git|\.env) - [F,L]
 
