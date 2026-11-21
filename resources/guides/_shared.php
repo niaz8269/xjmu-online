@@ -22,9 +22,24 @@ foreach ($moeList as $i => [$name, $seats]) {
 }
 $moeRows[] = ['', 'Total', '2,790'];
 
+// Approximate exchange rates for the rupee fee table. Mid-market rates looked up on the date below; update both
+// numbers and the date together (banks and transfer services charge a few percent more).
+$fx = ['date' => '22 November 2026', 'pkr' => 41.4, 'inr' => 13.9];
+$money = fn (float $yuan, float $rate) => number_format(round($yuan * $rate, -3));
+$feeLocalRows = [];
+foreach ([['First-year package', 49950, '7,000'], ['Each later year', 35950, '5,050'], ['Six years in total', 229700, '32,000']] as [$label, $yuan, $usd]) {
+    $feeLocalRows[] = [$label, '¥' . number_format($yuan), 'USD ' . $usd, 'PKR ' . $money($yuan, $fx['pkr']), 'INR ' . $money($yuan, $fx['inr'])];
+}
+
 return [
     'moeSource' => "Source: Ministry of Education of the People's Republic of China, notice 教外司来〔2026〕94号, issued 1 June 2026.",
     'moeRows' => $moeRows,
+    'fx' => $fx,
+    'feeLocal' => [
+        'caption' => 'XJMU MBBS fees in yuan, US dollars, Pakistani rupees and Indian rupees (approximate, at ¥1 = PKR ' . $fx['pkr'] . ' and INR ' . $fx['inr'] . ' on ' . $fx['date'] . ')',
+        'head' => ['Fee', 'Chinese yuan', 'US dollars', 'Pakistani rupees', 'Indian rupees'],
+        'rows' => $feeLocalRows,
+    ],
     'feeFirstYear' => [
         'caption' => 'First-year package, 2027 intakes (unchanged from 2026)',
         'head' => ['What the first-year package covers', 'Status'],

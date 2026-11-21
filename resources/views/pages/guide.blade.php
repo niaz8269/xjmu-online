@@ -14,7 +14,7 @@
 }
 </script>
 <script type="application/ld+json">
-{!! json_encode(['@context' => 'https://schema.org', '@type' => 'BlogPosting', 'headline' => $guide['h1'], 'description' => $guide['description'], 'mainEntityOfPage' => $page_url, 'datePublished' => $guide['published'] ?? $guide['updated'], 'dateModified' => $guide['updated'], 'abstract' => $guide['answer'] ?? $guide['lead'], 'image' => $page_image, 'inLanguage' => 'en', 'about' => ['@type' => 'CollegeOrUniversity', 'name' => 'Xinjiang Medical University', 'url' => 'https://xjmu.online/'], 'speakable' => ['@type' => 'SpeakableSpecification', 'cssSelector' => ['h1', '.guide-answer']], 'author' => ['@type' => 'Organization', 'name' => 'Xinjiang Medical University Admissions'], 'publisher' => ['@type' => 'Organization', 'name' => 'XJMU', 'logo' => ['@type' => 'ImageObject', 'url' => 'https://xjmu.online/images/logo.png']]], JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES) !!}
+{!! json_encode(['@context' => 'https://schema.org', '@type' => 'BlogPosting', 'headline' => $guide['h1'], 'description' => $guide['description'], 'mainEntityOfPage' => $page_url, 'datePublished' => $guide['published'] ?? $guide['updated'], 'dateModified' => $guide['updated'], 'abstract' => $guide['answer'] ?? $guide['lead'], 'image' => $page_image, 'inLanguage' => 'en', 'about' => ['@type' => 'CollegeOrUniversity', 'name' => 'Xinjiang Medical University', 'url' => 'https://xjmu.online/'], 'speakable' => ['@type' => 'SpeakableSpecification', 'cssSelector' => ['h1', '.guide-answer']], 'author' => array_values(array_filter([! empty($reviewer['name']) ? ['@type' => 'Person', 'name' => $reviewer['name'], 'jobTitle' => $reviewer['role'], 'worksFor' => ['@type' => 'Organization', 'name' => $reviewer['organisation'], 'url' => $reviewer['organisation_url']]] : null, ['@type' => 'Organization', 'name' => 'Xinjiang Medical University Admissions']])), 'publisher' => ['@type' => 'Organization', 'name' => 'XJMU', 'logo' => ['@type' => 'ImageObject', 'url' => 'https://xjmu.online/images/logo.png']]], JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES) !!}
 </script>
 @if (!empty($guide['faqs']))
 <script type="application/ld+json">
@@ -45,6 +45,12 @@
             <span class="ds-pill">English Medium</span>
             <span class="ds-pill">Updated {{ $updatedLabel }}</span>
         </div>
+        @if (!empty($reviewer['name']))
+        <p class="guide-byline" style="display:flex; align-items:center; gap:.6rem; margin:1rem 0 0; color:#fff; font-size:.95rem">
+            @if (!empty($reviewer['photo']))<img src="{{ get_absolute_url($reviewer['photo']) }}" alt="" width="36" height="36" style="width:36px; height:36px; border-radius:50%; object-fit:cover; border:2px solid rgba(255,255,255,.6)">@endif
+            <span>Reviewed by <strong>{{ $reviewer['name'] }}</strong>, {{ $reviewer['role'] }}, {{ $reviewer['organisation'] }}</span>
+        </p>
+        @endif
     </div>
 </section>
 

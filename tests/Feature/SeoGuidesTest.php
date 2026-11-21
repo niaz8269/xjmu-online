@@ -46,6 +46,31 @@ class SeoGuidesTest extends TestCase
         }
     }
 
+    public function test_guides_carry_the_reviewer_byline_and_person_schema(): void
+    {
+        $html = $this->get('/mbbs-in-china-2027')->assertOk()->getContent();
+        $this->assertStringContainsString('Reviewed by <strong>Dr. Ayaz</strong>, Admissions Consultant, Consultancy for Abroad Study (CAS)', $html);
+        $this->assertStringContainsString('"@type":"Person","name":"Dr. Ayaz","jobTitle":"Admissions Consultant"', $html);
+
+        config(['guide_reviewer.name' => '']);
+        $this->assertStringNotContainsString('Reviewed by', $this->get('/mbbs-in-china-2027')->getContent());
+    }
+
+    public function test_rupee_fee_table_is_on_three_guides_with_the_rate_and_date(): void
+    {
+        $s = require resource_path('guides/_shared.php');
+        $this->assertSame(['pkr' => 41.4, 'inr' => 13.9], ['pkr' => $s['fx']['pkr'], 'inr' => $s['fx']['inr']]);
+        // 49,950 x 41.4 = 2,067,930 and 49,950 x 13.9 = 694,305, shown rounded to the nearest thousand
+        $this->assertSame(['First-year package', '¥49,950', 'USD 7,000', 'PKR 2,068,000', 'INR 694,000'], $s['feeLocal']['rows'][0]);
+        $this->assertSame('PKR 9,510,000', $s['feeLocal']['rows'][2][3]);
+
+        foreach (['mbbs-in-china-fees-2027', 'mbbs-in-china-for-pakistani-students', 'mbbs-in-china-for-indian-students'] as $slug) {
+            $this->assertSame('fees-in-rupees', config('seo_guides.' . $slug . '.sections.1.id'), $slug);
+            $this->get('/' . $slug)->assertOk()->assertSee('PKR 2,068,000')->assertSee('INR 694,000')->assertSee($s['fx']['date']);
+        }
+        $this->get('/mbbs-in-china-2027')->assertOk()->assertDontSee('PKR 2,068,000');
+    }
+
     public function test_every_page_footer_links_to_each_guide(): void
     {
         $html = $this->get('/about')->assertOk()->getContent();

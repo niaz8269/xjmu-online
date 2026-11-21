@@ -67,7 +67,7 @@ return [
         ], 'img' => ['src' => 'assets/images/counselling.webp', 'alt' => 'Admissions counsellor advising a prospective Pakistani MBBS student on eligibility and documents for China', 'caption' => 'Counselling on eligibility and documents before you apply.']],
 
         ['id' => 'fees', 'eyebrow' => 'Fees', 'h' => 'MBBS in China fees for Pakistani students', 'p' => [
-            "The university has confirmed that fees for the 2027 intakes, March/Spring and September/Fall, are the same as for 2026. The figures are given in Chinese yuan and in approximate US dollars. We do not print rupee figures, because the exchange rate moves from month to month; convert the yuan amounts at the rate on the day you pay.",
+            "The university has confirmed that fees for the 2027 intakes, March/Spring and September/Fall, are the same as for 2026. The figures are given in Chinese yuan and in approximate US dollars, and the table above shows them in Pakistani rupees at a dated rate. The exchange rate moves from month to month, so convert the yuan amounts at the rate on the day you pay.",
         ], 'table' => $s['feeFirstYear'], 'sub' => [
             ['h' => 'From the second year', 'p' => [
                 "From the second year, the fees are charged item by item, as the table below shows. The total is about ¥35,950 a year, about USD 5,050.",

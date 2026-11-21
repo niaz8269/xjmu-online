@@ -127,4 +127,58 @@ class AdminLeadsTest extends TestCase
         $this->withSession($admin)->post('/admin/lead?id=' . $none, ['_token' => 'tok', 'action' => 'remind']);
         $this->assertCount(1, array_filter($mailer->outbox, fn ($m) => str_contains($m['subject'] ?? '', 'Your MBBS application')));
     }
+
+    public function test_admin_emails_selected_leads_with_their_own_message(): void
+    {
+        $admin = $this->admin();
+        $mailer = app(\App\Services\SiteMailer::class);
+        $this->app->instance(\App\Services\SiteMailer::class, $mailer);
+        $mk = fn (string $name, ?string $email) => DB::table('crm_leads')->insertGetId(['source' => 'manual', 'name' => $name, 'email' => $email, 'status' => 'New', 'created_at' => now(), 'updated_at' => now()]);
+        $a = $mk('Ann <b>', 'ann@example.test');
+        $b = $mk('Bob', 'bob@example.test');
+        $noMail = $mk('NoMail', null);
+        $notPicked = $mk('Zed', 'zed@example.test');
+
+        $this->get('/admin/lead-email')->assertRedirect();   // signed out
+        $this->withSession($admin)->get('/admin/lead-email')->assertOk()->assertSee('No leads selected');
+
+        // Step 1: the compose screen lists who will get it. Nothing is sent yet.
+        $this->withSession($admin)->post('/admin/lead-email', ['_token' => 'tok', 'ids' => [$a, $b, $noMail]])->assertOk()
+            ->assertSee('ann@example.test')->assertSee('No valid email address')->assertDontSee('zed@example.test');
+        $this->assertSame([], $mailer->outbox);
+
+        // Missing message or confirmation: refused.
+        $this->withSession($admin)->post('/admin/lead-email', ['_token' => 'tok', 'action' => 'send', 'ids' => [$a], 'subject' => 'Hi', 'message' => 'Text'])->assertOk();
+        $this->assertSame([], $mailer->outbox);
+
+        // Step 2: send.
+        $this->withSession($admin)->post('/admin/lead-email', ['_token' => 'tok', 'action' => 'send', 'confirm' => '1', 'ids' => [$a, $b, $noMail],
+            'subject' => 'Deadline reminder', 'message' => "The early deadline is 15 December.\n<script>alert(1)</script>"])->assertRedirect('/admin/leads');
+
+        $this->assertSame(['ann@example.test', 'bob@example.test'], array_column($mailer->outbox, 'to'));
+        $this->assertSame('Deadline reminder', $mailer->outbox[0]['subject']);
+        $this->assertStringContainsString('Dear Ann &lt;b&gt;,', $mailer->outbox[0]['html']);
+        $this->assertStringContainsString('&lt;script&gt;alert(1)&lt;/script&gt;', $mailer->outbox[0]['html']);
+        $this->assertStringNotContainsString('<script>', $mailer->outbox[0]['html']);
+        $this->assertSame('Contacted', DB::table('crm_leads')->where('id', $a)->value('status'));
+        $this->assertSame('New', DB::table('crm_leads')->where('id', $notPicked)->value('status'));
+        $this->assertSame(1, DB::table('crm_lead_notes')->where('lead_id', $b)->where('note', 'like', 'Email sent: "Deadline reminder"%')->count());
+        $this->assertSame(0, DB::table('crm_lead_notes')->where('lead_id', $noMail)->count());
+    }
+
+    public function test_email_selected_refuses_more_than_the_limit(): void
+    {
+        $admin = $this->admin();
+        $mailer = app(\App\Services\SiteMailer::class);
+        $this->app->instance(\App\Services\SiteMailer::class, $mailer);
+        $ids = [];
+        for ($i = 0; $i <= \App\Http\Controllers\Admin\LeadsController::EMAIL_MAX; $i++) {
+            $ids[] = DB::table('crm_leads')->insertGetId(['source' => 'manual', 'name' => 'L' . $i, 'email' => "l$i@example.test", 'status' => 'New', 'created_at' => now(), 'updated_at' => now()]);
+        }
+        $this->withSession($admin)->post('/admin/lead-email', ['_token' => 'tok', 'action' => 'send', 'confirm' => '1', 'ids' => $ids, 'subject' => 'S', 'message' => 'M'])
+            ->assertOk()->assertSee('the limit is');
+        $this->assertSame([], $mailer->outbox);
+
+        $this->withSession($admin)->get('/admin/leads?per=100')->assertOk()->assertSee('Email selected');
+    }
 }

@@ -91,13 +91,25 @@
       Website enquiries are saved here automatically. You can also add a lead by hand, or import the students who registered but have not applied.
     </div>
   @else
+    <form method="post" action="lead-email" id="leadPick">
+      @csrf
+      <div class="d-flex flex-wrap align-items-center gap-2 mb-2">
+        <button type="submit" class="btn btn-sm btn-primary" id="emailPicked" disabled><i class="bi bi-envelope me-1"></i>Email selected (<span id="pickedCount">0</span>)</button>
+        <span class="small text-muted">Tick the leads you want to write to. You write the message on the next screen; nothing is sent until you confirm there.</span>
+        <span class="ms-auto small">Show
+          @foreach ([25, 50, 100] as $n)
+            <a href="{{ $qs(['per' => $n === 25 ? '' : $n, 'page' => '']) }}" class="{{ (string) ($f['per'] ?: 25) === (string) $n ? 'fw-bold' : '' }}">{{ $n }}</a>{{ $loop->last ? '' : ' ·' }}
+          @endforeach
+          per page</span>
+      </div>
     <div class="table-responsive">
       <table class="table table-hover align-middle mb-0">
-        <thead><tr><th>Name</th><th>Contact</th><th>Interest</th><th>Source</th><th>Status</th><th>Assigned</th><th>Follow-up</th><th></th></tr></thead>
+        <thead><tr><th style="width:2rem"><input class="form-check-input" type="checkbox" id="pickAll" aria-label="Select all on this page"></th><th>Name</th><th>Contact</th><th>Interest</th><th>Source</th><th>Status</th><th>Assigned</th><th>Follow-up</th><th></th></tr></thead>
         <tbody>
           @foreach ($leads as $l)
             @php $late = $l['next_follow_up'] && $l['next_follow_up'] < $today && !in_array($l['status'], ['Enrolled', 'Not interested'], true); @endphp
             <tr>
+              <td><input class="form-check-input lead-pick" type="checkbox" name="ids[]" value="{{ (int) $l['id'] }}" aria-label="Select {{ $l['name'] }}" @disabled(empty($l['email']))></td>
               <td><a href="lead?id={{ (int) $l['id'] }}" class="fw-semibold text-decoration-none">{{ $l['name'] }}</a><div class="small text-muted">{{ $l['nationality'] }}</div></td>
               <td class="small">{{ $l['email'] }}<div>{{ $l['phone'] }}</div></td>
               <td class="small">{{ $l['program'] ?: ($l['subject'] ?: '—') }}</td>
@@ -111,6 +123,7 @@
         </tbody>
       </table>
     </div>
+    </form>
 
     @if ($pages > 1)
       <nav aria-label="Leads pages" class="mt-3">
@@ -125,5 +138,27 @@
     @endif
   @endif
 </div></div>
+
+@push('scripts')
+<script>
+  (function () {
+    var form = document.getElementById('leadPick');
+    if (!form) { return; }
+    var boxes = function () { return Array.prototype.slice.call(form.querySelectorAll('.lead-pick:not(:disabled)')); };
+    var update = function () {
+      var n = boxes().filter(function (b) { return b.checked; }).length;
+      document.getElementById('pickedCount').textContent = n;
+      document.getElementById('emailPicked').disabled = n === 0;
+    };
+    document.getElementById('pickAll').addEventListener('change', function () {
+      var on = this.checked;
+      boxes().forEach(function (b) { b.checked = on; });
+      update();
+    });
+    form.addEventListener('change', update);
+    update();
+  })();
+</script>
+@endpush
 
 @endsection

@@ -22,6 +22,7 @@ class GuideController extends Controller
 
         return view('pages.guide', [
             'guide' => $guide,
+            'reviewer' => config('guide_reviewer', []),
             'related' => $related,
             'faqSchema' => FaqSchema::items($guide['faqs'] ?? []),
             'updatedLabel' => date('F Y', strtotime($guide['updated'])),

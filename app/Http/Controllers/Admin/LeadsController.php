@@ -13,6 +13,9 @@ class LeadsController extends AdminController
 {
     private const PER_PAGE = 25;
 
+    /** Most emails one "Email selected" send may deliver (keeps a send short and within the mail server's limits). */
+    public const EMAIL_MAX = 50;
+
     /** GET|POST /admin/leads */
     public function index(Request $request)
     {
@@ -56,11 +59,13 @@ class LeadsController extends AdminController
             return $this->export(clone $query);
         }
 
+        $perPage = in_array((int) $request->query('per'), [50, 100], true) ? (int) $request->query('per') : self::PER_PAGE;
+        $f['per'] = $perPage === self::PER_PAGE ? '' : (string) $perPage;
         $total = (int) (clone $query)->count();
-        $pages = max(1, (int) ceil($total / self::PER_PAGE));
+        $pages = max(1, (int) ceil($total / $perPage));
         $page = min($pages, max(1, (int) $request->query('page', 1)));
         $leads = $query->orderByRaw("CASE WHEN l.status = 'New' THEN 0 ELSE 1 END")->orderByDesc('l.updated_at')->orderByDesc('l.id')
-            ->offset(($page - 1) * self::PER_PAGE)->limit(self::PER_PAGE)->get()->map(fn ($r) => (array) $r)->all();
+            ->offset(($page - 1) * $perPage)->limit($perPage)->get()->map(fn ($r) => (array) $r)->all();
 
         $counts = DB::table('crm_leads')->selectRaw('status, COUNT(*) AS n')->groupBy('status')->pluck('n', 'status')->all();
 
@@ -109,6 +114,65 @@ class LeadsController extends AdminController
         }
 
         return redirect('/admin/leads');
+    }
+
+    /**
+     * GET|POST /admin/lead-email : write one email to the leads ticked in the list and send it with one click.
+     * Nothing is sent automatically: an admin picks the people, writes the text and confirms.
+     */
+    public function email(Request $request)
+    {
+        $ids = array_values(array_unique(array_filter(array_map('intval', (array) $request->input('ids', [])))));
+        $subject = trim(preg_replace('/\s+/', ' ', (string) $request->input('subject', '')));
+        $message = trim(str_replace(chr(13), '', (string) $request->input('message', '')));
+
+        if ($request->isMethod('post') && $request->input('action') === 'send') {
+            if (! $ids || $subject === '' || $message === '' || ! $request->input('confirm')) {
+                session()->put('lead_flash', 'Not sent: tick at least one recipient, write a subject and a message, and tick the confirmation box.');
+            } elseif (count($ids) > self::EMAIL_MAX) {
+                session()->put('lead_flash', 'Not sent: ' . count($ids) . ' recipients are ticked and the limit is ' . self::EMAIL_MAX . ' per send. Untick some and send the rest afterwards.');
+            } else {
+                @set_time_limit(300);
+                $who = $this->adminName($request);
+                $mailer = app(\App\Services\SiteMailer::class);
+                $sent = $failed = $skipped = 0;
+                foreach (DB::table('crm_leads')->whereIn('id', $ids)->orderBy('id')->get() as $lead) {
+                    if (! filter_var((string) $lead->email, FILTER_VALIDATE_EMAIL)) {
+                        $skipped++;
+                        continue;
+                    }
+                    $html = view('emails.lead-message', ['name' => $lead->name, 'body' => $message, 'sender' => $who])->render();
+                    $text = 'Dear ' . $lead->name . ",\n\n" . $message . "\n\nKind regards,\n" . $who . "\nInternational Students Admissions\nXinjiang Medical University";
+                    if ($mailer->sendViaSmtp((string) $lead->email, (string) $lead->name, mb_substr($subject, 0, 150), $html, $text, 'Lead email')) {
+                        $sent++;
+                        Leads::note((int) $lead->id, 'Email sent: "' . mb_substr($subject, 0, 150) . '"' . "\n" . mb_substr($message, 0, 1500), $this->adminId($request), $who);
+                        DB::table('crm_leads')->where('id', $lead->id)->update(['status' => $lead->status === 'New' ? 'Contacted' : $lead->status, 'updated_at' => now()]);
+                    } else {
+                        $failed++;
+                    }
+                }
+                Audit::record('leads.email', ['sent' => $sent, 'failed' => $failed, 'skipped' => $skipped, 'subject' => mb_substr($subject, 0, 80)]);
+                session()->put('lead_flash', 'Email sent to ' . $sent . ' lead' . ($sent === 1 ? '' : 's') . '.'
+                    . ($skipped ? ' ' . $skipped . ' skipped (no valid email address).' : '')
+                    . ($failed ? ' ' . $failed . ' could not be sent; try those again later.' : ''));
+
+                return redirect('/admin/leads');
+            }
+        }
+
+        $recipients = [];
+        if ($ids) {
+            foreach (DB::table('crm_leads')->whereIn('id', array_slice($ids, 0, 500))->orderBy('name')->get(['id', 'name', 'email', 'status']) as $lead) {
+                $recipients[] = ['id' => (int) $lead->id, 'name' => (string) $lead->name, 'email' => (string) $lead->email,
+                    'status' => (string) $lead->status, 'ok' => (bool) filter_var((string) $lead->email, FILTER_VALIDATE_EMAIL)];
+            }
+        }
+        $sendable = count(array_filter($recipients, fn ($r) => $r['ok']));
+
+        return $this->page('admin.leads.email', 'Email selected leads', 'leads', 'One message, written by you, sent to the people you ticked', [
+            'recipients' => $recipients, 'sendable' => $sendable, 'skipped' => count($recipients) - $sendable,
+            'subject' => $subject, 'message' => $message, 'max' => self::EMAIL_MAX, 'flash' => session()->pull('lead_flash'),
+        ]);
     }
 
     /** GET|POST /admin/lead?id= */

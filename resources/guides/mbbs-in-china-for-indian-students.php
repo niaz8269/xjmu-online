@@ -89,7 +89,7 @@ return [
             "Over six years the university fees come to about ¥229,700, which is the first-year package of ¥49,950 plus five years at ¥35,950, or about USD 32,000.",
         ], 'table' => $s['feeYearly'], 'sub' => [
             ['h' => 'Converting to rupees', 'p' => [
-                "We do not print a figure in Indian rupees, because the exchange rate moves every day. To convert, take the yuan amount, multiply by the current yuan-to-rupee rate from your bank, and add a margin of a few percent for transfer charges and rate changes.",
+                "The table earlier on this page shows the fees in Indian rupees at a dated rate, as a guide. The exchange rate moves every day, so for the amount you will pay, take the yuan amount, multiply by the current yuan-to-rupee rate from your bank, and add a margin of a few percent for transfer charges and rate changes.",
             ]],
         ], 'link' => ['mbbs-in-china-fees-2027', 'See the full MBBS in China fee guide']],
 

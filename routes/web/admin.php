@@ -54,6 +54,7 @@ Route::middleware(['admin', 'admin.audit'])->group(function () {
         'download_application' => [['get'], \App\Http\Controllers\Admin\ApplicationsController::class, 'download'],
         'leads'               => [['get', 'post'], \App\Http\Controllers\Admin\LeadsController::class, 'index'],
         'lead'                => [['get', 'post'], \App\Http\Controllers\Admin\LeadsController::class, 'show'],
+        'lead-email'          => [['get', 'post'], \App\Http\Controllers\Admin\LeadsController::class, 'email'],
         'seo'                 => [['get', 'post'], \App\Http\Controllers\Admin\CmsController::class, 'seo'],
         'page-faqs'           => [['get', 'post'], \App\Http\Controllers\Admin\CmsController::class, 'faqs'],
         'guides'              => [['get'], \App\Http\Controllers\Admin\CmsController::class, 'guides'],
