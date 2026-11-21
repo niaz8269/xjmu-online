@@ -325,7 +325,8 @@ function loadExistingDocuments() {
           var fileSpan = document.getElementById('fileName' + docId);
           if (fileSpan) {
             var fileLinks = groupedDocs[docId].map(function (doc) {
-              return '<a href="' + doc.file_path + '" target="_blank" rel="noopener noreferrer" class="file-link">' +
+              // Applicant files are not reachable by URL; the applicant's own files open through my-document.
+              return '<a href="my-document?id=' + encodeURIComponent(doc.id) + '" target="_blank" rel="noopener noreferrer" class="file-link">' +
                      doc.file_name + '</a>';
             });
             fileSpan.innerHTML = fileLinks.join('<br>');

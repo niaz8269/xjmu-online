@@ -115,7 +115,7 @@
                                     <div class="card-body p-4">
                                         <h5 class="card-title"><i class="fas fa-headset me-2 text-primary"></i><span data-i18n="admissions.admissions_contact">Admissions Office Contact</span></h5>
                                         <div class="contact-info mt-3">
-                                            <p><i class="fas fa-phone me-2"></i> <strong>Phone:</strong> +86 156 1750 0775  / +92 300 400 9526  </p>
+                                            <p><i class="fas fa-phone me-2"></i> <strong>Phone:</strong> +86 176 4041 2827  / +92 300 400 9526  </p>
                                             <p><i class="fas fa-envelope me-2"></i> <strong>Email:</strong> studyatxjmu@gmail.com</p>
                                             <p><i class="fas fa-map-marker-alt me-2"></i> <strong>Address:</strong> 393 Xinyi Road, Urumqi, Xinjiang, China</p>
                                         </div>

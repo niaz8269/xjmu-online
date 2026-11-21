@@ -100,7 +100,7 @@
         "name": "Xinjiang Medical University",
         "contactPoint": {
             "@type": "ContactPoint",
-            "telephone": "+86-156-1750-0775",
+            "telephone": "+86-176-4041-2827",
             "contactType": "Admissions",
             "email": "studyatxjmu@gmail.com",
             "areaServed": "Worldwide",

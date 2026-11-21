@@ -277,14 +277,14 @@
           <ul class="list-unstyled small">
             <li class="mb-2"><i class="bi bi-question-circle-fill me-2 text-jmu-primary"></i> <a href="#" class="text-decoration-none text-secondary"><span data-i18n="register.reg_guide">Registration Guide</span></a></li>
             <li class="mb-2"><i class="bi bi-file-earmark-text-fill me-2 text-jmu-primary"></i> <a href="#" class="text-decoration-none text-secondary"><span data-i18n="register.required_docs">Required Documents</span></a></li>
-            <li class="mb-2"><i class="bi bi-telephone-fill me-2 text-jmu-primary"></i> <span data-i18n="register.admissions_phone">Admissions Office: +86 156 1750 0775</span></li>
+            <li class="mb-2"><i class="bi bi-telephone-fill me-2 text-jmu-primary"></i> <span data-i18n="register.admissions_phone">Admissions Office: +86 176 4041 2827</span></li>
             <li><i class="bi bi-envelope-fill me-2 text-jmu-primary"></i>  studyatxjmu@gmail.com</li>
           </ul>
         </div>
       </div>
 
       <div class="text-center small py-4 mt-4 bg-light rounded">
-        <p class="mb-0"><span data-i18n="register.copyright">© Copyright 2026 Xinjiang Medical University All Rights Reserved</span></p>
+        <p class="mb-0"><span data-i18n="register.copyright">© Copyright 2027 Xinjiang Medical University All Rights Reserved</span></p>
         <p class="mt-2 mb-0 text-muted" data-i18n="register.copyright_sub">International Students Centralized Admissions System</p>
       </div>
     </div>

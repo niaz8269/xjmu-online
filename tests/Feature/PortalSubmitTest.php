@@ -197,4 +197,36 @@ class PortalSubmitTest extends PortalCase
 
         $this->assertDirectoryDoesNotExist(storage_path('legacy/temp_zip/Ann_Lee'));   // working folder is removed
     }
+
+    public function test_download_as_pdf_only_and_working_folders_are_removed(): void
+    {
+        $this->completeApplication();
+        $this->upload(['document_1' => $this->pdf('photo.pdf')])->assertJson(['status' => 'success']);
+        Application::query()->update(['is_submitted' => 1, 'status' => 'Pending']);
+        \App\Models\PersonalInfo::query()->update(['city_of_birth' => 'Ürümqi']);   // accents must not break the PDF
+
+        $response = $this->login()->get('/download_application?format=pdf');
+        $response->assertOk()
+            ->assertHeader('Content-Type', 'application/pdf')
+            ->assertHeader('Content-Disposition', 'attachment; filename=Application_Summary_Ann_Lee.pdf');
+        $this->assertStringStartsWith('%PDF-1.3', $response->streamedContent());
+        $this->assertSame([], glob(storage_path('legacy/temp_zip/Ann_Lee*')) ?: []);
+    }
+
+    public function test_applicant_can_open_only_their_own_uploaded_document(): void
+    {
+        $this->upload(['document_1' => $this->pdf('photo.pdf')])->assertJson(['status' => 'success']);
+        $doc = \App\Models\Document::query()->where('user_id', $this->user->id)->firstOrFail();
+
+        $this->login()->get('/my-document?id=' . $doc->id)->assertOk()->assertHeader('Content-Type', 'application/pdf');
+        $this->login()->get('/my-document?id=999999')->assertNotFound();
+        $this->get('/my-document?id=' . $doc->id)->assertOk();   // still this user's session
+
+        // Another signed-in applicant cannot open it.
+        $this->withSession(['user_id' => $this->user->id + 500, 'full_name' => 'Other'])
+            ->get('/my-document?id=' . $doc->id)->assertNotFound();
+        // Signed out: sent to the login page.
+        $this->flushSession();
+        $this->get('/my-document?id=' . $doc->id)->assertRedirect(get_absolute_url('login'));
+    }
 }

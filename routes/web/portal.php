@@ -39,6 +39,7 @@ $portal(['GET'], 'edit-details', [DashboardController::class, 'editDetails'], ['
 $portal(['GET'], 'profile', [DashboardController::class, 'profile'], ['loggedin']);
 $portal(['POST'], 'profile', [DashboardController::class, 'updateProfile'], ['loggedin']);
 $portal(['GET'], 'download_application', DownloadController::class, ['loggedin']);
+$portal(['GET'], 'my-document', \App\Http\Controllers\Portal\MyDocumentController::class, ['loggedin']);
 
 // ---- JSON endpoints: original guard (500 envelope) + own 403 JSON on a bad CSRF token ----
 $json = PortalJsonEndpoint::class;

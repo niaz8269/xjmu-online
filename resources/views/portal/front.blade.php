@@ -6,188 +6,101 @@
   <meta name="robots" content="noindex, nofollow">
   <meta name="xjmu-base" content="https://xjmu.online">
   <title>Application Status | Xinjiang Medical University</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@700;800&display=swap" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="css/portal.css?v=1">
   <link rel="icon" href="assets/images/logo2.webp" type="image/x-icon">
   <link rel="shortcut icon" href="assets/images/logo2.webp" type="image/x-icon">
-  
-  <style>
-    :root {
-      --jmu-primary: #E62129; /* Dark green */
-      --jmu-secondary: #E62129; /* Red */
-    }
-
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #f8f9fa;
-    }
-
-    /* Navbar Customization */
-    .navbar {
-      background: white; /* Changed to white for black text contrast */
-      border-bottom: 4px solid var(--jmu-primary);
-      min-height: 100px;
-    }
-
-    /* Main Background Section */
-    .hero-section {
-      background-image:url('assets/images/main-image2.jpg');
-      background-size: cover;
-      background-position: center;
-      min-height: calc(100vh - 100px);
-    }
-
-    /* Footer Branding */
-    .news-date {
-      background-color: var(--jmu-primary);
-      min-width: 60px;
-      height: 60px;
-    }
-
-    .hover-blue:hover {
-      background-color: #0d6efd !important; 
-      border-color: #0d6efd !important;
-      color: white !important;
-    }
-
-    /* Button Override for specific brand red */
-    .btn-brand-red {
-        background-color: var(--jmu-secondary);
-        color: white;
-        border: none;
-    }
-    .btn-brand-red:hover {
-        background-color: #c41c23;
-        color: white;
-    }
-  </style>
 </head>
-<body class="d-flex flex-column min-vh-100">
+<body class="portal">
 
-  <nav class="navbar navbar-expand-lg sticky-top py-0">
-    <div class="container-fluid px-4">
-      <a class="navbar-brand d-flex flex-column flex-md-row align-items-center mx-auto mx-md-0" href="index" target="_blank" rel="noopener noreferrer">
+@include('portal._bar', ['active' => 'dashboard'])
 
-  <img
-    src="assets/images/logo.webp"
-    alt="  Xinjiang Medical University"
-    width="230"
-    class="mb-2 mb-md-0 mx-auto mx-md-0"
-  >
-
-  <div class="vr d-none d-md-block ms-3 me-3 opacity-100 bg-dark"
-       style="height: 60px; width: 2px;"></div>
-
-  <div class="text-center text-md-start lh-sm text-black">
-    <span class="fw-bold fs-5 d-block">International Students</span>
-    <span class="fw-bold fs-6 d-block">Centralized Admissions System (CAS)</span>
-  </div>
-
-</a>
-      <div class="d-flex align-items-center ms-auto">
-        <div class="dropdown me-4 mt-3 mt-lg-4">
-          <button class="btn rounded-0 px-2 hover-blue dropdown-toggle" type="button" data-bs-toggle="dropdown">
-             <i class="bi bi-globe2 me-1"></i> <span data-lang-toggle>English</span>
-          </button>
-          <ul class="dropdown-menu dropdown-menu-end rounded-0">
-            <li><a class="dropdown-item active" href="#" data-lang-item="en">English</a></li>
-            <li><a class="dropdown-item" href="#" data-lang-item="zh">中文 (Chinese)</a></li>
-            <li><a class="dropdown-item" href="#" data-lang-item="fr">Français</a></li>
-          </ul>
-        </div>
-
-        <div class="d-flex flex-column text-end lh-sm">
-           <div class="mb-1 text-black">
-               Welcome, <strong>{{ $full_name }}</strong>!
-           </div>
-           <div>
-              <a href="index" class="btn btn-sm btn-outline-dark hover-blue rounded-0 me-1" target="_blank" rel="noopener noreferrer" data-i18n="portal.home_btn">Home</a>
-              <a href="profile" class="btn btn-sm btn-outline-dark hover-blue rounded-0 me-1" target="_blank" rel="noopener noreferrer" data-i18n="portal.profile_btn">My Profile</a>
-              <a href="logout" class="btn btn-sm btn-outline-dark hover-blue rounded-0" target="_blank" rel="noopener noreferrer" data-i18n="portal.logout_btn">Logout</a>
-           </div>
-        </div>
-      </div>
+  <main class="p-wrap">
+    <div class="p-hello">
+      <h1>Your application</h1>
+      <p>Track your progress, complete your form and upload your documents here.</p>
     </div>
-  </nav>
 
-  <div class="hero-section d-flex align-items-center py-5">
-     <div class="container">
-        <div class="row justify-content-end">
-           <div class="col-md-8 col-lg-5">
-              
-              <div class="card border-0 shadow-lg rounded-0 p-4 bg-white">
-                 <div class="text-center mb-4">
-                    <h4 class="fw-bold" style="color: var(--jmu-secondary);" data-i18n="portal.app_status_heading">Application Status</h4>
-                    <div class="fs-4 mt-2 text-dark" id="applicationStatus">Unsubmitted</div>
-                 </div>
-
-                 <hr class="text-secondary opacity-25 my-3">
-
-                 <div class="d-grid gap-2">
-                    <button id="editDetailsBtn" class="btn btn-brand-red rounded-0 py-2 fs-6">
-                      Click Here to Start Application
-                    </button>
-
-                    <button id="downloadFormBtn" class="btn btn-secondary rounded-0 py-2 fs-6" disabled data-i18n="portal.download_form_btn">
-                       Download My Application Form
-                    </button>
-                 </div>
-
-                 <p class="text-muted small text-center mt-3 mb-0" data-i18n="portal.download_note">
-                    The application form can only be downloaded after the submission of all applications. If the account contains unsubmitted applications, the applicant will not be able to download the application form.
-                 </p>
-              </div>
-
-           </div>
-        </div>
-     </div>
-  </div>
-
-  <footer class="pt-5 bg-white border-top border-4" style="border-color: var(--jmu-primary) !important;">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-8 mb-4">
-          <div class="fw-bold pb-2 mb-4 fs-5 text-black border-bottom border-danger" data-i18n="login.news_title">News and Updates</div>
-          
-          <div class="d-flex align-items-start mb-3">
-            <div class="news-date me-3 text-white rounded d-flex flex-column justify-content-center align-items-center">
-              <span class="fw-bold small">February. 10</span>
-              <span style="font-size: 0.8rem;">2026</span>
-            </div>
-            <div class="pt-1 lh-base text-black">
-              <strong>Welcome to Xinjiang Medical University International Students CAS.</strong>
-              <p class="small text-secondary mt-1 mb-0">Our new platform streamlines the application process with enhanced security.</p>
-            </div>
+    <div class="p-grid">
+      <div>
+        <section class="p-card" aria-labelledby="statusHeading">
+          <span class="p-eyebrow" id="statusHeading" data-i18n="portal.app_status_heading">Application Status</span>
+          <div class="p-status">
+            <div class="p-status__v" id="applicationStatus">Unsubmitted</div>
+            <span class="p-pill" id="statusPill">In progress</span>
           </div>
-          
-          <div class="d-flex align-items-start mb-3">
-            <div class="news-date me-3 text-white rounded d-flex flex-column justify-content-center align-items-center">
-              <span class="fw-bold small">February. 05</span>
-              <span style="font-size: 0.8rem;">2026</span>
-            </div>
-            <div class="pt-1 lh-base text-black">
-              <strong>2027 Intake Now Open</strong>
-              <p class="small text-secondary mt-1 mb-0">Applications for the 2027 academic year are now being accepted. Early applications encouraged.</p>
-            </div>
+
+          <ol class="p-steps" id="statusSteps" aria-label="Application progress">
+            <li data-n="1" class="is-now">Fill in the form</li>
+            <li data-n="2">Submitted</li>
+            <li data-n="3">Under review</li>
+            <li data-n="4">Decision</li>
+          </ol>
+
+          <div class="p-remark" id="statusRemark" hidden></div>
+
+          <div class="p-actions">
+            <button id="editDetailsBtn" class="p-btn p-btn--primary">
+              Click Here to Start Application
+            </button>
+            <button id="downloadFormBtn" class="p-btn p-btn--ghost" disabled data-i18n="portal.download_form_btn">
+              Download My Application Form
+            </button>
+            <button id="downloadZipBtn" class="p-btn p-btn--ghost" hidden>
+              <i class="bi bi-file-earmark-zip"></i> Download form and documents (ZIP)
+            </button>
           </div>
-        </div>
-        
-        <div class="col-lg-4 mb-4">
-          <div class="fw-bold pb-2 mb-4 fs-5 text-black border-bottom border-danger" data-i18n="login.contact_info_title">Contact Information</div>
-          <ul class="list-unstyled small text-black">
-            <li class="mb-3"><i class="bi bi-geo-alt-fill me-2" style="color: var(--jmu-primary);"></i>   Xinjiang Medical University,   Xinjiang City, China</li>
-            <li class="mb-3"><i class="bi bi-telephone-fill me-2" style="color: var(--jmu-primary);"></i> CN +86 156 1750 0775 / PK +92 300 400 9526 </li>
-            <li class="mb-3"><i class="bi bi-envelope-fill me-2" style="color: var(--jmu-primary);"></i> studyatxjmu@gmail.com</li>
-            <li><i class="bi bi-clock-fill me-2" style="color: var(--jmu-primary);"></i> Mon-Fri: 8:30 AM - 5:00 PM (CST)</li>
+
+          <p class="p-note" id="downloadReadyNote" hidden>Your application is submitted. Download the form as a PDF, or the form with all your uploaded documents as one ZIP file. Keep a copy for your visa application.</p>
+          <p class="p-note" id="downloadLockedNote" data-i18n="portal.download_note">
+            The application form can only be downloaded after the submission of all applications. If the account contains unsubmitted applications, the applicant will not be able to download the application form.
+          </p>
+        </section>
+
+        <section class="p-card">
+          <h2>What happens next</h2>
+          <ul class="p-list">
+            <li><i class="bi bi-1-circle-fill"></i><div>Complete the four sections of the form<small>Programme, personal details, education and documents. You can save each section and come back later.</small></div></li>
+            <li><i class="bi bi-2-circle-fill"></i><div>Submit your application<small>After you submit, the admissions office reviews your details and documents.</small></div></li>
+            <li><i class="bi bi-3-circle-fill"></i><div>Check this page for your result<small>Your status and any remark from the admissions office appear here.</small></div></li>
           </ul>
-        </div>
+        </section>
       </div>
 
-      <div class="text-center small py-4 mt-4 bg-light text-muted">
-        <p class="mb-0" data-i18n="login.copyright">© Copyright 2026 Xinjiang Medical University All Rights Reserved</p>
-        <p class="mt-2 mb-0" data-i18n="login.copyright_sub">Designed for International Students Admissions</p>
-      </div>
+      <aside>
+        <section class="p-card">
+          <h2>Documents to prepare</h2>
+          <ul class="p-list">
+            <li><i class="bi bi-person-badge"></i><div>ID photo<small>White background</small></div><span class="p-tag is-req">Required</span></li>
+            <li><i class="bi bi-passport"></i><div>Passport home page</div><span class="p-tag is-req">Required</span></li>
+            <li><i class="bi bi-mortarboard"></i><div>Certificates and transcripts<small>Highest education</small></div><span class="p-tag is-req">Required</span></li>
+            <li><i class="bi bi-file-text"></i><div>Study plan</div><span class="p-tag is-req">Required</span></li>
+            <li><i class="bi bi-heart-pulse"></i><div>Physical examination record</div><span class="p-tag is-req">Required</span></li>
+            <li><i class="bi bi-shield-check"></i><div>Non-criminal record report</div><span class="p-tag is-req">Required</span></li>
+            <li><i class="bi bi-camera-video"></i><div>Self-introduction video</div><span class="p-tag">Optional</span></li>
+          </ul>
+          <p class="p-note">Files: PDF, Word, JPG or PNG, up to 1 MB each. Video: MP4, MOV or AVI, up to 10 MB.</p>
+        </section>
+
+        <section class="p-card">
+          <h2 data-i18n="login.contact_info_title">Contact Information</h2>
+          <ul class="p-list">
+            <li><i class="bi bi-geo-alt-fill"></i><div>Xinjiang Medical University, Urumqi, Xinjiang, China</div></li>
+            <li><i class="bi bi-telephone-fill"></i><div>CN +86 176 4041 2827<small>PK +92 300 400 9526</small></div></li>
+            <li><i class="bi bi-envelope-fill"></i><div>studyatxjmu@gmail.com</div></li>
+            <li><i class="bi bi-clock-fill"></i><div>Mon-Fri: 8:30 AM - 5:00 PM (CST)</div></li>
+          </ul>
+        </section>
+      </aside>
     </div>
+  </main>
+
+  <footer class="p-foot">
+    <span data-i18n="login.copyright">© Copyright 2027 Xinjiang Medical University All Rights Reserved</span>
   </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
@@ -211,21 +124,31 @@
             statusDisplay = 'Submitted';
           }
 
-          // Build with DOM APIs / textContent so DB-sourced values can't inject HTML (audit #30).
-          statusText.textContent = '';
-          const statusStrong = document.createElement('strong');
-          statusStrong.textContent = statusDisplay;
-          statusText.appendChild(statusStrong);
+          // textContent only, so database values can't inject HTML.
+          statusText.textContent = statusDisplay;
 
-          if (statusDisplay === "Rejected" && data.admin_remark) {
-            statusText.appendChild(document.createElement('br'));
-            const remarkSpan = document.createElement('span');
-            remarkSpan.className = "text-danger mt-2 d-block small";
-            const remarkLabel = document.createElement('strong');
-            remarkLabel.textContent = "Remark: ";
-            remarkSpan.appendChild(remarkLabel);
-            remarkSpan.appendChild(document.createTextNode(data.admin_remark));
-            statusText.appendChild(remarkSpan);
+          // Progress steps: 1 form, 2 submitted, 3 under review, 4 decision.
+          const decided = /approv|accept|admit|reject|declin/.test(normalizedStatus);
+          const rejected = /reject|declin/.test(normalizedStatus);
+          let step = 1;
+          if (data.is_submitted) { step = statusDisplay === 'Submitted' ? 2 : (decided ? 4 : 3); }
+          document.querySelectorAll('#statusSteps li').forEach(function (li, i) {
+            li.classList.remove('is-now', 'is-done');
+            if (i + 1 < step || (step === 4 && i === 3 && !rejected)) { li.classList.add('is-done'); }
+            else if (i + 1 === step) { li.classList.add('is-now'); }
+          });
+          const pill = document.getElementById('statusPill');
+          pill.className = 'p-pill' + (rejected ? ' is-bad' : (step === 4 ? ' is-ok' : ''));
+          pill.textContent = step === 1 ? 'In progress' : (step === 2 ? 'Received' : (step === 3 ? 'Being reviewed' : (rejected ? 'Not successful' : 'Decision made')));
+
+          const remark = document.getElementById('statusRemark');
+          if (data.is_submitted && data.admin_remark) {
+            remark.textContent = '';
+            const label = document.createElement('strong');
+            label.textContent = "Remark: ";
+            remark.appendChild(label);
+            remark.appendChild(document.createTextNode(data.admin_remark));
+            remark.hidden = false;
           }
 
           const editBtn = document.getElementById("editDetailsBtn");
@@ -245,10 +168,25 @@
 
           const downloadBtn = document.getElementById("downloadFormBtn");
           if (data.is_submitted) {
+            // Same-tab navigation: the server answers with a file download, so the page stays open and
+            // phone browsers do not block it as a pop-up.
             downloadBtn.disabled = false;
+            downloadBtn.classList.remove('p-btn--ghost');
+            downloadBtn.classList.add('p-btn--primary');
+            downloadBtn.removeAttribute('data-i18n');
+            downloadBtn.innerHTML = '<i class="bi bi-file-earmark-pdf"></i> Download my application (PDF)';
             downloadBtn.addEventListener("click", function () {
-              window.open("download_application.php", "_blank");
+              window.location.href = "download_application?format=pdf";
             });
+            const zipBtn = document.getElementById("downloadZipBtn");
+            zipBtn.hidden = false;
+            zipBtn.addEventListener("click", function () {
+              window.location.href = "download_application";
+            });
+            editBtn.classList.remove('p-btn--primary');
+            editBtn.classList.add('p-btn--ghost');
+            document.getElementById('downloadReadyNote').hidden = false;
+            document.getElementById('downloadLockedNote').hidden = true;
           }
         })
         .catch(err => {
@@ -260,5 +198,3 @@
   <script src="js/i18n.js"></script>
 </body>
 </html>
-
-

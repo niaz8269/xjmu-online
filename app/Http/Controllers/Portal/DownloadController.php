@@ -8,7 +8,7 @@ use App\Services\ApplicationPackage;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\StreamedResponse;
 
-/** download_application: the submitted applicant's PDF summary + uploaded documents as one ZIP. */
+/** download_application: the submitted applicant's PDF summary + uploaded documents as one ZIP (?format=pdf: the summary only). */
 class DownloadController extends Controller
 {
     public function __invoke(Request $request, ApplicationPackage $package)
@@ -34,13 +34,19 @@ class DownloadController extends Controller
             return response('Unable to generate your application package right now. Please try again shortly or contact support.', 500);
         }
 
-        $response = new StreamedResponse(function () use ($built, $package) {
-            readfile($built['zip']);
+        // ?format=pdf: only the application summary (easier to open on a phone); default: the full ZIP package.
+        $pdfOnly = $request->query('format') === 'pdf';
+        $file = $pdfOnly ? $built['pdf'] : $built['zip'];
+        $name = $pdfOnly ? $built['pdfName'] : $built['name'];
+
+        $response = new StreamedResponse(function () use ($built, $package, $file) {
+            readfile($file);
             $package->cleanup($built['folder']);
         }, 200, [
-            'Content-Type' => 'application/zip',
-            'Content-Disposition' => 'attachment; filename=' . $built['name'],
-            'Content-Length' => (string) filesize($built['zip']),
+            'Content-Type' => $pdfOnly ? 'application/pdf' : 'application/zip',
+            'Content-Disposition' => 'attachment; filename=' . $name,
+            'Content-Length' => (string) filesize($file),
+            'Cache-Control' => 'no-store, private',
         ]);
 
         return $response;
