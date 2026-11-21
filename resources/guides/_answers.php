@@ -200,4 +200,30 @@ return [
         'answer' => 'MBBS in China is a good option when you choose an MOE listed university, study in English, and plan for your home licensing exam from the first year. Its strengths are lower fees, modern hospitals and recognised degrees; the main challenges are Chinese for patient contact and the licensing exam back home.',
         'facts' => $facts,
     ],
+    'mbbs-in-china-eligibility-2027' => [
+        'answer' => 'XJMU asks for a senior high-school certificate (HSSC, FSc pre-medical, A-Level or equivalent) with at least 60% in each of physics, chemistry and biology, an age of 18 to 35, good health free from communicable diseases and a valid passport. No Chinese is needed to apply; the programme is taught in English. Each home medical council sets its own conditions, so check its current rules.',
+        'facts' => [
+            ['Marks', '60% in each of physics, chemistry and biology'],
+            ['Age', '18 to 35'],
+            ['Certificate', 'HSSC / FSc pre-medical, A-Level or equivalent, with science subjects'],
+            ['Health and passport', 'Good health, free from communicable diseases; valid passport'],
+            ['Documents', 'Passport, photo, XJMU form, Chinese medical form and blood report, police certificate, transcripts, self-introduction video'],
+            ['Language', 'Taught in English; no Chinese needed to apply; HSK-4 by graduation'],
+            ['Application fee and deposit', '¥1,000 application fee; ¥2,000 seat deposit after the Pre-Admission Letter'],
+            ['Intakes', 'March/Spring and September/Fall'],
+        ],
+    ],
+    'hsk-requirement-for-mbbs-in-china' => [
+        'answer' => 'No Chinese is needed to apply to or be admitted at Xinjiang Medical University. The MBBS is taught and examined entirely in English. Introductory Chinese is taught in years 1 and 2, and HSK-4 is required by graduation, because patients in the teaching hospitals speak Chinese. Other universities set their own rules, so ask each in writing.',
+        'facts' => [
+            ['Chinese to apply', 'None needed'],
+            ['Language of teaching and exams', 'English'],
+            ['Chinese classes', 'Introductory Chinese in years 1 and 2'],
+            ['HSK-4', 'Required by graduation'],
+            ['HSK exam fee', 'Extra cost paid by students (see living costs in the fees guide)'],
+            ['MOE status', 'Listed, 8th of 43 universities; 60 seats (MOE notice, 1 June 2026)'],
+            ['Duration', '6 years including a 1-year internship'],
+            ['Intakes', 'March/Spring and September/Fall'],
+        ],
+    ],
 ];

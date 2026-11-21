@@ -235,6 +235,8 @@
             <div class="d-flex flex-wrap gap-3 justify-content-center">
                 <a href="{{ get_absolute_url('login') }}" class="ds-btn ds-btn--lg" style="background:#fff;color:var(--ds-red)!important">Apply Now</a>
                 <a href="{{ get_absolute_url('contact') }}" class="ds-btn ds-btn--ghost-light ds-btn--lg">Contact Admissions</a>
+                @php $waDigits = preg_replace('/\D/', '', (string) \App\Support\Settings::get('contact_phone2', '+8617640412827')); @endphp
+                @if (strlen($waDigits) >= 8)<a href="https://wa.me/{{ $waDigits }}" target="_blank" rel="noopener noreferrer" class="ds-btn ds-btn--ghost-light ds-btn--lg"><i class="fa-brands fa-whatsapp"></i> WhatsApp us</a>@endif
             </div>
         </div>
     </div>
