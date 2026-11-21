@@ -1,9 +1,9 @@
 <?php
 
-// The adviser named on every guide ("Reviewed by ..."), confirmed by the owner on 22 Nov 2026.
-// Name, role and photo are the same as his card under Admin > Content > Consultants. Leave 'name' empty to hide the byline.
+// Optional "Reviewed by ..." line on every guide. The owner asked for it to be removed on 22 Nov 2026,
+// so 'name' is empty and no byline or Person author is printed. Fill in 'name' to show it again.
 return [
-    'name' => 'Dr. Ayaz',
+    'name' => '',
     'role' => 'Admissions Consultant',
     'organisation' => 'Consultancy for Abroad Study (CAS)',
     'organisation_url' => 'https://cas.moe/',

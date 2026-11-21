@@ -46,14 +46,17 @@ class SeoGuidesTest extends TestCase
         }
     }
 
-    public function test_guides_carry_the_reviewer_byline_and_person_schema(): void
+    public function test_guides_show_no_reviewer_byline_unless_one_is_configured(): void
     {
+        // The owner asked for the byline to be removed (22 Nov 2026): off by default.
         $html = $this->get('/mbbs-in-china-2027')->assertOk()->getContent();
-        $this->assertStringContainsString('Reviewed by <strong>Dr. Ayaz</strong>, Admissions Consultant, Consultancy for Abroad Study (CAS)', $html);
-        $this->assertStringContainsString('"@type":"Person","name":"Dr. Ayaz","jobTitle":"Admissions Consultant"', $html);
+        $this->assertStringNotContainsString('Reviewed by', $html);
+        $this->assertStringNotContainsString('guide-byline', $html);
+        $this->assertStringNotContainsString('"@type":"Person"', $html);
+        $this->assertStringContainsString('"@type":"BlogPosting"', $html);
 
-        config(['guide_reviewer.name' => '']);
-        $this->assertStringNotContainsString('Reviewed by', $this->get('/mbbs-in-china-2027')->getContent());
+        config(['guide_reviewer.name' => 'Dr. Ayaz']);
+        $this->assertStringContainsString('Reviewed by <strong>Dr. Ayaz</strong>', $this->get('/mbbs-in-china-2027')->getContent());
     }
 
     public function test_rupee_fee_table_is_on_three_guides_with_the_rate_and_date(): void
