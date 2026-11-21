@@ -287,7 +287,7 @@
 				<div class="col-12 mb-2 p-footer-contact">
 					<div class="fw-bold pb-2 mb-4 fs-5 text-jmu-primary border-bottom border-success border-opacity-50" data-i18n="login.contact_info_title">Contact Information</div>
 					<ul class="list-unstyled small">
-						<li class="mb-2"><i class="bi bi-geo-alt-fill me-2 text-jmu-primary"></i> <span data-i18n="login.contact_address">Xinjiang Medical University, Xinjiang City, China</span></li>
+						<li class="mb-2"><i class="bi bi-geo-alt-fill me-2 text-jmu-primary"></i> <span data-i18n="login.contact_address">Xinjiang Medical University, Urumqi, Xinjiang, China</span></li>
 						<li class="mb-2"><i class="bi bi-telephone-fill me-2 text-jmu-primary"></i> <span data-i18n="login.contact_phone">CN +86 176 4041 2827 / PK +92 300 400 9526</span> </li>
 						<li class="mb-2"><i class="bi bi-envelope-fill me-2 text-jmu-primary"></i> studyatxjmu@gmail.com</li>
 						<li><i class="bi bi-clock-fill me-2 text-jmu-primary"></i> <span data-i18n="login.contact_hours">Mon-Fri: 8:30 AM - 5:00 PM (CST)</span></li>
