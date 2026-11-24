@@ -49,6 +49,7 @@
     font-weight: 800; line-height: 1.3; margin: 2rem 0 .8rem;
 }
 .post-body h2 { font-size: 1.6rem; }
+.post-body h2[data-was-h1] { font-size: 2rem; } /* an h1 inside the post text, shown as h2 so the page keeps a single H1 */
 .post-body h3 { font-size: 1.3rem; }
 .post-body h4 { font-size: 1.1rem; }
 .post-body p { margin: 0 0 1.2rem; }

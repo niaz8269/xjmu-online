@@ -72,9 +72,7 @@ class BlogService
         $excerptOrContent = $blog->excerpt ?? $blog->content;
         $seo = config('blog_seo.posts.' . $blog->slug, []); // code-side SEO overrides (config/blog_seo.php)
         return [
-            'page_title' => isset($seo['title'])
-                ? self::esc($seo['title']) . ' | XJMU Blog'
-                : self::esc((string) $blog->title) . ' | XJMU Blog',
+            'page_title' => self::esc(self::headTitle(isset($seo['title']) ? (string) $seo['title'] : (string) $blog->title)),
             'page_description' => isset($seo['description'])
                 ? self::esc($seo['description'])
                 : (! empty($blog->meta_description)
@@ -161,6 +159,43 @@ class BlogService
     public function path(string $slug): string
     {
         return '/blog/' . rawurlencode($slug);
+    }
+
+    /** Longest <title> search engines are told to expect (Bing's site scan flags anything over 70 characters). */
+    public const TITLE_MAX = 70;
+
+    /**
+     * The <title> of a post: "{title} | XJMU Blog" when it fits in 70 characters, the bare title when only that fits,
+     * otherwise the title cut at a word boundary. The visible heading on the page is never shortened.
+     */
+    public static function headTitle(string $title): string
+    {
+        $title = trim((string) preg_replace('/\s+/u', ' ', $title));
+        $full = $title . ' | XJMU Blog';
+        if (mb_strlen($full) <= self::TITLE_MAX) {
+            return $full;
+        }
+        if (mb_strlen($title) <= self::TITLE_MAX) {
+            return $title;
+        }
+        $cut = mb_substr($title, 0, self::TITLE_MAX - 1);
+        $space = mb_strrpos($cut, ' ');
+        if ($space !== false && $space > self::TITLE_MAX * 0.6) {
+            $cut = mb_substr($cut, 0, $space);
+        }
+
+        return rtrim($cut, " ,;:-|–—") . '…';
+    }
+
+    /**
+     * Post bodies written as full HTML pages often start with their own <h1>, which makes two H1s on one page
+     * (the page already has the post title as its H1). Render them as <h2> and keep the old size with a CSS hook.
+     */
+    public static function demoteContentH1(string $html): string
+    {
+        $html = (string) preg_replace('~<h1(\s[^>]*)?>~i', '<h2 data-was-h1$1>', $html);
+
+        return (string) preg_replace('~</h1\s*>~i', '</h2>', $html);
     }
 
     /** Matches the original site's htmlspecialchars() default of ENT_COMPAT (apostrophes untouched), so meta tags stay identical to live. */

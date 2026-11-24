@@ -137,7 +137,7 @@ class SeoGuidesTest extends TestCase
             'status' => 'published', 'published_at' => '2026-01-01 00:00:00', 'created_at' => '2026-01-01 00:00:00']);
 
         $html = $this->get('/blog/' . $slug)->assertOk()
-            ->assertSee('<title>Advantages of MBBS in China for International Students 2026–27 | XJMU Blog</title>', false)
+            ->assertSee('<title>Advantages of MBBS in China for International Students 2026–27</title>', false)
             ->assertSee('Planning for 2027?', false)
             ->getContent();
         $this->assertStringContainsString('<h1>' . $title . '</h1>', $html); // visible heading unchanged
@@ -242,5 +242,25 @@ class SeoGuidesTest extends TestCase
         $this->assertStringContainsString('Disallow: /edit-details', $robots);
         $this->assertStringNotContainsString('Disallow: /login', $robots);
         $this->assertStringNotContainsString('Disallow: /register', $robots);
+    }
+
+    public function test_blog_head_titles_stay_within_70_characters_and_posts_have_one_h1(): void
+    {
+        $long = 'Complete List of 45 MOE Listed Universities in China for MBBS 2026-2027 Including Seats and Fees Explained';
+        $this->assertSame('Complete List of 45 MOE Listed Universities in China for MBBS…', \App\Services\BlogService::headTitle($long));
+        $this->assertLessThanOrEqual(70, mb_strlen(\App\Services\BlogService::headTitle($long)));
+        $this->assertSame('Short title | XJMU Blog', \App\Services\BlogService::headTitle('Short title'));
+        // fits only without the suffix
+        $mid = str_repeat('a', 30) . ' ' . str_repeat('b', 30);
+        $this->assertSame($mid, \App\Services\BlogService::headTitle($mid));
+
+        Blog::query()->create(['title' => $long, 'slug' => 'long-title-post', 'excerpt' => 'x', 'content' => '<h1 class="x">Inside heading</h1><p>Body</p>',
+            'status' => 'published', 'published_at' => '2026-01-01 00:00:00', 'created_at' => '2026-01-01 00:00:00']);
+        $html = $this->get('/blog/long-title-post')->assertOk()->getContent();
+        preg_match('~<title>(.*?)</title>~s', $html, $m);
+        $this->assertLessThanOrEqual(70, mb_strlen(html_entity_decode($m[1])));
+        $this->assertSame(1, substr_count($html, '<h1'));
+        $this->assertStringContainsString('<h2 data-was-h1 class="x">Inside heading</h2>', $html);
+        $this->assertStringContainsString('<h1>' . $long . '</h1>', $html);
     }
 }
