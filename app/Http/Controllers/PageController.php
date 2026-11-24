@@ -74,6 +74,29 @@ class PageController extends Controller
         return $this->page('terms', 'terms');
     }
 
+    /** HTML site map: every public page, guide and article, so each is two clicks from the home page. */
+    public function siteMap()
+    {
+        $pages = [
+            ['/', 'Home'], ['/mbbs', 'MBBS in China at XJMU'], ['/programs', 'Programs'], ['/admissions', 'Admissions'],
+            ['/fees', 'Fees'], ['/scholarships', 'Scholarships'], ['/adm-HtApply', 'How to apply'], ['/about', 'About the university'],
+            ['/contact', 'Contact'], ['/support', 'Student support'], ['/events', 'Events'], ['/gallery', 'Gallery'],
+            ['/downloads', 'Downloads'], ['/be-our-partner', 'Become a partner'], ['/blogs', 'All news and articles'],
+        ];
+        $guides = [];
+        foreach (config('seo_guides', []) as $slug => $g) {
+            $guides[] = ['/' . $slug, $g['h1']];
+        }
+        $posts = [];
+        try {
+            $posts = \Illuminate\Support\Facades\DB::table('blogs')->where('status', 'published')->orderByDesc('published_at')->get(['slug', 'title'])
+                ->map(fn ($b) => ['/blog/' . rawurlencode($b->slug), $b->title])->all();
+        } catch (\Throwable $e) {
+        }
+
+        return $this->page('site-map', 'site-map', ['mapPages' => $pages, 'mapGuides' => $guides, 'mapPosts' => $posts]);
+    }
+
     public function partner()
     {
         return $this->page('be-our-partner', 'be-our-partner');

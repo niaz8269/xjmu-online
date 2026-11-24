@@ -91,6 +91,14 @@ return [
         'body_class' => 'ds-page',
         'page_css' => ['css/design-system.css', 'css/legal.css'],
     ],
+    'site-map' => [
+        'page_title' => 'Site Map | Xinjiang Medical University Admissions',
+        'page_description' => 'Every page, MBBS in China guide and news article on xjmu.online in one list: admissions, fees, scholarships, eligibility, visa, HSK, MDCAT and more.',
+        'page_keywords' => 'xjmu site map, xinjiang medical university pages, mbbs in china guides',
+        'page_url' => 'https://xjmu.online/site-map',
+        'body_class' => 'ds-page',
+        'page_css' => ['css/design-system.css', 'css/legal.css'],
+    ],
     'be-our-partner' => [
         'page_title' => 'Become Our Partner | Xinjiang Medical University',
         'page_description' => 'Partner with XJMU and join our global network of agencies recruiting international students for MBBS programs in China. Grow your education business with us.',

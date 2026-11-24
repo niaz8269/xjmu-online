@@ -184,4 +184,35 @@ class SeoGuidesTest extends TestCase
         $this->get('/migrations/programs')->assertStatus(301)->assertRedirect(url('/programs'));
         $this->assertStringNotContainsString('17590820634', (string) file_get_contents(public_path('js/contact.js')));
     }
+
+    public function test_site_map_page_lists_every_guide_and_published_post_and_is_in_the_footer(): void
+    {
+        \Illuminate\Support\Facades\DB::table('blogs')->insert(['title' => 'Older Post About Visas', 'slug' => 'older-post', 'excerpt' => 'e', 'content' => 'c', 'status' => 'published', 'published_at' => '2026-01-02 10:00:00']);
+        \Illuminate\Support\Facades\DB::table('blogs')->insert(['title' => 'Hidden Draft', 'slug' => 'hidden-draft', 'excerpt' => 'e', 'content' => 'c', 'status' => 'draft']);
+
+        $html = $this->get('/site-map')->assertOk()->getContent();
+        foreach (array_keys(config('seo_guides')) as $slug) {
+            $this->assertStringContainsString('href="/' . $slug . '"', $html, $slug);
+        }
+        $this->assertStringContainsString('href="/blog/older-post"', $html);
+        $this->assertStringContainsString('Older Post About Visas', $html);
+        $this->assertStringNotContainsString('hidden-draft', $html);
+        $this->assertStringContainsString('<link rel="canonical" href="https://xjmu.online/site-map"', $html);
+        $this->assertStringContainsString('href="/site-map"', $this->get('/mbbs-in-china-2027')->getContent());
+    }
+
+    public function test_sitemap_xml_uses_real_dates_never_today_and_lists_the_site_map(): void
+    {
+        \Illuminate\Support\Facades\DB::table('blogs')->insert(['title' => 'B', 'slug' => 'edited', 'excerpt' => 'e', 'content' => 'c', 'status' => 'published', 'published_at' => '2026-03-04 10:00:00', 'updated_at' => '2026-11-20 09:00:00']);
+
+        $xml = preg_replace('/>\s+</', '><', $this->get('/sitemap.xml')->assertOk()->getContent());
+        $this->assertStringContainsString('<loc>https://xjmu.online/site-map</loc>', $xml);
+        // fixed pages carry the date from config/sitemap_dates.php, not the day the sitemap is fetched
+        $this->assertStringContainsString('<loc>https://xjmu.online/privacy</loc><lastmod>2026-11-16</lastmod>', $xml);
+        // an article edited after it was published reports the edit date; the blog index follows its newest article
+        $this->assertStringContainsString('<loc>https://xjmu.online/blog/edited</loc><lastmod>2026-11-20</lastmod>', $xml);
+        $this->assertStringContainsString('<loc>https://xjmu.online/blogs</loc><lastmod>2026-11-20</lastmod>', $xml);
+        // no events in the test database: the events page carries no lastmod at all
+        $this->assertStringContainsString('<loc>https://xjmu.online/events</loc><changefreq>', $xml);
+    }
 }

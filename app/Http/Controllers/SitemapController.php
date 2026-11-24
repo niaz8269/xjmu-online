@@ -25,16 +25,16 @@ class SitemapController extends Controller
         ['/be-our-partner', 'monthly', '0.6'],
         ['/privacy',        'yearly',  '0.4'],
         ['/terms',          'yearly',  '0.4'],
+        ['/site-map',       'monthly', '0.5'],
     ];
 
     public function __invoke()
     {
         $base = 'https://xjmu.online';
-        $today = date('Y-m-d');
 
         $blogs = [];
         try {
-            $blogs = DB::table('blogs')->where('status', 'published')->orderByDesc('published_at')->get(['slug', 'published_at'])->all();
+            $blogs = DB::table('blogs')->where('status', 'published')->orderByDesc('published_at')->get(['slug', 'published_at', 'updated_at'])->all();
         } catch (\Throwable $e) {
         }
         $events = [];
@@ -43,7 +43,19 @@ class SitemapController extends Controller
         } catch (\Throwable $e) {
         }
 
-        $url = fn (string $loc, string $lastmod, string $freq, string $prio) => "  <url>\n    <loc>{$loc}</loc>\n    <lastmod>{$lastmod}</lastmod>\n    <changefreq>{$freq}</changefreq>\n    <priority>{$prio}</priority>\n  </url>\n";
+        // lastmod is the real date the page last changed; with no known date the tag is left out (never "today").
+        $url = fn (string $loc, ?string $lastmod, string $freq, string $prio) => "  <url>\n    <loc>{$loc}</loc>\n" . ($lastmod ? "    <lastmod>{$lastmod}</lastmod>\n" : '') . "    <changefreq>{$freq}</changefreq>\n    <priority>{$prio}</priority>\n  </url>\n";
+        $newestPost = 0;
+        foreach ($blogs as $b) {
+            $newestPost = max($newestPost, strtotime((string) $b->published_at) ?: 0, strtotime((string) ($b->updated_at ?? '')) ?: 0);
+        }
+        $newestEvent = 0;
+        foreach ($events as $e) {
+            $newestEvent = max($newestEvent, strtotime((string) $e->event_date) ?: 0);
+        }
+        $dates = config('sitemap_dates', []);
+        $dates['/blogs'] = $newestPost ? date('Y-m-d', $newestPost) : null;
+        $dates['/events'] = $newestEvent ? date('Y-m-d', $newestEvent) : null;
 
         $xml = '<?xml version="1.0" encoding="UTF-8"?>' . "\n";
         $xml .= "<urlset xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\"\n"
@@ -52,20 +64,19 @@ class SitemapController extends Controller
             . "        https://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd\">\n\n";
 
         foreach (self::STATIC as [$loc, $freq, $prio]) {
-            $xml .= $url($base . $loc, $today, $freq, $prio);
+            $xml .= $url($base . $loc, $dates[$loc] ?? null, $freq, $prio);
         }
         foreach (config('seo_guides', []) as $slug => $guide) {
             $xml .= $url($base . '/' . $slug, $guide['updated'], 'weekly', '0.9');
         }
         $xml .= "\n";
         foreach ($blogs as $b) {
-            $lastmod = ! empty($b->published_at) ? date('Y-m-d', strtotime($b->published_at)) : $today;
-            $xml .= $url($base . '/blog/' . rawurlencode($b->slug), $lastmod, 'monthly', '0.7');
+            $t = max(strtotime((string) $b->published_at) ?: 0, strtotime((string) ($b->updated_at ?? '')) ?: 0);
+            $xml .= $url($base . '/blog/' . rawurlencode($b->slug), $t ? date('Y-m-d', $t) : null, 'monthly', '0.7');
         }
         $xml .= "\n";
         foreach ($events as $e) {
-            $lastmod = ! empty($e->event_date) ? date('Y-m-d', strtotime($e->event_date)) : $today;
-            $xml .= $url($base . '/event?slug=' . urlencode($e->slug), $lastmod, 'weekly', '0.6');
+            $xml .= $url($base . '/event?slug=' . urlencode($e->slug), ! empty($e->event_date) ? date('Y-m-d', strtotime($e->event_date)) : null, 'weekly', '0.6');
         }
         $xml .= "\n</urlset>\n";
 

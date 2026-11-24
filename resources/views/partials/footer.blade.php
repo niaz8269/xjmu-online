@@ -79,7 +79,7 @@
             </div>
         </div>
         <div class="copyright">
-            <p>&copy; {{ $siteFoot['year'] }} <span data-i18n="footer.copyright">Xinjiang Medical University. All Rights Reserved.</span> | <a href="/privacy" style="color: white;" data-i18n="footer.privacy_policy">Privacy Policy</a> | <a href="/terms" style="color: white" data-i18n="footer.terms_of_use">Terms of Use</a></p>
+            <p>&copy; {{ $siteFoot['year'] }} <span data-i18n="footer.copyright">Xinjiang Medical University. All Rights Reserved.</span> | <a href="/privacy" style="color: white;" data-i18n="footer.privacy_policy">Privacy Policy</a> | <a href="/terms" style="color: white" data-i18n="footer.terms_of_use">Terms of Use</a> | <a href="/site-map" style="color: white">Site map</a></p>
             <p><b data-i18n="footer.powered_by">Powered By: <a href="https://cas.moe/" target="_blank" rel="noopener noreferrer" style="white-space: nowrap; text-decoration: none;">
     Consultancy for Abroad Study (CAS)
 </a></b></p>

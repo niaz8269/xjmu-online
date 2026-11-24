@@ -20,6 +20,7 @@ foreach ([
     'privacy' => [\App\Http\Controllers\PageController::class, 'privacy'],
     'terms' => [\App\Http\Controllers\PageController::class, 'terms'],
     'be-our-partner' => [\App\Http\Controllers\PageController::class, 'partner'],
+    'site-map' => [\App\Http\Controllers\PageController::class, 'siteMap'],
     'mbbs' => [\App\Http\Controllers\MbbsController::class, 'index'],
     'programs' => [\App\Http\Controllers\ProgramController::class, 'index'],
     'scholarships' => [\App\Http\Controllers\ScholarshipController::class, 'index'],
