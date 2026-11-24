@@ -8,6 +8,8 @@ return [
     // path => destination
     'paths' => [
         '/apply' => '/login',
+        // The five programme cards on the home page link here (the link is stored in the database); it never existed.
+        '/migrations/programs' => '/programs',
         '/mbbs-in-china' => '/mbbs',
         '/mbbs-xinjiang-medical-university-pakistani-students' => '/blog/mbbs-at-xinjiang-medical-university-complete-guide-for-pakistani-students-2026-xjmu-online',
         '/index.html' => '/',

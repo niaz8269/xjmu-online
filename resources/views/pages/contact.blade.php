@@ -78,7 +78,7 @@
                     </div>
                     
                     <div class="office-map-link">
-                        <a href="https://goo.gl/maps/XYZ123" target="_blank" rel="noopener noreferrer" class="map-link-btn">
+                        <a href="https://www.google.com/maps/search/?api=1&query=Xinjiang+Medical+University" target="_blank" rel="noopener noreferrer" class="map-link-btn">
                             <i class="fas fa-map-marker-alt"></i>
                             <span data-i18n="contact.how_to_find">How to find this office</span>
                         </a>
@@ -201,7 +201,7 @@
                         </iframe>
                     </div>
                     <div class="map-actions">
-                        <a href="https://goo.gl/maps/XYZ123" target="_blank" rel="noopener noreferrer" class="map-link-btn">
+                        <a href="https://www.google.com/maps/search/?api=1&query=Xinjiang+Medical+University" target="_blank" rel="noopener noreferrer" class="map-link-btn">
                             <i class="fas fa-external-link-alt"></i>
                             Open in Google Maps
                         </a>
