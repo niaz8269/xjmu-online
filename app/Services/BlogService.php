@@ -170,7 +170,8 @@ class BlogService
      */
     public static function headTitle(string $title): string
     {
-        $title = trim((string) preg_replace('/\s+/u', ' ', $title));
+        // some titles are stored with HTML entities ("PM&amp;DC"); decode first so the tab does not show "&amp;" and the length is true
+        $title = trim((string) preg_replace('/\s+/u', ' ', html_entity_decode($title, ENT_QUOTES | ENT_HTML5)));
         $full = $title . ' | XJMU Blog';
         if (mb_strlen($full) <= self::TITLE_MAX) {
             return $full;

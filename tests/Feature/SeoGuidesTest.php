@@ -250,6 +250,7 @@ class SeoGuidesTest extends TestCase
         $this->assertSame('Complete List of 45 MOE Listed Universities in China for MBBS…', \App\Services\BlogService::headTitle($long));
         $this->assertLessThanOrEqual(70, mb_strlen(\App\Services\BlogService::headTitle($long)));
         $this->assertSame('Short title | XJMU Blog', \App\Services\BlogService::headTitle('Short title'));
+        $this->assertSame('PM&DC Exemption | XJMU Blog', \App\Services\BlogService::headTitle('PM&amp;DC Exemption'));
         // fits only without the suffix
         $mid = str_repeat('a', 30) . ' ' . str_repeat('b', 30);
         $this->assertSame($mid, \App\Services\BlogService::headTitle($mid));
