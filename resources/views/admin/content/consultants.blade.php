@@ -14,7 +14,7 @@
                 <div class="col-md-6"><label class="form-label">Role / Title</label>
                     <input type="text" name="role" class="form-control" placeholder="Admissions Counsellor" value="{{ $edit['role'] ?? '' }}"></div>
                 <div class="col-md-4"><label class="form-label">WhatsApp (digits)</label>
-                    <input type="text" name="whatsapp" class="form-control" placeholder="8617590820634" value="{{ $edit['whatsapp'] ?? '' }}"></div>
+                    <input type="text" name="whatsapp" class="form-control" placeholder="8618041566030" value="{{ $edit['whatsapp'] ?? '' }}"></div>
                 <div class="col-md-4"><label class="form-label">Phone</label>
                     <input type="text" name="phone" class="form-control" value="{{ $edit['phone'] ?? '' }}"></div>
                 <div class="col-md-4"><label class="form-label">Email</label>

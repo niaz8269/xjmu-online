@@ -222,7 +222,7 @@
             <p>{{ $t['mbbs_cta_lead'] }}</p>
             <div class="d-flex flex-wrap gap-3 justify-content-center">
                 <a href="{{ get_absolute_url('login') }}" class="ds-btn ds-btn--lg" style="background:#fff;color:var(--ds-red)!important">Apply Now</a>
-                <a href="https://wa.me/+8617590820634" target="_blank" rel="noopener noreferrer" class="ds-btn ds-btn--ghost-light ds-btn--lg"><i class="fab fa-whatsapp"></i> Chat on WhatsApp</a>
+                <a href="https://wa.me/8618041566030" target="_blank" rel="noopener noreferrer" class="ds-btn ds-btn--ghost-light ds-btn--lg"><i class="fab fa-whatsapp"></i> Chat on WhatsApp</a>
             </div>
         </div>
     </div>

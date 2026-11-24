@@ -492,7 +492,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 <a href="{{ get_absolute_url('login') }}" class="ds-btn ds-btn--lg" style="background:#fff;color:var(--ds-red)!important">
                     <span>{{ $t['home_cta_btn'] }}</span>
                 </a>
-                <a href="https://wa.me/+8617590820634" target="_blank" rel="noopener noreferrer" class="ds-btn ds-btn--ghost-light ds-btn--lg">
+                <a href="https://wa.me/8618041566030" target="_blank" rel="noopener noreferrer" class="ds-btn ds-btn--ghost-light ds-btn--lg">
                     <i class="fab fa-whatsapp"></i> <span data-i18n="home.cta_whatsapp">Chat on WhatsApp</span>
                 </a>
             </div>

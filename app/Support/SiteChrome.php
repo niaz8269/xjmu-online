@@ -62,7 +62,7 @@ class SiteChrome
     /** Settings-driven top bar (contacts + social icons). */
     public function top(): array
     {
-        $cn = Settings::get('contact_phone2', '+86 175 9082 0634');
+        $cn = Settings::get('contact_phone2', '+86 180 4156 6030');
         $pk = Settings::get('contact_phone_pk', '+92 300 400 9526');
 
         return [

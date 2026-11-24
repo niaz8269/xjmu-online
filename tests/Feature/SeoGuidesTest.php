@@ -171,4 +171,17 @@ class SeoGuidesTest extends TestCase
         $this->get('/blog-post?slug=expat-eyes-a-ghanaian-student-s-endearing-memories-of-xinjiang')->assertStatus(301)->assertRedirect(url('/blogs'));
         $this->get('/blog-post?slug=something-that-never-existed')->assertNotFound();
     }
+
+    public function test_old_whatsapp_number_is_gone_and_legacy_programme_link_redirects(): void
+    {
+        foreach (['/', '/fees', '/mbbs', '/programs', '/adm-HtApply', '/contact'] as $path) {
+            $html = $this->get($path)->getContent();
+            $this->assertStringNotContainsString('17590820634', $html, $path);
+            $this->assertStringNotContainsString('175 9082 0634', $html, $path);
+            $this->assertStringNotContainsString('goo.gl/maps/XYZ123', $html, $path);
+        }
+        $this->assertStringContainsString('https://wa.me/8618041566030', $this->get('/fees')->getContent());
+        $this->get('/migrations/programs')->assertStatus(301)->assertRedirect(url('/programs'));
+        $this->assertStringNotContainsString('17590820634', (string) file_get_contents(public_path('js/contact.js')));
+    }
 }

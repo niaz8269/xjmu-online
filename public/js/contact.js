@@ -273,7 +273,7 @@ window.sendViaWhatsApp = function() {
     whatsappMessage += `*📅 Submitted:* ${new Date().toLocaleString()}%0A`;
     whatsappMessage += `*🌐 Source:* XJMU Website Contact Form`;
 
-    const whatsappNumber = '8617590820634'; // XJMU Admissions WhatsApp
+    const whatsappNumber = '8618041566030'; // XJMU Admissions WhatsApp
     const whatsappURL = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
     
     // Open WhatsApp in new tab
