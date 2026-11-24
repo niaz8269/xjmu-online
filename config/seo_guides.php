@@ -20,8 +20,8 @@ foreach ($guides as $slug => $g) {
     $guides[$slug] += $answers[$slug] ?? [];
 }
 
-// Fees in Pakistani and Indian rupees (22 Nov 2026): one shared table, added as the second section of the three
-// guides where families ask for it. The rates and their date live in resources/guides/_shared.php ($fx).
+// Fees in Pakistani and Indian rupees (22 Nov 2026): one shared table, added to the four guides
+// where families ask for it (the 2027 overview since 25 Nov 2026). The rates and their date live in resources/guides/_shared.php ($fx).
 $shared = require __DIR__ . '/../resources/guides/_shared.php';
 $rupees = [
     'id' => 'fees-in-rupees', 'eyebrow' => 'In your currency', 'h' => 'MBBS in China fees in Pakistani and Indian rupees',
@@ -31,9 +31,10 @@ $rupees = [
     ],
     'table' => $shared['feeLocal'],
 ];
-foreach (['mbbs-in-china-fees-2027', 'mbbs-in-china-for-pakistani-students', 'mbbs-in-china-for-indian-students'] as $slug) {
+// guide => position of the rupee section (the 2027 overview puts it right after its own fees section)
+foreach (['mbbs-in-china-fees-2027' => 1, 'mbbs-in-china-for-pakistani-students' => 1, 'mbbs-in-china-for-indian-students' => 1, 'mbbs-in-china-2027' => 5] as $slug => $position) {
     if (isset($guides[$slug]['sections'])) {
-        array_splice($guides[$slug]['sections'], 1, 0, [$rupees]);
+        array_splice($guides[$slug]['sections'], $position, 0, [$rupees]);
     }
 }
 

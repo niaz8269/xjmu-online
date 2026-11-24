@@ -59,7 +59,7 @@ class SeoGuidesTest extends TestCase
         $this->assertStringContainsString('Reviewed by <strong>Dr. Ayaz</strong>', $this->get('/mbbs-in-china-2027')->getContent());
     }
 
-    public function test_rupee_fee_table_is_on_three_guides_with_the_rate_and_date(): void
+    public function test_rupee_fee_table_is_on_four_guides_with_the_rate_and_date(): void
     {
         $s = require resource_path('guides/_shared.php');
         $this->assertSame(['pkr' => 41.4, 'inr' => 13.9], ['pkr' => $s['fx']['pkr'], 'inr' => $s['fx']['inr']]);
@@ -71,7 +71,10 @@ class SeoGuidesTest extends TestCase
             $this->assertSame('fees-in-rupees', config('seo_guides.' . $slug . '.sections.1.id'), $slug);
             $this->get('/' . $slug)->assertOk()->assertSee('PKR 2,068,000')->assertSee('INR 694,000')->assertSee($s['fx']['date']);
         }
-        $this->get('/mbbs-in-china-2027')->assertOk()->assertDontSee('PKR 2,068,000');
+        // the 2027 overview carries it right after its own fees section, plus a matching FAQ answer
+        $this->assertSame('fees-in-rupees', config('seo_guides.mbbs-in-china-2027.sections.5.id'));
+        $this->get('/mbbs-in-china-2027')->assertOk()->assertSee('PKR 2,068,000')->assertSee('INR 3,193,000')->assertSee('How much does MBBS in China 2027 cost in Pakistani and Indian rupees?');
+        $this->get('/mbbs-in-china-vs-pakistan')->assertOk()->assertDontSee('PKR 2,068,000');
     }
 
     public function test_every_page_footer_links_to_each_guide(): void

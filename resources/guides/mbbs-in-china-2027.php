@@ -3,7 +3,7 @@
 $s = require __DIR__ . '/_shared.php';
 
 return [
-    'updated' => '2026-11-16',
+    'updated' => '2026-11-25',
     'title' => 'MBBS in China 2027 | Admission, Fees, MOE List & Requirements',
     'description' => 'MBBS in China 2027: admission, eligibility, fees, MOE listed MBBS universities, English taught MBBS and how to apply to Xinjiang Medical University.',
     'keywords' => 'MBBS in China 2027, MBBS in China, Clinical Medicine in China, Xinjiang Medical University, MBBS admission in China 2027, study MBBS in China 2027, MBBS in China 2027 fees, MBBS in China 2027 requirements, MOE listed MBBS, English taught MBBS, registered MBBS university in China',
@@ -198,6 +198,7 @@ return [
         ['Does XJMU have a March/Spring intake for MBBS?', 'Yes. The MBBS has a March/Spring intake starting in February or March and a September/Fall intake starting in September.'],
         ['Has the MOE list for 2027 been published?', 'No. The list in force covers the 2026–2027 academic year and was issued on 1 June 2026. It approves 43 universities with 2,790 seats. This page will be updated when the next notice is released.'],
         ['How much will MBBS in China cost in 2027?', 'The university has confirmed that fees for the 2027 intakes are the same as for 2026. At Xinjiang Medical University, the first-year package is ¥49,950 and each later year totals about ¥35,950.'],
+        ['How much does MBBS in China 2027 cost in Pakistani and Indian rupees?', 'At the mid-market rate on ' . $s['fx']['date'] . ' (¥1 = PKR ' . $s['fx']['pkr'] . ', INR ' . $s['fx']['inr'] . '), the first-year package of ' . $s['feeLocal']['rows'][0][1] . ' is about ' . $s['feeLocal']['rows'][0][3] . ' or ' . $s['feeLocal']['rows'][0][4] . ', and the six-year total of ' . $s['feeLocal']['rows'][2][1] . ' is about ' . $s['feeLocal']['rows'][2][3] . ' or ' . $s['feeLocal']['rows'][2][4] . '. The yuan fee is fixed; the rupee amount changes with the exchange rate on the day you pay.'],
         ['What marks do I need for MBBS in China?', 'At Xinjiang Medical University the minimum is 60% marks in each of the science subjects in HSSC or A-Level. Requirements differ between universities.'],
         ['Is MBBS in China taught in English?', 'Yes, at MOE listed universities. Universities that are not on the list may only teach clinical medicine to international students in Chinese.'],
         ['How long is MBBS in China?', 'Six years: five years of study and a one-year clinical internship.'],
@@ -206,5 +207,5 @@ return [
         ['Can I get a scholarship for MBBS in China 2027?', 'The university lists the Chinese Government Scholarship, the Xinjiang Government Scholarship, the President\'s Scholarship and the Confucius Institute Scholarship. Each has its own eligibility rules and deadline.'],
         ['Which visa do I need?', 'An X1 or X2 student visa. You apply at the Chinese embassy or consulate with your admission letter and JW202 form.'],
     ],
-    'related' => ['moe-listed-mbbs-universities-in-china', 'english-taught-mbbs-in-china'],
+    'related' => ['mbbs-in-china-fees-2027', 'mbbs-in-china-eligibility-2027', 'mbbs-in-china-admission-calendar-2027', 'mbbs-in-china-for-pakistani-students', 'mbbs-in-china-for-indian-students', 'moe-listed-mbbs-universities-in-china', 'english-taught-mbbs-in-china'],
 ];
