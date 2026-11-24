@@ -107,3 +107,5 @@ Live admin fields that still say "Aged 17–25": Settings → MBBS → eligibili
 Brochure figures that differ from the website (not changed; owner to confirm which is current):
 teaching hospitals 13 (site: 18) · internship hospitals 93 (site: 95) · ESI Clinical Medicine top 2.33‰ (site: 2.07‰) ·
 "44/45 MOE-listed universities" (the June 2026 MOE notice lists 43).
+
+**Added 25 Nov 2026 (regional guides, from Search Console country data for the last 90 days):** `/mbbs-in-china-for-african-students`, `/mbbs-in-china-for-us-and-canadian-students`, `/mbbs-in-china-for-gulf-students`, `/mbbs-in-china-for-central-asian-and-russian-speaking-students`, `/mbbs-in-china-for-european-students`. Each is about MBBS in China in general, with XJMU as the worked example. Every home-country regulator rule is worded "as published by <body> on <date>" and listed with its source in `docs/sources/<slug>.md`, together with what could not be verified (those rules are left as "check with the regulator"). Re-read the regulator pages every few months (rules change), and update the exchange rates and their dates together (the rates are set at the top of each guide file).
