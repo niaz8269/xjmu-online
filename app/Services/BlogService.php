@@ -72,7 +72,8 @@ class BlogService
         $excerptOrContent = $blog->excerpt ?? $blog->content;
         $seo = config('blog_seo.posts.' . $blog->slug, []); // code-side SEO overrides (config/blog_seo.php)
         return [
-            'page_title' => self::esc(self::headTitle(isset($seo['title']) ? (string) $seo['title'] : (string) $blog->title)),
+            // raw: the layout escapes the title once (pre-escaping here printed "&amp;" in the browser tab)
+            'page_title' => self::headTitle(isset($seo['title']) ? (string) $seo['title'] : (string) $blog->title),
             'page_description' => isset($seo['description'])
                 ? self::esc($seo['description'])
                 : (! empty($blog->meta_description)
