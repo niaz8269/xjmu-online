@@ -191,6 +191,7 @@ return [
         ]],
     ],
     'faqs' => [
+        ['Is Xinjiang Medical University the same as Xinxiang Medical University?', 'No. They are two different universities with similar spellings. Xinjiang Medical University (XJMU) is in Urumqi, the capital of the Xinjiang Uygur Autonomous Region, and its admissions site is xjmu.online. Xinxiang Medical University is in the city of Xinxiang in Henan Province. Check the spelling, the city and the official website before you apply or pay anything.'],
         ['What is Xinjiang Medical University?', 'Xinjiang Medical University (XJMU) is a public medical university in Urumqi, China, founded in 1956. It is the largest provincial-ministerial joint medical university in Xinjiang and is approved by the Ministry of Education to teach the English taught MBBS to international students.'],
         ['Is Xinjiang Medical University MOE listed?', 'Yes. It is on the Ministry of Education list for 2026–2027, issued on 1 June 2026, as number 8 of 43 universities, with 60 seats. The number is its position on the list, not a quality ranking.'],
         ['What is the Xinjiang Medical University world ranking?', 'We do not print a rank number, because rankings change each year and each system measures something different. Look the university up on the QS, Times Higher Education, US News, Nature Index and Clarivate ESI websites for the current figures.'],

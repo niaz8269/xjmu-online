@@ -99,3 +99,14 @@ that a penalty would undo this month's work. Aim for two to four real links a mo
 
 Search Console shows new linking sites under Links > Top linking sites, usually two to four weeks after a link
 goes live. Check once a month.
+
+## Competitor links seen in Bing Webmaster Tools (25 Nov 2026)
+
+Bing's "Backlinks to any site" report shows who links to the competitors. xjmu.online has **10 referring domains** (ac.pk, campuschina.international, onco.kz, campuschina.pk, jarpusmed.org, grokipedia.com, oncodaily.com, umarconsultants.com, exosome-rna.com, oncodailynews.com). Counts are links found by Bing, not a full audit.
+
+| Site | Referring domains | Biggest sources (links) |
+|---|---|---|
+| timesconsultant.com | 112 | jamals.com (204), apkavisa.pk (108), expakglobal.com (38), swan.ac.uk and swansea.ac.uk (38 and 29), timescoursefinder.com (26), aeroleads.com (22), ilmlink.com (20), bbcconsultant.co.uk (11), qmul.ac.uk (9) |
+| eaziline.com | 48 | grokipedia.com (32), fivestarstudy.com (22), shzuni.com (14), wisdomlex.com (8), intimestudyadvisors.com (7), hutcm.com (7), substack.com (7), studyinchinambbs.com (5), uni2study.com (5), admissionsabroad.net (4) |
+
+What this suggests: the leader's links come mostly from Pakistani study and visa directories (apkavisa.pk, ilmlink.com, expakglobal.com, jamals.com) and from the UK universities it recruits for, which is a partner-listing link, not something to copy without a real partnership. Study-in-China directories (studyinchinambbs.com, uni2study.com, admissionsabroad.net, fivestarstudy.com) are the realistic targets for XJMU. Ask each for a listing; do not buy links.
