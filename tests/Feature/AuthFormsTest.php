@@ -140,6 +140,6 @@ class AuthFormsTest extends TestCase
         $this->assertStringContainsString('<loc>https://xjmu.online/event?slug=ev1</loc>', $x);
         $this->assertStringNotContainsString('draft', $x);
         $this->assertNotFalse(simplexml_load_string($x));
-        $this->assertSame(18 + 2 + count(config("seo_guides")), substr_count($x, '<url>'));
+        $this->assertSame(20 + 2 + count(config("seo_guides")), substr_count($x, '<url>'));
     }
 }

@@ -16,6 +16,10 @@ foreach (glob(__DIR__ . '/../resources/guides/[!_]*.php') ?: [] as $file) {
 
 // Quick answer + key facts for the top of each guide (resources/guides/_answers.php).
 $answers = require __DIR__ . '/../resources/guides/_answers.php';
+// A guide may keep its own answer and facts in resources/guides/_answers_{slug}.php (the same array shape).
+foreach (glob(__DIR__ . '/../resources/guides/_answers_*.php') ?: [] as $file) {
+    $answers = array_merge($answers, require $file);
+}
 foreach ($guides as $slug => $g) {
     $guides[$slug] += $answers[$slug] ?? [];
 }

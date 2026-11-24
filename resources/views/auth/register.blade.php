@@ -4,8 +4,11 @@
   <meta charset="UTF-8">
   <meta name="xjmu-base" content="https://xjmu.online">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Xinjiang Medical University - Student Registration</title>
+  <title>Register | Xinjiang Medical University Application Portal</title>
+  <meta name="description" content="Create your account on the Xinjiang Medical University application portal to apply for MBBS and other programs, upload documents and track your application online.">
+  <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://xjmu.online/register">
+  @verbatim<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebPage","@id":"https://xjmu.online/register","url":"https://xjmu.online/register","name":"Register","description":"Create your account on the Xinjiang Medical University application portal to apply for MBBS and other programs, upload documents and track your application online.","inLanguage":"en","isPartOf":{"@type":"WebSite","name":"Xinjiang Medical University Admissions","url":"https://xjmu.online/"},"about":{"@type":"CollegeOrUniversity","name":"Xinjiang Medical University","url":"https://xjmu.online/"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://xjmu.online/"},{"@type":"ListItem","position":2,"name":"Register","item":"https://xjmu.online/register"}]}]}</script>@endverbatim
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
   <link rel="icon" href="assets/images/logo2.webp" type="image/x-icon">

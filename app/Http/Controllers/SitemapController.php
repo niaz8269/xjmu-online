@@ -25,6 +25,8 @@ class SitemapController extends Controller
         ['/be-our-partner', 'monthly', '0.6'],
         ['/privacy',        'yearly',  '0.4'],
         ['/terms',          'yearly',  '0.4'],
+        ['/login',          'monthly', '0.8'],
+        ['/register',       'monthly', '0.8'],
         ['/site-map',       'monthly', '0.5'],
     ];
 

@@ -218,4 +218,29 @@ class SeoGuidesTest extends TestCase
         // no events in the test database: the events page carries no lastmod at all
         $this->assertStringContainsString('<loc>https://xjmu.online/events</loc><changefreq>', $xml);
     }
+
+    public function test_login_and_register_pages_are_indexable_portal_pages_listed_in_the_sitemap(): void
+    {
+        $login = $this->get('/login')->assertOk()->getContent();
+        $this->assertStringContainsString('<title>Xinjiang Medical University Application Portal | Student Login</title>', $login);
+        $this->assertStringContainsString('<meta name="description" content="Sign in to the Xinjiang Medical University application portal', $login);
+        $this->assertStringContainsString('<meta name="robots" content="index, follow">', $login);
+        $this->assertSame(1, substr_count($login, '<h1'));
+        $this->assertStringContainsString('"@type":"BreadcrumbList"', $login);
+        $this->assertStringNotContainsString('{{', $login);
+
+        $register = $this->get('/register')->assertOk()->getContent();
+        $this->assertStringContainsString('<title>Register | Xinjiang Medical University Application Portal</title>', $register);
+        $this->assertStringContainsString('<meta name="robots" content="index, follow">', $register);
+        $this->assertSame(1, substr_count($register, '<h1'));
+
+        $xml = preg_replace('/>\s+</', '><', $this->get('/sitemap.xml')->getContent());
+        $this->assertStringContainsString('<loc>https://xjmu.online/login</loc><lastmod>', $xml);
+        $this->assertStringContainsString('<loc>https://xjmu.online/register</loc><lastmod>', $xml);
+        // the private pages stay out of search
+        $robots = (string) file_get_contents(public_path('robots.txt'));
+        $this->assertStringContainsString('Disallow: /edit-details', $robots);
+        $this->assertStringNotContainsString('Disallow: /login', $robots);
+        $this->assertStringNotContainsString('Disallow: /register', $robots);
+    }
 }
