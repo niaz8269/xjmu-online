@@ -201,7 +201,7 @@ return [
         ], 'table' => $s['calendar'], 'link' => ['mbbs-in-china-admission-calendar-2027', 'See the MBBS in China admission calendar']],
 
         ['id' => 'home-rules', 'eyebrow' => 'Your own country', 'h' => 'The second check: your home medical council', 'p' => [
-            "Meeting the university's requirements lets you apply. It does not tell you what your home regulator requires. XJMU is on the Ministry of Education list for 2026-2027, at number 8 of 43 with 60 seats, and it is ECFMG eligible and recognised by PMDC, NMC and other councils. Each council sets its own conditions, so check its current rules before you apply.",
+            "Meeting the university's requirements lets you apply. It does not tell you what your home regulator requires. XJMU is on the Ministry of Education list for 2026-2027, at number 8 of 43 with 60 seats, and it is ECFMG eligible; it states that it is recognised by PMDC, NMC and other councils. Each council sets its own conditions, so check its current rules before you apply.",
         ], 'sub' => [
             ['h' => 'Indian students', 'p' => [
                 "For Indian students the National Medical Commission rules apply, and NEET is generally required before studying abroad. Rules change, so verify the NMC's current text yourself and keep a copy of the page you rely on. XJMU's own published requirements are separate from the NMC's conditions.",

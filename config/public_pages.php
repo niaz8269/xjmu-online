@@ -5,7 +5,7 @@
 return [
     'home' => [
         'page_title' => 'MBBS in China 2027 | Xinjiang Medical University',
-        'page_description' => 'Study MBBS in China at Xinjiang Medical University — WHO & MOE-listed, English-medium medical degree with affordable fees. Recognized by PMDC, NMC & WHO. Apply for the September 2027 intake.',
+        'page_description' => 'Study MBBS in China at Xinjiang Medical University — WHO & MOE-listed, English-medium medical degree with affordable fees.  ECFMG eligible and WDOMS listed. Apply for the September 2027 intake.',
         'page_keywords' => 'MBBS in China, Xinjiang Medical University, XJMU, study medicine China, MBBS 2027, MBBS 2026, MBBS fees China, CSC scholarship, English medium MBBS, WHO recognized medical university China, MBBS for international students',
         'page_url' => 'https://xjmu.online/',
         'page_image' => 'https://xjmu.online/images/logo.png',
@@ -23,7 +23,7 @@ return [
     ],
     'mbbs' => [
         'page_title' => 'MBBS in China at Xinjiang Medical University | Fees 2027',
-        'page_description' => 'Complete guide to the MBBS program at Xinjiang Medical University — 6-year English-medium degree, WHO & MOE-listed, PMDC/NMC recognized. Curriculum, eligibility, fees (~¥49,950 first year) and how to apply for the September 2027 intake.',
+        'page_description' => 'Complete guide to the MBBS program at Xinjiang Medical University — 6-year English-medium degree, WHO & MOE-listed, ECFMG eligible. Curriculum, eligibility, fees (~¥49,950 first year) and how to apply for the September 2027 intake.',
         'page_keywords' => 'MBBS in China, MBBS at Xinjiang Medical University, XJMU MBBS, study MBBS China, English medium MBBS, MBBS fees China, MBBS duration, WHO recognized MBBS China, MBBS admission 2027',
         'page_url' => 'https://xjmu.online/mbbs',
         'page_image' => 'https://xjmu.online/images/logo.png',
@@ -126,7 +126,7 @@ return [
     // home_faqs_fallback
     'home_faqs_fallback' => [
         ['question' => 'Is Xinjiang Medical University recognized for MBBS?',
-         'answer' => 'Yes. XJMU is listed by China\'s Ministry of Education (MOE) and recognized by WHO (World Directory of Medical Schools), PMDC, NMC and other major medical councils, so graduates are eligible to sit licensing exams in their home countries.'],
+         'answer' => 'Yes. XJMU is listed by China\'s Ministry of Education (MOE) and listed in the WHO World Directory of Medical Schools, and it states that it is recognised by PMDC, NMC and other major medical councils. Each council sets its own conditions for foreign graduates, so confirm the current position with your council.'],
         ['question' => 'What is the medium of instruction for the MBBS program?',
          'answer' => 'The MBBS program is taught in English. HSK-4 Chinese proficiency is only required at the time of graduation to support clinical rotations.'],
         ['question' => 'How much does MBBS at XJMU cost?',
@@ -167,7 +167,7 @@ return [
         'hero_subtext' => 'A WHO & MOE-listed, English-medium medical degree with world-class clinical training and affordable fees — trusted by international students from 45+ countries.',
         'home_trust1' => 'WHO / WDOMS Listed',
         'home_trust2' => 'MOE Approved',
-        'home_trust3' => 'PMDC & NMC Recognized',
+        'home_trust3' => 'ECFMG Eligible',
         'home_trust4' => 'English Medium',
         'home_news_eyebrow' => 'News & Updates',
         'home_news_title' => 'Latest news & announcements',

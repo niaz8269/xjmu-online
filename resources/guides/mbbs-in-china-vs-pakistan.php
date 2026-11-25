@@ -98,7 +98,7 @@ return [
         ], 'list' => [
             'In China: the programme must be on the MOE list. XJMU is.',
             'Internationally: the school should be in the World Directory of Medical Schools. XJMU is.',
-            "In Pakistan: the national regulator, the Pakistan Medical and Dental Council (PMDC), decides who may sit its licensing examination and how a foreign graduate is registered. XJMU is recognised by PMDC.",
+            "In Pakistan: the national regulator, the Pakistan Medical and Dental Council (PMDC), decides who may sit its licensing examination and how a foreign graduate is registered. XJMU states that it is recognised by PMDC; confirm the current position on the PMDC website.",
         ], 'sub' => [
             ['h' => 'What a student who stays in Pakistan avoids', 'p' => [
                 "A student who graduates from a Pakistani medical college is registered through the regulator's normal route and does not take the examination that foreign graduates take. That is a real advantage, and families should count it.",
@@ -196,7 +196,7 @@ return [
         ['Is MBBS in China worth it for Pakistani students?', 'It can be, for a student who meets the 60% requirement, can fund six years, will learn Chinese and has checked the regulator\'s rules. It is not worth it if chosen without checking recognition and licensing.'],
         ['What are the disadvantages of MBBS in China?', 'Distance from home, learning Chinese, a six-year degree, the extra licensing examination for foreign graduates, a different case mix, a cold climate and rules that can change.'],
         ['How long is MBBS in China compared with Pakistan?', 'MBBS in China at XJMU is six years including a one-year internship. The MBBS in Pakistan is a five-year degree followed by a house job.'],
-        ['Is a Chinese MBBS valid in Pakistan?', 'XJMU is recognised by PMDC, is on the MOE list and in the World Directory of Medical Schools, and its graduates are eligible to sit home-country licensing examinations. Registration of each graduate is decided by PMDC, so read its current rules.'],
+        ['Is a Chinese MBBS valid in Pakistan?', 'XJMU states that it is recognised by PMDC, is on the MOE list and in the World Directory of Medical Schools, and its graduates are eligible to sit home-country licensing examinations. Registration of each graduate is decided by PMDC, so read its current rules.'],
         ['How much does MBBS in China cost compared with Pakistan?', 'At XJMU the first-year package for September 2026 is ¥49,950, about USD 7,000, and later years are about ¥35,950, about USD 5,050. Use your own college prospectus for the Pakistan side and complete the worksheet.'],
         ['Is MDCAT required for MBBS in China?', 'The published XJMU admission requirements do not include MDCAT. What Pakistan\'s regulator requires is a separate matter, so check its current rules.'],
         ['Will I need to learn Chinese?', 'Yes. The medical subjects are in English, but patients speak Chinese, so introductory Chinese is taught in years 1 and 2 and HSK-4 is required by graduation.'],

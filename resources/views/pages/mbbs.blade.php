@@ -29,7 +29,7 @@
         <div class="mbbs-hero__trust">
             <span class="ds-pill">WHO / WDOMS Listed</span>
             <span class="ds-pill">MOE Approved</span>
-            <span class="ds-pill">PMDC &amp; NMC Recognized</span>
+            <span class="ds-pill">ECFMG Eligible</span>
             <span class="ds-pill">English Medium</span>
         </div>
     </div>

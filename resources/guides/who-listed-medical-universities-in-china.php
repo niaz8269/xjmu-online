@@ -107,7 +107,7 @@ return [
             "Most regulators expect the school to be listed in WDOMS, and many also have rules about the length of the course, the language of instruction, the internship, attendance in person and the licensing examination you must pass after graduating. Read the current rules from the regulator itself before you apply, and check them again before each year of study.",
         ], 'sub' => [
             ['h' => 'Pakistan: PMDC', 'p' => [
-                "Graduates returning to Pakistan deal with the Pakistan Medical and Dental Council. XJMU is recognised by PMDC. Read PMDC's current regulations for foreign medical graduates and the licensing examination requirements on its official website.",
+                "Graduates returning to Pakistan deal with the Pakistan Medical and Dental Council. XJMU states that it is recognised by PMDC; confirm the current position on the PMDC website. Read PMDC's current regulations for foreign medical graduates and the licensing examination requirements on its official website.",
             ]],
             ['h' => 'India: NMC', 'p' => [
                 "Indian students should read the National Medical Commission's current regulations for foreign medical graduates, including its rules on course duration, internship and the qualifying examination. These rules have been revised in recent years, so check the latest notifications.",

@@ -17,7 +17,7 @@ return [
         ['id' => 'overview', 'eyebrow' => 'Overview', 'h' => 'MBBS in China for Pakistani students: the short version', 'p' => [
             "Every year thousands of Pakistani students finish FSc and look for a way to study medicine that fits their marks, their budget and their family. China is one of the options they consider, and for good reasons: the programme is taught in English, it lasts six years, the fees are published, and the universities that may teach it are named on an official government list.",
             "This guide is written for Pakistani students and their parents. It uses Xinjiang Medical University (XJMU) in Urumqi as the example, because it is on the Ministry of Education (MOE) list of universities that may enrol international students in the English taught MBBS, it has 60 seats on that list for 2026–2027, and it is one of the closest places in China to Pakistan.",
-            "It also tries to be honest about what we cannot promise. The university has confirmed that fees for the 2027 intakes are the same as for 2026, and XJMU is recognised by PMDC. The rules that Pakistan's own medical regulator sets for students and graduates can change, so where a decision depends on a rule that belongs to someone else, this guide tells you where to check it rather than guessing.",
+            "It also tries to be honest about what we cannot promise. The university has confirmed that fees for the 2027 intakes are the same as for 2026, and XJMU states that it is recognised by PMDC; confirm the current position on the PMDC website. The rules that Pakistan's own medical regulator sets for students and graduates can change, so where a decision depends on a rule that belongs to someone else, this guide tells you where to check it rather than guessing.",
         ], 'img' => ['src' => 'assets/images/affil-hospt.webp', 'alt' => 'Affiliated teaching hospital of Xinjiang Medical University where Pakistani MBBS students train', 'caption' => 'One of the hospitals where XJMU students train.'],
         'table' => ['caption' => 'MBBS in China for Pakistani students: key facts at XJMU', 'head' => ['Question', 'Answer'], 'rows' => [
             ['Degree', 'MBBS, taught in English'],
@@ -94,7 +94,7 @@ return [
         ], 'list' => [
             'In China: the programme must be on the MOE list. XJMU is.',
             'Internationally: the medical school should appear in the World Directory of Medical Schools. XJMU does.',
-            "In Pakistan: the medical regulator, the Pakistan Medical and Dental Council (PMDC), decides who may sit its licensing examination and how a foreign graduate is registered. XJMU is recognised by PMDC. The rules for each student are PMDC's own and outside any university's control.",
+            "In Pakistan: the medical regulator, the Pakistan Medical and Dental Council (PMDC), decides who may sit its licensing examination and how a foreign graduate is registered. XJMU states that it is recognised by PMDC; confirm the current position on the PMDC website. The rules for each student are PMDC's own and outside any university's control.",
         ], 'sub' => [
             ['h' => 'What graduates generally have to do', 'p' => [
                 "Pakistani students who graduate from a medical school abroad are generally required to pass a licensing examination set by the national regulator before they can register and practise. Graduates of XJMU are eligible to appear for the licensing examinations of their home countries and for international examinations such as the USMLE.",
@@ -234,7 +234,7 @@ return [
         ]], 'video' => $s['video']],
     ],
     'faqs' => [
-        ['Is MBBS in China valid for Pakistani students?', 'Xinjiang Medical University is recognised by PMDC, is on the Ministry of Education list and in the World Directory of Medical Schools, and its graduates are eligible to sit home-country licensing examinations. Registration of each graduate in Pakistan is decided by PMDC, so read its current rules before you apply.'],
+        ['Is MBBS in China valid for Pakistani students?', 'Xinjiang Medical University states that it is recognised by PMDC, is on the Ministry of Education list and in the World Directory of Medical Schools, and its graduates are eligible to sit home-country licensing examinations. Registration of each graduate in Pakistan is decided by PMDC, so read its current rules before you apply.'],
         ['Can I study MBBS in China after FSc?', 'Yes. FSc Pre-Medical with at least 60% in each science subject meets the published requirement, if you are aged 18 to 35.'],
         ['What marks do Pakistani students need for MBBS in China?', 'The published requirement at Xinjiang Medical University is a minimum of 60% in each of the science subjects.'],
         ['Is MDCAT required for the XJMU MBBS?', 'The published XJMU admission requirements do not include MDCAT. What Pakistan\'s regulator requires is a separate matter, so check its current rules.'],

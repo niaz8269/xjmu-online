@@ -321,7 +321,7 @@ document.addEventListener('DOMContentLoaded', function() {
         </ul>
         <div class="row g-4 mt-1">
             <div class="col-md-6"><div class="ds-card"><h3>Clinical Excellence</h3><p>Rotations across 8 affiliated hospitals give real patient exposure from early years.</p></div></div>
-            <div class="col-md-6"><div class="ds-card"><h3>Globally Recognized</h3><p>Listed by WHO (WDOMS) and recognized by PMDC, NMC and other councils for licensing.</p></div></div>
+            <div class="col-md-6"><div class="ds-card"><h3>Globally Recognized</h3><p>Listed by WHO (WDOMS), and XJMU states that it is recognised by PMDC, NMC and other councils for licensing. Confirm the current position with each council.</p></div></div>
         </div>
         <a href="{{ get_absolute_url('programs') }}" class="ds-btn ds-btn--outline mt-4">Explore All Programs</a>
     </div>

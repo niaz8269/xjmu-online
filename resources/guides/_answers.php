@@ -112,7 +112,7 @@ return [
         'facts' => $facts,
     ],
     'mbbs-in-china-for-pakistani-students' => [
-        'answer' => 'Pakistani students can study MBBS in China at MOE listed universities such as Xinjiang Medical University with 60% in each FSc pre-medical science subject. The degree takes six years including internship, is taught in English, and costs ¥49,950 in the first year and ¥35,950 a year after. XJMU is recognised by PMDC; check PMDC\'s current rules before you apply.',
+        'answer' => 'Pakistani students can study MBBS in China at MOE listed universities such as Xinjiang Medical University with 60% in each FSc pre-medical science subject. The degree takes six years including internship, is taught in English, and costs ¥49,950 in the first year and ¥35,950 a year after. XJMU states that it is recognised by PMDC; check PMDC\'s current rules before you apply.',
         'facts' => $facts,
     ],
     'mbbs-in-china-for-indian-students' => [
