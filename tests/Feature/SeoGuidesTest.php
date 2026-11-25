@@ -264,4 +264,18 @@ class SeoGuidesTest extends TestCase
         $this->assertStringContainsString('<h2 data-was-h1 class="x">Inside heading</h2>', $html);
         $this->assertStringContainsString('<h1>' . $long . '</h1>', $html);
     }
+
+    public function test_head_tags_pasted_inside_a_post_do_not_duplicate_the_page_tags(): void
+    {
+        $content = '<title>Dup</title><meta name="description" content="x"><link rel="canonical" href="https://example.test/"><p>Body</p>';
+        Blog::query()->create(['title' => 'Plain post', 'slug' => 'dup-tags', 'excerpt' => 'x', 'content' => $content,
+            'status' => 'published', 'published_at' => '2026-01-01 00:00:00', 'created_at' => '2026-01-01 00:00:00']);
+        $html = $this->get('/blog/dup-tags')->assertOk()->getContent();
+        $this->assertSame(1, substr_count($html, '<title'));
+        $this->assertSame(1, substr_count($html, 'name="description"'));
+        $this->assertSame(1, substr_count($html, 'rel="canonical"'));
+        $this->assertStringContainsString('<p>Body</p>', $html);
+        $this->assertSame($content, Blog::query()->where('slug', 'dup-tags')->value('content'));   // database row unchanged
+        $this->assertLessThanOrEqual(70, mb_strlen(config('public_pages.mbbs.page_title')));
+    }
 }

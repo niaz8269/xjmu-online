@@ -22,7 +22,7 @@ return [
         'page_css' => ['css/design-system.css', 'css/about.css'],
     ],
     'mbbs' => [
-        'page_title' => 'MBBS in China at Xinjiang Medical University | Fees, Duration & Admission 2027',
+        'page_title' => 'MBBS in China at Xinjiang Medical University | Fees 2027',
         'page_description' => 'Complete guide to the MBBS program at Xinjiang Medical University — 6-year English-medium degree, WHO & MOE-listed, PMDC/NMC recognized. Curriculum, eligibility, fees (~¥49,950 first year) and how to apply for the September 2027 intake.',
         'page_keywords' => 'MBBS in China, MBBS at Xinjiang Medical University, XJMU MBBS, study MBBS China, English medium MBBS, MBBS fees China, MBBS duration, WHO recognized MBBS China, MBBS admission 2027',
         'page_url' => 'https://xjmu.online/mbbs',
