@@ -55,8 +55,8 @@ return [
         ], 'link' => ['english-taught-mbbs-in-china', 'Why some adverts say no HSK required']],
 
         ['id' => 'what-is-hsk', 'eyebrow' => 'The test', 'h' => 'What is HSK, and what does level 4 mean?', 'p' => [
-            "HSK is the standard test of Chinese language proficiency for people whose first language is not Chinese. It is run by Chinese Testing International, which grew out of the organisation known as Hanban. Universities, employers and scholarship bodies in China use it as the common measure of how much Chinese a person can handle.",
-            "The test is divided into levels, from beginner upward. Level 4 is a middle level. In general terms it corresponds to being able to discuss a fairly wide range of everyday topics and to communicate in ordinary situations. That is a useful description for a medical student: it is the level at which you can have a real conversation with a patient about how they feel.",
+            "HSK is the standard test of Chinese language proficiency for people whose first language is not Chinese. It is developed by the Center for Language Education and Cooperation (formerly known as Hanban) and run by Chinese Testing International. Universities, employers and scholarship bodies in China use it as the common measure of how much Chinese a person can handle.",
+            "The test is divided into levels, from beginner upward, and two versions are in use: the older six-level HSK and the newer nine-level HSK 3.0. The same number can mean a slightly different standard in each, so ask the university which version it accepts. HSK-4 is a lower-intermediate level (the first intermediate level in HSK 3.0). In general terms it is described as being able to discuss a fairly wide range of everyday topics and to communicate in ordinary situations. That is a useful description for a medical student: it is the level at which you can have a real conversation with a patient about how they feel.",
             "HSK has been revised over the years, and the number of levels, the content of each level and the format of the test have changed. For that reason this page does not quote word lists, pass marks, fees or test dates. Check the current HSK description on the official site, chinesetest.cn, and ask the international student office which version of the test applies to you and where it is held.",
         ], 'sub' => [
             ['h' => 'HSK is a test, not a teacher', 'p' => [
@@ -96,25 +96,25 @@ return [
 
         ['id' => 'clinic-chinese', 'eyebrow' => 'Medical Chinese', 'h' => 'Chinese for the clinic: 18 phrases to learn first', 'p' => [
             "These short phrases cover greeting a patient, asking about symptoms and taking a simple history. They are in standard Mandarin with pinyin tone marks. Your Chinese teachers will correct your pronunciation, and in a hospital patients may use local words, so treat this list as a starting set and have a teacher check how you say each one.",
-        ], 'table' => ['caption' => 'First clinical Chinese phrases', 'head' => ['Pinyin', 'English meaning'], 'rows' => [
-            ['Nǐ hǎo. Wǒ shì yīxuéshēng.', 'Hello. I am a medical student.'],
-            ['Nǎr bù shūfu?', 'Where do you feel unwell?'],
-            ['Nǎr téng?', 'Where does it hurt?'],
-            ['Téng duō jiǔ le?', 'How long has it hurt?'],
-            ['Cóng shénme shíhou kāishǐ de?', 'When did it start?'],
-            ['Téng de lìhai ma?', 'Is the pain severe?'],
-            ['Nǐ fāshāo le ma?', 'Do you have a fever?'],
-            ['Nǐ késou ma?', 'Do you have a cough?'],
-            ['Nǐ ǒutù le ma?', 'Have you been vomiting?'],
-            ['Nǐ duì yào guòmǐn ma?', 'Are you allergic to any medicine?'],
-            ['Nǐ zài chī shénme yào?', 'What medicine are you taking?'],
-            ['Qǐng shēn hūxī.', 'Please breathe deeply.'],
-            ['Qǐng tǎng xiàlái.', 'Please lie down.'],
-            ['Wǒ yào liáng yíxià xuèyā.', 'I am going to measure your blood pressure.'],
-            ['Wǒ tīng yíxià nǐ de xīnzàng.', 'I will listen to your heart.'],
-            ['Qǐng zài shuō yí biàn.', 'Please say that once more.'],
-            ['Qǐng shuō màn yìdiǎnr.', 'Please speak a little more slowly.'],
-            ['Xièxie nín de pèihé.', 'Thank you for your cooperation.'],
+        ], 'table' => ['caption' => 'First clinical Chinese phrases', 'head' => ['Pinyin', 'Chinese characters', 'English meaning'], 'rows' => [
+            ['Nǐ hǎo. Wǒ shì yīxuéshēng.', '你好。我是医学生。', 'Hello. I am a medical student.'],
+            ['Nǎr bù shūfu?', '哪儿不舒服？', 'Where do you feel unwell?'],
+            ['Nǎr téng?', '哪儿疼？', 'Where does it hurt?'],
+            ['Téng duō jiǔ le?', '疼多久了？', 'How long has it hurt?'],
+            ['Cóng shénme shíhou kāishǐ de?', '从什么时候开始的？', 'When did it start?'],
+            ['Téng de lìhai ma?', '疼得厉害吗？', 'Is the pain severe?'],
+            ['Nǐ fāshāo le ma?', '你发烧了吗？', 'Do you have a fever?'],
+            ['Nǐ késou ma?', '你咳嗽吗？', 'Do you have a cough?'],
+            ['Nǐ tù le ma?', '你吐了吗？', 'Have you been vomiting?'],
+            ['Nǐ duì yào guòmǐn ma?', '你对药过敏吗？', 'Are you allergic to any medicine?'],
+            ['Nǐ zuìjìn chī shénme yào?', '你最近吃什么药？', 'What medicine have you been taking recently?'],
+            ['Qǐng shēn hūxī.', '请深呼吸。', 'Please breathe deeply.'],
+            ['Qǐng tǎng xiàlái.', '请躺下来。', 'Please lie down.'],
+            ['Wǒ yào liáng yíxià xuèyā.', '我要量一下血压。', 'I am going to measure your blood pressure.'],
+            ['Wǒ tīng yíxià nǐ de xīnzàng.', '我听一下你的心脏。', 'I will listen to your heart.'],
+            ['Qǐng zài shuō yí biàn.', '请再说一遍。', 'Please say that once more.'],
+            ['Qǐng shuō màn yìdiǎnr.', '请说慢一点儿。', 'Please speak a little more slowly.'],
+            ['Xièxie nín de pèihé.', '谢谢您的配合。', 'Thank you for your cooperation.'],
         ]], 'sub' => [
             ['h' => 'How to practise them', 'p' => [
                 "Learn each phrase with its answer. If you ask where it hurts, you must understand the reply, and replies are harder than questions because patients do not speak slowly. Ask your teacher to say each phrase at normal speed, and record it on your phone.",
@@ -248,7 +248,7 @@ return [
         ['Is HSK 4 required for MBBS in China at XJMU?', 'Yes, but by graduation, not for admission. You study Chinese from the first year, and HSK-4 must be achieved before you finish the degree.'],
         ['Do I need to learn Chinese for MBBS in China?', 'Yes, you will learn it, although you do not need it to start. Lectures are in English, but patients in the teaching hospitals speak Chinese, so clinical work requires it.'],
         ['Can I study MBBS in China without HSK?', 'You can apply and be admitted to XJMU without HSK. You cannot finish the degree without it, because HSK-4 is required by graduation.'],
-        ['What HSK level do medical students need?', 'At XJMU the level is HSK-4. HSK-4 is a middle level, generally described as being able to discuss a fairly wide range of everyday topics. Check the current description on the official HSK site.'],
+        ['What HSK level do medical students need?', 'At XJMU the level is HSK-4. HSK-4 is a lower-intermediate level, generally described as being able to discuss a fairly wide range of everyday topics. Two versions of the test exist (six levels and the newer nine-level HSK 3.0), so ask the university which one it accepts and check the current description on the official HSK site.'],
         ['When should I start learning Chinese for MBBS?', 'Before you fly, if you can, and certainly in your first month. Basic pinyin, tones and greetings before arrival make the first semester easier.'],
         ['Why do some websites say no HSK is required?', 'Because they describe the application stage. No HSK is needed to apply, but Chinese is taught during the course and a level is required before graduation.'],
         ['Are the MBBS lectures taught in Chinese?', 'No. The MBBS at XJMU is taught and examined entirely in English. Chinese is taught as a language course, and used with patients in the hospitals.'],

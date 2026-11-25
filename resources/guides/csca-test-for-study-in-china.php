@@ -47,7 +47,7 @@ return [
                 "According to the Chinese Government Scholarship notice for the 2027/2028 academic year on the website of the Chinese Embassy in the United States, checked November 2026, applicants for bachelor degree programmes are required to take the CSCA and upload a valid score as an application document. On this point the official sources agree: if you want a Chinese Government Scholarship for a bachelor degree, plan to take the CSCA.",
             ]],
             ['h' => 'Other applicants at scholarship universities', 'p' => [
-                "According to the CSCA guide on the Shanghai government website, updated 5 August 2026, which gives the China Scholarship Council as its source and was checked November 2026, all international students who apply to undergraduate programmes at universities that take part in the Chinese Government Scholarship must take the CSCA and include their scores, starting from the 2026 and 2027 academic years. That wording is wider than scholarship applicants alone. It appears to include students who pay their own fees at those universities.",
+                "According to the CSCA guide on the Shanghai government website, updated 5 August 2026, which gives the China Scholarship Council as its source and was checked November 2026, the CSCA is mandatory for most international students who apply to undergraduate programmes at universities that take part in the Chinese Government Scholarship scheme, and they must include their scores, starting from the 2026 and 2027 academic years. That wording is wider than scholarship applicants alone, and it may reach students who pay their own fees at those universities. The word \"most\" matters: the guide does not list the exceptions, so confirm your own case with the university.",
                 "The embassy and consulate notices we read speak only about scholarship applicants. So for self-funded applicants the safest reading is this: it depends on the university, and the university's own admission notice decides. Do not rely on a general statement, including this one.",
             ]],
             ['h' => 'Everyone else', 'p' => [
@@ -131,7 +131,7 @@ return [
         ], 'table' => ['caption' => 'CSCA: confirmed points and points to check', 'head' => ['Point', 'Status', 'Where to confirm'], 'rows' => [
             ['Organised by the China Scholarship Council', 'Confirmed (Shanghai Municipal Education Commission)', 'csca.cn'],
             ['Required for Chinese Government Scholarship bachelor applicants from 2026/2027', 'Confirmed (Chinese embassy and consulate notices)', 'The embassy in your country'],
-            ['Required for all undergraduate applicants at scholarship universities', 'Stated by the Shanghai government guide; not in the embassy notices', 'Your university'],
+            ['Mandatory for most undergraduate applicants at scholarship-scheme universities', 'Stated by the Shanghai government guide (\"most applicants\"); not in the embassy notices', 'Your university'],
             ['Whether XJMU requires CSCA', 'Confirmed: not required for admission to the XJMU MBBS. The Chinese Government Scholarship has its own rule', 'XJMU admissions office; the embassy notice for the scholarship'],
             ['Subjects required for MBBS', 'Varies by university', 'Your university'],
             ['Professional Chinese for English taught programmes', 'Sources differ', 'Your university'],

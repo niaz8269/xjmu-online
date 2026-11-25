@@ -38,7 +38,7 @@ return [
         'facts' => [
             ['MDCAT for XJMU admission', 'Not required; not in the published admission requirements'],
             ['XJMU eligibility', '60% in each science subject, aged 18–35'],
-            ['PMDC recognition', 'XJMU is recognised by PMDC'],
+            ['PMDC recognition', 'XJMU states it is recognised by PMDC; confirm on pmdc.pk'],
             ['PMDC and MDCAT for study abroad', 'Exempted by PMDC Public Notice of 5 October 2026 (earlier criteria asked for 50%)'],
             ['Licensing exam in Pakistan', 'National Registration Examination (NRE), set by PMDC'],
             ['After the NRE', 'One-year house job required for a full licence (PMDC FAQs)'],
