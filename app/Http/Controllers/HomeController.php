@@ -45,8 +45,13 @@ class HomeController extends Controller
         }
         $headers .= 'X-Mailer: PHP/' . phpversion();
 
+        \App\Services\Leads::capture('popup', [
+            'name' => (string) $request->input('name', ''), 'email' => $replyEmail, 'phone' => (string) $request->input('whatsapp', ''),
+            'nationality' => (string) $request->input('nationality', ''), 'program' => (string) $request->input('applying_for', ''),
+            'subject' => 'Home page pop-up registration', 'message' => 'Registered through the home page pop-up (September 2027 intake).',
+        ]);
         $sent = $this->mailer->sendPlain(
-            'studyatxjmu@gmail.com',
+            (string) config('forms.notify_to'),
             SiteMailer::headerSafe($safeName . ' -MBBS Registration September 2027 Intake'),
             $message,
             $headers,

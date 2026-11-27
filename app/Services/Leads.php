@@ -11,7 +11,7 @@ class Leads
     public const STATUSES = ['New', 'Contacted', 'Interested', 'Applied', 'Enrolled', 'Not interested'];
 
     public const SOURCES = [
-        'contact' => 'Contact form', 'partner' => 'Partner form', 'event' => 'Event / webinar',
+        'contact' => 'Contact form', 'partner' => 'Partner form', 'event' => 'Event / webinar', 'popup' => 'Home page pop-up',
         'registered' => 'Registered, not applied', 'manual' => 'Added by staff',
         'whatsapp' => 'WhatsApp', 'phone' => 'Phone call', 'agent' => 'Agent / consultant',
     ];

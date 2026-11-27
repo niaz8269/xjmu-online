@@ -39,7 +39,7 @@ class AuthFormsTest extends TestCase
         $this->post('/send_contact_email', $this->contact(['newsletter' => '1']))->assertOk()
             ->assertExactJson(['status' => 'success', 'message' => 'Your message has been sent successfully. We will get back to you soon.']);
         $m = $this->mailer->outbox[0];
-        $this->assertSame('guide@xjmu.online', $m['to']);
+        $this->assertSame('info@xjmu.online', $m['to']);
         $this->assertSame('XJMU Contact Form: Fees - Bob', $m['subject']);
         $this->assertStringContainsString('NEWSLETTER SUBSCRIPTION: Yes', $m['body']);
         $this->assertStringContainsString('Reply-To: bob@example.com', $m['headers']);
@@ -70,7 +70,7 @@ class AuthFormsTest extends TestCase
         $d = array_fill_keys(['first_name', 'last_name', 'mobile', 'company_name', 'current_business', 'address', 'street_address', 'city', 'state', 'pincode', 'region', 'whatsapp'], 'v');
         $this->post('/send_partner_registration', $d + ['email' => 'bad'])->assertStatus(400)->assertJsonPath('message', 'Please enter a valid email address.');
         $this->post('/send_partner_registration', $d + ['email' => 'p@example.com'])->assertOk()->assertJsonPath('status', 'success');
-        $this->assertSame('partners@xjmu.online', $this->mailer->outbox[0]['to']);
+        $this->assertSame('info@xjmu.online', $this->mailer->outbox[0]['to']);
         $this->assertSame('New Partner Registration - v v', $this->mailer->outbox[0]['subject']);
     }
 
@@ -86,7 +86,7 @@ class AuthFormsTest extends TestCase
         $this->withSession($s)->post('/register-event', $tok + ['name' => 'A', 'email' => 'bad'])->assertJsonPath('message', 'Please enter a valid email address.');
         $this->withSession($s)->post('/register-event', $tok + ['name' => 'A', 'email' => 'a@example.com', 'event_title' => 'Webinar', 'event_date' => '1 Jan'])
             ->assertExactJson(['success' => true, 'message' => 'Thank you for registering! We will contact you shortly.']);
-        $this->assertSame('webinar@xjmu.online', $this->mailer->outbox[0]['to']);
+        $this->assertSame('info@xjmu.online', $this->mailer->outbox[0]['to']);
         $this->assertSame('Event Registration: Webinar', $this->mailer->outbox[0]['subject']);
 
         // the event modal now sends Laravel's `_token` (the old lg_csrf_token field is gone)

@@ -46,7 +46,8 @@ class PublicPagesBatchATest extends TestCase
 
         $this->assertCount(1, $mailer->outbox);
         $mail = $mailer->outbox[0];
-        $this->assertSame('studyatxjmu@gmail.com', $mail['to']);
+        $this->assertSame('info@xjmu.online', $mail['to']);
+        $this->assertSame(1, \Illuminate\Support\Facades\DB::table('crm_leads')->where('source', 'popup')->count());
         $this->assertStringNotContainsString("\n", $mail['subject']);
         $this->assertStringContainsString('Reply-To: jane@example.com', $mail['headers']);
         $this->assertStringContainsString('Applying For: MBBS', $mail['body']);
