@@ -92,7 +92,7 @@ Do not ask them for a link. If a partner later lists the university, ask them to
 
 | Date sent | Site | Contact used | Reply | Follow-up (10 days) | Link live? |
 |---|---|---|---|---|---|
-| | universitiespage.com | info@universitiespage.com | | | |
+| 27 Nov 2026 | universitiespage.com | info@universitiespage.com (sent from webenquiry.cas@gmail.com, article in the email, text in docs/outreach/universitiespage-guest-article.md) | | one follow-up on 8 Dec 2026 if no reply | |
 | | studyabroad.pk | form | | | |
 | | apkavisa.pk | form | | | |
 | | ilmkidunya.com | form | | | |
