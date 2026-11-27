@@ -15,6 +15,13 @@ class Settings
         return self::$all ??= Cache::remember('site_settings', 300, fn () => DB::table('site_settings')->pluck('setting_value', 'setting_key')->all());
     }
 
+    /** Forget the cached copy of the table (after an admin edit). */
+    public static function flush(): void
+    {
+        self::$all = null;
+        Cache::forget('site_settings');
+    }
+
     public static function get(string $key, ?string $default = ''): ?string
     {
         $v = self::all()[$key] ?? null;

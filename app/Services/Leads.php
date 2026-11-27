@@ -16,6 +16,29 @@ class Leads
         'whatsapp' => 'WhatsApp', 'phone' => 'Phone call', 'agent' => 'Agent / consultant',
     ];
 
+    /** Where every public enquiry form is emailed: the admin-set address (Leads page), else config/forms.php. */
+    public static function notifyTo(): string
+    {
+        $v = trim((string) \App\Support\Settings::get('form_notify_to', ''));
+
+        return filter_var($v, FILTER_VALIDATE_EMAIL) ? $v : (string) config('forms.notify_to');
+    }
+
+    /** Save the address enquiry emails go to. Returns false when it is not a valid email. */
+    public static function setNotifyTo(string $email): bool
+    {
+        $email = trim($email);
+        if (! filter_var($email, FILTER_VALIDATE_EMAIL)) {
+            return false;
+        }
+        DB::table('site_settings')->updateOrInsert(['setting_key' => 'form_notify_to'], [
+            'setting_value' => $email, 'group_name' => 'contact', 'label' => 'Enquiry forms are emailed to', 'input_type' => 'email', 'sort_order' => 5, 'updated_at' => now(),
+        ]);
+        \App\Support\Settings::flush();
+
+        return true;
+    }
+
     /**
      * Save an enquiry from a public form. Never throws: a database problem must not break the form or its email.
      * A repeat enquiry from the same email is added to the existing lead as a note instead of a duplicate lead.

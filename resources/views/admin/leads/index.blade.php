@@ -13,6 +13,15 @@
   $badge = ['New' => 'primary', 'Contacted' => 'info', 'Interested' => 'warning', 'Applied' => 'success', 'Enrolled' => 'success', 'Not interested' => 'secondary'];
 @endphp
 
+<form method="post" class="card mb-3"><div class="card-body d-flex flex-wrap align-items-center gap-2">
+  @csrf
+  <input type="hidden" name="action" value="notify_to">
+  <label class="small fw-semibold mb-0" for="notifyTo"><i class="bi bi-envelope-at me-1"></i>Website enquiries are emailed to</label>
+  <input id="notifyTo" type="email" name="notify_to" value="{{ $notifyTo }}" class="form-control form-control-sm" style="max-width:280px" required maxlength="190">
+  <button class="btn btn-sm btn-primary" type="submit">Save</button>
+  <span class="small text-muted">Home pop-up, contact, partner and event forms.</span>
+</div></form>
+
 <!-- Summary -->
 <div class="row g-3 mb-3">
   <div class="col-6 col-lg-3"><a class="card h-100 text-decoration-none" href="{{ $qs(['status' => 'New', 'due' => '']) }}"><div class="card-body"><div class="stat-value">{{ number_format($counts['New'] ?? 0) }}</div><div class="small text-muted">New, not contacted yet</div></div></a></div>

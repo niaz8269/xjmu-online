@@ -41,6 +41,21 @@ class AdminLeadsTest extends TestCase
         $this->get('/admin/leads?export=csv')->assertRedirect();
     }
 
+    public function test_admin_changes_the_enquiry_email_address_from_the_leads_page(): void
+    {
+        $admin = $this->admin();
+        $this->assertSame('info@xjmu.online', Leads::notifyTo());
+        $this->withSession($admin)->get('/admin/leads')->assertOk()->assertSee('value="info@xjmu.online"', false);
+
+        $this->withSession($admin)->post('/admin/leads', ['_token' => 'tok', 'action' => 'notify_to', 'notify_to' => 'not-an-email'])->assertRedirect();
+        $this->assertSame('info@xjmu.online', Leads::notifyTo());
+
+        $this->withSession($admin)->post('/admin/leads', ['_token' => 'tok', 'action' => 'notify_to', 'notify_to' => 'desk@example.test'])->assertRedirect();
+        $this->assertSame('desk@example.test', Leads::notifyTo());
+        $this->assertSame('desk@example.test', DB::table('site_settings')->where('setting_key', 'form_notify_to')->value('setting_value'));
+        \App\Support\Settings::flush();   // the settings cache is static: do not leak into other tests
+    }
+
     public function test_admin_adds_updates_notes_filters_exports_and_deletes_a_lead(): void
     {
         $admin = $this->admin();

@@ -105,7 +105,7 @@ class FormMailController extends Controller
         // Save the enquiry as a lead (admin panel > Leads). It never blocks the email below.
         \App\Services\Leads::capture('contact', compact('name', 'email', 'phone', 'nationality', 'subject', 'program', 'message'));
 
-        if ($this->mailer->sendPlain((string) config('forms.notify_to'), $emailSubject, $body, $this->headers($email))) {
+        if ($this->mailer->sendPlain(\App\Services\Leads::notifyTo(), $emailSubject, $body, $this->headers($email))) {
             $log("Contact form submitted successfully from: $email");
             return response()->json(['status' => 'success', 'message' => 'Your message has been sent successfully. We will get back to you soon.']);
         }
@@ -163,7 +163,7 @@ class FormMailController extends Controller
             'nationality' => $d['region'], 'subject' => 'Partner registration: ' . $d['company_name'],
             'message' => 'Company: ' . $d['company_name'] . '. Business: ' . $d['current_business'] . '. City: ' . $d['city'] . ', ' . $d['state'] . '.',
         ]);
-        $sent = $this->mailer->sendPlain((string) config('forms.notify_to'), $subject, $body, $this->headers($d['email']));
+        $sent = $this->mailer->sendPlain(\App\Services\Leads::notifyTo(), $subject, $body, $this->headers($d['email']));
 
         if ($sent) {
             @file_put_contents($logFile, date('Y-m-d H:i:s') . " OK - {$d['first_name']} {$d['last_name']} <{$d['email']}>\n", FILE_APPEND | LOCK_EX);
@@ -200,7 +200,7 @@ class FormMailController extends Controller
             return response()->json(['success' => false, 'message' => 'Please enter a valid email address.']);
         }
 
-        $to = (string) config('forms.notify_to');
+        $to = \App\Services\Leads::notifyTo();
         $subject = SiteMailer::headerSafe('Event Registration: ' . ($event_title ?: 'Xinjiang Medical University'));
 
         $body = "Event/Webinar Registration\n";

@@ -75,13 +75,23 @@ class LeadsController extends AdminController
             'dueToday' => (int) DB::table('crm_leads')->where('next_follow_up', $today)->count(),
             'overdue' => (int) DB::table('crm_leads')->where('next_follow_up', '<', $today)->whereNotIn('status', ['Enrolled', 'Not interested'])->count(),
             'statuses' => Leads::STATUSES, 'sources' => Leads::SOURCES, 'admins' => $this->admins(),
-            'flash' => session()->pull('lead_flash'), 'today' => $today,
+            'flash' => session()->pull('lead_flash'), 'today' => $today, 'notifyTo' => Leads::notifyTo(),
         ]);
     }
 
     private function indexAction(Request $request)
     {
         $action = (string) $request->input('action');
+
+        if ($action === 'notify_to') {
+            $ok = Leads::setNotifyTo((string) $request->input('notify_to'));
+            if ($ok) {
+                Audit::record('leads.notify_to', ['to' => Leads::notifyTo()]);
+            }
+            session()->put('lead_flash', $ok ? 'Saved. Website enquiries are now emailed to ' . Leads::notifyTo() . '.' : 'Not saved: enter a valid email address.');
+
+            return redirect('/admin/leads');
+        }
 
         if ($action === 'create') {
             $name = trim((string) $request->input('name'));

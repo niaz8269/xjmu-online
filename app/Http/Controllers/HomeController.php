@@ -51,7 +51,7 @@ class HomeController extends Controller
             'subject' => 'Home page pop-up registration', 'message' => 'Registered through the home page pop-up (September 2027 intake).',
         ]);
         $sent = $this->mailer->sendPlain(
-            (string) config('forms.notify_to'),
+            \App\Services\Leads::notifyTo(),
             SiteMailer::headerSafe($safeName . ' -MBBS Registration September 2027 Intake'),
             $message,
             $headers,
